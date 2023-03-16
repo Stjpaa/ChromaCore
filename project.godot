@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="Sem6Projekt"
-run/main_scene="res://Instances/game.tscn"
+run/main_scene="res://Instances/Levels/Level-Prototype.tscn"
 config/features=PackedStringArray("4.0", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="Sem6Projekt"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(1, 1, 1, 1)

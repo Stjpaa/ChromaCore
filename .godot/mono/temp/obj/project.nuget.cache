@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GDLA9r2Ko6cf3IZ3uwsDDXp1Kbi+hirxLDP1FQpOOpd6SsNTnn4eWp9FoY8adXzifjJDMsefkuWsoMYYMx6c4Q==",
+  "dgSpecHash": "Ttol34c0JvIE3kG0zWQoWEVsFgUf3jogi+f4OeVfBKjufySiIm+7704+GpJ/XCcGBgaHf+YPyBV+Q1TcclVfrw==",
   "success": true,
-  "projectFilePath": "e:\\Semester6Projekt\\Sem6Projekt\\Sem6Projekt.csproj",
+  "projectFilePath": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godot.sourcegenerators\\4.0.0\\godot.sourcegenerators.4.0.0.nupkg.sha512",
     "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godotsharp\\4.0.0\\godotsharp.4.0.0.nupkg.sha512",
