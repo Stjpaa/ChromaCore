@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjp0hvsu3n1ob"]
+
+[ext_resource type="Texture2D" uid="uid://bgctyf1rx1urx" path="res://Assets/Sprites/Ball.png" id="1_mhvwt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_08yxf"]
+radius = 16.0
+
+[node name="Ball" type="RigidBody2D"]
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_08yxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_mhvwt")
