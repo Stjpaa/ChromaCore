@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdfqp41x6b7sm"
-path="res://.godot/imported/NormalPlatform.png-62da25ebd7950d1fba7e281c25e1e54a.ctex"
+uid="uid://gt8oe5pwywvs"
+path="res://.godot/imported/Gravityfield_Normal.png-c31cf1313b535ba807d9129804673b92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/NormalPlatform.png"
-dest_files=["res://.godot/imported/NormalPlatform.png-62da25ebd7950d1fba7e281c25e1e54a.ctex"]
+source_file="res://Assets/Sprites/Gravityfield_Normal.png"
+dest_files=["res://.godot/imported/Gravityfield_Normal.png-c31cf1313b535ba807d9129804673b92.ctex"]
 
 [params]
 

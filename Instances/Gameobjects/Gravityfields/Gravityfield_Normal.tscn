@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://do5cdmcaycbhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1qgt"]
+size = Vector2(5.0317, 768.598)
+
+[node name="Gravityfield_Normal" type="Area2D"]
+scale = Vector2(5.32, 0.073)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.47302)
+scale = Vector2(1, 0.956)
+shape = SubResource("RectangleShape2D_d1qgt")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
