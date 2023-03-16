@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\Semester6Projekt\\Sem6Projekt\\Sem6Projekt.csproj": {}
+    "E:\\Semester6Projekt\\Sem6Projekt.csproj": {}
   },
   "projects": {
-    "e:\\Semester6Projekt\\Sem6Projekt\\Sem6Projekt.csproj": {
+    "E:\\Semester6Projekt\\Sem6Projekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\Semester6Projekt\\Sem6Projekt\\Sem6Projekt.csproj",
+        "projectUniqueName": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
         "projectName": "Sem6Projekt",
-        "projectPath": "e:\\Semester6Projekt\\Sem6Projekt\\Sem6Projekt.csproj",
+        "projectPath": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
         "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-        "outputPath": "e:\\Semester6Projekt\\Sem6Projekt\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "E:\\Semester6Projekt\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
