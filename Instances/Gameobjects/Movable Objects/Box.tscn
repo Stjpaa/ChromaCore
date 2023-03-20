@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7s6ybr43gk6l"]
+[gd_scene load_steps=4 format=3 uid="uid://c7s6ybr43gk6l"]
 
 [ext_resource type="Texture2D" uid="uid://dgf4hdhfp5tc6" path="res://Assets/Sprites/Box.png" id="1_5yp08"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Movable Objects/Box.cs" id="1_61n4i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5g7"]
 size = Vector2(32, 32)
 
-[node name="Box" type="RigidBody2D"]
-can_sleep = false
+[node name="Box" type="CharacterBody2D"]
+script = ExtResource("1_61n4i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5yp08")
