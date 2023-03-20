@@ -1,10 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://daq8qj8gkry48"]
+[gd_scene load_steps=3 format=3 uid="uid://daq8qj8gkry48"]
 
 [ext_resource type="Script" path="res://Instances/Singletons/SoundPlayer.cs" id="1_53ei7"]
+[ext_resource type="AudioStream" uid="uid://dacp4mbwratid" path="res://Sounds/footsteps-1.wav" id="2_qsk0q"]
 
 [node name="SoundPlayer" type="Node"]
 script = ExtResource("1_53ei7")
 
-[node name="AudioPlayers" type="Node" parent="."]
+[node name="Steps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qsk0q")
 
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
+[node name="AudioPlayer2" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioPlayer3" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioPlayer4" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioPlayer5" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioPlayer6" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioPlayer7" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioPlayer8" type="AudioStreamPlayer" parent="."]
