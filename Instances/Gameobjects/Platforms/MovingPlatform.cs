@@ -8,7 +8,7 @@ public partial class MovingPlatform : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GetNode<AnimationPlayer>("AnimationPlayer").Play("Move");
+		// GetNode<AnimationPlayer>("AnimationPlayer").Play("Move");
 		this._audioPlayer = GetNode<SoundPlayer>("/root/SoundPlayer");
 	}
 

@@ -110,15 +110,17 @@ scale = Vector2(3.32, 1)
 position = Vector2(-63, -26)
 
 [node name="AnimationPlayer" parent="Platforms/MovingPlatform" index="2"]
+autoplay = "Move"
 libraries = {
 "": SubResource("AnimationLibrary_wdbp8")
 }
 
 [node name="MovingPlatform2" parent="Platforms" instance=ExtResource("3_sj8q7")]
-position = Vector2(-89, -101)
+position = Vector2(40, -101)
 
 [node name="AnimationPlayer" parent="Platforms/MovingPlatform2" index="2"]
 root_node = NodePath("../../MovingPlatform2")
+autoplay = "Move"
 libraries = {
 "": SubResource("AnimationLibrary_mpaml")
 }
