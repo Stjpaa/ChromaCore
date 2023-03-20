@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://daq8qj8gkry48"]
+
+[ext_resource type="Script" path="res://Instances/Singletons/SoundPlayer.cs" id="1_53ei7"]
+
+[node name="SoundPlayer" type="Node"]
+script = ExtResource("1_53ei7")
+
+[node name="AudioPlayers" type="Node" parent="."]
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
