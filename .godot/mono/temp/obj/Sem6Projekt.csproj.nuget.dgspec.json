@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Semester6Projekt\\Sem6Projekt.csproj": {}
+    "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj": {}
   },
   "projects": {
-    "E:\\Semester6Projekt\\Sem6Projekt.csproj": {
+    "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
+        "projectUniqueName": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj",
         "projectName": "Sem6Projekt",
-        "projectPath": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
-        "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-        "outputPath": "E:\\Semester6Projekt\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Users\\User\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -76,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

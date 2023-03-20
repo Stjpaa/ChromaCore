@@ -41,11 +41,12 @@
   },
   "libraries": {
     "Godot.SourceGenerators/4.0.0": {
-      "sha512": "u+xcapvfVha2BtTF7cRHrNfo+mxH4uGsJrEDQFM3FG+Kww61m2Qs/s2IqgEzR/CLFwidrdgn624xFHk738KnQw==",
+      "sha512": "zSi0z7DupoieN0696QrSyFC/2rEFSyg1bCv+ap4asic8ZcrIUmxdfQrNqdhMjlVhGa3Wd/Zj9IK77H0MrkxSiQ==",
       "type": "package",
       "path": "godot.sourcegenerators/4.0.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "analyzers/dotnet/cs/Godot.SourceGenerators.dll",
         "build/Godot.SourceGenerators.props",
         "godot.sourcegenerators.4.0.0.nupkg.sha512",
@@ -53,11 +54,12 @@
       ]
     },
     "GodotSharp/4.0.0": {
-      "sha512": "SbiM07Eh6m1vASfzSIMIfwdpFvI6E+c0+VA5aOB3SKl/pWnl8ToAc8eR1wbjBnkw7D13A8+Nk8j/AJvWiHOCTw==",
+      "sha512": "EVUiU/QGwWNRKoQxBi3qmOG/FYRYJJTHp+e2FtVZup62kYyGTcI6QEQayXUydZ0HMN41+hA3TOVt9yT5bGP3FQ==",
       "type": "package",
       "path": "godotsharp/4.0.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "godotsharp.4.0.0.nupkg.sha512",
         "godotsharp.nuspec",
         "lib/net6.0/GodotSharp.dll",
@@ -65,11 +67,12 @@
       ]
     },
     "GodotSharpEditor/4.0.0": {
-      "sha512": "VmNKvHgFdK67l/e8BfUqzVSXS3wZqZhYREdh1VKzZCY61vKxXqppIUcUb8QzsS0RaK00jXVK4LqlcxrgpG9sUQ==",
+      "sha512": "TPWtEAi83fGNygaxlA/dCfcpIrs7vQjzZSk+p3GOLJBYr5qMcemIqtKIAUXIAen22xGp3AXU5JkhxRBb4EbEgA==",
       "type": "package",
       "path": "godotsharpeditor/4.0.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "godotsharpeditor.4.0.0.nupkg.sha512",
         "godotsharpeditor.nuspec",
         "lib/net6.0/GodotSharpEditor.dll",
@@ -85,27 +88,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Stefan\\.nuget\\packages\\": {},
-    "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\User\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
+      "projectUniqueName": "Y:\\Studium\\6. Semester\\Module\\Game Prototyping\\ChromaCore\\Sem6Projekt.csproj",
       "projectName": "Sem6Projekt",
-      "projectPath": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
-      "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-      "outputPath": "E:\\Semester6Projekt\\.godot\\mono\\temp\\obj\\",
+      "projectPath": "Y:\\Studium\\6. Semester\\Module\\Game Prototyping\\ChromaCore\\Sem6Projekt.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "Y:\\Studium\\6. Semester\\Module\\Game Prototyping\\ChromaCore\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Users\\User\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -113,7 +113,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -161,7 +160,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
