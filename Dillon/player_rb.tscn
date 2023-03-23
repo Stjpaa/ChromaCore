@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bisw8kj33r6pb"]
+[gd_scene load_steps=19 format=3 uid="uid://bisw8kj33r6pb"]
 
 [ext_resource type="Script" path="res://Dillon/PlayerController_2DPhysicBased.cs" id="1_mi24c"]
 [ext_resource type="Texture2D" uid="uid://b3030guc3l68g" path="res://Dillon/Assets/pipo-nekonin010.png" id="2_l8mh7"]
@@ -134,6 +134,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqfcc"]
+size = Vector2(20, 27)
+
 [node name="Player_RB" type="RigidBody2D"]
 script = ExtResource("1_mi24c")
 
@@ -141,7 +144,12 @@ script = ExtResource("1_mi24c")
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_cu45e")
-animation = &"Run_Right"
-frame_progress = 0.250053
+animation = &"Idle_Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_sqfcc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+editor_draw_limits = true
