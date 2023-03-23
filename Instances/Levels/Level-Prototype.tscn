@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=13 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
+[ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
 [ext_resource type="PackedScene" uid="uid://bvlym33ei744p" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
@@ -85,7 +86,10 @@ _data = {
 "Move": SubResource("Animation_ig103")
 }
 
-[node name="LevelPrototype" type="Node2D"]
+[node name="LevelPrototype" type="Node2D" node_paths=PackedStringArray("_gravityfieldList", "_gameObjects")]
+script = ExtResource("1_vhqca")
+_gravityfieldList = NodePath("GravityfieldList")
+_gameObjects = NodePath("GameObjects")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_32w8q")
@@ -128,24 +132,23 @@ libraries = {
 position = Vector2(-52, -22)
 zoom = Vector2(2, 2)
 
-[node name="InteractableObjects" type="Node2D" parent="."]
+[node name="GameObjects" type="Node2D" parent="."]
 
-[node name="Box" parent="InteractableObjects" node_paths=PackedStringArray("gravityfieldList") instance=ExtResource("5_wi1df")]
+[node name="Box" parent="GameObjects" instance=ExtResource("5_wi1df")]
 position = Vector2(-135, -3)
-gravityfieldList = NodePath("../../GravityfieldList")
 
-[node name="GravityfieldList" type="Node2D" parent="."]
+[node name="GravityfieldList" type="Node" parent="."]
 
 [node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
-position = Vector2(-156, -15)
-_gravityDirection = Vector2(-5.37, 0)
-_gravityStrength = 3000.0
+position = Vector2(-156, -13)
+_gravityDirection = Vector2(-3.83583, -643.836)
+_gravityStrength = 100.0
 
 [node name="CollisionShape2D" parent="GravityfieldList/Gravityfield_Normal" index="0"]
-position = Vector2(-1.05485, -2.47302)
+position = Vector2(-0.95896, -479.452)
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal" index="1"]
-position = Vector2(-5.37, 0)
+position = Vector2(-3.83583, -643.836)
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]

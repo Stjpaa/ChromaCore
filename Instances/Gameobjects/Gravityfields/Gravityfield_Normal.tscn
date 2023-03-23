@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs" id="1_vak0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1qgt"]
-size = Vector2(16.6858, 768.598)
+size = Vector2(16.6858, 1757.31)
 
 [node name="Gravityfield_Normal" type="Area2D"]
 scale = Vector2(5.214, 0.073)

@@ -19,8 +19,8 @@ public partial class Gravityfield_Normal : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
-		
+		Vector2 childPos = GetNode<Node2D>("GravityDirection").Position;
+		this._gravityDirection = new Vector2(childPos.X / 1.534f, childPos.Y / 109.589f);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
