@@ -3,13 +3,9 @@
 [ext_resource type="Script" path="res://PlayerController_2D.cs" id="1_cta5q"]
 [ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_p8mra"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ov3c0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3q5q"]
 atlas = ExtResource("2_p8mra")
-region = Rect2(672, 128, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1ql0"]
-atlas = ExtResource("2_p8mra")
-region = Rect2(768, 128, 96, 128)
+region = Rect2(192, 384, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3idon"]
 atlas = ExtResource("2_p8mra")
@@ -22,6 +18,10 @@ region = Rect2(288, 0, 96, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8prqi"]
 atlas = ExtResource("2_p8mra")
 region = Rect2(0, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0wwj"]
+atlas = ExtResource("2_p8mra")
+region = Rect2(288, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t425r"]
 atlas = ExtResource("2_p8mra")
@@ -43,17 +43,17 @@ region = Rect2(672, 256, 96, 128)
 atlas = ExtResource("2_p8mra")
 region = Rect2(768, 256, 96, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p4dtv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_246j2"]
 atlas = ExtResource("2_p8mra")
-region = Rect2(672, 0, 96, 128)
+region = Rect2(288, 0, 96, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_31o7w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrwvj"]
+atlas = ExtResource("2_p8mra")
+region = Rect2(192, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfp1c"]
 atlas = ExtResource("2_p8mra")
 region = Rect2(768, 0, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ii47"]
-atlas = ExtResource("2_p8mra")
-region = Rect2(384, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0oti"]
 atlas = ExtResource("2_p8mra")
@@ -91,10 +91,7 @@ region = Rect2(672, 512, 96, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ov3c0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o1ql0")
+"texture": SubResource("AtlasTexture_q3q5q")
 }],
 "loop": false,
 "name": &"Dash",
@@ -113,6 +110,14 @@ animations = [{
 "loop": false,
 "name": &"EndJump",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0wwj")
+}],
+"loop": true,
+"name": &"HoldJump",
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -146,17 +151,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p4dtv")
+"texture": SubResource("AtlasTexture_246j2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_31o7w")
+"texture": SubResource("AtlasTexture_lrwvj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5ii47")
+"texture": SubResource("AtlasTexture_tfp1c")
 }],
 "loop": false,
 "name": &"StartJump",
-"speed": 1.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -197,9 +202,7 @@ script = ExtResource("1_cta5q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p68cg")
-animation = &"Dash"
-frame = 1
-frame_progress = 1.0
+animation = &"HoldJump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
