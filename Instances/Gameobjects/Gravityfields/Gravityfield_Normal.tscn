@@ -2,21 +2,18 @@
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs" id="1_vak0t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1qgt"]
-size = Vector2(16.6858, 1757.31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_velxc"]
 
 [node name="Gravityfield_Normal" type="Area2D"]
-scale = Vector2(5.214, 0.073)
 script = ExtResource("1_vak0t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.47302)
-scale = Vector2(1, 0.956)
-shape = SubResource("RectangleShape2D_d1qgt")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+_gravityDirection = Vector2(-11, -24)
+_gravityStrength = 1200.0
 
 [node name="GravityDirection" type="Node2D" parent="."]
+position = Vector2(-11, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_velxc")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="." to="." method="OnBodyExited"]

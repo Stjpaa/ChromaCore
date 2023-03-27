@@ -29,7 +29,6 @@ public partial class Box : CharacterBody2D
 	private void ChangeGravityProperties(Vector2 direction, float strength)
 	{
 		this._currentGravity = direction.Normalized() * strength;
-		GD.Print(direction, strength);
 	}
 
 	public void ResetGravityProperties()

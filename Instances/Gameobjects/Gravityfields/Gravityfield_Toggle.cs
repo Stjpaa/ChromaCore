@@ -2,13 +2,13 @@ using Godot;
 using System;
 
 [Tool]
-public partial class Gravityfield_Normal : Area2D
+public partial class Gravityfield_Toggle : Area2D
 {
 	[Export]
 	private Vector2 _gravityDirection;
 
 	[Export]
-	private float _gravityStrength = 300;
+	private float _gravityStrength = 200;
 
 	[Signal]
 	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction, float strength);
@@ -30,7 +30,7 @@ public partial class Gravityfield_Normal : Area2D
 			QueueRedraw();
 	}
 
-    public override void _Draw()
+	public override void _Draw()
     {
 		if (Engine.IsEditorHint())
 		{
@@ -45,6 +45,7 @@ public partial class Gravityfield_Normal : Area2D
 
 	public void OnBodyExited(Node2D body)
 	{
+
 		EmitSignal("OnGravityfieldExited");
 	}
 }

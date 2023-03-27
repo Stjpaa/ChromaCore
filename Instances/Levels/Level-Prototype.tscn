@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=14 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
+[ext_resource type="PackedScene" uid="uid://rfnsqa1150ea" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="7_ooxay"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -135,21 +136,27 @@ zoom = Vector2(2, 2)
 [node name="GameObjects" type="Node2D" parent="."]
 
 [node name="Box" parent="GameObjects" instance=ExtResource("5_wi1df")]
-position = Vector2(-135, -3)
+position = Vector2(-20, -115)
 
 [node name="GravityfieldList" type="Node" parent="."]
 
 [node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
-position = Vector2(-156, -13)
-_gravityDirection = Vector2(-3.83583, -643.836)
+position = Vector2(-152, -53)
+scale = Vector2(3.8, 6.6)
+_gravityDirection = Vector2(-6.57895, -6.81818)
 _gravityStrength = 100.0
 
-[node name="CollisionShape2D" parent="GravityfieldList/Gravityfield_Normal" index="0"]
-position = Vector2(-0.95896, -479.452)
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal" index="0"]
+position = Vector2(-6.57895, -6.81818)
 
-[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal" index="1"]
-position = Vector2(-3.83583, -643.836)
+[node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("7_ooxay")]
+position = Vector2(154, -118)
+_gravityDirection = Vector2(0, -32)
+
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Toggle" index="2"]
+position = Vector2(0, -32)
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]
 [editable path="GravityfieldList/Gravityfield_Normal"]
+[editable path="GravityfieldList/Gravityfield_Toggle"]
