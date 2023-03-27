@@ -3,6 +3,7 @@ shader_type canvas_item;
 uniform float width : hint_range(10, 1000) = 30;
 uniform float height : hint_range(10, 1000) = 30;
 uniform vec3 particle_color : source_color;
+uniform vec4 background_color : source_color;
 uniform float particle_size : hint_range(0.0, 1.0) = 0.2;
 uniform float particle_rotation_speed : hint_range(0.0, 10.0) = 5;
 
@@ -79,4 +80,13 @@ void fragment() {
 	}
 	COLOR.rgb /= numSamples;
 	COLOR.a /= float(quality)*2.0 + 1.0;
+	if (
+		COLOR.a == 0.0 &&
+		UV.x >= 0.0 &&
+		UV.x <= 1.0 &&
+		UV.y >= 0.0 &&
+		UV.y <= 1.0
+	) {
+		COLOR = background_color;
+	}
 }
