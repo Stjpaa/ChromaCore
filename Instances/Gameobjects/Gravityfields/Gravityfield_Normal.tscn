@@ -1,19 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://do5cdmcaycbhc"]
+[gd_scene load_steps=6 format=3 uid="uid://do5cdmcaycbhc"]
 
+[ext_resource type="Shader" path="res://Shaders/forcefield.gdshader" id="1_g0adu"]
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs" id="1_vak0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_velxc"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmlf"]
+shader = ExtResource("1_g0adu")
+shader_parameter/width = 30.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0.803922, 0.360784, 0.360784, 1)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(-0.208494, 0.978024)
+shader_parameter/strength = 0.666667
+shader_parameter/quality = 2
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_n1qrv"]
+
 [node name="Gravityfield_Normal" type="Area2D"]
 script = ExtResource("1_vak0t")
-_gravityDirection = Vector2(-11, -24)
+_gravityDirection = Vector2(0, -24)
 _gravityStrength = 1200.0
 
 [node name="GravityDirection" type="Node2D" parent="."]
-position = Vector2(-11, -24)
+position = Vector2(0, -24)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_velxc")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hvmlf")
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_n1qrv")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="." to="." method="OnBodyExited"]

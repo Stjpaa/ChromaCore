@@ -136,25 +136,31 @@ zoom = Vector2(2, 2)
 [node name="GameObjects" type="Node2D" parent="."]
 
 [node name="Box" parent="GameObjects" instance=ExtResource("5_wi1df")]
-position = Vector2(-20, -115)
+position = Vector2(-131, -2)
 
 [node name="GravityfieldList" type="Node" parent="."]
 
 [node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
 position = Vector2(-152, -53)
-scale = Vector2(3.8, 6.6)
-_gravityDirection = Vector2(-6.57895, -6.81818)
+scale = Vector2(3.44, 6.6)
+_gravityDirection = Vector2(2.61628, -12.2727)
 _gravityStrength = 100.0
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal" index="0"]
-position = Vector2(-6.57895, -6.81818)
+position = Vector2(2.61628, -12.2727)
+scale = Vector2(4.15215, 6.6926)
 
 [node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("7_ooxay")]
 position = Vector2(154, -118)
+scale = Vector2(2.06583, 3.60342)
 _gravityDirection = Vector2(0, -32)
 
-[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Toggle" index="2"]
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Toggle" index="0"]
 position = Vector2(0, -32)
+
+[node name="SwitchCollider" parent="GravityfieldList/Gravityfield_Toggle/Switch" index="0"]
+position = Vector2(-55, -8.8852)
+scale = Vector2(0.708245, 1)
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]

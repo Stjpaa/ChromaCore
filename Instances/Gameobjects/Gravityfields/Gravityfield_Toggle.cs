@@ -21,6 +21,11 @@ public partial class Gravityfield_Toggle : Area2D
 	{
 		Vector2 childPos = GetNode<Node2D>("GravityDirection").Position;
 		this._gravityDirection = childPos;
+
+		ShaderMaterial spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
+		spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
+		spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
+		spriteMat.SetShaderParameter("particle_color", Colors.NavyBlue);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

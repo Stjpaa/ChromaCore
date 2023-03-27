@@ -1,14 +1,14 @@
 shader_type canvas_item;
 
-uniform float width : hint_range(10, 1000) = 50;
-uniform float height : hint_range(10, 1000) = 50;
+uniform float width : hint_range(10, 1000) = 30;
+uniform float height : hint_range(10, 1000) = 30;
 uniform vec3 particle_color : source_color;
 uniform float particle_size : hint_range(0.0, 1.0) = 0.2;
-uniform float particle_rotation_speed : hint_range(0.0, 10.0) = 4.5;
+uniform float particle_rotation_speed : hint_range(0.0, 10.0) = 5;
 
-uniform vec2 direction;
-uniform float strength : hint_range(0.0, 10.0) = 1.0;
-uniform int quality = 3;
+uniform vec2 direction = vec2(0, 1);
+uniform float strength : hint_range(0.0, 10.0) = 0.5;
+uniform int quality = 2;
 
 void vertex(){
 	vec2 blurSize = abs(direction) * 2.0;

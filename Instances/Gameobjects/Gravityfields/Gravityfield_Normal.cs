@@ -19,8 +19,15 @@ public partial class Gravityfield_Normal : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// Get position of child to determine the direction of the field
 		Vector2 childPos = GetNode<Node2D>("GravityDirection").Position;
 		this._gravityDirection = childPos;
+
+		// Set Shader Parameters
+		ShaderMaterial spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
+		spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
+		spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
+		spriteMat.SetShaderParameter("particle_color", Colors.IndianRed);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
