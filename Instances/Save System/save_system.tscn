@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1nayp2y4inhy"]
+
+[ext_resource type="Script" path="res://Instances/Save System/SaveSystem.cs" id="1_t2oko"]
+
+[node name="SaveSystem" type="Node2D"]
+script = ExtResource("1_t2oko")
