@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [Tool]
-public partial class Gravityfield_Toggle : Area2D
+public partial class Gravityfield_Time : Area2D
 {
 	[Export]
 	private Vector2 _gravityDirection;
@@ -10,27 +10,41 @@ public partial class Gravityfield_Toggle : Area2D
 	[Export]
 	private float _gravityStrength = 200;
 
+	[Export]
+	private float _intervalTime = 3;
+
+	[Export]
+	private float _enabledTime = 3;
+
 	[Signal]
 	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction, float strength);
 
 	[Signal]
 	public delegate void OnGravityfieldExitedEventHandler();
 
-	// Called when the node enters the scene tree for the first time.
+	private Timer _intervalTimer;
+	private Timer _enabledForTimer;
+
+	private CollisionShape2D _gravityfieldCollider;
+
 	public override void _Ready()
 	{
 		this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
+		this._intervalTimer = GetNode<Timer>("Interval");
+		this._intervalTimer.WaitTime = this._intervalTime;
+		this._enabledForTimer = GetNode<Timer>("EnabledFor");
+		this._enabledForTimer.WaitTime = 0;
+
 
 		ShaderMaterial spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
 		spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
 		spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
-		spriteMat.SetShaderParameter("particle_color", Colors.NavyBlue);
+		spriteMat.SetShaderParameter("particle_color", Colors.LawnGreen);
 	}
 
 	public override void _Process(double delta)
 	{
-			this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
-			QueueRedraw();
+		QueueRedraw();
 	}
 
 	public override void _Draw()
@@ -40,6 +54,18 @@ public partial class Gravityfield_Toggle : Area2D
 			DrawLine(new Vector2(0,0), this._gravityDirection, Colors.Blue, 0.3f);
 		}
     }
+
+	public void OnIntervalTimeout()
+	{
+		this._gravityfieldCollider.Disabled = false;
+		this._enabledForTimer.WaitTime = this._enabledTime;
+	}
+
+	public void OnEnabledForTimeout()
+	{
+		this._gravityfieldCollider.Disabled = true;
+		this._intervalTimer.WaitTime = this._intervalTime;
+	}
 
 	public void OnBodyEntered(Node2D body)
 	{

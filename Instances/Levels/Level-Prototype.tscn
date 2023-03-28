@@ -133,7 +133,7 @@ libraries = {
 position = Vector2(-52, -22)
 zoom = Vector2(2, 2)
 
-[node name="GameObjects" type="Node2D" parent="."]
+[node name="GameObjects" type="Node" parent="."]
 
 [node name="Box" parent="GameObjects" instance=ExtResource("5_wi1df")]
 position = Vector2(-131, -2)

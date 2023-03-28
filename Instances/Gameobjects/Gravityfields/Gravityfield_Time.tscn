@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b117q2ya6dts7"]
+
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs" id="1_pp184"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdb21"]
+
+[node name="Gravityfield_Time" type="Area2D"]
+script = ExtResource("1_pp184")
+
+[node name="GravityDirection" type="Node2D" parent="."]
+
+[node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fdb21")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Interval" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="EnabledFor" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Interval" to="." method="OnIntervalTimeout"]
+[connection signal="timeout" from="EnabledFor" to="." method="OnEnabledForTimeout"]

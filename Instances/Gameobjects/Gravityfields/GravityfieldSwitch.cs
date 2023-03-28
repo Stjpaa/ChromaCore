@@ -17,11 +17,11 @@ public partial class GravityfieldSwitch : RigidBody2D
 
     public void OnBodyEntered(Node body)
     {
-        this._gravityfieldCollider.Disabled = true;
+        this._gravityfieldCollider.Disabled = false;
     }
 
     public void OnBodyExited(Node body)
     {
-        this._gravityfieldCollider.Disabled = false;
+        this._gravityfieldCollider.Disabled = true;
     }
 }
