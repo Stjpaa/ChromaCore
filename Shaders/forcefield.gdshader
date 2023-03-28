@@ -10,6 +10,7 @@ uniform float particle_rotation_speed : hint_range(0.0, 10.0) = 4.5;
 uniform vec2 direction;
 uniform float strength : hint_range(0.0, 10.0) = 1.0;
 uniform int quality = 3;
+uniform bool pause = false;
 
 void vertex(){
 	vec2 blurSize = abs(direction) * 2.0;
@@ -38,15 +39,15 @@ float worley(vec2 uv, float columns, float rows, float time) {
 		for (int x= -1; x <= 1; x++) {
 			vec2 neighbor = vec2(float(x),float(y));
 			vec2 point = random(index_uv + neighbor);
-
-			float random = fract(sin(point.x + 78.233) * 43758.5453123) - 0.5;
-			float rot_direction = random / abs(random);
-			// sin(x * 𝜋 / 3) + sin(x * 𝜋)
-			point = vec2(
-				cos(rot_direction * time * point.x * particle_rotation_speed / 3.0) + cos(rot_direction * time * point.x * particle_rotation_speed),
-				sin(rot_direction * time * point.y * particle_rotation_speed / 3.0) + sin(rot_direction * time * point.y * particle_rotation_speed)
-			) * 0.5 + 0.5;
-			
+			if (!pause) {
+				float random = fract(sin(point.x + 78.233) * 43758.5453123) - 0.5;
+				float rot_direction = random / abs(random);
+				// sin(x * 𝜋 / 3) + sin(x * 𝜋)
+				point = vec2(
+					cos(rot_direction * time * point.x * particle_rotation_speed / 3.0) + cos(rot_direction * time * point.x * particle_rotation_speed),
+					sin(rot_direction * time * point.y * particle_rotation_speed / 3.0) + sin(rot_direction * time * point.y * particle_rotation_speed)
+				) * 0.5 + 0.5;
+			}
 			vec2 diff = neighbor + point - fract_uv;
 			float dist = length(diff);
 			minimum_dist = min(minimum_dist, dist);
@@ -57,7 +58,7 @@ float worley(vec2 uv, float columns, float rows, float time) {
 }
 
 vec4 run_worley(vec2 uv) {
-	float worley = worley(uv + direction * TIME * strength, width, height, TIME);
+	float worley = worley(uv + direction * TIME * (pause ? 0.0 : strength), width, height, TIME);
 	return vec4(particle_color, step(1.0 - particle_size, 1.0-worley) * (1.0-worley));
 }
 
@@ -65,21 +66,23 @@ void fragment() {
 	float inSquare = insideUnitSquare(UV);
 	float numSamples = inSquare;
 	COLOR = run_worley(UV) * inSquare;
-	vec2 stepSize = direction/(float(quality)) / 50.0 * strength;
-	vec2 uv;
-	for(int i = 1; i <= quality; i++){
-		uv = UV + stepSize * float(i);
-		inSquare = insideUnitSquare(uv);
-		numSamples += inSquare;
-		COLOR += run_worley(uv) * inSquare;
-		
-		uv = UV - stepSize * float(i);
-		inSquare = insideUnitSquare(uv);
-		numSamples += inSquare;
-		COLOR += run_worley(uv) * inSquare;
+	if (!pause) {
+		vec2 stepSize = direction/(float(quality)) / 50.0 * strength;
+		vec2 uv;
+		for(int i = 1; i <= quality; i++){
+			uv = UV + stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+			
+			uv = UV - stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+		}
+		COLOR.rgb /= numSamples;
+		COLOR.a /= float(quality)*2.0 + 1.0;
 	}
-	COLOR.rgb /= numSamples;
-	COLOR.a /= float(quality)*2.0 + 1.0;
 	if (
 		COLOR.a == 0.0 &&
 		UV.x >= 0.0 &&
