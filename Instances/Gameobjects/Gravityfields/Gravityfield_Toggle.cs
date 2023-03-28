@@ -2,13 +2,13 @@ using Godot;
 using System;
 
 [Tool]
-public partial class Gravityfield_Normal : Area2D
+public partial class Gravityfield_Toggle : Area2D
 {
 	[Export]
 	private Vector2 _gravityDirection;
 
 	[Export]
-	private float _gravityStrength = 300;
+	private float _gravityStrength = 200;
 
 	[Signal]
 	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction, float strength);
@@ -19,15 +19,13 @@ public partial class Gravityfield_Normal : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		// Get position of child to determine the direction of the field
 		Vector2 childPos = GetNode<Node2D>("GravityDirection").Position;
 		this._gravityDirection = childPos;
 
-		// Set Shader Parameters
 		ShaderMaterial spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
 		spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
 		spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
-		spriteMat.SetShaderParameter("particle_color", Colors.IndianRed);
+		spriteMat.SetShaderParameter("particle_color", Colors.NavyBlue);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,7 +35,7 @@ public partial class Gravityfield_Normal : Area2D
 			QueueRedraw();
 	}
 
-    public override void _Draw()
+	public override void _Draw()
     {
 		if (Engine.IsEditorHint())
 		{
@@ -52,6 +50,7 @@ public partial class Gravityfield_Normal : Area2D
 
 	public void OnBodyExited(Node2D body)
 	{
+
 		EmitSignal("OnGravityfieldExited");
 	}
 }

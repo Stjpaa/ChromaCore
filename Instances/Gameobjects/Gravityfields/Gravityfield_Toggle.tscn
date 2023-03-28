@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://rfnsqa1150ea"]
+
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs" id="1_hbaih"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/GravityfieldSwitch.cs" id="2_r7pr8"]
+[ext_resource type="Shader" path="res://Shaders/forcefield.gdshader" id="2_rwf26"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38fv1"]
+size = Vector2(20, 20.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rky1g"]
+shader = ExtResource("2_rwf26")
+shader_parameter/width = 30.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0, 0, 0.501961, 1)
+shader_parameter/background_color = Color(0, 0, 1, 0.129412)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(0, 1)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_t4xum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pxg"]
+size = Vector2(20, 2.22961)
+
+[node name="Gravityfield_Toggle" type="Area2D"]
+script = ExtResource("1_hbaih")
+
+[node name="GravityDirection" type="Node2D" parent="."]
+
+[node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_38fv1")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rky1g")
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_t4xum")
+
+[node name="Switch" type="RigidBody2D" parent="."]
+script = ExtResource("2_r7pr8")
+
+[node name="SwitchCollider" type="CollisionShape2D" parent="Switch"]
+position = Vector2(-55, 0)
+shape = SubResource("RectangleShape2D_d6pxg")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[connection signal="body_exited" from="." to="." method="OnBodyExited"]
+[connection signal="body_entered" from="Switch" to="Switch" method="OnBodyEntered"]

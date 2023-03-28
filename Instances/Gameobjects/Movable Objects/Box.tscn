@@ -1,12 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7s6ybr43gk6l"]
+[gd_scene load_steps=6 format=3 uid="uid://c7s6ybr43gk6l"]
 
+[ext_resource type="Shader" path="res://Shaders/radar-outline.gdshader" id="1_3lsjp"]
 [ext_resource type="Texture2D" uid="uid://dgf4hdhfp5tc6" path="res://Assets/Sprites/Box.png" id="1_5yp08"]
 [ext_resource type="Script" path="res://Instances/Gameobjects/Movable Objects/Box.cs" id="1_61n4i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvvj3"]
+shader = ExtResource("1_3lsjp")
+shader_parameter/color = Color(0, 1, 1, 1)
+shader_parameter/width = 6.795
+shader_parameter/width_speed = 2.181
+shader_parameter/pattern = 0
+shader_parameter/beam_angle = 0.2
+shader_parameter/trail_speed = 1.0
+shader_parameter/trail_width = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5g7"]
 size = Vector2(32, 32)
 
 [node name="Box" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_cvvj3")
 script = ExtResource("1_61n4i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
