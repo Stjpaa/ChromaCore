@@ -45,6 +45,7 @@ public partial class Gravityfield_Time : Area2D
 
 	public override void _Process(double delta)
 	{
+		this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
 		QueueRedraw();
 	}
 
