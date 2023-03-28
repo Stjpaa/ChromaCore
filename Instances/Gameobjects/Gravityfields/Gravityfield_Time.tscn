@@ -1,8 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://b117q2ya6dts7"]
+[gd_scene load_steps=6 format=3 uid="uid://b117q2ya6dts7"]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs" id="1_pp184"]
+[ext_resource type="Shader" path="res://Shaders/forcefield.gdshader" id="2_gtdjm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdb21"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0tg2"]
+shader = ExtResource("2_gtdjm")
+shader_parameter/width = 30.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
+shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(-0.202287, 0.979326)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 2
+shader_parameter/pause = true
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ulhn2"]
 
 [node name="Gravityfield_Time" type="Area2D"]
 script = ExtResource("1_pp184")
@@ -10,9 +26,13 @@ script = ExtResource("1_pp184")
 [node name="GravityDirection" type="Node2D" parent="."]
 
 [node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_fdb21")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_g0tg2")
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_ulhn2")
 
 [node name="Interval" type="Timer" parent="."]
 one_shot = true
@@ -20,6 +40,7 @@ autostart = true
 
 [node name="EnabledFor" type="Timer" parent="."]
 one_shot = true
+autostart = true
 
 [connection signal="timeout" from="Interval" to="." method="OnIntervalTimeout"]
 [connection signal="timeout" from="EnabledFor" to="." method="OnEnabledForTimeout"]

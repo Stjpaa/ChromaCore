@@ -16,21 +16,32 @@ public partial class Gravityfield_Toggle : Area2D
 	[Signal]
 	public delegate void OnGravityfieldExitedEventHandler();
 
-	// Called when the node enters the scene tree for the first time.
+	private ShaderMaterial _spriteMat;
+
+	private CollisionShape2D _gravityfieldCollider;
+
+	private Area2D _switch;
+
 	public override void _Ready()
 	{
 		this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
+		this._gravityfieldCollider = GetNode<CollisionShape2D>("GravityfieldCollider");
 
-		ShaderMaterial spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
-		spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
-		spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
-		spriteMat.SetShaderParameter("particle_color", Colors.NavyBlue);
+		this._spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
+		this._spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
+		this._spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
+		this._spriteMat.SetShaderParameter("particle_color", Colors.NavyBlue);
+		this._spriteMat.SetShaderParameter("pause", true);
+
+		Area2D Switch = GetNode<Area2D>("Switch");
+		Switch.Connect("OnSwitchTriggered", new Callable(this, MethodName.EnableGravityfield));
+		Switch.Connect("OnSwitchLeft", new Callable(this, MethodName.DisableGravityfield));
 	}
 
 	public override void _Process(double delta)
 	{
-			this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
-			QueueRedraw();
+		this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
+		QueueRedraw();
 	}
 
 	public override void _Draw()
@@ -50,5 +61,22 @@ public partial class Gravityfield_Toggle : Area2D
 	{
 
 		EmitSignal("OnGravityfieldExited");
+	}
+
+	public void EnableGravityfield()
+	{
+		SetDeferred("_gravityfieldCollider", false);
+		// this._gravityfieldCollider.Disabled = false;
+		this._spriteMat.SetShaderParameter("pause", false);
+		this._spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
+		this._spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
+		this._spriteMat.SetShaderParameter("particle_color", Colors.NavyBlue);
+	}
+
+	public void DisableGravityfield()
+	{
+		SetDeferred("_gravityfieldCollider", true);
+		// this._gravityfieldCollider.Disabled = true;
+		this._spriteMat.SetShaderParameter("pause", true);
 	}
 }

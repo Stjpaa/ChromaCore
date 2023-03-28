@@ -27,19 +27,20 @@ public partial class Gravityfield_Time : Area2D
 
 	private CollisionShape2D _gravityfieldCollider;
 
+	private ShaderMaterial _spriteMat;
+
 	public override void _Ready()
 	{
+		this._gravityfieldCollider = GetNode<CollisionShape2D>("GravityfieldCollider");
 		this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
 		this._intervalTimer = GetNode<Timer>("Interval");
-		this._intervalTimer.WaitTime = this._intervalTime;
+		this._intervalTimer.Start(this._intervalTime);
 		this._enabledForTimer = GetNode<Timer>("EnabledFor");
-		this._enabledForTimer.WaitTime = 0;
 
-
-		ShaderMaterial spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
-		spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
-		spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
-		spriteMat.SetShaderParameter("particle_color", Colors.LawnGreen);
+		this._spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
+		this._spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
+		this._spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
+		this._spriteMat.SetShaderParameter("particle_color", Colors.LawnGreen);
 	}
 
 	public override void _Process(double delta)
@@ -58,13 +59,15 @@ public partial class Gravityfield_Time : Area2D
 	public void OnIntervalTimeout()
 	{
 		this._gravityfieldCollider.Disabled = false;
-		this._enabledForTimer.WaitTime = this._enabledTime;
+		this._enabledForTimer.Start(this._enabledTime);
+		this._spriteMat.SetShaderParameter("pause", false);
 	}
 
 	public void OnEnabledForTimeout()
 	{
 		this._gravityfieldCollider.Disabled = true;
-		this._intervalTimer.WaitTime = this._intervalTime;
+		this._intervalTimer.Start(this._intervalTime);
+		this._spriteMat.SetShaderParameter("pause", true);
 	}
 
 	public void OnBodyEntered(Node2D body)
