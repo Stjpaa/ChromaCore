@@ -7,7 +7,7 @@ public partial class InstantiateLevel : Node2D
 	private Node _gravityfieldList;
 
 	[Export]
-	private Node2D _gameObjects;
+	private Node _gameObjects;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

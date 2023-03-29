@@ -1,27 +1,34 @@
 using Godot;
 using System;
 
-public partial class GravityfieldSwitch : RigidBody2D
+public partial class GravityfieldSwitch : Area2D
 {
-    private CollisionShape2D _gravityfieldCollider;
+    [Signal]
+    public delegate void OnSwitchTriggeredEventHandler();
+
+    [Signal]
+    public delegate void OnSwitchLeftEventHandler();
+
+    private ShaderMaterial _shaderMat;
 
     public override void _Ready()
     {
-        this._gravityfieldCollider = GetParent().GetNode<CollisionShape2D>("GravityfieldCollider");
+        this._shaderMat = GetParent().GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
     }
 
-    // public void Init(Area2D parent)
-    // {
-    //     this._parentObject = parent;
-    // }
-
-    public void OnBodyEntered(Node body)
+    public void OnBodyEntered(Node2D body)
     {
-        this._gravityfieldCollider.Disabled = true;
+        if (body.GetParent().Name == "GameObjects")
+        {
+            EmitSignal("OnSwitchTriggered");
+        }
     }
 
-    public void OnBodyExited(Node body)
+    public void OnBodyExited(Node2D body)
     {
-        this._gravityfieldCollider.Disabled = false;
+        if (body.GetParent().Name == "GameObjects")
+        {
+            EmitSignal("OnSwitchLeft");
+        }
     }
 }

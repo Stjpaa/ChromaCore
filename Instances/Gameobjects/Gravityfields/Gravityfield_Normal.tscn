@@ -13,9 +13,10 @@ shader_parameter/particle_color = Color(0.803922, 0.360784, 0.360784, 1)
 shader_parameter/background_color = Color(0.870588, 0, 0, 0.117647)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(-0.208494, 0.978024)
+shader_parameter/direction = Vector2(0.109797, 0.993954)
 shader_parameter/strength = 0.666667
 shader_parameter/quality = 2
+shader_parameter/pause = false
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_n1qrv"]
 

@@ -30,7 +30,6 @@ public partial class Gravityfield_Normal : Area2D
 		spriteMat.SetShaderParameter("particle_color", Colors.IndianRed);
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 			this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
