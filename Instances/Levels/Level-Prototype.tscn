@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=18 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
@@ -88,6 +88,130 @@ _data = {
 "Move": SubResource("Animation_ig103")
 }
 
+[sub_resource type="Shader" id="Shader_s4k2c"]
+code = "shader_type canvas_item;
+
+uniform float width : hint_range(10, 1000) = 30;
+uniform float height : hint_range(10, 1000) = 30;
+uniform vec3 particle_color : source_color;
+uniform vec4 background_color : source_color;
+uniform float particle_size : hint_range(0.0, 1.0) = 0.2;
+uniform float particle_rotation_speed : hint_range(0.0, 10.0) = 5;
+
+uniform vec2 direction;
+uniform float strength : hint_range(0.0, 10.0) = 0.5;
+uniform int quality = 2;
+uniform bool pause = false;
+
+void vertex(){
+	vec2 blurSize = abs(direction) * 2.0;
+	VERTEX *= blurSize + 1.0;
+	UV = (UV - 0.5) * (blurSize + 1.0) + 0.5;
+}
+
+float insideUnitSquare(vec2 v) {
+    vec2 s = step(vec2(0.0), v) - step(vec2(1.0), v);
+    return s.x * s.y;   
+}
+
+vec2 random(vec2 uv) {
+	return vec2(fract(sin(dot(uv.xy,
+		vec2(12.9898,78.233))) * 43758.5453123));
+}
+
+float worley(vec2 uv, float columns, float rows, float time) {
+	
+	vec2 index_uv = floor(vec2(uv.x * columns, uv.y * rows));
+	vec2 fract_uv = fract(vec2(uv.x * columns, uv.y * rows));
+	
+	float minimum_dist = 1.0;  
+	
+	for (int y= -1; y <= 1; y++) {
+		for (int x= -1; x <= 1; x++) {
+			vec2 neighbor = vec2(float(x),float(y));
+			vec2 point = random(index_uv + neighbor);
+			if (!pause) {
+				float random = fract(sin(point.x + 78.233) * 43758.5453123) - 0.5;
+				float rot_direction = random / abs(random);
+				// sin(x * 𝜋 / 3) + sin(x * 𝜋)
+				point = vec2(
+					cos(rot_direction * time * point.x * particle_rotation_speed / 3.0) + cos(rot_direction * time * point.x * particle_rotation_speed),
+					sin(rot_direction * time * point.y * particle_rotation_speed / 3.0) + sin(rot_direction * time * point.y * particle_rotation_speed)
+				) * 0.5 + 0.5;
+			}
+			vec2 diff = neighbor + point - fract_uv;
+			float dist = length(diff);
+			minimum_dist = min(minimum_dist, dist);
+		}
+	}
+	
+	return minimum_dist;
+}
+
+vec4 run_worley(vec2 uv) {
+	float worley = worley(uv + direction * TIME * (pause ? 0.0 : strength), width, height, TIME);
+	return vec4(particle_color, step(1.0 - particle_size, 1.0-worley) * (1.0-worley));
+}
+
+void fragment() {
+	float inSquare = insideUnitSquare(UV);
+	float numSamples = inSquare;
+	COLOR = run_worley(UV) * inSquare;
+	if (!pause) {
+		vec2 stepSize = direction/(float(quality)) / 50.0 * strength;
+		vec2 uv;
+		for(int i = 1; i <= quality; i++){
+			uv = UV + stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+			
+			uv = UV - stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+		}
+		COLOR.rgb /= numSamples;
+		COLOR.a /= float(quality)*2.0 + 1.0;
+	}
+	if (
+		COLOR.a == 0.0 &&
+		UV.x >= 0.0 &&
+		UV.x <= 1.0 &&
+		UV.y >= 0.0 &&
+		UV.y <= 1.0
+	) {
+		COLOR = background_color;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3k5mh"]
+shader = SubResource("Shader_s4k2c")
+shader_parameter/width = 45.2
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0.803922, 0.360784, 0.360784, 1)
+shader_parameter/background_color = Color(0.870588, 0, 0, 0.117647)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(0.721281, 0.692642)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 2
+shader_parameter/pause = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kulmk"]
+shader = SubResource("Shader_s4k2c")
+shader_parameter/width = 29.6
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0.803922, 0.360784, 0.360784, 1)
+shader_parameter/background_color = Color(0.870588, 0, 0, 0.117647)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(-0.680017, -0.733196)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 2
+shader_parameter/pause = false
+
 [node name="LevelPrototype" type="Node2D" node_paths=PackedStringArray("_gravityfieldList", "_gameObjects")]
 script = ExtResource("1_vhqca")
 _gravityfieldList = NodePath("GravityfieldList")
@@ -137,19 +261,9 @@ zoom = Vector2(2, 2)
 [node name="GameObjects" type="Node" parent="."]
 
 [node name="Box" parent="GameObjects" groups=["Objects"] instance=ExtResource("5_wi1df")]
-position = Vector2(113, -144)
+position = Vector2(39, -75)
 
 [node name="GravityfieldList" type="Node" parent="."]
-
-[node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
-position = Vector2(100, -91)
-scale = Vector2(3.44, 0.76)
-_gravityDirection = Vector2(-3.77907, -34.2105)
-_gravityStrength = 100.0
-
-[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal" index="0"]
-position = Vector2(-3.77907, -34.2105)
-scale = Vector2(4.15215, 6.6926)
 
 [node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("8_w7oeq")]
 position = Vector2(-305, -130)
@@ -161,15 +275,11 @@ _enabledTime = 1.0
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time" index="0"]
 position = Vector2(2.5, -12.1032)
 
-[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="1"]
-disabled = true
-
 [node name="Interval" parent="GravityfieldList/Gravityfield_Time" index="3"]
 wait_time = 4.0
-autostart = false
 
 [node name="EnabledFor" parent="GravityfieldList/Gravityfield_Time" index="4"]
-autostart = false
+wait_time = 1.0
 
 [node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("7_ooxay")]
 position = Vector2(154, -102)
@@ -182,8 +292,31 @@ position = Vector2(14.5447, -12.9047)
 [node name="Switch" parent="GravityfieldList/Gravityfield_Toggle" index="3"]
 position = Vector2(-31.271, 8.259)
 
+[node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
+position = Vector2(-164, -30)
+scale = Vector2(4.52, 4.2)
+_gravityDirection = Vector2(-1.32743, -24.5238)
+
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal" index="0"]
+position = Vector2(-1.32743, -24.5238)
+
+[node name="Sprite" parent="GravityfieldList/Gravityfield_Normal" index="2"]
+material = SubResource("ShaderMaterial_3k5mh")
+
+[node name="Gravityfield_Normal2" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
+position = Vector2(-84, -106)
+scale = Vector2(2.96, 2.36)
+_gravityDirection = Vector2(19.2568, 20.7627)
+
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal2" index="0"]
+position = Vector2(19.2568, 20.7627)
+
+[node name="Sprite" parent="GravityfieldList/Gravityfield_Normal2" index="2"]
+material = SubResource("ShaderMaterial_kulmk")
+
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]
-[editable path="GravityfieldList/Gravityfield_Normal"]
 [editable path="GravityfieldList/Gravityfield_Time"]
 [editable path="GravityfieldList/Gravityfield_Toggle"]
+[editable path="GravityfieldList/Gravityfield_Normal"]
+[editable path="GravityfieldList/Gravityfield_Normal2"]

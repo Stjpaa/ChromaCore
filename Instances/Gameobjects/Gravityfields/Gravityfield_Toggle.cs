@@ -27,7 +27,10 @@ public partial class Gravityfield_Toggle : Area2D
 		this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
 		this._gravityfieldCollider = GetNode<CollisionShape2D>("GravityfieldCollider");
 
-		this._spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
+		Sprite2D sprite = GetNode<Sprite2D>("Sprite");
+		this._spriteMat = sprite.Material.Duplicate() as ShaderMaterial;
+		sprite.Material = this._spriteMat;
+		
 		this._spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
 		this._spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
 		this._spriteMat.SetShaderParameter("particle_color", Colors.NavyBlue);
@@ -71,6 +74,8 @@ public partial class Gravityfield_Toggle : Area2D
 		this._spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
 		this._spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
 		this._spriteMat.SetShaderParameter("particle_color", Colors.NavyBlue);
+		this._spriteMat.SetShaderParameter("width", this.Scale.X * 10);
+		this._spriteMat.SetShaderParameter("heigth", this.Scale.Y * 10);
 	}
 
 	public void DisableGravityfield()

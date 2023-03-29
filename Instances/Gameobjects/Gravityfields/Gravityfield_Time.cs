@@ -37,10 +37,15 @@ public partial class Gravityfield_Time : Area2D
 		this._intervalTimer.Start(this._intervalTime);
 		this._enabledForTimer = GetNode<Timer>("EnabledFor");
 
-		this._spriteMat = GetNode<Sprite2D>("Sprite").Material as ShaderMaterial;
+		Sprite2D sprite = GetNode<Sprite2D>("Sprite");
+		this._spriteMat = sprite.Material.Duplicate() as ShaderMaterial;
+		sprite.Material = this._spriteMat;
+		
 		this._spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
 		this._spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
 		this._spriteMat.SetShaderParameter("particle_color", Colors.LawnGreen);
+		this._spriteMat.SetShaderParameter("width", this.Scale.X * 10);
+		this._spriteMat.SetShaderParameter("heigth", this.Scale.Y * 10);
 	}
 
 	public override void _Process(double delta)
