@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwd73kuh6yh23"]
+[gd_scene load_steps=3 format=3 uid="uid://bvlym33ei744p"]
 
-[ext_resource type="Texture2D" uid="uid://cdfqp41x6b7sm" path="res://Assets/Sprites/NormalPlatform.png" id="1_nlxct"]
+[ext_resource type="Texture2D" uid="uid://cf5rasrbwjpsu" path="res://Assets/Sprites/Platform_Normal.tres" id="1_gxhil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5niqk"]
 size = Vector2(16, 8)
@@ -8,8 +8,12 @@ size = Vector2(16, 8)
 [node name="StaticBody2D" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_nlxct")
+position = Vector2(-0.0119691, 0.0521761)
+rotation = -1.5708
+scale = Vector2(0.128584, 0.251579)
+texture = ExtResource("1_gxhil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_5niqk")
 one_way_collision = true
