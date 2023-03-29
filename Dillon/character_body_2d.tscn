@@ -27,9 +27,9 @@ region = Rect2(288, 0, 96, 128)
 atlas = ExtResource("2_p8mra")
 region = Rect2(0, 0, 96, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_chuo0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_om2w2"]
 atlas = ExtResource("2_p8mra")
-region = Rect2(384, 0, 96, 128)
+region = Rect2(768, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_poy51"]
 atlas = ExtResource("2_p8mra")
@@ -129,7 +129,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_chuo0")
+"texture": SubResource("AtlasTexture_om2w2")
 }],
 "loop": true,
 "name": &"InAir",
@@ -202,10 +202,40 @@ script = ExtResource("1_cta5q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p68cg")
-animation = &"HoldJump"
+animation = &"InAir"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
 shape = SubResource("CapsuleShape2D_s3vpl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+offset_left = -64.0
+offset_top = -312.0
+offset_right = 16.0
+offset_bottom = -226.0
+
+[node name="State_Label" type="Label" parent="HFlowContainer"]
+layout_mode = 2
+text = "State:"
+
+[node name="Velocity_Label" type="Label" parent="HFlowContainer"]
+layout_mode = 2
+text = "Speed:"
+
+[node name="IsOnFloor_Label" type="Label" parent="HFlowContainer"]
+layout_mode = 2
+text = "IsOnFloor:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -568.0
+offset_top = -320.0
+offset_right = -348.0
+offset_bottom = -202.0
+text = "Controls:
+Move left: W
+Move right: D
+Jump: Space
+Dash: Shift
+"
