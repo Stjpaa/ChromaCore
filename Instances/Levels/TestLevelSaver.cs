@@ -3,8 +3,8 @@ using System;
 
 public partial class TestLevelSaver : Node2D
 {
-    public Node nodeToBeSaved;
-    private const string _savePath = "user://saved_scene.tscn";
+    private Node nodeToBeSaved;
+    private const string _savePath = "saved_scene.tscn";
 
     public override void _Ready()
     {
