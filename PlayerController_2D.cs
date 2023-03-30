@@ -1,13 +1,8 @@
 using Godot;
 using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using static PlayerController_2D;
 
 public partial class PlayerController_2D : CharacterBody2D
 {   
-
-
     public AnimatedSprite2D AnimatedSprite2D 
     {
         get;
@@ -33,8 +28,7 @@ public partial class PlayerController_2D : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
         currentState.Execute(delta);
-
-        stateText.Text = "State: " + currentState.Name;
+       
         velText.Text = "Velocity: " + Velocity.ToString();
         isOnFloorLabel.Text = "IsOnFloor: " + IsOnFloor();
 
@@ -48,6 +42,8 @@ public partial class PlayerController_2D : CharacterBody2D
 
         previousState?.Exit();
         currentState.Enter();
+
+        stateText.Text = "State: " + currentState.Name;
     }
 
     public abstract class State
@@ -76,12 +72,12 @@ public partial class PlayerController_2D : CharacterBody2D
         }
         public override void Execute(double delta)
         {
-            if(CheckJumpingTransition()) { return; }
-            if(CheckMovingTransition()) { return; }
+            if(CheckTransitionToJumping()) { return; }
+            if(CheckTransitionToMoving()) { return; }
         }
         public override void Exit() { }
 
-        private bool CheckJumpingTransition()
+        private bool CheckTransitionToJumping()
         {
             var jumpPressedTrigger = Input.IsActionJustPressed("Jump");
             if (jumpPressedTrigger)
@@ -91,7 +87,7 @@ public partial class PlayerController_2D : CharacterBody2D
             }
             return false;
         }
-        private bool CheckMovingTransition()
+        private bool CheckTransitionToMoving()
         {
             var axis = Input.GetAxis("Move_Left", "Move_Right");
             if (axis != 0) 
@@ -120,8 +116,8 @@ public partial class PlayerController_2D : CharacterBody2D
         }
         public override void Execute(double delta)
         {
-            if (CheckJumpingTransition()) { return; }
-            if (CheckDashingTransition()) { return; }
+            if (CheckTransitionToJumping()) { return; }
+            if (CheckTransitionToDashing()) { return; }
 
             #region Movement
             var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
@@ -132,7 +128,7 @@ public partial class PlayerController_2D : CharacterBody2D
             }
             else
             {
-                Deccerleration();
+                Decerleration();
             }
             #endregion
 
@@ -152,8 +148,8 @@ public partial class PlayerController_2D : CharacterBody2D
 
             #endregion
 
-            if(CheckFallingTransition()) { return; }
-            if(CheckIdleTransition()) { return; }
+            if(CheckTransitionToFalling()) { return; }
+            if(CheckTransitionToIdle()) { return; }
         }
         public override void Exit() { }
 
@@ -171,7 +167,7 @@ public partial class PlayerController_2D : CharacterBody2D
         /// <summary>
         /// Applies a deceleration opposite to the playerControllers direction of movement
         /// </summary>
-        private void Deccerleration()
+        private void Decerleration()
         {
             var velocity = _playerController2D.Velocity;
             if (_movingLeft)
@@ -187,7 +183,7 @@ public partial class PlayerController_2D : CharacterBody2D
             _playerController2D.Velocity = velocity;
         }
 
-        private bool CheckJumpingTransition()
+        private bool CheckTransitionToJumping()
         {
             var jumpTrigger = Input.IsActionJustPressed("Jump");
             if (jumpTrigger)
@@ -197,7 +193,7 @@ public partial class PlayerController_2D : CharacterBody2D
             }
             return false;
         }
-        private bool CheckDashingTransition()
+        private bool CheckTransitionToDashing()
         {           
             var dashTrigger = Input.IsActionJustPressed("Dash");
             if (dashTrigger)
@@ -207,7 +203,7 @@ public partial class PlayerController_2D : CharacterBody2D
             }
             return false;
         }
-        private bool CheckFallingTransition()
+        private bool CheckTransitionToFalling()
         {
             if (_playerController2D.Velocity.X == 0 &&
                     _playerController2D.IsOnFloor() == false)
@@ -217,7 +213,7 @@ public partial class PlayerController_2D : CharacterBody2D
             }
             return false;
         }
-        private bool CheckIdleTransition()
+        private bool CheckTransitionToIdle()
         {
             var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
             if (_playerController2D.Velocity.X == 0 &&
@@ -238,6 +234,8 @@ public partial class PlayerController_2D : CharacterBody2D
         public static float JUMP_SPEED { get { return 250f; } }
         public static float JUMP_END_MODIFIER { get { return 10f; } }
 
+        public static bool ApexModifier { get; set; }
+
         public Jumping(PlayerController_2D playerController_2D) : base(playerController_2D) { }
 
         public override void Enter() { }
@@ -248,7 +246,10 @@ public partial class PlayerController_2D : CharacterBody2D
 
             if(CheckFallingTransition()) { return; }
         }
-        public override void Exit() { }
+        public override void Exit() 
+        {
+            ApexModifier = true;
+        }
 
         private void Jump()
         {
@@ -276,11 +277,15 @@ public partial class PlayerController_2D : CharacterBody2D
         public static float MAX_FALLING_MOVE_SPEED { get {return Moving.MAX_MOVE_SPEED * 0.9f; } }
         public static float FALLING_MOVE_SPEED_ACCELERATION { get { return Moving.MOVE_SPEED_ACCELERATION * 0.9f; } }
 
+        private float _apexModifier = 0;
+        private float _apex;
+
         public Falling(PlayerController_2D playerController_2D) : base(playerController_2D) { }
 
         public override void Enter()
         {
             _playerController2D.AnimatedSprite2D.Play("InAir");
+            _apexModifier = 1;
         }
         public override void Execute(double delta)
         {
@@ -313,7 +318,19 @@ public partial class PlayerController_2D : CharacterBody2D
             velocity.Y += (jumpEndTrigger) ? (FALL_SPEED_ACCELERATION * Jumping.JUMP_END_MODIFIER) : FALL_SPEED_ACCELERATION;
             velocity.Y = Mathf.Clamp(velocity.Y, float.MinValue, MAX_FALL_SPEED);
 
+            if (_apex > velocity.Y && _playerController2D.previousState is Jumping) { GD.Print(velocity.Y); _apex = velocity.Y; }
+            else if(_apex >= velocity.Y && _apex < 0) 
+            {
+                _apexModifier = 0;
+                GD.Print("Apex!"); 
+            }
+            velocity.Y *= _apexModifier;
             _playerController2D.Velocity = velocity;
+        }
+
+        private async void WaitForApexModifier()
+        {
+            
         }
 
         private bool CheckTransitionToIdle()
@@ -382,6 +399,9 @@ public partial class PlayerController_2D : CharacterBody2D
             #endregion
         }
 
+        /// <summary>
+        /// Waits for the timer and changes then back to the previous state - falling or moving
+        /// </summary>
         private async void WaitForTimer()
         {
             await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(DASH_DURATION), SceneTreeTimer.SignalName.Timeout);
