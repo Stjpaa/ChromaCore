@@ -4,7 +4,7 @@ using Godot;
 // used in the SaveSystem to convert current active Scenes into PackedScenes.
 // PackedScenes retain some information about their Nodes, for example: Scene Structure (Node hierarchy)/ Node pos, rot, scale etc./ signals
 // variables within Skripts are reset when Loading a PackedScene, for example: current state, animation, current gravity, ...
-// Code Inspiration Source: https://www.youtube.com/watch?v=LWNjK28MMwU / https://github.com/nezvers/Godot_Public_Examples/tree/master/ScenePacking
+// Code Inspiration: https://www.youtube.com/watch?v=LWNjK28MMwU / https://github.com/nezvers/Godot_Public_Examples/tree/master/ScenePacking
 public static class ScenePacker
 {
     public static PackedScene CreatePackage(Node node)
@@ -16,7 +16,7 @@ public static class ScenePacker
         Error error = package.Pack(node);
         if (error != Error.Ok)
         {
-            GD.Print("Failed to pack scene: ", error);
+            GD.Print("ScenePacker failed to pack scene: ", node.Name, " ", error);
             return null;
         }
 

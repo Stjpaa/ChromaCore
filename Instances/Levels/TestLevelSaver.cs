@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class TestLevelSaver : Node2D
+public partial class TestLevelSaver : Button
 {
     private Node nodeToBeSaved;
     private const string _savePath = "saved_scene.tscn";
@@ -12,22 +12,6 @@ public partial class TestLevelSaver : Node2D
         GD.Print(GetTree().Root.Name);
     }
 
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event is InputEventKey eventKey)
-        {
-            if (eventKey.Pressed && eventKey.Keycode == Key.Key1)
-            {
-                GD.Print("1 pressed: save game");
-                SaveScene();
-            }
-            if (eventKey.Pressed && eventKey.Keycode == Key.Key2)
-            {
-                GD.Print("2 pressed: load game");
-                LoadScene();
-            }
-        }
-    }
 
     public void SaveScene()
     {
@@ -44,8 +28,4 @@ public partial class TestLevelSaver : Node2D
         GetTree().ChangeSceneToPacked(savedScene);//ChangeSceneTo(savedScene);
     }
 
-    public override void _ExitTree()
-    {
-        //SaveScene();
-    }
 }
