@@ -3,8 +3,10 @@
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs" id="1_pp184"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdb21"]
+resource_local_to_scene = true
+size = Vector2(50, 50)
 
-[sub_resource type="Shader" id="Shader_0lpii"]
+[sub_resource type="Shader" id="Shader_xo56k"]
 code = "shader_type canvas_item;
 
 uniform float width : hint_range(10, 1000) = 30;
@@ -102,15 +104,16 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3n48"]
-shader = SubResource("Shader_0lpii")
-shader_parameter/width = 10.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48wwv"]
+resource_local_to_scene = true
+shader = SubResource("Shader_xo56k")
+shader_parameter/width = 50.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.701961, 0.701961, 0, 1)
-shader_parameter/background_color = Color(0.992157, 0.854902, 0, 0.141176)
+shader_parameter/background_color = Color(0.992157, 0.854902, 0, 0.156863)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(0, 0)
+shader_parameter/direction = Vector2(0, 1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
 shader_parameter/pause = false
@@ -119,18 +122,16 @@ shader_parameter/pause = false
 
 [node name="Gravityfield_Time" type="Area2D"]
 script = ExtResource("1_pp184")
-_gravityDirection = Vector2(0, -16)
-
-[node name="GravityDirection" type="Node2D" parent="."]
-position = Vector2(0, -16)
 
 [node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_fdb21")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_x3n48")
-scale = Vector2(20, 20)
+[node name="GravityDirection" type="Node2D" parent="GravityfieldCollider"]
+position = Vector2(0, -16)
+
+[node name="Sprite" type="Sprite2D" parent="GravityfieldCollider"]
+material = SubResource("ShaderMaterial_48wwv")
+scale = Vector2(50, 50)
 texture = SubResource("CanvasTexture_ulhn2")
 
 [node name="Interval" type="Timer" parent="."]

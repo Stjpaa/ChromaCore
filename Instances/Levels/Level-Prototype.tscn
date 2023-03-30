@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=24 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
-[ext_resource type="Shader" path="res://Shaders/forcefield.gdshader" id="7_cryc2"]
-[ext_resource type="PackedScene" uid="uid://rfnsqa1150ea" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="7_ooxay"]
-[ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="8_w7oeq"]
+[ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="7_vr5mk"]
+[ext_resource type="PackedScene" uid="uid://rfnsqa1150ea" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="8_i08wq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -89,18 +88,9 @@ _data = {
 "Move": SubResource("Animation_ig103")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_odyjt"]
-shader = ExtResource("7_cryc2")
-shader_parameter/width = 30.0
-shader_parameter/height = 30.0
-shader_parameter/particle_color = Color(0, 0, 0.501961, 1)
-shader_parameter/background_color = Color(0, 0, 1, 0.129412)
-shader_parameter/particle_size = 0.2
-shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(-0.74802, 0.663676)
-shader_parameter/strength = 1.33333
-shader_parameter/quality = 2
-shader_parameter/pause = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpx1o"]
+resource_local_to_scene = true
+size = Vector2(50, 50)
 
 [sub_resource type="Shader" id="Shader_s4k2c"]
 code = "shader_type canvas_item;
@@ -200,11 +190,11 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvfpw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4st0"]
 shader = SubResource("Shader_s4k2c")
-shader_parameter/width = 39.3244
+shader_parameter/width = 50.0
 shader_parameter/height = 30.0
-shader_parameter/particle_color = Color(0, 0.752941, 0, 1)
+shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
@@ -213,7 +203,11 @@ shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
 shader_parameter/pause = false
 
-[sub_resource type="Shader" id="Shader_0lpii"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt8sq"]
+resource_local_to_scene = true
+size = Vector2(70, 70)
+
+[sub_resource type="Shader" id="Shader_xo56k"]
 code = "shader_type canvas_item;
 
 uniform float width : hint_range(10, 1000) = 30;
@@ -311,12 +305,129 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdcs0"]
-shader = SubResource("Shader_0lpii")
-shader_parameter/width = 25.2833
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm6gq"]
+resource_local_to_scene = true
+shader = SubResource("Shader_xo56k")
+shader_parameter/width = 70.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.701961, 0.701961, 0, 1)
-shader_parameter/background_color = Color(0.992157, 0.854902, 0, 0.141176)
+shader_parameter/background_color = Color(0.992157, 0.854902, 0, 0.156863)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(-0.593199, 0.805056)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 2
+shader_parameter/pause = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1cb8"]
+resource_local_to_scene = true
+size = Vector2(100, 100)
+
+[sub_resource type="Shader" id="Shader_t6nll"]
+code = "shader_type canvas_item;
+
+uniform float width : hint_range(10, 1000) = 30;
+uniform float height : hint_range(10, 1000) = 30;
+uniform vec3 particle_color : source_color;
+uniform vec4 background_color : source_color;
+uniform float particle_size : hint_range(0.0, 1.0) = 0.2;
+uniform float particle_rotation_speed : hint_range(0.0, 10.0) = 5;
+
+uniform vec2 direction;
+uniform float strength : hint_range(0.0, 10.0) = 0.5;
+uniform int quality = 2;
+uniform bool pause = false;
+
+void vertex(){
+	vec2 blurSize = abs(direction) * 2.0;
+	VERTEX *= blurSize + 1.0;
+	UV = (UV - 0.5) * (blurSize + 1.0) + 0.5;
+}
+
+float insideUnitSquare(vec2 v) {
+    vec2 s = step(vec2(0.0), v) - step(vec2(1.0), v);
+    return s.x * s.y;   
+}
+
+vec2 random(vec2 uv) {
+	return vec2(fract(sin(dot(uv.xy,
+		vec2(12.9898,78.233))) * 43758.5453123));
+}
+
+float worley(vec2 uv, float columns, float rows, float time) {
+	
+	vec2 index_uv = floor(vec2(uv.x * columns, uv.y * rows));
+	vec2 fract_uv = fract(vec2(uv.x * columns, uv.y * rows));
+	
+	float minimum_dist = 1.0;  
+	
+	for (int y= -1; y <= 1; y++) {
+		for (int x= -1; x <= 1; x++) {
+			vec2 neighbor = vec2(float(x),float(y));
+			vec2 point = random(index_uv + neighbor);
+			if (!pause) {
+				float random = fract(sin(point.x + 78.233) * 43758.5453123) - 0.5;
+				float rot_direction = random / abs(random);
+				// sin(x * 𝜋 / 3) + sin(x * 𝜋)
+				point = vec2(
+					cos(rot_direction * time * point.x * particle_rotation_speed / 3.0) + cos(rot_direction * time * point.x * particle_rotation_speed),
+					sin(rot_direction * time * point.y * particle_rotation_speed / 3.0) + sin(rot_direction * time * point.y * particle_rotation_speed)
+				) * 0.5 + 0.5;
+			}
+			vec2 diff = neighbor + point - fract_uv;
+			float dist = length(diff);
+			minimum_dist = min(minimum_dist, dist);
+		}
+	}
+	
+	return minimum_dist;
+}
+
+vec4 run_worley(vec2 uv) {
+	float worley = worley(uv + direction * TIME * (pause ? 0.0 : strength), width, height, TIME);
+	return vec4(particle_color, step(1.0 - particle_size, 1.0-worley) * (1.0-worley));
+}
+
+void fragment() {
+	float inSquare = insideUnitSquare(UV);
+	float numSamples = inSquare;
+	COLOR = run_worley(UV) * inSquare;
+	if (!pause) {
+		vec2 stepSize = direction/(float(quality)) / 50.0 * strength;
+		vec2 uv;
+		for(int i = 1; i <= quality; i++){
+			uv = UV + stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+			
+			uv = UV - stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+		}
+		COLOR.rgb /= numSamples;
+		COLOR.a /= float(quality)*2.0 + 1.0;
+	}
+	if (
+		COLOR.a == 0.0 &&
+		UV.x >= 0.0 &&
+		UV.x <= 1.0 &&
+		UV.y >= 0.0 &&
+		UV.y <= 1.0
+	) {
+		COLOR = background_color;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1qgf"]
+resource_local_to_scene = true
+shader = SubResource("Shader_t6nll")
+shader_parameter/width = 100.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
+shader_parameter/background_color = Color(0, 0, 1, 0.168627)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 1)
@@ -373,41 +484,53 @@ zoom = Vector2(2, 2)
 [node name="GameObjects" type="Node" parent="."]
 
 [node name="Box" parent="GameObjects" groups=["Objects"] instance=ExtResource("5_wi1df")]
-position = Vector2(-261, 1)
+position = Vector2(32, -76)
 linear_damp = 0.1
 
 [node name="GravityfieldList" type="Node" parent="."]
 
-[node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("7_ooxay")]
-position = Vector2(154, -102)
-scale = Vector2(1.37508, 1.93728)
-_gravityDirection = Vector2(14.5447, -12.9047)
-
-[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Toggle" index="0"]
-position = Vector2(14.5447, -12.9047)
-
-[node name="Sprite" parent="GravityfieldList/Gravityfield_Toggle" index="2"]
-material = SubResource("ShaderMaterial_odyjt")
-
-[node name="Switch" parent="GravityfieldList/Gravityfield_Toggle" index="3"]
-position = Vector2(-31.271, 8.259)
-
 [node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
-position = Vector2(-166, -27)
-scale = Vector2(3.93244, 3.37723)
+position = Vector2(-158, -15)
 
-[node name="Sprite" parent="GravityfieldList/Gravityfield_Normal" index="2"]
-material = SubResource("ShaderMaterial_lvfpw")
+[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Normal" index="0"]
+shape = SubResource("RectangleShape2D_vpx1o")
 
-[node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("8_w7oeq")]
-position = Vector2(-300, -129)
-scale = Vector2(2.52833, 4.70858)
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal/GravityfieldCollider" index="0"]
+position = Vector2(0, -47)
 
-[node name="Sprite" parent="GravityfieldList/Gravityfield_Time" index="2"]
-material = SubResource("ShaderMaterial_bdcs0")
+[node name="Sprite" parent="GravityfieldList/Gravityfield_Normal/GravityfieldCollider" index="1"]
+material = SubResource("ShaderMaterial_w4st0")
+
+[node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("7_vr5mk")]
+position = Vector2(-287, -99)
+_gravityfieldSize = Vector2(70, 70)
+
+[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
+shape = SubResource("RectangleShape2D_qt8sq")
+
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
+position = Vector2(14, -19)
+
+[node name="Sprite" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="1"]
+material = SubResource("ShaderMaterial_cm6gq")
+scale = Vector2(70, 70)
+
+[node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("8_i08wq")]
+position = Vector2(145, -133)
+_gravityfieldSize = Vector2(100, 100)
+
+[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Toggle" index="0"]
+shape = SubResource("RectangleShape2D_c1cb8")
+
+[node name="Sprite" parent="GravityfieldList/Gravityfield_Toggle/GravityfieldCollider" index="1"]
+material = SubResource("ShaderMaterial_d1qgf")
+scale = Vector2(100, 100)
+
+[node name="Switch" parent="GravityfieldList/Gravityfield_Toggle" index="1"]
+position = Vector2(-74, 33)
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]
-[editable path="GravityfieldList/Gravityfield_Toggle"]
 [editable path="GravityfieldList/Gravityfield_Normal"]
 [editable path="GravityfieldList/Gravityfield_Time"]
+[editable path="GravityfieldList/Gravityfield_Toggle"]

@@ -5,7 +5,7 @@ using System;
 public partial class Gravityfield_Time : Area2D
 {
 	[Export]
-	private Vector2 _gravityDirection;
+	private Vector2 _gravityfieldSize = new Vector2(50, 50);
 
 	[Export]
 	private float _gravityStrength = 200;
@@ -25,32 +25,53 @@ public partial class Gravityfield_Time : Area2D
 	private Timer _intervalTimer;
 	private Timer _enabledForTimer;
 
-	private CollisionShape2D _gravityfieldCollider;
+	private Sprite2D _sprite;
 
 	private ShaderMaterial _spriteMat;
 
+	private CollisionShape2D _gravityfieldCollider;
+
+	private Node2D _gravityDirectionNode;
+
+	private Vector2 _gravityDirection;
+
 	public override void _Ready()
 	{
+		// Get dependencies
 		this._gravityfieldCollider = GetNode<CollisionShape2D>("GravityfieldCollider");
-		this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
+		this._gravityDirectionNode = this._gravityfieldCollider.GetNode<Node2D>("GravityDirection");
+		this._sprite = this._gravityfieldCollider.GetNode<Sprite2D>("Sprite");
 		this._intervalTimer = GetNode<Timer>("Interval");
 		this._intervalTimer.Start(this._intervalTime);
 		this._enabledForTimer = GetNode<Timer>("EnabledFor");
 
-		Sprite2D sprite = GetNode<Sprite2D>("Sprite");
-		this._spriteMat = sprite.Material.Duplicate() as ShaderMaterial;
-		sprite.Material = this._spriteMat;
-		
+		// Initialize collider- and spritesize
+		this._gravityfieldCollider.Shape.Set("size", this._gravityfieldSize);
+		this._sprite.Scale = this._gravityfieldCollider.Shape.GetRect().Size;
+
+		// Set direction of gravityfield
+		this._gravityDirection = this._gravityDirectionNode.Position;
+
+		// Set Shader Parameters
+		this._spriteMat = this._sprite.Material as ShaderMaterial;
 		this._spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
 		this._spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
-		this._spriteMat.SetShaderParameter("width", this.Scale.X * 10);
-		this._spriteMat.SetShaderParameter("heigth", this.Scale.Y * 10);
+		this._spriteMat.SetShaderParameter("width", this._gravityfieldCollider.Shape.GetRect().Size.X);
+		this._spriteMat.SetShaderParameter("heigth", this._gravityfieldCollider.Shape.GetRect().Size.Y);
+		this._sprite.Material = this._spriteMat;
 	}
 
 	public override void _Process(double delta)
 	{
-		this._gravityDirection = GetNode<Node2D>("GravityDirection").Position;
-		QueueRedraw();
+		if (Engine.IsEditorHint())
+		{
+			this._sprite.Scale = this._gravityfieldCollider.Shape.GetRect().Size;
+			this._gravityfieldCollider.Shape.Set("size", this._gravityfieldSize);
+			
+
+			this._gravityDirection = this._gravityDirectionNode.Position;
+			QueueRedraw();
+		}
 	}
 
 	public override void _Draw()

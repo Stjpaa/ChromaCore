@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs" id="1_vak0t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_velxc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12bc5"]
+resource_local_to_scene = true
+size = Vector2(50, 50)
 
 [sub_resource type="Shader" id="Shader_s4k2c"]
 code = "shader_type canvas_item;
@@ -102,11 +104,12 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_27bkf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6wh3i"]
+resource_local_to_scene = true
 shader = SubResource("Shader_s4k2c")
-shader_parameter/width = 10.0
+shader_parameter/width = 50.0
 shader_parameter/height = 30.0
-shader_parameter/particle_color = Color(0, 0.752941, 0, 1)
+shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
@@ -119,20 +122,20 @@ shader_parameter/pause = false
 
 [node name="Gravityfield_Normal" type="Area2D"]
 script = ExtResource("1_vak0t")
-_gravityDirection = Vector2(0, -24)
 _gravityStrength = 200.0
 
-[node name="GravityDirection" type="Node2D" parent="."]
+[node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_12bc5")
+
+[node name="GravityDirection" type="Node2D" parent="GravityfieldCollider"]
 position = Vector2(0, -24)
 
-[node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("RectangleShape2D_velxc")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_27bkf")
-scale = Vector2(20, 20)
+[node name="Sprite" type="Sprite2D" parent="GravityfieldCollider"]
+material = SubResource("ShaderMaterial_6wh3i")
+position = Vector2(-0.0103116, 0)
+scale = Vector2(50, 50)
 texture = SubResource("CanvasTexture_n1qrv")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="." to="." method="OnBodyExited"]
+[connection signal="property_list_changed" from="GravityfieldCollider" to="." method="ChangeSpriteSize"]
