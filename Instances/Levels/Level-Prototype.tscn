@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=15 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
+[ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
 [ext_resource type="PackedScene" uid="uid://bvlym33ei744p" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
+[ext_resource type="PackedScene" uid="uid://rfnsqa1150ea" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="7_ooxay"]
+[ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="8_w7oeq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -85,7 +88,10 @@ _data = {
 "Move": SubResource("Animation_ig103")
 }
 
-[node name="LevelPrototype" type="Node2D"]
+[node name="LevelPrototype" type="Node2D" node_paths=PackedStringArray("_gravityfieldList", "_gameObjects")]
+script = ExtResource("1_vhqca")
+_gravityfieldList = NodePath("GravityfieldList")
+_gameObjects = NodePath("GameObjects")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_32w8q")
@@ -100,7 +106,7 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array()
 
-[node name="Platforms" type="Node2D" parent="."]
+[node name="Platforms" type="Node" parent="."]
 
 [node name="NormalPlatform" parent="Platforms" instance=ExtResource("2_bkqre")]
 position = Vector2(33, -47)
@@ -128,25 +134,56 @@ libraries = {
 position = Vector2(-52, -22)
 zoom = Vector2(2, 2)
 
-[node name="InteractableObjects" type="Node2D" parent="."]
+[node name="GameObjects" type="Node" parent="."]
 
-[node name="Box" parent="InteractableObjects" node_paths=PackedStringArray("gravityfieldList") instance=ExtResource("5_wi1df")]
-position = Vector2(-135, -3)
-gravityfieldList = NodePath("../../GravityfieldList")
+[node name="Box" parent="GameObjects" groups=["Objects"] instance=ExtResource("5_wi1df")]
+position = Vector2(113, -144)
 
-[node name="GravityfieldList" type="Node2D" parent="."]
+[node name="GravityfieldList" type="Node" parent="."]
 
 [node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
-position = Vector2(-156, -15)
-_gravityDirection = Vector2(-5.37, 0)
-_gravityStrength = 3000.0
+position = Vector2(100, -91)
+scale = Vector2(3.44, 0.76)
+_gravityDirection = Vector2(-3.77907, -34.2105)
+_gravityStrength = 100.0
 
-[node name="CollisionShape2D" parent="GravityfieldList/Gravityfield_Normal" index="0"]
-position = Vector2(-1.05485, -2.47302)
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal" index="0"]
+position = Vector2(-3.77907, -34.2105)
+scale = Vector2(4.15215, 6.6926)
 
-[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal" index="1"]
-position = Vector2(-5.37, 0)
+[node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("8_w7oeq")]
+position = Vector2(-305, -130)
+scale = Vector2(2.8, 5.04)
+_gravityDirection = Vector2(2.5, -12.1032)
+_intervalTime = 4.0
+_enabledTime = 1.0
+
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time" index="0"]
+position = Vector2(2.5, -12.1032)
+
+[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="1"]
+disabled = true
+
+[node name="Interval" parent="GravityfieldList/Gravityfield_Time" index="3"]
+wait_time = 4.0
+autostart = false
+
+[node name="EnabledFor" parent="GravityfieldList/Gravityfield_Time" index="4"]
+autostart = false
+
+[node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("7_ooxay")]
+position = Vector2(154, -102)
+scale = Vector2(1.37508, 1.93728)
+_gravityDirection = Vector2(14.5447, -12.9047)
+
+[node name="GravityDirection" parent="GravityfieldList/Gravityfield_Toggle" index="0"]
+position = Vector2(14.5447, -12.9047)
+
+[node name="Switch" parent="GravityfieldList/Gravityfield_Toggle" index="3"]
+position = Vector2(-31.271, 8.259)
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]
 [editable path="GravityfieldList/Gravityfield_Normal"]
+[editable path="GravityfieldList/Gravityfield_Time"]
+[editable path="GravityfieldList/Gravityfield_Toggle"]
