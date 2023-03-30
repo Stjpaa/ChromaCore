@@ -17,8 +17,10 @@ shader_parameter/trail_width = 0.5
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5g7"]
 size = Vector2(32, 32)
 
-[node name="Box" type="CharacterBody2D"]
+[node name="Box" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_cvvj3")
+custom_integrator = true
+can_sleep = false
 script = ExtResource("1_61n4i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

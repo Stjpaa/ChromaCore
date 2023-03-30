@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38fv1"]
 size = Vector2(20, 20.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rky1g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_80csw"]
 shader = ExtResource("2_rwf26")
 shader_parameter/width = 30.0
 shader_parameter/height = 30.0
@@ -15,7 +15,7 @@ shader_parameter/particle_color = Color(0, 0, 0.501961, 1)
 shader_parameter/background_color = Color(0, 0, 1, 0.129412)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(-0.74802, 0.663676)
+shader_parameter/direction = Vector2(0, 0)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
 shader_parameter/pause = true
@@ -34,7 +34,7 @@ script = ExtResource("1_hbaih")
 shape = SubResource("RectangleShape2D_38fv1")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_rky1g")
+material = SubResource("ShaderMaterial_80csw")
 scale = Vector2(20, 20)
 texture = SubResource("CanvasTexture_t4xum")
 

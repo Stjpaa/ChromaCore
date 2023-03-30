@@ -5,18 +5,18 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdb21"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0tg2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8g6m0"]
 shader = ExtResource("2_gtdjm")
-shader_parameter/width = 28.0
+shader_parameter/width = 10.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(-0.202287, 0.979326)
+shader_parameter/direction = Vector2(0, 0)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ulhn2"]
 
@@ -28,10 +28,9 @@ script = ExtResource("1_pp184")
 [node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_fdb21")
-disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_g0tg2")
+material = SubResource("ShaderMaterial_8g6m0")
 scale = Vector2(20, 20)
 texture = SubResource("CanvasTexture_ulhn2")
 

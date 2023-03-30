@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=21 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
+[ext_resource type="Shader" path="res://Shaders/forcefield.gdshader" id="7_cryc2"]
 [ext_resource type="PackedScene" uid="uid://rfnsqa1150ea" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="7_ooxay"]
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="8_w7oeq"]
 
@@ -87,6 +88,32 @@ tracks/0/keys = {
 _data = {
 "Move": SubResource("Animation_ig103")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4tg87"]
+shader = ExtResource("7_cryc2")
+shader_parameter/width = 28.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
+shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(-0.202287, 0.979326)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 2
+shader_parameter/pause = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_al5r5"]
+shader = ExtResource("7_cryc2")
+shader_parameter/width = 30.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0, 0, 0.501961, 1)
+shader_parameter/background_color = Color(0, 0, 1, 0.129412)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(-0.74802, 0.663676)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 2
+shader_parameter/pause = true
 
 [sub_resource type="Shader" id="Shader_s4k2c"]
 code = "shader_type canvas_item;
@@ -186,7 +213,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3k5mh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fevxi"]
 shader = SubResource("Shader_s4k2c")
 shader_parameter/width = 45.2
 shader_parameter/height = 30.0
@@ -194,12 +221,12 @@ shader_parameter/particle_color = Color(0.803922, 0.360784, 0.360784, 1)
 shader_parameter/background_color = Color(0.870588, 0, 0, 0.117647)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(0.721281, 0.692642)
-shader_parameter/strength = 1.33333
+shader_parameter/direction = Vector2(0, 1)
+shader_parameter/strength = 3.33333
 shader_parameter/quality = 2
 shader_parameter/pause = false
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kulmk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjbqv"]
 shader = SubResource("Shader_s4k2c")
 shader_parameter/width = 29.6
 shader_parameter/height = 30.0
@@ -207,7 +234,7 @@ shader_parameter/particle_color = Color(0.803922, 0.360784, 0.360784, 1)
 shader_parameter/background_color = Color(0.870588, 0, 0, 0.117647)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(-0.680017, -0.733196)
+shader_parameter/direction = Vector2(-0.680018, -0.733196)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
 shader_parameter/pause = false
@@ -261,7 +288,8 @@ zoom = Vector2(2, 2)
 [node name="GameObjects" type="Node" parent="."]
 
 [node name="Box" parent="GameObjects" groups=["Objects"] instance=ExtResource("5_wi1df")]
-position = Vector2(39, -75)
+position = Vector2(-261, 1)
+linear_damp = 0.1
 
 [node name="GravityfieldList" type="Node" parent="."]
 
@@ -274,6 +302,12 @@ _enabledTime = 1.0
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time" index="0"]
 position = Vector2(2.5, -12.1032)
+
+[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="1"]
+disabled = true
+
+[node name="Sprite" parent="GravityfieldList/Gravityfield_Time" index="2"]
+material = SubResource("ShaderMaterial_4tg87")
 
 [node name="Interval" parent="GravityfieldList/Gravityfield_Time" index="3"]
 wait_time = 4.0
@@ -289,19 +323,23 @@ _gravityDirection = Vector2(14.5447, -12.9047)
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Toggle" index="0"]
 position = Vector2(14.5447, -12.9047)
 
+[node name="Sprite" parent="GravityfieldList/Gravityfield_Toggle" index="2"]
+material = SubResource("ShaderMaterial_al5r5")
+
 [node name="Switch" parent="GravityfieldList/Gravityfield_Toggle" index="3"]
 position = Vector2(-31.271, 8.259)
 
 [node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
 position = Vector2(-164, -30)
 scale = Vector2(4.52, 4.2)
-_gravityDirection = Vector2(-1.32743, -24.5238)
+_gravityDirection = Vector2(0, -13.81)
+_gravityStrength = 500.0
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Normal" index="0"]
-position = Vector2(-1.32743, -24.5238)
+position = Vector2(0, -13.81)
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Normal" index="2"]
-material = SubResource("ShaderMaterial_3k5mh")
+material = SubResource("ShaderMaterial_fevxi")
 
 [node name="Gravityfield_Normal2" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
 position = Vector2(-84, -106)
@@ -312,7 +350,7 @@ _gravityDirection = Vector2(19.2568, 20.7627)
 position = Vector2(19.2568, 20.7627)
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Normal2" index="2"]
-material = SubResource("ShaderMaterial_kulmk")
+material = SubResource("ShaderMaterial_mjbqv")
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]

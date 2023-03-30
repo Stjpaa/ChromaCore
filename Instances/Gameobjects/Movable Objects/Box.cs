@@ -1,30 +1,36 @@
 using Godot;
 using System;
 
-public partial class Box : CharacterBody2D
+public partial class Box : RigidBody2D
 {
 	private Vector2 _defaultGravity = new Vector2(0, ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle());
 	private Vector2 _currentGravity;
 
-	// Called when the node enters the scene tree for the first time.
+	private PhysicsDirectBodyState2D _state;
+
 	public override void _Ready()
 	{
 		this._currentGravity = this._defaultGravity;
+		LinearVelocity = this._currentGravity;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _PhysicsProcess(double delta)
-	{
-		this.Velocity += this._currentGravity * (float)delta;
+    public override void _IntegrateForces(PhysicsDirectBodyState2D state)
+    {
+		state.LinearVelocity += this._currentGravity * (float)GetPhysicsProcessDeltaTime();
+    }
 
-		if (this.IsOnFloorOnly())
-		{
-			// This somehow stops the box from sliding lol
-			this.Velocity = this._currentGravity * (float)delta;
-		}
+	// public override void _PhysicsProcess(double delta)
+	// {
+	// 	this.Velocity += this._currentGravity * (float)delta;
 
-		MoveAndSlide();
-	}
+	// 	if (this.IsOnFloorOnly())
+	// 	{
+	// 		// This somehow stops the box from sliding lol
+	// 		this.Velocity = this._currentGravity * (float)delta;
+	// 	}
+
+	// 	MoveAndSlide();
+	// }
 
 	private void ChangeGravityProperties(Vector2 direction, float strength)
 	{
