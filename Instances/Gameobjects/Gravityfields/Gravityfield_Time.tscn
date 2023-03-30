@@ -1,16 +1,113 @@
 [gd_scene load_steps=6 format=3 uid="uid://b117q2ya6dts7"]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs" id="1_pp184"]
-[ext_resource type="Shader" path="res://Shaders/forcefield.gdshader" id="2_gtdjm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdb21"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8g6m0"]
-shader = ExtResource("2_gtdjm")
+[sub_resource type="Shader" id="Shader_0lpii"]
+code = "shader_type canvas_item;
+
+uniform float width : hint_range(10, 1000) = 30;
+uniform float height : hint_range(10, 1000) = 30;
+uniform vec3 particle_color : source_color;
+uniform vec4 background_color : source_color;
+uniform float particle_size : hint_range(0.0, 1.0) = 0.2;
+uniform float particle_rotation_speed : hint_range(0.0, 10.0) = 5;
+
+uniform vec2 direction;
+uniform float strength : hint_range(0.0, 10.0) = 0.5;
+uniform int quality = 2;
+uniform bool pause = false;
+
+void vertex(){
+	vec2 blurSize = abs(direction) * 2.0;
+	VERTEX *= blurSize + 1.0;
+	UV = (UV - 0.5) * (blurSize + 1.0) + 0.5;
+}
+
+float insideUnitSquare(vec2 v) {
+    vec2 s = step(vec2(0.0), v) - step(vec2(1.0), v);
+    return s.x * s.y;   
+}
+
+vec2 random(vec2 uv) {
+	return vec2(fract(sin(dot(uv.xy,
+		vec2(12.9898,78.233))) * 43758.5453123));
+}
+
+float worley(vec2 uv, float columns, float rows, float time) {
+	
+	vec2 index_uv = floor(vec2(uv.x * columns, uv.y * rows));
+	vec2 fract_uv = fract(vec2(uv.x * columns, uv.y * rows));
+	
+	float minimum_dist = 1.0;  
+	
+	for (int y= -1; y <= 1; y++) {
+		for (int x= -1; x <= 1; x++) {
+			vec2 neighbor = vec2(float(x),float(y));
+			vec2 point = random(index_uv + neighbor);
+			if (!pause) {
+				float random = fract(sin(point.x + 78.233) * 43758.5453123) - 0.5;
+				float rot_direction = random / abs(random);
+				// sin(x * 𝜋 / 3) + sin(x * 𝜋)
+				point = vec2(
+					cos(rot_direction * time * point.x * particle_rotation_speed / 3.0) + cos(rot_direction * time * point.x * particle_rotation_speed),
+					sin(rot_direction * time * point.y * particle_rotation_speed / 3.0) + sin(rot_direction * time * point.y * particle_rotation_speed)
+				) * 0.5 + 0.5;
+			}
+			vec2 diff = neighbor + point - fract_uv;
+			float dist = length(diff);
+			minimum_dist = min(minimum_dist, dist);
+		}
+	}
+	
+	return minimum_dist;
+}
+
+vec4 run_worley(vec2 uv) {
+	float worley = worley(uv + direction * TIME * (pause ? 0.0 : strength), width, height, TIME);
+	return vec4(particle_color, step(1.0 - particle_size, 1.0-worley) * (1.0-worley));
+}
+
+void fragment() {
+	float inSquare = insideUnitSquare(UV);
+	float numSamples = inSquare;
+	COLOR = run_worley(UV) * inSquare;
+	if (!pause) {
+		vec2 stepSize = direction/(float(quality)) / 50.0 * strength;
+		vec2 uv;
+		for(int i = 1; i <= quality; i++){
+			uv = UV + stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+			
+			uv = UV - stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+		}
+		COLOR.rgb /= numSamples;
+		COLOR.a /= float(quality)*2.0 + 1.0;
+	}
+	if (
+		COLOR.a == 0.0 &&
+		UV.x >= 0.0 &&
+		UV.x <= 1.0 &&
+		UV.y >= 0.0 &&
+		UV.y <= 1.0
+	) {
+		COLOR = background_color;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3n48"]
+shader = SubResource("Shader_0lpii")
 shader_parameter/width = 10.0
 shader_parameter/height = 30.0
-shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
-shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
+shader_parameter/particle_color = Color(0.701961, 0.701961, 0, 1)
+shader_parameter/background_color = Color(0.992157, 0.854902, 0, 0.141176)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 0)
@@ -22,15 +119,17 @@ shader_parameter/pause = false
 
 [node name="Gravityfield_Time" type="Area2D"]
 script = ExtResource("1_pp184")
+_gravityDirection = Vector2(0, -16)
 
 [node name="GravityDirection" type="Node2D" parent="."]
+position = Vector2(0, -16)
 
 [node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_fdb21")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_8g6m0")
+material = SubResource("ShaderMaterial_x3n48")
 scale = Vector2(20, 20)
 texture = SubResource("CanvasTexture_ulhn2")
 

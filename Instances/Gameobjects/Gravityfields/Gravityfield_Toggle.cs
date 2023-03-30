@@ -33,7 +33,6 @@ public partial class Gravityfield_Toggle : Area2D
 		
 		this._spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
 		this._spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
-		this._spriteMat.SetShaderParameter("particle_color", Colors.NavyBlue);
 		this._spriteMat.SetShaderParameter("pause", true);
 
 		Area2D Switch = GetNode<Area2D>("Switch");

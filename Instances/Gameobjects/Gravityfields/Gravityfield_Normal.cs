@@ -31,7 +31,7 @@ public partial class Gravityfield_Normal : Area2D
 		sprite.Material = this._spriteMat;
 		this._spriteMat.SetShaderParameter("direction", -this._gravityDirection.Normalized());
 		this._spriteMat.SetShaderParameter("strength", this._gravityStrength / 150);
-		this._spriteMat.SetShaderParameter("particle_color", Colors.IndianRed);
+		// this._spriteMat.SetShaderParameter("particle_color", Colors.IndianRed);
 		this._spriteMat.SetShaderParameter("width", this.Scale.X * 10);
 		this._spriteMat.SetShaderParameter("heigth", this.Scale.Y * 10);
 	}
