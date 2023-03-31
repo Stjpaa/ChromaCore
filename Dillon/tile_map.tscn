@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://coaok8a1tbmwk"]
 
 [ext_resource type="Texture2D" uid="uid://ds2gsq3ng153g" path="res://Dillon/Assets/tilesheet_complete.png" id="1_bg6fh"]
-[ext_resource type="PackedScene" uid="uid://c01c0ebihtk2a" path="res://Dillon/character_body_2d.tscn" id="3_vlc54"]
+[ext_resource type="PackedScene" uid="uid://b4akioacatxew" path="res://Dillon/character_body_2d.tscn" id="3_vlc54"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idpbc"]
 

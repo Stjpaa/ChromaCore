@@ -15,6 +15,9 @@ public partial class PlayerController_2D : CharacterBody2D
     private Label velText;
     private Label stateText;
     private Label isOnFloorLabel;
+    private Label floorNormalText;
+    private Label floorAngleText;
+    private Line2D floorAngleLine;
 
     public override void _Ready()
     {
@@ -22,16 +25,26 @@ public partial class PlayerController_2D : CharacterBody2D
         velText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("Velocity_Label");
         stateText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("State_Label");
         isOnFloorLabel = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("IsOnFloor_Label");
+        floorNormalText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorNormal_Label");
+        floorAngleText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorAngle_Label");
+        floorAngleLine = GetNode<Line2D>("FloorAngle_Line2D");
         ChangeState(new Falling(this));
+
+        FloorStopOnSlope = false;
     }
 
     public override void _PhysicsProcess(double delta)
     {
         currentState.Execute(delta);
+
+        floorAngleLine.ClearPoints();
        
         velText.Text = "Velocity: " + Velocity.ToString();
         isOnFloorLabel.Text = "IsOnFloor: " + IsOnFloor();
-
+        floorNormalText.Text = "FloorNormal: " + GetFloorNormal();
+        floorAngleText.Text = "FloorAngle: " + GetFloorAngle();
+        floorAngleLine.AddPoint(GetPositionDelta());
+        floorAngleLine.AddPoint(GetPositionDelta() + GetFloorNormal() * 100f);
         MoveAndSlide();
     }
 
@@ -157,7 +170,7 @@ public partial class PlayerController_2D : CharacterBody2D
         /// Applies a acceleration on the playerController.
         /// </summary>
         private void Acceleration(float direction)
-        {           
+        {
             var velocity = _playerController2D.Velocity;
             velocity.X += MOVE_SPEED_ACCELERATION * direction;
             velocity.X = Mathf.Clamp(velocity.X, -MAX_MOVE_SPEED, MAX_MOVE_SPEED);
@@ -234,8 +247,6 @@ public partial class PlayerController_2D : CharacterBody2D
         public static float JUMP_SPEED { get { return 250f; } }
         public static float JUMP_END_MODIFIER { get { return 10f; } }
 
-        public static bool ApexModifier { get; set; }
-
         public Jumping(PlayerController_2D playerController_2D) : base(playerController_2D) { }
 
         public override void Enter() { }
@@ -246,10 +257,7 @@ public partial class PlayerController_2D : CharacterBody2D
 
             if(CheckFallingTransition()) { return; }
         }
-        public override void Exit() 
-        {
-            ApexModifier = true;
-        }
+        public override void Exit() { }
 
         private void Jump()
         {
@@ -277,22 +285,41 @@ public partial class PlayerController_2D : CharacterBody2D
         public static float MAX_FALLING_MOVE_SPEED { get {return Moving.MAX_MOVE_SPEED * 0.9f; } }
         public static float FALLING_MOVE_SPEED_ACCELERATION { get { return Moving.MOVE_SPEED_ACCELERATION * 0.9f; } }
 
-        private float _apexModifier = 0;
+        private float _apexGravityModifier;
+        private float _apexMovementModifier;
         private float _apex;
+        private float _apexModifierDuration = 0.5f;
+
+        private bool _jumpBuffering = false;
+
+        private ApexModifierState _state;
 
         public Falling(PlayerController_2D playerController_2D) : base(playerController_2D) { }
 
         public override void Enter()
         {
             _playerController2D.AnimatedSprite2D.Play("InAir");
-            _apexModifier = 1;
+            _apexGravityModifier = 1;
+            _state = ApexModifierState.CanBeApplied;
         }
         public override void Execute(double delta)
         {
             ApplyMovement();
+
+            if (_state == ApexModifierState.CanBeApplied)
+            {
+                UpdateApexModifier();
+            }
+
             ApplyGravity();
 
+            if(_jumpBuffering == false)
+            {
+                UpdateJumpBuffering();
+            }
+
             if (CheckTransitionToDash()) { return; }
+            if (CheckTransitionToJump()) { return; }
             if (CheckTransitionToIdle()) { return; }
         }
         public override void Exit()
@@ -305,8 +332,12 @@ public partial class PlayerController_2D : CharacterBody2D
             var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
             var velocity = _playerController2D.Velocity;
 
-            velocity.X += FALLING_MOVE_SPEED_ACCELERATION * moveDirection;
-            velocity.X = Mathf.Clamp(velocity.X, -MAX_FALLING_MOVE_SPEED, MAX_FALLING_MOVE_SPEED);
+            velocity.X += FALLING_MOVE_SPEED_ACCELERATION * _apexMovementModifier * moveDirection;
+
+            if(_state is not ApexModifierState.BeingApplied)
+            {
+                velocity.X = Mathf.Clamp(velocity.X, -MAX_FALLING_MOVE_SPEED, MAX_FALLING_MOVE_SPEED);
+            }          
 
             _playerController2D.Velocity = velocity;
         }
@@ -317,20 +348,44 @@ public partial class PlayerController_2D : CharacterBody2D
 
             velocity.Y += (jumpEndTrigger) ? (FALL_SPEED_ACCELERATION * Jumping.JUMP_END_MODIFIER) : FALL_SPEED_ACCELERATION;
             velocity.Y = Mathf.Clamp(velocity.Y, float.MinValue, MAX_FALL_SPEED);
-
-            if (_apex > velocity.Y && _playerController2D.previousState is Jumping) { GD.Print(velocity.Y); _apex = velocity.Y; }
-            else if(_apex >= velocity.Y && _apex < 0) 
-            {
-                _apexModifier = 0;
-                GD.Print("Apex!"); 
-            }
-            velocity.Y *= _apexModifier;
+            
+            velocity.Y *= _apexGravityModifier;
             _playerController2D.Velocity = velocity;
+        }       
+
+        private void UpdateApexModifier()
+        {
+            var velocity = _playerController2D.Velocity;
+            if (_apex > velocity.Y && _playerController2D.previousState is Jumping)
+            {
+                _apex = velocity.Y;
+            }
+            else if (_apex <= velocity.Y && _apex < 0 && _state is ApexModifierState.CanBeApplied)
+            {
+                if(velocity.Y >= 0)
+                {
+                    // Apex modifier will be applied when the player reaches the highes position during the jump
+                    // This is when his velocity is >= 0
+                    ApplyApexModifier();
+                }
+            }
+        }
+        private async void ApplyApexModifier()
+        {
+            _state = ApexModifierState.BeingApplied;
+            _apexGravityModifier = 0f;
+            _apexMovementModifier = 2f;
+
+            await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(_apexModifierDuration), SceneTreeTimer.SignalName.Timeout);
+
+            _state = ApexModifierState.WasApplied;
+            _apexGravityModifier = 1f;
+            _apexMovementModifier = 1f;
         }
 
-        private async void WaitForApexModifier()
+        private void UpdateJumpBuffering()
         {
-            
+            _jumpBuffering = Input.IsActionJustPressed("Jump");
         }
 
         private bool CheckTransitionToIdle()
@@ -351,6 +406,22 @@ public partial class PlayerController_2D : CharacterBody2D
                 return true;
             }
             return false;
+        }
+        private bool CheckTransitionToJump()
+        {
+            if(_jumpBuffering && _playerController2D.IsOnFloor())
+            {
+                _playerController2D.ChangeState(new Jumping(_playerController2D));
+                return true;
+            }
+            return false;
+        }
+
+        private enum ApexModifierState
+        {
+            CanBeApplied,
+            BeingApplied,
+            WasApplied,
         }
     }
 

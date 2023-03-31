@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj": {}
+    "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj": {}
   },
   "projects": {
-    "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj": {
+    "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj",
+        "projectUniqueName": "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
         "projectName": "Sem6Projekt",
-        "projectPath": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
+        "packagesPath": "C:\\Users\\dillo\\.nuget\\packages\\",
+        "outputPath": "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Users\\User\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+          "C:\\Users\\dillo\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Users\\dillo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dillo\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
