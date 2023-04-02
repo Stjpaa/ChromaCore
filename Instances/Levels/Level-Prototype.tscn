@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=17 format=3 uid="uid://dq8shfok8hg3h"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
 [ext_resource type="PackedScene" uid="uid://rfnsqa1150ea" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="7_ooxay"]
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="8_w7oeq"]
-[ext_resource type="Script" path="res://Instances/Levels/TestLevelSaver.cs" id="9_mnjhm"]
+[ext_resource type="Script" path="res://Instances/Levels/Level.cs" id="9_xoarb"]
+[ext_resource type="Script" path="res://Instances/Save System/TestLevelSaver.cs" id="10_t3472"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -162,6 +163,9 @@ _enabledTime = 1.0
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time" index="0"]
 position = Vector2(2.5, -12.1032)
 
+[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="1"]
+disabled = true
+
 [node name="Interval" parent="GravityfieldList/Gravityfield_Time" index="3"]
 wait_time = 4.0
 autostart = false
@@ -180,13 +184,17 @@ position = Vector2(14.5447, -12.9047)
 [node name="Switch" parent="GravityfieldList/Gravityfield_Toggle" index="3"]
 position = Vector2(-31.271, 8.259)
 
-[node name="Button" type="Button" parent="."]
+[node name="LevelInformation" type="Node2D" parent="."]
+script = ExtResource("9_xoarb")
+baseLevel = null
+
+[node name="SaveLevelButton" type="Button" parent="LevelInformation"]
 offset_left = -272.0
 offset_top = -180.0
 offset_right = -145.0
 offset_bottom = -81.0
 text = "Test Save"
-script = ExtResource("9_mnjhm")
+script = ExtResource("10_t3472")
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]

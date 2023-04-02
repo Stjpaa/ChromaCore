@@ -3,30 +3,12 @@ using System;
 
 public partial class ButtonLevelLoader : Button
 {
-    [Export] public PackedScene LevelToBeLoaded;
-    [Export] public string PathLevelToBeLoaded;
+    [Export] public Level levelToBeLoaded;
 
 
     public override void _Pressed()
     {
-        LoadLevelOnPress();
+        levelToBeLoaded.LoadLevel();
     }
 
-
-    private void LoadLevelOnPress()
-    {
-        if(LevelToBeLoaded == null)
-        {
-            if (PathLevelToBeLoaded != null)
-            {
-                GD.Print("LoadSceneByPath");
-                SaveSystem.LoadSceneByPath(PathLevelToBeLoaded,GetTree());
-            }
-
-            GD.PrintErr("no PackedScene assigned to: ", this.GetPath());
-            return;
-        }
-
-        SaveSystem.LoadSceneByPackedScene(LevelToBeLoaded, GetTree());
-    }
 }

@@ -1,32 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyr8y2oyo0bq5"]
+[gd_scene load_steps=4 format=3 uid="uid://msn56xpm087e"]
 
 [ext_resource type="Script" path="res://Instances/Save System/ButtonLevelLoader.cs" id="1_2omag"]
-[ext_resource type="Script" path="res://Instances/Save System/Level.cs" id="1_lec53"]
+[ext_resource type="Script" path="res://Instances/Levels/Level.cs" id="1_flvfp"]
 [ext_resource type="PackedScene" uid="uid://bvymvvotbov41" path="res://Instances/Levels/Level-Prototype.tscn" id="2_f42i2"]
 
 [node name="LevelSelectScene" type="Node2D"]
 
 [node name="Level1" type="Node2D" parent="."]
 scale = Vector2(1, 1.01031)
-script = ExtResource("1_lec53")
+script = ExtResource("1_flvfp")
 baseLevel = ExtResource("2_f42i2")
 
-[node name="Level One Button" type="Button" parent="Level1"]
+[node name="Level One Button" type="Button" parent="Level1" node_paths=PackedStringArray("levelToBeLoaded")]
 offset_left = 52.0
 offset_top = 23.0
 offset_right = 454.0
 offset_bottom = 321.0
 text = "Load Scene 1"
 script = ExtResource("1_2omag")
-LevelToBeLoaded = ExtResource("2_f42i2")
+levelToBeLoaded = NodePath("..")
 
 [node name="Level2" type="Node2D" parent="."]
-script = ExtResource("1_lec53")
+script = ExtResource("1_flvfp")
 
-[node name="Level Two Button" type="Button" parent="Level2"]
+[node name="Level Two Button" type="Button" parent="Level2" node_paths=PackedStringArray("levelToBeLoaded")]
 offset_left = 481.0
 offset_top = 17.0
 offset_right = 883.0
 offset_bottom = 315.0
 text = "Load Scene 2"
 script = ExtResource("1_2omag")
+levelToBeLoaded = NodePath("..")
