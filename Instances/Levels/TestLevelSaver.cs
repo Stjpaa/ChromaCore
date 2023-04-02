@@ -3,29 +3,31 @@ using System;
 
 public partial class TestLevelSaver : Button
 {
-    private Node nodeToBeSaved;
-    private const string _savePath = "saved_scene.tscn";
+    private string pathToFile = "res://Instances/Save System/LevelSelectScene.tscn";
 
     public override void _Ready()
     {
-        nodeToBeSaved = GetTree().Root;
-        GD.Print(GetTree().Root.Name);
+    }
+
+    public override void _Pressed()
+    {
+        GD.Print("pressed");
+        SaveScene();
+        LoadLevelSelectScene();
     }
 
 
     public void SaveScene()
     {
-        // Save the scene as a packed scene file
-        ResourceSaver.Save(ScenePacker.CreatePackage(nodeToBeSaved), _savePath);
+        //Save the scene as a packed scene
+
+
+        SaveSystem.SaveScene(this);
     }
 
-    public void LoadScene()
+    public void LoadLevelSelectScene()
     {
-        // Load the saved scene from disk
-        var savedScene = (PackedScene)ResourceLoader.Load(_savePath);
-
-        // Replace the current scene with the loaded scene
-        GetTree().ChangeSceneToPacked(savedScene);//ChangeSceneTo(savedScene);
+        SaveSystem.LoadSceneByPath(pathToFile, GetTree());
     }
 
 }

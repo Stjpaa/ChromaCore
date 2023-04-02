@@ -3,8 +3,9 @@ using System;
 
 public partial class ButtonLevelLoader : Button
 {
-    [Export] public PackedScene PackedScene;
-    [Export] public int testInt = 4;
+    [Export] public PackedScene LevelToBeLoaded;
+    [Export] public string PathLevelToBeLoaded;
+
 
     public override void _Pressed()
     {
@@ -14,6 +15,18 @@ public partial class ButtonLevelLoader : Button
 
     private void LoadLevelOnPress()
     {
-        PackedSceneLoader.LoadScene("res://Instances/Levels/Level-Prototype.tscn", GetTree());
+        if(LevelToBeLoaded == null)
+        {
+            if (PathLevelToBeLoaded != null)
+            {
+                GD.Print("LoadSceneByPath");
+                SaveSystem.LoadSceneByPath(PathLevelToBeLoaded,GetTree());
+            }
+
+            GD.PrintErr("no PackedScene assigned to: ", this.GetPath());
+            return;
+        }
+
+        SaveSystem.LoadSceneByPackedScene(LevelToBeLoaded, GetTree());
     }
 }

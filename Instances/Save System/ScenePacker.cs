@@ -16,10 +16,9 @@ public static class ScenePacker
         Error error = package.Pack(node);
         if (error != Error.Ok)
         {
-            GD.Print("ScenePacker failed to pack scene: ", node.Name, " ", error);
+            GD.PrintErr("ScenePacker failed to pack scene: ", node.Name, " ", error);
             return null;
         }
-
         return package;
     }
 
