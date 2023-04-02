@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Instances/Save System/ButtonLevelLoader.cs" id="1_2omag"]
 [ext_resource type="Script" path="res://Instances/Levels/Level.cs" id="1_flvfp"]
-[ext_resource type="PackedScene" uid="uid://bvymvvotbov41" path="res://Instances/Levels/Level-Prototype.tscn" id="2_f42i2"]
+[ext_resource type="PackedScene" uid="uid://dq8shfok8hg3h" path="res://Instances/Levels/Level-Prototype.tscn" id="2_f42i2"]
 
 [node name="LevelSelectScene" type="Node2D"]
 

@@ -163,9 +163,6 @@ _enabledTime = 1.0
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time" index="0"]
 position = Vector2(2.5, -12.1032)
 
-[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="1"]
-disabled = true
-
 [node name="Interval" parent="GravityfieldList/Gravityfield_Time" index="3"]
 wait_time = 4.0
 autostart = false
@@ -184,17 +181,18 @@ position = Vector2(14.5447, -12.9047)
 [node name="Switch" parent="GravityfieldList/Gravityfield_Toggle" index="3"]
 position = Vector2(-31.271, 8.259)
 
-[node name="LevelInformation" type="Node2D" parent="."]
+[node name="LevelInformation" type="Node2D" parent="." node_paths=PackedStringArray("nodeWhichToPack")]
 script = ExtResource("9_xoarb")
-baseLevel = null
+nodeWhichToPack = NodePath("..")
 
-[node name="SaveLevelButton" type="Button" parent="LevelInformation"]
+[node name="SaveLevelButton" type="Button" parent="LevelInformation" node_paths=PackedStringArray("LevelToSave")]
 offset_left = -272.0
 offset_top = -180.0
 offset_right = -145.0
 offset_bottom = -81.0
 text = "Test Save"
 script = ExtResource("10_t3472")
+LevelToSave = NodePath("..")
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]

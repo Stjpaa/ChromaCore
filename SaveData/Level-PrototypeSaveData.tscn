@@ -1,0 +1,369 @@
+[gd_scene load_steps=41 format=3]
+
+[ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_ns5wx"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset.png" id="2_u82mg"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="3_kq22c"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Platform_Normal.tres" id="4_tqjnn"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="5_6hitu"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Platform_Moving.tres" id="6_2sdim"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="7_gdisu"]
+[ext_resource type="Shader" path="res://Shaders/radar-outline.gdshader" id="8_jxhuu"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Movable Objects/Box.cs" id="9_wrsbd"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Box.png" id="10_ohupk"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="11_vkhwa"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs" id="12_tx0iw"]
+[ext_resource type="Shader" path="res://Shaders/forcefield.gdshader" id="13_nttky"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="14_roi2p"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs" id="15_mul0s"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="16_cnfqo"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs" id="17_3pugh"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/GravityfieldSwitch.cs" id="18_3r8h3"]
+[ext_resource type="Script" path="res://Instances/Levels/Level.cs" id="19_of6jj"]
+[ext_resource type="Script" path="res://Instances/Save System/TestLevelSaver.cs" id="20_qkf1o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
+texture = ExtResource("2_u82mg")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/size_in_atlas = Vector2i(2, 2)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/size_in_atlas = Vector2i(4, 4)
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+10:0/size_in_atlas = Vector2i(4, 4)
+10:0/0 = 0
+10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/z_index = 1
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_32w8q"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_2e4j6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5niqk"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi558"]
+size = Vector2(16, 8)
+
+[sub_resource type="Animation" id="Animation_kgtk0"]
+resource_name = "Move"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 5, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-63, -26), Vector2(-63, -26), Vector2(50, -76), Vector2(50, -76), Vector2(-63, -26)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdbp8"]
+_data = {
+"Move": SubResource("Animation_kgtk0")
+}
+
+[sub_resource type="Animation" id="Animation_ig103"]
+resource_name = "Move"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 5, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(40, -101), Vector2(40, -101), Vector2(-89, -101), Vector2(-89, -101), Vector2(40, -101)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mpaml"]
+_data = {
+"Move": SubResource("Animation_ig103")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvvj3"]
+shader = ExtResource("8_jxhuu")
+shader_parameter/color = Color(0, 1, 1, 1)
+shader_parameter/width = 6.795
+shader_parameter/width_speed = 2.181
+shader_parameter/pattern = 0
+shader_parameter/beam_angle = 0.2
+shader_parameter/trail_speed = 1.0
+shader_parameter/trail_width = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5g7"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_velxc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmlf"]
+shader = ExtResource("13_nttky")
+shader_parameter/width = 30.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0.803922, 0.360784, 0.360784, 1)
+shader_parameter/background_color = Color(0.870588, 0, 0, 0.117647)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(0.109797, 0.993954)
+shader_parameter/strength = 0.666667
+shader_parameter/quality = 2
+shader_parameter/pause = false
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_n1qrv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdb21"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0tg2"]
+shader = ExtResource("13_nttky")
+shader_parameter/width = 30.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
+shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(-0.202287, 0.979326)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 2
+shader_parameter/pause = true
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ulhn2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38fv1"]
+size = Vector2(20, 20.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rky1g"]
+shader = ExtResource("13_nttky")
+shader_parameter/width = 30.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0, 0, 0.501961, 1)
+shader_parameter/background_color = Color(0, 0, 1, 0.129412)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(-0.74802, 0.663676)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 2
+shader_parameter/pause = true
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_t4xum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pxg"]
+size = Vector2(20, 2.22961)
+
+[node name="LevelPrototype" type="Node2D"]
+script = ExtResource("1_ns5wx")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_32w8q")
+format = 2
+layer_0/name = "Solid Blocks"
+layer_0/tile_data = PackedInt32Array(-5, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -6, 1, 0, 65530, 1, 0, 131066, 65537, 0, 196604, 1, 0, 196605, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 65531, 65537, 0, 65532, 65537, 0, 65533, 65537, 0, 65534, 65537, 0, 65535, 65537, 0, 0, 65537, 0, 1, 65537, 0, 2, 65537, 0, 3, 65537, 0, 65539, 65537, 0, 65538, 65537, 0, 65537, 65537, 0, 65536, 65537, 0, 131071, 65537, 0, 131070, 65537, 0, 131069, 65537, 0, 131068, 65537, 0, 131067, 65537, 0, -65532, 1, 0, -131068, 1, 0, -196604, 1, 0, -262140, 1, 0, -327676, 1, 0, -327675, 1, 0, -327674, 1, 0, -327673, 1, 0, -327672, 1, 0, -327671, 1, 0, -327670, 1, 0, -327669, 1, 0, -327668, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 65548, 1, 0, 12, 1, 0, -65524, 1, 0, -131060, 1, 0, -196596, 1, 0, -262132, 1, 0, 65540, 65537, 0, 4, 65537, 0, 65541, 65537, 0, 5, 65537, 0, -65531, 65537, 0, -131067, 65537, 0, -196603, 65537, 0, -262139, 65537, 0, -262138, 65537, 0, -262137, 65537, 0, -262136, 65537, 0, -262135, 65537, 0, -262134, 65537, 0, -262133, 65537, 0, -196597, 65537, 0, -196598, 65537, 0, -196599, 65537, 0, -196600, 65537, 0, -196601, 65537, 0, -196602, 65537, 0, -131066, 65537, 0, -131065, 65537, 0, -131064, 65537, 0, -131063, 65537, 0, -131062, 65537, 0, -131061, 65537, 0, -65525, 65537, 0, -65526, 65537, 0, -65527, 65537, 0, -65528, 65537, 0, -65529, 65537, 0, -65530, 65537, 0, 6, 65537, 0, 65542, 65537, 0, 65543, 65537, 0, 65544, 65537, 0, 65545, 65537, 0, 65546, 65537, 0, 65547, 65537, 0, 11, 65537, 0, 10, 65537, 0, 9, 65537, 0, 8, 65537, 0, 7, 65537, 0, 131065, 1, 0, 131064, 1, 0, 131063, 1, 0, 131062, 1, 0, 131061, 1, 0, 131060, 1, 0, 131059, 1, 0, 131058, 1, 0, 196594, 1, 0, 262130, 1, 0, 327666, 65537, 0, 393202, 1, 0, 393203, 1, 0, 393204, 1, 0, 393205, 1, 0, 393206, 1, 0, 393207, 1, 0, 393208, 1, 0, 393209, 1, 0, 262129, 1, 0, 262128, 1, 0, 262127, 1, 0, 262126, 1, 0, 262125, 1, 0, 262124, 1, 0, 327660, 1, 0, 393196, 1, 0, 393197, 1, 0, 393198, 1, 0, 393199, 1, 0, 393200, 1, 0, 393201, 1, 0, 393210, 1, 0, 327674, 1, 0, 262138, 1, 0, 327667, 65537, 0, 262131, 65537, 0, 196595, 65537, 0, 196596, 65537, 0, 196597, 65537, 0, 196598, 65537, 0, 196599, 65537, 0, 196600, 65537, 0, 196601, 65537, 0, 262137, 65537, 0, 327673, 65537, 0, 327672, 65537, 0, 327671, 65537, 0, 327670, 65537, 0, 327669, 65537, 0, 327668, 65537, 0, 262132, 65537, 0, 262133, 65537, 0, 262134, 65537, 0, 262135, 65537, 0, 262136, 65537, 0, 327661, 65537, 0, 327662, 65537, 0, 327663, 65537, 0, 327664, 65537, 0, 327665, 65537, 0, 196602, 65537, 0, 196603, 65537, 0, 65529, 1, 0, 262139, 1, 0, 262140, 1, 0)
+layer_1/name = "Gameobjects"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="NormalPlatform" type="StaticBody2D" parent="Platforms" instance=ExtResource("3_kq22c")]
+position = Vector2(33, -47)
+scale = Vector2(3.32, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/NormalPlatform"]
+position = Vector2(-0.0119691, 0.0521761)
+rotation = -1.5708
+scale = Vector2(0.128584, 0.251579)
+texture = ExtResource("4_tqjnn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/NormalPlatform"]
+visible = false
+shape = SubResource("RectangleShape2D_5niqk")
+one_way_collision = true
+
+[node name="MovingPlatform" parent="Platforms" instance=ExtResource("5_6hitu")]
+position = Vector2(50, -76)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/MovingPlatform"]
+position = Vector2(0.106761, -0.0468206)
+rotation = -1.5708
+scale = Vector2(0.126475, 0.250436)
+texture = ExtResource("6_2sdim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/MovingPlatform"]
+visible = false
+shape = SubResource("RectangleShape2D_mi558")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/MovingPlatform"]
+autoplay = "Move"
+libraries = {
+"": SubResource("AnimationLibrary_wdbp8")
+}
+
+[node name="MovingPlatform2" parent="Platforms" instance=ExtResource("5_6hitu")]
+position = Vector2(-89, -101)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/MovingPlatform2"]
+position = Vector2(0.106761, -0.0468206)
+rotation = -1.5708
+scale = Vector2(0.126475, 0.250436)
+texture = ExtResource("6_2sdim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/MovingPlatform2"]
+visible = false
+shape = SubResource("RectangleShape2D_mi558")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/MovingPlatform2"]
+autoplay = "Move"
+libraries = {
+"": SubResource("AnimationLibrary_mpaml")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-52, -22)
+zoom = Vector2(2, 2)
+
+[node name="GameObjects" type="Node" parent="."]
+
+[node name="Box" type="CharacterBody2D" parent="GameObjects" groups=["Objects"] instance=ExtResource("7_gdisu")]
+material = SubResource("ShaderMaterial_cvvj3")
+position = Vector2(47.1601, -67.0749)
+script = ExtResource("9_wrsbd")
+
+[node name="Sprite2D" type="Sprite2D" parent="GameObjects/Box"]
+texture = ExtResource("10_ohupk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Box"]
+visible = false
+shape = SubResource("RectangleShape2D_ns5g7")
+
+[node name="GravityfieldList" type="Node" parent="."]
+
+[node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("11_vkhwa")]
+position = Vector2(100, -91)
+scale = Vector2(3.44, 0.76)
+script = ExtResource("12_tx0iw")
+_gravityDirection = Vector2(-3.77907, -34.2105)
+_gravityStrength = 100.0
+
+[node name="GravityDirection" type="Node2D" parent="GravityfieldList/Gravityfield_Normal"]
+position = Vector2(-3.77907, -34.2105)
+scale = Vector2(4.15215, 6.6926)
+
+[node name="GravityfieldCollider" type="CollisionShape2D" parent="GravityfieldList/Gravityfield_Normal"]
+visible = false
+shape = SubResource("RectangleShape2D_velxc")
+
+[node name="Sprite" type="Sprite2D" parent="GravityfieldList/Gravityfield_Normal"]
+material = SubResource("ShaderMaterial_hvmlf")
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_n1qrv")
+
+[node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("14_roi2p")]
+position = Vector2(-305, -130)
+scale = Vector2(2.8, 5.04)
+script = ExtResource("15_mul0s")
+_gravityDirection = Vector2(2.5, -12.1032)
+_intervalTime = 4.0
+_enabledTime = 1.0
+
+[node name="GravityDirection" type="Node2D" parent="GravityfieldList/Gravityfield_Time"]
+position = Vector2(2.5, -12.1032)
+
+[node name="GravityfieldCollider" type="CollisionShape2D" parent="GravityfieldList/Gravityfield_Time"]
+visible = false
+shape = SubResource("RectangleShape2D_fdb21")
+disabled = true
+
+[node name="Sprite" type="Sprite2D" parent="GravityfieldList/Gravityfield_Time"]
+material = SubResource("ShaderMaterial_g0tg2")
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_ulhn2")
+
+[node name="Interval" type="Timer" parent="GravityfieldList/Gravityfield_Time"]
+wait_time = 4.0
+one_shot = true
+
+[node name="EnabledFor" type="Timer" parent="GravityfieldList/Gravityfield_Time"]
+one_shot = true
+
+[node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("16_cnfqo")]
+position = Vector2(154, -102)
+scale = Vector2(1.37508, 1.93728)
+script = ExtResource("17_3pugh")
+_gravityDirection = Vector2(14.5447, -12.9047)
+
+[node name="GravityDirection" type="Node2D" parent="GravityfieldList/Gravityfield_Toggle"]
+position = Vector2(14.5447, -12.9047)
+
+[node name="GravityfieldCollider" type="CollisionShape2D" parent="GravityfieldList/Gravityfield_Toggle"]
+shape = SubResource("RectangleShape2D_38fv1")
+
+[node name="Sprite" type="Sprite2D" parent="GravityfieldList/Gravityfield_Toggle"]
+material = SubResource("ShaderMaterial_rky1g")
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_t4xum")
+
+[node name="Switch" type="Area2D" parent="GravityfieldList/Gravityfield_Toggle"]
+position = Vector2(-31.271, 8.259)
+script = ExtResource("18_3r8h3")
+
+[node name="SwitchCollider" type="CollisionShape2D" parent="GravityfieldList/Gravityfield_Toggle/Switch"]
+shape = SubResource("RectangleShape2D_d6pxg")
+
+[node name="LevelInformation" type="Node2D" parent="."]
+script = ExtResource("19_of6jj")
+
+[node name="SaveLevelButton" type="Button" parent="LevelInformation"]
+offset_left = -272.0
+offset_top = -180.0
+offset_right = -145.0
+offset_bottom = -81.0
+button_pressed = true
+text = "Test Save"
+script = ExtResource("20_qkf1o")
+
+[connection signal="body_entered" from="GravityfieldList/Gravityfield_Normal" to="GravityfieldList/Gravityfield_Normal" method="OnBodyEntered" flags=18]
+[connection signal="body_exited" from="GravityfieldList/Gravityfield_Normal" to="GravityfieldList/Gravityfield_Normal" method="OnBodyExited" flags=18]
+[connection signal="body_entered" from="GravityfieldList/Gravityfield_Time" to="GravityfieldList/Gravityfield_Time" method="OnBodyEntered" flags=18]
+[connection signal="body_exited" from="GravityfieldList/Gravityfield_Time" to="GravityfieldList/Gravityfield_Time" method="OnBodyExited" flags=18]
+[connection signal="timeout" from="GravityfieldList/Gravityfield_Time/Interval" to="GravityfieldList/Gravityfield_Time" method="OnIntervalTimeout" flags=18]
+[connection signal="timeout" from="GravityfieldList/Gravityfield_Time/EnabledFor" to="GravityfieldList/Gravityfield_Time" method="OnEnabledForTimeout" flags=18]
+[connection signal="body_entered" from="GravityfieldList/Gravityfield_Toggle" to="GravityfieldList/Gravityfield_Toggle" method="OnBodyEntered" flags=18]
+[connection signal="body_exited" from="GravityfieldList/Gravityfield_Toggle" to="GravityfieldList/Gravityfield_Toggle" method="OnBodyExited" flags=18]
+[connection signal="body_entered" from="GravityfieldList/Gravityfield_Toggle/Switch" to="GravityfieldList/Gravityfield_Toggle/Switch" method="OnBodyEntered" flags=18]
+[connection signal="body_exited" from="GravityfieldList/Gravityfield_Toggle/Switch" to="GravityfieldList/Gravityfield_Toggle/Switch" method="OnBodyExited" flags=18]
+
+[editable path="Platforms/MovingPlatform"]
+[editable path="Platforms/MovingPlatform2"]
+[editable path="GravityfieldList/Gravityfield_Normal"]
+[editable path="GravityfieldList/Gravityfield_Time"]
+[editable path="GravityfieldList/Gravityfield_Toggle"]

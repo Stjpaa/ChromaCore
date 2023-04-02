@@ -4,6 +4,7 @@ using System;
 public partial class Level : Node2D
 {
     [Export] public PackedScene baseLevel;
+    [Export] public Node2D nodeWhichToPack;
 
     private bool levelCompleted = false;
 
