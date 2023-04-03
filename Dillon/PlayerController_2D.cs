@@ -3,11 +3,27 @@ using System;
 
 public partial class PlayerController_2D : CharacterBody2D
 {   
+    // GitHub Commit logs Version 0.0.6
+    // - Prevented dash during falling if no direction is given
+    // - Implemented coyote time
+    // - Implemented dash cooldown
+    // Current Problems
+    // - Coyote time works but the jump works not like if the player is on the ground
+    //   -> Jump triggered 2x, wenn normal deswegen velocity.y = 600
+    //   -> Jump triggered 1x, wenn coyote time triggered veloity.y = 300
+
     public AnimatedSprite2D AnimatedSprite2D 
     {
         get;
         private set;
     }
+
+    public Timer DashCooldownTimer
+    { 
+        get; 
+        private set; 
+    }
+
 
     public State currentState;
     public State previousState;
@@ -17,17 +33,21 @@ public partial class PlayerController_2D : CharacterBody2D
     private Label isOnFloorLabel;
     private Label floorNormalText;
     private Label floorAngleText;
+    private Label dashCooldown;
     private Line2D floorAngleLine;
 
     public override void _Ready()
     {
         AnimatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        DashCooldownTimer = GetNode<Timer>("DashCooldown_Timer");
+
         velText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("Velocity_Label");
         stateText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("State_Label");
         isOnFloorLabel = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("IsOnFloor_Label");
         floorNormalText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorNormal_Label");
         floorAngleText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorAngle_Label");
         floorAngleLine = GetNode<Line2D>("FloorAngle_Line2D");
+        dashCooldown = GetNode<Label>("Label");
         ChangeState(new Falling(this));
 
         FloorStopOnSlope = false;
@@ -45,6 +65,7 @@ public partial class PlayerController_2D : CharacterBody2D
         floorAngleText.Text = "FloorAngle: " + GetFloorAngle();
         floorAngleLine.AddPoint(GetPositionDelta());
         floorAngleLine.AddPoint(GetPositionDelta() + GetFloorNormal() * 100f);
+        dashCooldown.Text = String.Format("{0:N0}", DashCooldownTimer.TimeLeft);
         MoveAndSlide();
     }
 
@@ -122,6 +143,9 @@ public partial class PlayerController_2D : CharacterBody2D
 
         private bool _movingLeft;
 
+        private float _coyoteTime = 0.5f;
+        private bool _coyoteTimeTriggered;
+
         public Moving(PlayerController_2D controller) : base(controller) { }
         public override void Enter()
         {
@@ -131,6 +155,7 @@ public partial class PlayerController_2D : CharacterBody2D
         {
             if (CheckTransitionToJumping()) { return; }
             if (CheckTransitionToDashing()) { return; }
+            if (_coyoteTimeTriggered) { return; }
 
             #region Movement
             var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
@@ -196,6 +221,13 @@ public partial class PlayerController_2D : CharacterBody2D
             _playerController2D.Velocity = velocity;
         }
 
+        private async void ApplyCoyoteTime()
+        {
+            _coyoteTimeTriggered = true;
+            await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(_coyoteTime), SceneTreeTimer.SignalName.Timeout);
+            _playerController2D.ChangeState(new Falling(_playerController2D));
+        }
+
         private bool CheckTransitionToJumping()
         {
             var jumpTrigger = Input.IsActionJustPressed("Jump");
@@ -209,7 +241,7 @@ public partial class PlayerController_2D : CharacterBody2D
         private bool CheckTransitionToDashing()
         {           
             var dashTrigger = Input.IsActionJustPressed("Dash");
-            if (dashTrigger)
+            if (dashTrigger && Dashing._availableDashes != 0)
             {
                 _playerController2D.ChangeState(new Dashing(_playerController2D));
                 return true;
@@ -221,7 +253,7 @@ public partial class PlayerController_2D : CharacterBody2D
             if (_playerController2D.Velocity.X == 0 &&
                     _playerController2D.IsOnFloor() == false)
             {
-                _playerController2D.ChangeState(new Falling(_playerController2D));
+                ApplyCoyoteTime();
                 return true;
             }
             return false;
@@ -244,7 +276,7 @@ public partial class PlayerController_2D : CharacterBody2D
     {
         public override string Name { get { return "Jumping"; } }
 
-        public static float JUMP_SPEED { get { return 250f; } }
+        public static float JUMP_SPEED { get { return 300f; } }
         public static float JUMP_END_MODIFIER { get { return 10f; } }
 
         public Jumping(PlayerController_2D playerController_2D) : base(playerController_2D) { }
@@ -264,6 +296,8 @@ public partial class PlayerController_2D : CharacterBody2D
             var velocity = _playerController2D.Velocity;
             velocity.Y -= JUMP_SPEED;
             _playerController2D.Velocity = velocity;
+
+            GD.Print("Jump triggered: Velocity: " + velocity);
         }
         private bool CheckFallingTransition()
         {
@@ -299,7 +333,8 @@ public partial class PlayerController_2D : CharacterBody2D
         public override void Enter()
         {
             _playerController2D.AnimatedSprite2D.Play("InAir");
-            _apexGravityModifier = 1;
+            _apexGravityModifier = 1f;
+            _apexMovementModifier = 1f;
             _state = ApexModifierState.CanBeApplied;
         }
         public override void Execute(double delta)
@@ -313,10 +348,7 @@ public partial class PlayerController_2D : CharacterBody2D
 
             ApplyGravity();
 
-            if(_jumpBuffering == false)
-            {
-                UpdateJumpBuffering();
-            }
+            UpdateJumpBuffering();
 
             if (CheckTransitionToDash()) { return; }
             if (CheckTransitionToJump()) { return; }
@@ -385,7 +417,10 @@ public partial class PlayerController_2D : CharacterBody2D
 
         private void UpdateJumpBuffering()
         {
-            _jumpBuffering = Input.IsActionJustPressed("Jump");
+            if (_jumpBuffering == false)
+            {
+                _jumpBuffering = Input.IsActionJustPressed("Jump");
+            }
         }
 
         private bool CheckTransitionToIdle()
@@ -400,7 +435,8 @@ public partial class PlayerController_2D : CharacterBody2D
         private bool CheckTransitionToDash()
         {
             var dashTrigger = Input.IsActionJustPressed("Dash");
-            if(dashTrigger)
+            var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
+            if(dashTrigger && moveDirection != 0 && Dashing._availableDashes != 0)
             {
                 _playerController2D.ChangeState(new  Dashing(_playerController2D));
                 return true;
@@ -433,6 +469,8 @@ public partial class PlayerController_2D : CharacterBody2D
 
         public static float DASH_DURATION { get { return 0.2f; } }
 
+        public static uint _availableDashes = 1;
+
         public Dashing(PlayerController_2D playerController) : base (playerController) { }
         public override void Enter()
         {                      
@@ -447,6 +485,9 @@ public partial class PlayerController_2D : CharacterBody2D
         public override void Exit()
         {
             _playerController2D.AnimatedSprite2D.FlipH = false;
+
+            _playerController2D.DashCooldownTimer.Start();
+            _playerController2D.DashCooldownTimer.Timeout += OnDashTimerTimeout;
         }
         private void Dash()
         {
@@ -454,6 +495,7 @@ public partial class PlayerController_2D : CharacterBody2D
             var velocity = _playerController2D.Velocity;
             velocity.X = DASH_SPEED * direction;
             _playerController2D.Velocity = velocity;
+            _availableDashes -= 1;
 
             #region Animation
             //Left
@@ -479,16 +521,24 @@ public partial class PlayerController_2D : CharacterBody2D
             _playerController2D.ChangeState(_playerController2D.previousState);
         }
 
+        private void OnDashTimerTimeout()
+        {
+            _availableDashes++;
+            _playerController2D.DashCooldownTimer.Timeout -= OnDashTimerTimeout;
+        }
+
         private bool CheckFallingOrMovingTransition()
         {
             var direction = Input.GetAxis("Move_Left", "Move_Right");
             // To avoid Dash without direction
-            if (direction == 0)
+            if (direction == 0 || _availableDashes == 0)
             {
                 _playerController2D.ChangeState(_playerController2D.previousState);
                 return true;
             }
             return false;
         }
+        
     }
+   
 }

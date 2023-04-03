@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj": {}
+    "C:\\Studium\\6. Semester\\Module\\Semesterprojekt\\GitHub\\ChromaCore\\Sem6Projekt.csproj": {}
   },
   "projects": {
-    "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj": {
+    "C:\\Studium\\6. Semester\\Module\\Semesterprojekt\\GitHub\\ChromaCore\\Sem6Projekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
+        "projectUniqueName": "C:\\Studium\\6. Semester\\Module\\Semesterprojekt\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
         "projectName": "Sem6Projekt",
-        "projectPath": "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
+        "projectPath": "C:\\Studium\\6. Semester\\Module\\Semesterprojekt\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
         "packagesPath": "C:\\Users\\dillo\\.nuget\\packages\\",
-        "outputPath": "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "C:\\Studium\\6. Semester\\Module\\Semesterprojekt\\GitHub\\ChromaCore\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\dillo\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"

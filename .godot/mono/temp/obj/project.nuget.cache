@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+NAt7TWNrvnppPjlt4pUFzs2UpfoyRWE1V+MHTSRlvIxo0hTOcRqcY/toMor1jGZTVYEQpaKzQdcG5hl9HkkoA==",
+  "dgSpecHash": "VCS7CbGfbgcnr5rkTR0uap4CWVoNx1zBg/R/u597tGrF9I/+WTIEhAS+8u+a4bw04fakQ/BbpXyOMfDWagmdRQ==",
   "success": true,
-  "projectFilePath": "C:\\STUDIUM\\6. SEMESTER\\MODULE\\SEMESTERPROJEKT\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
+  "projectFilePath": "C:\\Studium\\6. Semester\\Module\\Semesterprojekt\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dillo\\.nuget\\packages\\godot.sourcegenerators\\4.0.0\\godot.sourcegenerators.4.0.0.nupkg.sha512",
     "C:\\Users\\dillo\\.nuget\\packages\\godotsharp\\4.0.0\\godotsharp.4.0.0.nupkg.sha512",
