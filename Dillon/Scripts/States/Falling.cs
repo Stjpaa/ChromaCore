@@ -5,21 +5,15 @@ public class Falling : State
 {
     public override string Name { get { return "Falling"; } }
 
-    public static float MAX_FALL_SPEED { get { return 700f; } }
-    public static float FALL_SPEED_ACCELERATION { get { return 25f; } }
-    public static float MAX_FALLING_MOVE_SPEED { get { return Moving.MAX_MOVE_SPEED * 0.9f; } }
-    public static float FALLING_MOVE_SPEED_ACCELERATION { get { return Moving.MOVE_SPEED_ACCELERATION * 0.9f; } }
-
     private float _apexGravityModifier;
     private float _apexMovementModifier;
     private float _apex;
-    private float _apexModifierDuration = 0.05f;
 
     private bool _jumpBuffering = false;
 
     private ApexModifierState _state;
 
-    public Falling(PlayerController_2D playerController_2D) : base(playerController_2D) { }
+    public Falling(PlayerController2D playerController_2D) : base(playerController_2D) { }
 
     public override void Enter()
     {
@@ -55,22 +49,23 @@ public class Falling : State
         var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
         var velocity = _playerController2D.Velocity;
 
-        velocity.X += FALLING_MOVE_SPEED_ACCELERATION * _apexMovementModifier * moveDirection;
+        velocity.X += _playerController2D.FallingMoveSpeedAcceleration * _apexMovementModifier * moveDirection;
 
         if (_state is not ApexModifierState.BeingApplied)
         {
-            velocity.X = Mathf.Clamp(velocity.X, -MAX_FALLING_MOVE_SPEED, MAX_FALLING_MOVE_SPEED);
+            velocity.X = Mathf.Clamp(velocity.X, -_playerController2D.MaxFallingMoveSpeed, 
+                                                  _playerController2D.MaxFallingMoveSpeed);
         }
 
         _playerController2D.Velocity = velocity;
     }
     private void ApplyGravity()
     {
-        var jumpEndTrigger = Input.IsActionJustReleased("Jump");
+        var jumpEndTrigger = Input.IsActionPressed("Jump");
         var velocity = _playerController2D.Velocity;
 
-        velocity.Y += (jumpEndTrigger) ? (FALL_SPEED_ACCELERATION * Jumping.JUMP_END_MODIFIER) : FALL_SPEED_ACCELERATION;
-        velocity.Y = Mathf.Clamp(velocity.Y, float.MinValue, MAX_FALL_SPEED);
+        velocity.Y += (jumpEndTrigger) ? _playerController2D.FallSpeedAcceleration : (_playerController2D.FallSpeedAcceleration * _playerController2D.JumpEndModifier);
+        velocity.Y = Mathf.Clamp(velocity.Y, float.MinValue, _playerController2D.MaxFallSpeed);
 
         velocity.Y *= _apexGravityModifier;
         _playerController2D.Velocity = velocity;
@@ -99,7 +94,7 @@ public class Falling : State
         _apexGravityModifier = 0f;
         _apexMovementModifier = 2f;
 
-        await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(_apexModifierDuration), SceneTreeTimer.SignalName.Timeout);
+        await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(_playerController2D.ApexModifierDuration), SceneTreeTimer.SignalName.Timeout);
 
         _state = ApexModifierState.WasApplied;
         _apexGravityModifier = 1f;

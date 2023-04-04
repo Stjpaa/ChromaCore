@@ -5,7 +5,7 @@ public class Idle : State
 {
     public override string Name { get { return "Idle"; } }
 
-    public Idle(PlayerController_2D controller) : base(controller) { }
+    public Idle(PlayerController2D controller) : base(controller) { }
     public override void Enter()
     {
         _playerController2D.AnimatedSprite2D.Play("Idle");

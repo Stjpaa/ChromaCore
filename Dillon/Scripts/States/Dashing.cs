@@ -5,13 +5,9 @@ public class Dashing : State
 {
     public override string Name { get { return "Dash"; } }
 
-    public static float DASH_SPEED { get { return 1000f; } }
-
-    public static float DASH_DURATION { get { return 0.2f; } }
-
     public static uint _availableDashes = 1;
 
-    public Dashing(PlayerController_2D playerController) : base(playerController) { }
+    public Dashing(PlayerController2D playerController) : base(playerController) { }
     public override void Enter()
     {
         if (CheckFallingOrMovingTransition()) { return; }
@@ -33,7 +29,7 @@ public class Dashing : State
     {
         var direction = Input.GetAxis("Move_Left", "Move_Right");
         var velocity = _playerController2D.Velocity;
-        velocity.X = DASH_SPEED * direction;
+        velocity.X = _playerController2D.DashSpeed * direction;
         _playerController2D.Velocity = velocity;
         _availableDashes -= 1;
 
@@ -57,7 +53,7 @@ public class Dashing : State
     /// </summary>
     private async void WaitForTimer()
     {
-        await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(DASH_DURATION), SceneTreeTimer.SignalName.Timeout);
+        await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(_playerController2D.DashDuration), SceneTreeTimer.SignalName.Timeout);
         _playerController2D.ChangeState(_playerController2D.previousState);
     }
 

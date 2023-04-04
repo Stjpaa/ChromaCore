@@ -5,16 +5,10 @@ public class Moving : State
 {
     public override string Name { get { return "Move"; } }
 
-    public static float MAX_MOVE_SPEED { get { return 250f; } }
-    public static float MOVE_SPEED_ACCELERATION { get { return 40f; } }
-    public static float MOVE_SPEED_DECCELERATION { get { return 40f; } }
-
     private bool _movingLeft;
-
-    private float _coyoteTime = 0.08f;
     private bool _coyoteTimeTriggered;
 
-    public Moving(PlayerController_2D controller) : base(controller) { }
+    public Moving(PlayerController2D controller) : base(controller) { }
     public override void Enter()
     {
         _movingLeft = Input.IsActionPressed("Move_Left");
@@ -66,8 +60,8 @@ public class Moving : State
     private void Acceleration(float direction)
     {
         var velocity = _playerController2D.Velocity;
-        velocity.X += MOVE_SPEED_ACCELERATION * direction;
-        velocity.X = Mathf.Clamp(velocity.X, -MAX_MOVE_SPEED, MAX_MOVE_SPEED);
+        velocity.X += _playerController2D.MoveSpeedAcceleration * direction;
+        velocity.X = Mathf.Clamp(velocity.X, -_playerController2D.MaxMoveSpeed, _playerController2D.MaxMoveSpeed);
         _playerController2D.Velocity = velocity;
     }
 
@@ -79,13 +73,13 @@ public class Moving : State
         var velocity = _playerController2D.Velocity;
         if (_movingLeft)
         {
-            velocity.X += MOVE_SPEED_DECCELERATION;
-            velocity.X = Mathf.Clamp(velocity.X, -MAX_MOVE_SPEED, 0);
+            velocity.X += _playerController2D.MoveSpeedDecceleration;
+            velocity.X = Mathf.Clamp(velocity.X, -_playerController2D.MaxMoveSpeed, 0);
         }
         else
         {
-            velocity.X -= MOVE_SPEED_DECCELERATION;
-            velocity.X = Mathf.Clamp(velocity.X, 0, MAX_MOVE_SPEED);
+            velocity.X -= _playerController2D.MoveSpeedDecceleration;
+            velocity.X = Mathf.Clamp(velocity.X, 0, _playerController2D.MaxMoveSpeed);
         }
         _playerController2D.Velocity = velocity;
     }
@@ -93,7 +87,7 @@ public class Moving : State
     private async void ApplyCoyoteTime()
     {
         _coyoteTimeTriggered = true;
-        await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(_coyoteTime), SceneTreeTimer.SignalName.Timeout);
+        await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(_playerController2D.CoyoteTimeDuration), SceneTreeTimer.SignalName.Timeout);
         _playerController2D.ChangeState(new Falling(_playerController2D));
     }
 

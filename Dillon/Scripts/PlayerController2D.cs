@@ -1,25 +1,50 @@
 using Godot;
 using System;
 
-public partial class PlayerController_2D : CharacterBody2D
-{   
-    // GitHub Commit logs Version 0.0.6
-    // - Prevented dash during falling if no direction is given
-    // - Implemented coyote time
-    // - Implemented dash cooldown
+public partial class PlayerController2D : CharacterBody2D
+{
+    // GitHub Commit logs Version 0.0.7  
+    // Adapted the variable jump height -> player has now more control over it
+    // Code Refactoring for all states
+    // Outsourced all variables to a resource file
+    [Export]
+    public PlayerController2D_Data data;
 
-    public AnimatedSprite2D AnimatedSprite2D 
+    public AnimatedSprite2D AnimatedSprite2D
     {
         get;
         private set;
     }
 
     public Timer DashCooldownTimer
-    { 
-        get; 
-        private set; 
+    {
+        get;
+        private set;
     }
 
+    #region Moving State Variables
+    public float MaxMoveSpeed { get { return data.maxMoveSpeed; } }
+    public float MoveSpeedAcceleration { get { return data.moveSpeedAcceleration; } }
+    public float MoveSpeedDecceleration { get { return data.moveSpeedDecceleration; } }
+    #endregion
+    #region Falling State Variables
+    public float MaxFallSpeed { get { return data.maxFallSpeed; } }
+    public float FallSpeedAcceleration { get { return data.fallSpeedAcceleration; } }
+    public float MaxFallingMoveSpeed { get { return data.maxFallingMoveSpeed; } }
+    public float FallingMoveSpeedAcceleration { get { return data.fallingMoveSpeedAcceleration; } }
+    #endregion
+    #region Jumping State Variables
+    public float JumpSpeed { get { return data.jumpSpeed; } }
+    public float JumpEndModifier { get { return data.jumpEndModifier; } }
+    #endregion
+    #region Dashing State Variables
+    public float DashSpeed { get { return data.dashSpeed; } }
+    public float DashDuration { get { return data.dashDuration; } }
+    #endregion
+    #region Mechanics Variables
+    public float CoyoteTimeDuration { get { return data.coyoteTimeDuration; } }
+    public float ApexModifierDuration { get { return data.apexModifierDuration; } }
+    #endregion
 
     public State currentState;
     public State previousState;
@@ -54,14 +79,14 @@ public partial class PlayerController_2D : CharacterBody2D
         currentState.Execute(delta);
 
         floorAngleLine.ClearPoints();
-       
+
         velText.Text = "Velocity: " + Velocity.ToString();
         isOnFloorLabel.Text = "IsOnFloor: " + IsOnFloor();
         floorNormalText.Text = "FloorNormal: " + GetFloorNormal();
         floorAngleText.Text = "FloorAngle: " + GetFloorAngle();
         floorAngleLine.AddPoint(GetPositionDelta());
         floorAngleLine.AddPoint(GetPositionDelta() + GetFloorNormal() * 100f);
-        dashCooldown.Text = String.Format("{0:N0}", DashCooldownTimer.TimeLeft);
+        dashCooldown.Text = string.Format("{0:N0}", DashCooldownTimer.TimeLeft);
         MoveAndSlide();
     }
 

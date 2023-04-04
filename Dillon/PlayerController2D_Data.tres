@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cpdwek8cl4clk"]
+
+[ext_resource type="Script" path="res://Dillon/Scripts/PlayerController2D_Data.cs" id="1_hvaff"]
+
+[resource]
+script = ExtResource("1_hvaff")
+maxMoveSpeed = 250.0
+moveSpeedAcceleration = 40.0
+moveSpeedDecceleration = 40.0
+maxFallSpeed = 700.0
+fallSpeedAcceleration = 25.0
+maxFallingMoveSpeed = 225.0
+fallingMoveSpeedAcceleration = 32.0
+jumpSpeed = 600.0
+jumpEndModifier = 10.0
+dashSpeed = 1000.0
+dashDuration = 0.2
+availableDashes = 1
+coyoteTimeDuration = 0.08
+apexModifierDuration = 0.05

@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://xjog32y8jj7h"]
+[gd_scene load_steps=28 format=3 uid="uid://xjog32y8jj7h"]
 
-[ext_resource type="Script" path="res://Dillon/Scripts/PlayerController_2D.cs" id="1_0471r"]
+[ext_resource type="Script" path="res://Dillon/Scripts/PlayerController2D.cs" id="1_nt2cb"]
+[ext_resource type="Resource" uid="uid://cpdwek8cl4clk" path="res://Dillon/PlayerController2D_Data.tres" id="2_7qrf3"]
 [ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_p8mra"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3q5q"]
@@ -201,7 +202,8 @@ height = 90.0
 font_size = 25
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_0471r")
+script = ExtResource("1_nt2cb")
+data = ExtResource("2_7qrf3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -63)
