@@ -16,5 +16,10 @@ public partial class Level : Node2D
     public void SaveLevel()
     {
         SaveSystem.SaveLevel(this);
-    } 
+    }
+
+    public void DeleteSaveData()
+    {
+        SaveSystem.DeleteSaveGameData(baseLevel);
+    }
 }

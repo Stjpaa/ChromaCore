@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://msn56xpm087e"]
+[gd_scene load_steps=5 format=3 uid="uid://msn56xpm087e"]
 
 [ext_resource type="Script" path="res://Instances/Save System/ButtonLevelLoader.cs" id="1_2omag"]
 [ext_resource type="Script" path="res://Instances/Levels/Level.cs" id="1_flvfp"]
 [ext_resource type="PackedScene" uid="uid://dq8shfok8hg3h" path="res://Instances/Levels/Level-Prototype.tscn" id="2_f42i2"]
+[ext_resource type="Script" path="res://Instances/Save System/ButtonDeleteScene.cs" id="4_neyv3"]
 
 [node name="LevelSelectScene" type="Node2D"]
 
@@ -19,6 +20,15 @@ offset_bottom = 321.0
 text = "Load Scene 1"
 script = ExtResource("1_2omag")
 levelToBeLoaded = NodePath("..")
+
+[node name="Level One Button2" type="Button" parent="Level1" node_paths=PackedStringArray("level")]
+offset_left = 48.0
+offset_top = 323.663
+offset_right = 450.0
+offset_bottom = 621.663
+text = "Delete Scene 1 Data"
+script = ExtResource("4_neyv3")
+level = NodePath("..")
 
 [node name="Level2" type="Node2D" parent="."]
 script = ExtResource("1_flvfp")

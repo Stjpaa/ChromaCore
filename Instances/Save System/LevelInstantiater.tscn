@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b10dwkn0b7oqx"]
+
+[ext_resource type="Script" path="res://Instances/Save System/LevelInstantiater.cs" id="1_bdibs"]
+
+[node name="LevelInstantiater" type="Node2D" node_paths=PackedStringArray("LevelRoot")]
+position = Vector2(0, -1)
+script = ExtResource("1_bdibs")
+LevelRoot = NodePath("LevelRoot")
+
+[node name="LevelRoot" type="Node2D" parent="."]

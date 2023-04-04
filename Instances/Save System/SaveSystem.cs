@@ -2,20 +2,23 @@ using Godot;
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using static System.Formats.Asn1.AsnWriter;
 
 public static class SaveSystem
 {
-    public const string pathToLevelSelectScreen = "res://Instances/Save System/LevelSelectScene.tscn";
-    public const string savePath = "res://SaveData/";
+    private const string pathToLevelSelectScreen = "res://Instances/Save System/LevelSelectScene.tscn";
+    private const string savePathBegining = "res://SaveData/";
+    private const string savePathEnd = "SaveData.tscn";
 
     public static void SaveLevel(Level currentlyPlayedLevel)
     {
-        GD.PrintErr("remove fixed SavePath and automatic back to main menu");
+        GD.PrintErr("change Savepath to user:// remove fixed SavePath and automatic back to main menu");
+
         string fileNameAndLocation = "res://SaveData/Level-PrototypeSaveData.tscn";
 
 
         PackedScene sceneToBeSaved = ScenePacker.CreatePackage(currentlyPlayedLevel.nodeWhichToPack);
-        
+
         //string fileNameAndLocation = GetPathOfSavegame(currentlyPlayedLevel.baseLevel);
 
         ResourceSaver.Save(sceneToBeSaved, fileNameAndLocation);
@@ -29,10 +32,10 @@ public static class SaveSystem
         
         SceneTree currentSceneTree = levelToBeLoaded.GetTree(); // We need the current SceneTree to replace it with the loaded Level
 
-        if (DoesSavegameExistFor(levelToBeLoaded.baseLevel))
+        if (DoesSavegameExistAtPath(GetSaveGamePathOfScene(levelToBeLoaded.baseLevel)))
         {
             GD.Print("Load Savegame");
-            currentSceneTree.ChangeSceneToFile(GetPathOfSavegame(levelToBeLoaded.baseLevel));
+            currentSceneTree.ChangeSceneToFile(GetSaveGamePathOfScene(levelToBeLoaded.baseLevel));
         }
         else
         {
@@ -46,32 +49,47 @@ public static class SaveSystem
     /// Instead we create a separate savegame for each level upon saving said Level.
     /// This function returns if this savegame already exists. This decides, for example, which scene needs to be loaded.
     /// </summary>
-    private static bool DoesSavegameExistFor(PackedScene baseLevel)
+    private static bool DoesSavegameExistAtPath(string pathToCheck)
     {
-        if(baseLevel == null)
+        if(pathToCheck == null)
         {
-            GD.PrintErr("baseLevel given to SaveSystem.DoesSavegameExistFor() does not exist");
+            GD.PrintErr("path given to SaveSystem.DoesSavegameExistFor() = empty string");
             return false;
         }
 
-        string savegameLocation = GetPathOfSavegame(baseLevel);
-
-        bool doesFileExist = File.Exists(ProjectSettings.GlobalizePath(savegameLocation));  // GlobalizePath is needed because File.Exists() checks from the OS Path and not the Godot path
+        bool doesFileExist = File.Exists(ProjectSettings.GlobalizePath(pathToCheck));  // GlobalizePath is needed because File.Exists() checks from the OS Path and not the Godot path
 
         return doesFileExist;
     }
 
-    private static string GetPathOfSavegame(PackedScene baseLevel)
+    private static string GetSaveGamePathOfScene(PackedScene scene)
     {
-        if(baseLevel == null)
+        if(scene == null)
         {
             GD.PrintErr("baseLevel given to SaveSystem.GetPathOfSavegame() does not exist");
             return null;
         }
-        string baseLevelFileName = System.IO.Path.GetFileNameWithoutExtension(baseLevel.ResourcePath);  // removes the path and the datatype
-        string savegamePath = SaveSystem.savePath + baseLevelFileName + "SaveData.tscn";
+        string baseLevelFileName = System.IO.Path.GetFileNameWithoutExtension(scene.ResourcePath);  // removes the path and the datatype
+        string savegamePath = savePathBegining + baseLevelFileName + savePathEnd;
 
         return savegamePath;
+    }
+
+    public static void DeleteSaveGameData(PackedScene baseSceneToDeleteSaveData)
+    {
+        if (baseSceneToDeleteSaveData == null)
+        {
+            GD.PrintErr("baseSceneToDeleteSaveData given to SaveSystem.DeleteSaveGameData() does not exist");
+            return;
+        }
+
+        string PathToScene = GetSaveGamePathOfScene(baseSceneToDeleteSaveData);
+
+        if (DoesSavegameExistAtPath(PathToScene) == true)
+        {
+            File.Delete(ProjectSettings.GlobalizePath(PathToScene));
+        }
+
     }
 
 }
