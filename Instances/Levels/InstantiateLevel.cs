@@ -14,9 +14,9 @@ public partial class InstantiateLevel : Node2D
 		var allGravityfields = this._gravityfieldList.GetChildren();
 		var allGameobjects = this._gameObjects.GetChildren();
 
-		foreach(var gravityfield in allGravityfields)
+		foreach(var gameobject in allGameobjects)
 		{
-			foreach(var gameobject in allGameobjects)
+			foreach(var gravityfield in allGravityfields)
 			{
 				try 
 				{

@@ -317,7 +317,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1cb8"]
 resource_local_to_scene = true
@@ -484,7 +484,7 @@ zoom = Vector2(2, 2)
 [node name="GameObjects" type="Node" parent="."]
 
 [node name="Box" parent="GameObjects" groups=["Objects"] instance=ExtResource("5_wi1df")]
-position = Vector2(32, -76)
+position = Vector2(-152, -79)
 linear_damp = 0.1
 
 [node name="GravityfieldList" type="Node" parent="."]
@@ -507,6 +507,7 @@ _gravityfieldSize = Vector2(70, 70)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
+disabled = true
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
