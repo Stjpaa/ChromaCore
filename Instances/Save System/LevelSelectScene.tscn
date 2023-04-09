@@ -10,7 +10,7 @@
 [node name="Level1" type="Node2D" parent="."]
 scale = Vector2(1, 1.01031)
 script = ExtResource("1_flvfp")
-baseLevel = ExtResource("2_f42i2")
+baseLevelToLoad = ExtResource("2_f42i2")
 
 [node name="Level One Button" type="Button" parent="Level1" node_paths=PackedStringArray("levelToBeLoaded")]
 offset_left = 52.0
@@ -21,7 +21,7 @@ text = "Load Scene 1"
 script = ExtResource("1_2omag")
 levelToBeLoaded = NodePath("..")
 
-[node name="Level One Button2" type="Button" parent="Level1" node_paths=PackedStringArray("level")]
+[node name="Level One Delete Savedata" type="Button" parent="Level1" node_paths=PackedStringArray("level")]
 offset_left = 48.0
 offset_top = 323.663
 offset_right = 450.0
