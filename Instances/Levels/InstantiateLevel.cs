@@ -11,6 +11,8 @@ public partial class InstantiateLevel : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GD.Print("_gravityfieldList = " + _gravityfieldList + "\n_gameObjects = " + _gameObjects);
+
 		var allGravityfields = this._gravityfieldList.GetChildren();
 		var allGameobjects = this._gameObjects.GetChildren();
 
@@ -37,4 +39,21 @@ public partial class InstantiateLevel : Node2D
 	public override void _Process(double delta)
 	{
 	}
+
+
+    public void LoadOnInstantiation()
+	{
+		_gravityfieldList = GetChild(4);
+		_gameObjects = GetChild(3);
+
+
+		GD.PrintErr("test test, load levelinfo");
+	}
+
+	public void SaveOnInstantiation()
+	{
+		GD.PrintErr(_gravityfieldList.GetPath());	// would need to be adjusted, because path would on load not contain LevelRoot and Instanciator
+		
+
+    }
 }

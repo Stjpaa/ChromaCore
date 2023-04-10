@@ -1,26 +1,26 @@
 [gd_scene load_steps=39 format=3]
 
-[ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_w3ia7"]
-[ext_resource type="Texture2D" path="res://Assets/Tileset.png" id="2_me4tp"]
-[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="3_5jtgk"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Platform_Normal.tres" id="4_q4swr"]
-[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="5_2p0pv"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Platform_Moving.tres" id="6_rjdl4"]
-[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="7_l24u3"]
-[ext_resource type="Shader" path="res://Shaders/radar-outline.gdshader" id="8_fa6q0"]
-[ext_resource type="Script" path="res://Instances/Gameobjects/Movable Objects/Box.cs" id="9_o07xk"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Box.png" id="10_wnpg1"]
-[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="11_1kdfs"]
-[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs" id="12_u8myw"]
-[ext_resource type="Shader" path="res://Shaders/forcefield.gdshader" id="13_5d7ov"]
-[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="14_huewu"]
-[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs" id="15_ubrxd"]
-[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="16_38l2u"]
-[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs" id="17_iscxv"]
-[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/GravityfieldSwitch.cs" id="18_vb7ff"]
+[ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_o2lw7"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset.png" id="2_x68lm"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="3_k0lv8"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Platform_Normal.tres" id="4_ybur4"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="5_1m31k"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Platform_Moving.tres" id="6_efsgb"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="7_c3jcw"]
+[ext_resource type="Shader" path="res://Shaders/radar-outline.gdshader" id="8_3ole1"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Movable Objects/Box.cs" id="9_s26ay"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Box.png" id="10_wthnf"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="11_opja4"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs" id="12_vui4x"]
+[ext_resource type="Shader" path="res://Shaders/forcefield.gdshader" id="13_jwfug"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="14_wgt58"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs" id="15_waxcf"]
+[ext_resource type="PackedScene" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="16_6tdnv"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs" id="17_6tpsj"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/GravityfieldSwitch.cs" id="18_yr7ou"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
-texture = ExtResource("2_me4tp")
+texture = ExtResource("2_x68lm")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -105,7 +105,7 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cvvj3"]
-shader = ExtResource("8_fa6q0")
+shader = ExtResource("8_3ole1")
 shader_parameter/color = Color(0, 1, 1, 1)
 shader_parameter/width = 6.795
 shader_parameter/width_speed = 2.181
@@ -120,7 +120,7 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_velxc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmlf"]
-shader = ExtResource("13_5d7ov")
+shader = ExtResource("13_jwfug")
 shader_parameter/width = 30.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.803922, 0.360784, 0.360784, 1)
@@ -137,7 +137,7 @@ shader_parameter/pause = false
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdb21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0tg2"]
-shader = ExtResource("13_5d7ov")
+shader = ExtResource("13_jwfug")
 shader_parameter/width = 30.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
@@ -155,7 +155,7 @@ shader_parameter/pause = true
 size = Vector2(20, 20.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rky1g"]
-shader = ExtResource("13_5d7ov")
+shader = ExtResource("13_jwfug")
 shader_parameter/width = 30.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0, 0, 0.501961, 1)
@@ -165,7 +165,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.74802, 0.663676)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_t4xum"]
 
@@ -173,7 +173,8 @@ shader_parameter/pause = true
 size = Vector2(20, 2.22961)
 
 [node name="LevelPrototype" type="Node2D"]
-script = ExtResource("1_w3ia7")
+scale = Vector2(1, 1.00731)
+script = ExtResource("1_o2lw7")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_32w8q")
@@ -190,7 +191,7 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="NormalPlatform" type="StaticBody2D" parent="Platforms" instance=ExtResource("3_5jtgk")]
+[node name="NormalPlatform" type="StaticBody2D" parent="Platforms" instance=ExtResource("3_k0lv8")]
 position = Vector2(33, -47)
 scale = Vector2(3.32, 1)
 
@@ -198,21 +199,21 @@ scale = Vector2(3.32, 1)
 position = Vector2(-0.0119691, 0.0521761)
 rotation = -1.5708
 scale = Vector2(0.128584, 0.251579)
-texture = ExtResource("4_q4swr")
+texture = ExtResource("4_ybur4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/NormalPlatform"]
 visible = false
 shape = SubResource("RectangleShape2D_5niqk")
 one_way_collision = true
 
-[node name="MovingPlatform" parent="Platforms" instance=ExtResource("5_2p0pv")]
+[node name="MovingPlatform" parent="Platforms" instance=ExtResource("5_1m31k")]
 position = Vector2(-63, -26)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platforms/MovingPlatform"]
 position = Vector2(0.106761, -0.0468206)
 rotation = -1.5708
 scale = Vector2(0.126475, 0.250436)
-texture = ExtResource("6_rjdl4")
+texture = ExtResource("6_efsgb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/MovingPlatform"]
 visible = false
@@ -225,14 +226,14 @@ libraries = {
 "": SubResource("AnimationLibrary_wdbp8")
 }
 
-[node name="MovingPlatform2" parent="Platforms" instance=ExtResource("5_2p0pv")]
+[node name="MovingPlatform2" parent="Platforms" instance=ExtResource("5_1m31k")]
 position = Vector2(40, -101)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platforms/MovingPlatform2"]
 position = Vector2(0.106761, -0.0468206)
 rotation = -1.5708
 scale = Vector2(0.126475, 0.250436)
-texture = ExtResource("6_rjdl4")
+texture = ExtResource("6_efsgb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/MovingPlatform2"]
 visible = false
@@ -251,14 +252,14 @@ zoom = Vector2(2, 2)
 
 [node name="GameObjects" type="Node" parent="."]
 
-[node name="Box" type="CharacterBody2D" parent="GameObjects" groups=["Objects"] instance=ExtResource("7_l24u3")]
+[node name="Box" type="CharacterBody2D" parent="GameObjects" groups=["Objects"] instance=ExtResource("7_c3jcw")]
 material = SubResource("ShaderMaterial_cvvj3")
-position = Vector2(101.876, -117.23)
-velocity = Vector2(-6.77084, -44.6272)
-script = ExtResource("9_o07xk")
+position = Vector2(108.399, -97.7436)
+velocity = Vector2(-0.365991, -3.31318)
+script = ExtResource("9_s26ay")
 
 [node name="Sprite2D" type="Sprite2D" parent="GameObjects/Box"]
-texture = ExtResource("10_wnpg1")
+texture = ExtResource("10_wthnf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Box"]
 visible = false
@@ -266,10 +267,10 @@ shape = SubResource("RectangleShape2D_ns5g7")
 
 [node name="GravityfieldList" type="Node" parent="."]
 
-[node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("11_1kdfs")]
+[node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("11_opja4")]
 position = Vector2(100, -91)
 scale = Vector2(3.44, 0.76)
-script = ExtResource("12_u8myw")
+script = ExtResource("12_vui4x")
 _gravityDirection = Vector2(-3.77907, -34.2105)
 _gravityStrength = 100.0
 
@@ -286,10 +287,10 @@ material = SubResource("ShaderMaterial_hvmlf")
 scale = Vector2(20, 20)
 texture = SubResource("CanvasTexture_n1qrv")
 
-[node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("14_huewu")]
+[node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("14_wgt58")]
 position = Vector2(-305, -130)
 scale = Vector2(2.8, 5.04)
-script = ExtResource("15_ubrxd")
+script = ExtResource("15_waxcf")
 _gravityDirection = Vector2(2.5, -12.1032)
 _intervalTime = 4.0
 _enabledTime = 1.0
@@ -300,7 +301,6 @@ position = Vector2(2.5, -12.1032)
 [node name="GravityfieldCollider" type="CollisionShape2D" parent="GravityfieldList/Gravityfield_Time"]
 visible = false
 shape = SubResource("RectangleShape2D_fdb21")
-disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="GravityfieldList/Gravityfield_Time"]
 material = SubResource("ShaderMaterial_g0tg2")
@@ -314,10 +314,10 @@ one_shot = true
 [node name="EnabledFor" type="Timer" parent="GravityfieldList/Gravityfield_Time"]
 one_shot = true
 
-[node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("16_38l2u")]
+[node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("16_6tdnv")]
 position = Vector2(154, -102)
 scale = Vector2(1.37508, 1.93728)
-script = ExtResource("17_iscxv")
+script = ExtResource("17_6tpsj")
 _gravityDirection = Vector2(14.5447, -12.9047)
 
 [node name="GravityDirection" type="Node2D" parent="GravityfieldList/Gravityfield_Toggle"]
@@ -333,7 +333,7 @@ texture = SubResource("CanvasTexture_t4xum")
 
 [node name="Switch" type="Area2D" parent="GravityfieldList/Gravityfield_Toggle"]
 position = Vector2(-31.271, 8.259)
-script = ExtResource("18_vb7ff")
+script = ExtResource("18_yr7ou")
 
 [node name="SwitchCollider" type="CollisionShape2D" parent="GravityfieldList/Gravityfield_Toggle/Switch"]
 shape = SubResource("RectangleShape2D_d6pxg")

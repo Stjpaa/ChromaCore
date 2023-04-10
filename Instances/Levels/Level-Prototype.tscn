@@ -89,6 +89,7 @@ _data = {
 }
 
 [node name="LevelPrototype" type="Node2D" node_paths=PackedStringArray("_gravityfieldList", "_gameObjects")]
+scale = Vector2(1, 1.00731)
 script = ExtResource("1_vhqca")
 _gravityfieldList = NodePath("GravityfieldList")
 _gameObjects = NodePath("GameObjects")
@@ -160,9 +161,6 @@ _enabledTime = 1.0
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time" index="0"]
 position = Vector2(2.5, -12.1032)
-
-[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="1"]
-disabled = true
 
 [node name="Interval" parent="GravityfieldList/Gravityfield_Time" index="3"]
 wait_time = 4.0

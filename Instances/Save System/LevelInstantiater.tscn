@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b10dwkn0b7oqx"]
+[gd_scene load_steps=4 format=3 uid="uid://b10dwkn0b7oqx"]
 
 [ext_resource type="Script" path="res://Instances/Save System/LevelInstantiater.cs" id="1_bdibs"]
 [ext_resource type="Script" path="res://Instances/Save System/TestLevelSaver.cs" id="2_12t26"]
+[ext_resource type="Script" path="res://Instances/Save System/LoadTestSkript.cs" id="2_tc1ey"]
 
 [node name="LevelInstantiater" type="Node2D" node_paths=PackedStringArray("levelRoot")]
 position = Vector2(0, -1)
@@ -10,6 +11,7 @@ script = ExtResource("1_bdibs")
 levelRoot = NodePath("LevelRoot")
 
 [node name="LevelRoot" type="Node2D" parent="."]
+script = ExtResource("2_tc1ey")
 
 [node name="Button" type="Button" parent="." node_paths=PackedStringArray("LevelToSave")]
 offset_right = 8.0

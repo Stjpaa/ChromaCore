@@ -1,5 +1,10 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+using System.Reflection;
+
 
 public partial class LevelInstantiater : Node2D
 {
@@ -8,6 +13,8 @@ public partial class LevelInstantiater : Node2D
 
     public override void _Ready()
     {
+
+
         if (!SaveSystem.DoesFileExistAtPath(levelToBeInstantiatedPath))
         {
             GD.PrintErr("no Level exsists at levelToBeInstantiatedPath in LevelInstantiater");
@@ -24,6 +31,7 @@ public partial class LevelInstantiater : Node2D
 
     public void SaveLevel()
     {
+        SaveLevelData(levelRoot.GetChild(0));   // levelRoot does not need to be checked, because it does not belong to the level
         SaveSystem.SaveLevel(this);
     }
 
@@ -44,7 +52,13 @@ public partial class LevelInstantiater : Node2D
         {
             // Load Savegame and place it under node
             sceneToLoad = ResourceLoader.Load<PackedScene>(saveGamePath);
-            levelRoot.AddChild(sceneToLoad.Instantiate());
+            Node TreeToAddUnderLevelRoot = sceneToLoad.Instantiate();   // we dont add this instantly to the scene to first Load every saved varibles
+
+
+            LoadLevelData(TreeToAddUnderLevelRoot);
+
+            levelRoot.AddChild(TreeToAddUnderLevelRoot);
+
         }
         else // Load base level. No extra Loading needed because references are preserved this way
         {
@@ -52,9 +66,31 @@ public partial class LevelInstantiater : Node2D
 
             sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
             levelRoot.AddChild(sceneToLoad.Instantiate());
-        }
-
-        
+        }      
     }
+
+    private void LoadLevelData(Node node)
+    {
+        node.Call("LoadOnInstantiation");       // executes the script on each node if it exists on it
+
+        // Recursively write all child nodes
+        foreach (Node child in node.GetChildren())
+        {
+            LoadLevelData(child);
+        }
+    }
+
+    private void SaveLevelData(Node node)
+    {
+        node.Call("SaveOnInstantiation");       // executes the script on each node if it exists on it
+
+        // Recursively write all child nodes
+        foreach (Node child in node.GetChildren())
+        {
+            SaveLevelData(child);
+        }
+    }
+
+
 
 }
