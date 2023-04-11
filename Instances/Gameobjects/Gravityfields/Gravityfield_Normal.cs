@@ -64,7 +64,7 @@ public partial class Gravityfield_Normal : Area2D
     {
 		if (Engine.IsEditorHint())
 		{
-			DrawLine(new Vector2(0,0), this._gravityDirection, Colors.Blue, 0.3f);
+			DrawLine(new Vector2(0,0), this._gravityDirection, Colors.Blue, 0.5f);
 		}
     }
 

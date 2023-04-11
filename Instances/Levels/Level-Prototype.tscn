@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=26 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="7_vr5mk"]
 [ext_resource type="PackedScene" uid="uid://rfnsqa1150ea" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="8_i08wq"]
 [ext_resource type="PackedScene" uid="uid://mb5aisolynk5" path="res://Instances/Gameobjects/Platforms/JumpPad.tscn" id="9_3ixdi"]
+[ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="10_xwke7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -436,11 +437,12 @@ shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
 shader_parameter/pause = true
 
-[node name="LevelPrototype" type="Node2D" node_paths=PackedStringArray("_gravityfieldList", "_gameObjectsList", "_jumpPadsList")]
+[node name="LevelPrototype" type="Node2D" node_paths=PackedStringArray("_gravityfieldList", "_gameObjectsList", "_jumpPadsList", "_portalsList")]
 script = ExtResource("1_vhqca")
 _gravityfieldList = NodePath("GravityfieldList")
-_gameObjectsList = NodePath("GameObjects")
-_jumpPadsList = NodePath("JumpPads")
+_gameObjectsList = NodePath("GameObjectsList")
+_jumpPadsList = NodePath("JumpPadsList")
+_portalsList = NodePath("PortalsList")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_32w8q")
@@ -455,25 +457,25 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array()
 
-[node name="Platforms" type="Node" parent="."]
+[node name="PlatformsList" type="Node" parent="."]
 
-[node name="NormalPlatform" parent="Platforms" instance=ExtResource("2_bkqre")]
+[node name="NormalPlatform" parent="PlatformsList" instance=ExtResource("2_bkqre")]
 position = Vector2(33, -47)
 scale = Vector2(3.32, 1)
 
-[node name="MovingPlatform" parent="Platforms" instance=ExtResource("3_sj8q7")]
+[node name="MovingPlatform" parent="PlatformsList" instance=ExtResource("3_sj8q7")]
 position = Vector2(-63, -26)
 
-[node name="AnimationPlayer" parent="Platforms/MovingPlatform" index="2"]
+[node name="AnimationPlayer" parent="PlatformsList/MovingPlatform" index="2"]
 autoplay = "Move"
 libraries = {
 "": SubResource("AnimationLibrary_wdbp8")
 }
 
-[node name="MovingPlatform2" parent="Platforms" instance=ExtResource("3_sj8q7")]
+[node name="MovingPlatform2" parent="PlatformsList" instance=ExtResource("3_sj8q7")]
 position = Vector2(40, -101)
 
-[node name="AnimationPlayer" parent="Platforms/MovingPlatform2" index="2"]
+[node name="AnimationPlayer" parent="PlatformsList/MovingPlatform2" index="2"]
 autoplay = "Move"
 libraries = {
 "": SubResource("AnimationLibrary_mpaml")
@@ -483,10 +485,10 @@ libraries = {
 position = Vector2(-52, -22)
 zoom = Vector2(2, 2)
 
-[node name="GameObjects" type="Node" parent="."]
+[node name="GameObjectsList" type="Node" parent="."]
 
-[node name="Box" parent="GameObjects" instance=ExtResource("5_wi1df")]
-position = Vector2(-217, -111)
+[node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
+position = Vector2(-245, -211)
 linear_damp = 0.1
 
 [node name="GravityfieldList" type="Node" parent="."]
@@ -504,7 +506,7 @@ position = Vector2(0, -47)
 material = SubResource("ShaderMaterial_w4st0")
 
 [node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("7_vr5mk")]
-position = Vector2(-287, -99)
+position = Vector2(-153, -147)
 _gravityfieldSize = Vector2(70, 70)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
@@ -531,14 +533,23 @@ scale = Vector2(100, 100)
 [node name="Switch" parent="GravityfieldList/Gravityfield_Toggle" index="1"]
 position = Vector2(-74, 33)
 
-[node name="JumpPads" type="Node" parent="."]
+[node name="JumpPadsList" type="Node" parent="."]
 
-[node name="JumpPad" parent="JumpPads" instance=ExtResource("9_3ixdi")]
-position = Vector2(-217, -26)
+[node name="JumpPad" parent="JumpPadsList" instance=ExtResource("9_3ixdi")]
+position = Vector2(-99, -163)
 _strength = 600.0
 
-[editable path="Platforms/MovingPlatform"]
-[editable path="Platforms/MovingPlatform2"]
+[node name="PortalsList" type="Node" parent="."]
+
+[node name="Portals" parent="PortalsList" instance=ExtResource("10_xwke7")]
+position = Vector2(-272, 28)
+
+[node name="ImpulseDirection" parent="PortalsList/Portals/Portal1" index="1"]
+position = Vector2(72, -54)
+
+[editable path="PlatformsList/MovingPlatform"]
+[editable path="PlatformsList/MovingPlatform2"]
 [editable path="GravityfieldList/Gravityfield_Normal"]
 [editable path="GravityfieldList/Gravityfield_Time"]
 [editable path="GravityfieldList/Gravityfield_Toggle"]
+[editable path="PortalsList/Portals"]
