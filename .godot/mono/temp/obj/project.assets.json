@@ -2,75 +2,67 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Godot.SourceGenerators/4.0.0": {
+      "Godot.SourceGenerators/4.0.1": {
         "type": "package",
         "build": {
           "build/Godot.SourceGenerators.props": {}
         }
       },
-      "GodotSharp/4.0.0": {
+      "GodotSharp/4.0.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/GodotSharp.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/GodotSharp.dll": {}
         },
         "runtime": {
-          "lib/net6.0/GodotSharp.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/GodotSharp.dll": {}
         }
       },
-      "GodotSharpEditor/4.0.0": {
+      "GodotSharpEditor/4.0.1": {
         "type": "package",
         "dependencies": {
-          "GodotSharp": "4.0.0"
+          "GodotSharp": "4.0.1"
         },
         "compile": {
-          "lib/net6.0/GodotSharpEditor.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/GodotSharpEditor.dll": {}
         },
         "runtime": {
-          "lib/net6.0/GodotSharpEditor.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/GodotSharpEditor.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Godot.SourceGenerators/4.0.0": {
-      "sha512": "u+xcapvfVha2BtTF7cRHrNfo+mxH4uGsJrEDQFM3FG+Kww61m2Qs/s2IqgEzR/CLFwidrdgn624xFHk738KnQw==",
+    "Godot.SourceGenerators/4.0.1": {
+      "sha512": "CZHw1R3/Z+a1MVm8rIemmCLyDklf1j1qSa1HmOTgU8xvB5U6yjvEnqYfpoy4MFV9R4GlkhmVUj2Cr+zXvXVlQA==",
       "type": "package",
-      "path": "godot.sourcegenerators/4.0.0",
+      "path": "godot.sourcegenerators/4.0.1",
       "files": [
         ".nupkg.metadata",
         "analyzers/dotnet/cs/Godot.SourceGenerators.dll",
         "build/Godot.SourceGenerators.props",
-        "godot.sourcegenerators.4.0.0.nupkg.sha512",
+        "godot.sourcegenerators.4.0.1.nupkg.sha512",
         "godot.sourcegenerators.nuspec"
       ]
     },
-    "GodotSharp/4.0.0": {
-      "sha512": "SbiM07Eh6m1vASfzSIMIfwdpFvI6E+c0+VA5aOB3SKl/pWnl8ToAc8eR1wbjBnkw7D13A8+Nk8j/AJvWiHOCTw==",
+    "GodotSharp/4.0.1": {
+      "sha512": "rkUab9ZZPV/b28TCSQojisg41XT6CU0+0o+jmTUesT6NWXns1Xg3mDni3AP7FeKIrTY4LIjUPIDXRGxQyyy7wg==",
       "type": "package",
-      "path": "godotsharp/4.0.0",
+      "path": "godotsharp/4.0.1",
       "files": [
         ".nupkg.metadata",
-        "godotsharp.4.0.0.nupkg.sha512",
+        "godotsharp.4.0.1.nupkg.sha512",
         "godotsharp.nuspec",
         "lib/net6.0/GodotSharp.dll",
         "lib/net6.0/GodotSharp.xml"
       ]
     },
-    "GodotSharpEditor/4.0.0": {
-      "sha512": "VmNKvHgFdK67l/e8BfUqzVSXS3wZqZhYREdh1VKzZCY61vKxXqppIUcUb8QzsS0RaK00jXVK4LqlcxrgpG9sUQ==",
+    "GodotSharpEditor/4.0.1": {
+      "sha512": "gXuVXB1hZiS7lhLmU+KmIpwYg/fFJUMvqfHnoz+PsowRth4HpENtdD4oCbYPQXUBQBDBPreOfVNrZLSYpr0wZQ==",
       "type": "package",
-      "path": "godotsharpeditor/4.0.0",
+      "path": "godotsharpeditor/4.0.1",
       "files": [
         ".nupkg.metadata",
-        "godotsharpeditor.4.0.0.nupkg.sha512",
+        "godotsharpeditor.4.0.1.nupkg.sha512",
         "godotsharpeditor.nuspec",
         "lib/net6.0/GodotSharpEditor.dll",
         "lib/net6.0/GodotSharpEditor.xml"
@@ -79,30 +71,30 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Godot.SourceGenerators >= 4.0.0",
-      "GodotSharp >= 4.0.0",
-      "GodotSharpEditor >= 4.0.0"
+      "Godot.SourceGenerators >= 4.0.1",
+      "GodotSharp >= 4.0.1",
+      "GodotSharpEditor >= 4.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Martin\\.nuget\\packages\\": {},
-    "C:\\Users\\Martin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {}
+    "C:\\Users\\Stefa\\.nuget\\packages\\": {},
+    "C:\\Users\\Stefa\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
+      "projectUniqueName": "C:\\ChromaCore\\ChromaCore\\Sem6Projekt.csproj",
       "projectName": "Sem6Projekt",
-      "projectPath": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
-      "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
-      "outputPath": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\.godot\\mono\\temp\\obj\\",
+      "projectPath": "C:\\ChromaCore\\ChromaCore\\Sem6Projekt.csproj",
+      "packagesPath": "C:\\Users\\Stefa\\.nuget\\packages\\",
+      "outputPath": "C:\\ChromaCore\\ChromaCore\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Users\\Martin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+        "C:\\Users\\Stefa\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+        "C:\\Users\\Stefa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Stefa\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -130,15 +122,15 @@
         "dependencies": {
           "Godot.SourceGenerators": {
             "target": "Package",
-            "version": "[4.0.0, )"
+            "version": "[4.0.1, )"
           },
           "GodotSharp": {
             "target": "Package",
-            "version": "[4.0.0, )"
+            "version": "[4.0.1, )"
           },
           "GodotSharpEditor": {
             "target": "Package",
-            "version": "[4.0.0, )"
+            "version": "[4.0.1, )"
           }
         },
         "imports": [
@@ -147,8 +139,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -157,7 +148,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
