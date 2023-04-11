@@ -1,29 +1,30 @@
 using Godot;
 using System;
 
-public partial class Box : CharacterBody2D
+public partial class Box : RigidBody2D
 {
 	private Vector2 _defaultGravity = new Vector2(0, ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle());
 	private Vector2 _currentGravity;
 
-	// Called when the node enters the scene tree for the first time.
+	private bool _enteredJumpPad = false;
+
+	private Vector2 _jumpPadStrength;
+
 	public override void _Ready()
 	{
 		this._currentGravity = this._defaultGravity;
+		LinearVelocity = this._currentGravity;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _PhysicsProcess(double delta)
+	public override void _IntegrateForces(PhysicsDirectBodyState2D state)
 	{
-		this.Velocity += this._currentGravity * (float)delta;
+		state.LinearVelocity += this._currentGravity * (float)GetPhysicsProcessDeltaTime();
 
-		if (this.IsOnFloorOnly())
+		if (this._enteredJumpPad)
 		{
-			// This somehow stops the box from sliding lol
-			this.Velocity = this._currentGravity * (float)delta;
+			state.ApplyImpulse(this._jumpPadStrength);
+			this._enteredJumpPad = false;
 		}
-
-		MoveAndSlide();
 	}
 
 	private void ChangeGravityProperties(Vector2 direction, float strength)
@@ -34,5 +35,11 @@ public partial class Box : CharacterBody2D
 	public void ResetGravityProperties()
 	{
 		this._currentGravity = this._defaultGravity;
+	}
+	
+	public void ApplyJumpPadForce(Vector2 strength)
+	{
+		this._enteredJumpPad = true;
+		this._jumpPadStrength = strength;	
 	}
 }
