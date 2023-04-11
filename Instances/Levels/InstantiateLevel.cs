@@ -15,6 +15,8 @@ public partial class InstantiateLevel : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GD.Print("_gravityfieldList = " + _gravityfieldList + "\n_gameObjects = " + _gameObjectsList);
+
 		var allGravityfields = this._gravityfieldList.GetChildren();
 		var allGameobjects = this._gameObjectsList.GetChildren();
 		var allJumpPads = this._jumpPadsList.GetChildren();
@@ -41,4 +43,5 @@ public partial class InstantiateLevel : Node2D
 	public override void _Process(double delta)
 	{
 	}
+
 }
