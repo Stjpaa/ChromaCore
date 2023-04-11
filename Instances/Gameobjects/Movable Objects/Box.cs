@@ -6,7 +6,9 @@ public partial class Box : RigidBody2D
 	private Vector2 _defaultGravity = new Vector2(0, ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle());
 	private Vector2 _currentGravity;
 
-	private PhysicsDirectBodyState2D _state;
+	private bool _enteredJumpPad = false;
+
+	private Vector2 _jumpPadStrength;
 
 	public override void _Ready()
 	{
@@ -14,23 +16,16 @@ public partial class Box : RigidBody2D
 		LinearVelocity = this._currentGravity;
 	}
 
-    public override void _IntegrateForces(PhysicsDirectBodyState2D state)
-    {
+	public override void _IntegrateForces(PhysicsDirectBodyState2D state)
+	{
 		state.LinearVelocity += this._currentGravity * (float)GetPhysicsProcessDeltaTime();
-    }
 
-	// public override void _PhysicsProcess(double delta)
-	// {
-	// 	this.Velocity += this._currentGravity * (float)delta;
-
-	// 	if (this.IsOnFloorOnly())
-	// 	{
-	// 		// This somehow stops the box from sliding lol
-	// 		this.Velocity = this._currentGravity * (float)delta;
-	// 	}
-
-	// 	MoveAndSlide();
-	// }
+		if (this._enteredJumpPad)
+		{
+			state.ApplyImpulse(this._jumpPadStrength);
+			this._enteredJumpPad = false;
+		}
+	}
 
 	private void ChangeGravityProperties(Vector2 direction, float strength)
 	{
@@ -40,5 +35,11 @@ public partial class Box : RigidBody2D
 	public void ResetGravityProperties()
 	{
 		this._currentGravity = this._defaultGravity;
+	}
+	
+	public void ApplyJumpPadForce(Vector2 strength)
+	{
+		this._enteredJumpPad = true;
+		this._jumpPadStrength = strength;	
 	}
 }
