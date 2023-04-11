@@ -7,6 +7,6 @@ public partial class ButtonDeleteScene : Button
 
     public override void _Pressed()
     {
-        level.DeleteSaveData();
+        //level.DeleteSaveData();
     }
 }

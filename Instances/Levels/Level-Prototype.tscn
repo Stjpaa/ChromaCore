@@ -162,6 +162,9 @@ _enabledTime = 1.0
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time" index="0"]
 position = Vector2(2.5, -12.1032)
 
+[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="1"]
+disabled = true
+
 [node name="Interval" parent="GravityfieldList/Gravityfield_Time" index="3"]
 wait_time = 4.0
 autostart = false

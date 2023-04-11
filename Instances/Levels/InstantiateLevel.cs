@@ -41,19 +41,19 @@ public partial class InstantiateLevel : Node2D
 	}
 
 
-    public void LoadOnInstantiation()
+	public string LoadOnInstantiation()
 	{
 		_gravityfieldList = GetChild(4);
 		_gameObjects = GetChild(3);
 
 
 		GD.PrintErr("test test, load levelinfo");
+		return "test callback";
 	}
 
 	public void SaveOnInstantiation()
 	{
-		GD.PrintErr(_gravityfieldList.GetPath());	// would need to be adjusted, because path would on load not contain LevelRoot and Instanciator
-		
+		GD.PrintErr(_gravityfieldList.GetPath());	// would need to be adjusted, because path would on load not contain LevelRoot and Instanciator		
 
     }
 }

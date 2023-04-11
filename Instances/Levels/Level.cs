@@ -14,8 +14,8 @@ public partial class Level : Node2D
         SaveSystem.LoadLevelWithLevelInstantiator(this);
     }
 
-    public void DeleteSaveData()
-    {
-        SaveSystem.DeleteSaveGameData(baseLevelToLoad);
-    }
+    //public void DeleteSaveData()
+    //{
+    //    SaveSystem.DeleteSaveGameData(baseLevelToLoad);
+    //}
 }

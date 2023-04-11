@@ -15,7 +15,8 @@ public partial class TestLevelSaver : Button
             GD.PrintErr("no LevelInstantiater was assigned to TestLevelSaver");
             return;
         }
-        LevelToSave.SaveLevel();
+        //LevelToSave.SaveLevel();
+        SaveSystem.BackToLevelSelectScreen(GetTree());
     }
 
 
