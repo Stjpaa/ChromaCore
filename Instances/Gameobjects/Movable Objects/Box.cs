@@ -45,9 +45,9 @@ public partial class Box : RigidBody2D
 		}
 	}
 
-	private void ChangeGravityProperties(Vector2 direction, float strength)
+	private void ChangeGravityProperties(Vector2 direction)
 	{
-		this._currentGravity = direction.Normalized() * strength;
+		this._currentGravity = direction;
 	}
 
 	public void ResetGravityProperties()

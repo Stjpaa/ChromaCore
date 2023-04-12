@@ -11,7 +11,7 @@ public partial class Gravityfield_Toggle : Area2D
 	private float _gravityStrength = 200;
 
 	[Signal]
-	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction, float strength);
+	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction);
 
 	[Signal]
 	public delegate void OnGravityfieldExitedEventHandler();
@@ -78,7 +78,7 @@ public partial class Gravityfield_Toggle : Area2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		EmitSignal("OnGravityfieldEntered", this._gravityDirection, this._gravityStrength);
+		EmitSignal("OnGravityfieldEntered", this._gravityDirection * this._gravityStrength);
 	}	
 
 	public void OnBodyExited(Node2D body)

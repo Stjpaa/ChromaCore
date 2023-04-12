@@ -15,17 +15,22 @@ public partial class InstantiateLevel : Node2D
 	[Export]
 	private Node _portalsList;
 
+	[Export]
+	private Node _checkpointsList;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		GD.Print("_gravityfieldList = " + _gravityfieldList + "\n_gameObjects = " + _gameObjectsList);
 
+		// Get mechanic objects from the lists
 		var allGravityfields = this._gravityfieldList.GetChildren();
 		var allGameobjects = this._gameObjectsList.GetChildren();
 		var allJumpPads = this._jumpPadsList.GetChildren();
 		var allPortals = this._portalsList.GetChildren();
+		var allCheckpoints = this._checkpointsList.GetChildren();
 
-
+		// Connect mechanic objects to game objects such as Player, Boxes etc
 		foreach(var gameobject in allGameobjects)
 		{
 			foreach(var gravityfield in allGravityfields)
@@ -46,13 +51,17 @@ public partial class InstantiateLevel : Node2D
 				portal.Connect("TeleportObject", new Callable(gameobject, "Teleport"));
 				GD.Print("Connected " + portal.Name + " to " + gameobject.Name);
 			}
+
+			if (gameobject.Name == "Player")
+			{
+				foreach(var checkpoint in allCheckpoints)
+				{
+					checkpoint.Connect("OnCheckpointReached", new Callable(gameobject, "SaveCheckpointLocation"));
+					GD.Print("Connected " + checkpoint.Name + " to " + gameobject.Name);
+				}
+			}
+
 		}
 		
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 }
