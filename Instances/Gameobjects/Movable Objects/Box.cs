@@ -18,6 +18,10 @@ public partial class Box : RigidBody2D
 
 	private float _teleportTimer = 1f;
 
+	private bool _collided = false;
+
+	private Vector2 _collisionImpulse;
+
 	public override void _Ready()
 	{
 		this._currentGravity = this._defaultGravity;
@@ -29,6 +33,8 @@ public partial class Box : RigidBody2D
 		state.LinearVelocity += this._currentGravity * (float)GetPhysicsProcessDeltaTime();
 		this._teleportTimer += (float)GetPhysicsProcessDeltaTime();
 
+		var test = GetCollidingBodies();
+		
 		if (this._enteredJumpPad)
 		{
 			state.ApplyImpulse(this._jumpPadStrength);
@@ -43,9 +49,21 @@ public partial class Box : RigidBody2D
 			this._enteredPortal = false;
 			this._teleportTimer = 0;
 		}
+
+		if (this._collided)
+		{
+			state.ApplyImpulse(this._collisionImpulse);
+			this._collided = false;
+		}
 	}
 
-	private void ChangeGravityProperties(Vector2 direction)
+	public void ApplyCollisionImpulse(Vector2 collisionStrength)
+	{
+		this._collided = true;
+		this._collisionImpulse = collisionStrength;
+	}
+
+	public void ChangeGravityProperties(Vector2 direction)
 	{
 		this._currentGravity = direction;
 	}

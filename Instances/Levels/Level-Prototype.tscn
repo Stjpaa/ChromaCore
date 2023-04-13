@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=28 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://mb5aisolynk5" path="res://Instances/Gameobjects/Platforms/JumpPad.tscn" id="9_3ixdi"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="10_xwke7"]
 [ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
+[ext_resource type="PackedScene" uid="uid://xjog32y8jj7h" path="res://Dillon/character_body_2d.tscn" id="12_oyuft"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -320,7 +321,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1cb8"]
 resource_local_to_scene = true
@@ -490,15 +491,15 @@ zoom = Vector2(2, 2)
 [node name="GameObjectsList" type="Node" parent="."]
 
 [node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(-172, -3)
+position = Vector2(-138, -3)
 
 [node name="Box2" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(-308, -69)
+position = Vector2(-99, -193)
 
 [node name="GravityfieldList" type="Node" parent="."]
 
 [node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
-position = Vector2(-202, -16)
+position = Vector2(-302, -145)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Normal" index="0"]
 shape = SubResource("RectangleShape2D_vpx1o")
@@ -514,7 +515,6 @@ position = Vector2(-153, -147)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
-disabled = true
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
@@ -554,9 +554,13 @@ position = Vector2(48, -57)
 [node name="Checkpoint" parent="CheckpointsList" instance=ExtResource("11_l85ei")]
 position = Vector2(37, 112)
 
+[node name="CharacterBody2D" parent="." instance=ExtResource("12_oyuft")]
+position = Vector2(-200, -2)
+
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]
 [editable path="GravityfieldList/Gravityfield_Normal"]
 [editable path="GravityfieldList/Gravityfield_Time"]
 [editable path="GravityfieldList/Gravityfield_Toggle"]
 [editable path="PortalsList/Portals"]
+[editable path="CharacterBody2D"]
