@@ -1,6 +1,6 @@
 # Godot 4+ specific ignores
 # This folder stores various project cache data
-.godot/
+#.godot/
 # Stores all the files the engine imports automatically based on your source assets and their import flags
 .godot/imported/
 # Holds data regarding the editor state, such as currently opened script files, and recently used nodes

@@ -1,0 +1,17 @@
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.deps.json
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.runtimeconfig.json
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.dll
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.pdb
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\bin\Debug\GodotSharp.dll
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.AssemblyReference.cache
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.GeneratedMSBuildEditorConfig.editorconfig
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.AssemblyInfoInputs.cache
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.AssemblyInfo.cs
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.CoreCompileInputs.cache
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.CopyComplete
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.dll
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\refint\Sem6Projekt.dll
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.pdb
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.genruntimeconfig.cache
+Y:\Studium\6. Semester\Module\Game Prototyping\ChromaCore\.godot\mono\temp\obj\Debug\ref\Sem6Projekt.dll
