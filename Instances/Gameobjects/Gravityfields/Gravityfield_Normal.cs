@@ -11,7 +11,7 @@ public partial class Gravityfield_Normal : Area2D
 	private float _gravityStrength = 300;
 
 	[Signal]
-	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction, float strength);
+	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction);
 
 	[Signal]
 	public delegate void OnGravityfieldExitedEventHandler();
@@ -64,13 +64,13 @@ public partial class Gravityfield_Normal : Area2D
     {
 		if (Engine.IsEditorHint())
 		{
-			DrawLine(new Vector2(0,0), this._gravityDirection, Colors.Blue, 0.3f);
+			DrawLine(new Vector2(0,0), this._gravityDirection, Colors.Blue, 0.5f);
 		}
     }
 
 	public void OnBodyEntered(Node2D body)
 	{
-		EmitSignal("OnGravityfieldEntered", this._gravityDirection, this._gravityStrength);
+		EmitSignal("OnGravityfieldEntered", this._gravityDirection.Normalized() * this._gravityStrength);
 	}	
 
 	public void OnBodyExited(Node2D body)
