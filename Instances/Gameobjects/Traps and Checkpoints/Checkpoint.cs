@@ -9,7 +9,7 @@ public partial class Checkpoint : Area2D
 	{
 		if (body.Name == "Player")
 		{
-			EmitSignal("OnCheckPointReached", this.GlobalPosition);
+			body.Call("SaveCheckpointLocation", this.GlobalPosition);
 		}
 	}
 }

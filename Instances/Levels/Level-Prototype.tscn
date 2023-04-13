@@ -208,7 +208,7 @@ shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt8sq"]
 resource_local_to_scene = true
-size = Vector2(70, 70)
+size = Vector2(50, 50)
 
 [sub_resource type="Shader" id="Shader_xo56k"]
 code = "shader_type canvas_item;
@@ -311,7 +311,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cm6gq"]
 resource_local_to_scene = true
 shader = SubResource("Shader_xo56k")
-shader_parameter/width = 70.0
+shader_parameter/width = 50.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.701961, 0.701961, 0, 1)
 shader_parameter/background_color = Color(0.992157, 0.854902, 0, 0.156863)
@@ -324,7 +324,7 @@ shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1cb8"]
 resource_local_to_scene = true
-size = Vector2(100, 100)
+size = Vector2(50, 50)
 
 [sub_resource type="Shader" id="Shader_t6nll"]
 code = "shader_type canvas_item;
@@ -427,7 +427,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1qgf"]
 resource_local_to_scene = true
 shader = SubResource("Shader_t6nll")
-shader_parameter/width = 100.0
+shader_parameter/width = 50.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
 shader_parameter/background_color = Color(0, 0, 1, 0.168627)
@@ -490,13 +490,15 @@ zoom = Vector2(2, 2)
 [node name="GameObjectsList" type="Node" parent="."]
 
 [node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(-245, -211)
-linear_damp = 0.1
+position = Vector2(-172, -3)
+
+[node name="Box2" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
+position = Vector2(-308, -69)
 
 [node name="GravityfieldList" type="Node" parent="."]
 
 [node name="Gravityfield_Normal" parent="GravityfieldList" instance=ExtResource("6_ot4hf")]
-position = Vector2(-158, -15)
+position = Vector2(-202, -16)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Normal" index="0"]
 shape = SubResource("RectangleShape2D_vpx1o")
@@ -509,7 +511,6 @@ material = SubResource("ShaderMaterial_w4st0")
 
 [node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("7_vr5mk")]
 position = Vector2(-153, -147)
-_gravityfieldSize = Vector2(70, 70)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
@@ -520,18 +521,15 @@ position = Vector2(14, -19)
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_cm6gq")
-scale = Vector2(70, 70)
 
 [node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("8_i08wq")]
 position = Vector2(145, -133)
-_gravityfieldSize = Vector2(100, 100)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Toggle" index="0"]
 shape = SubResource("RectangleShape2D_c1cb8")
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Toggle/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_d1qgf")
-scale = Vector2(100, 100)
 
 [node name="Switch" parent="GravityfieldList/Gravityfield_Toggle" index="1"]
 position = Vector2(-74, 33)
@@ -546,6 +544,7 @@ _strength = 600.0
 
 [node name="Portals" parent="PortalsList" instance=ExtResource("10_xwke7")]
 position = Vector2(-272, 28)
+_portal1ImpulseStrength = 600.0
 
 [node name="ImpulseDirection" parent="PortalsList/Portals/Portal1" index="1"]
 position = Vector2(48, -57)

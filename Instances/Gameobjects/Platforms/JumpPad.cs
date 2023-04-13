@@ -11,6 +11,6 @@ public partial class JumpPad : StaticBody2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		EmitSignal("OnJumpPadEntered", new Vector2(0, -this._strength));
+		body.Call("ApplyJumpPadForce", new Vector2(0, -this._strength));
 	}
 }

@@ -78,13 +78,12 @@ public partial class Gravityfield_Toggle : Area2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		EmitSignal("OnGravityfieldEntered", this._gravityDirection * this._gravityStrength);
+		body.Call("ChangeGravityProperties", this._gravityDirection.Normalized() * this._gravityStrength);
 	}	
 
 	public void OnBodyExited(Node2D body)
 	{
-
-		EmitSignal("OnGravityfieldExited");
+		body.Call("ResetGravityProperties");
 	}
 
 	public void EnableGravityfield()

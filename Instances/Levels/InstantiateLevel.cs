@@ -30,38 +30,37 @@ public partial class InstantiateLevel : Node2D
 		var allPortals = this._portalsList.GetChildren();
 		var allCheckpoints = this._checkpointsList.GetChildren();
 
-		// Connect mechanic objects to game objects such as Player, Boxes etc
-		foreach(var gameobject in allGameobjects)
-		{
-			foreach(var gravityfield in allGravityfields)
-			{
-				gravityfield.Connect("OnGravityfieldEntered", new Callable(gameobject, "ChangeGravityProperties"));
-				gravityfield.Connect("OnGravityfieldExited", new Callable(gameobject, "ResetGravityProperties"));
-				GD.Print("Connected " + gravityfield.Name + " to " + gameobject.Name);
-			}
+		// Deprecated, might be used for save system at some point
+		// foreach(var gameobject in allGameobjects)
+		// {
+		// 	foreach(var gravityfield in allGravityfields)
+		// 	{
+		// 		gravityfield.Connect("OnGravityfieldEntered", new Callable(gameobject, "ChangeGravityProperties"));
+		// 		gravityfield.Connect("OnGravityfieldExited", new Callable(gameobject, "ResetGravityProperties"));
+		// 		GD.Print("Connected " + gravityfield.Name + " to " + gameobject.Name);
+		// 	}
 
-			foreach(var jumpPad in allJumpPads)
-			{
-				jumpPad.Connect("OnJumpPadEntered", new Callable(gameobject, "ApplyJumpPadForce"));
-				GD.Print("Connected " + jumpPad.Name + " to " + gameobject.Name);
-			}
+		// 	foreach(var jumpPad in allJumpPads)
+		// 	{
+		// 		jumpPad.Connect("OnJumpPadEntered", new Callable(gameobject, "ApplyJumpPadForce"));
+		// 		GD.Print("Connected " + jumpPad.Name + " to " + gameobject.Name);
+		// 	}
 
-			foreach(var portal in allPortals)
-			{
-				portal.Connect("TeleportObject", new Callable(gameobject, "Teleport"));
-				GD.Print("Connected " + portal.Name + " to " + gameobject.Name);
-			}
+		// 	foreach(var portal in allPortals)
+		// 	{
+		// 		portal.Connect("TeleportObject", new Callable(gameobject, "Teleport"));
+		// 		GD.Print("Connected " + portal.Name + " to " + gameobject.Name);
+		// 	}
 
-			if (gameobject.Name == "Player")
-			{
-				foreach(var checkpoint in allCheckpoints)
-				{
-					checkpoint.Connect("OnCheckpointReached", new Callable(gameobject, "SaveCheckpointLocation"));
-					GD.Print("Connected " + checkpoint.Name + " to " + gameobject.Name);
-				}
-			}
-
-		}
+		// 	if (gameobject.Name == "Player")
+		// 	{
+		// 		foreach(var checkpoint in allCheckpoints)
+		// 		{
+		// 			checkpoint.Connect("OnCheckpointReached", new Callable(gameobject, "SaveCheckpointLocation"));
+		// 			GD.Print("Connected " + checkpoint.Name + " to " + gameobject.Name);
+		// 		}
+		// 	}
+		// }
 		
 	}
 }

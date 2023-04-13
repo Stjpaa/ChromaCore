@@ -66,11 +66,11 @@ public partial class Portals : Node2D
 
 	public void TeleportToPortal1(Node2D body)
 	{
-		EmitSignal("TeleportObject", this._portal1GlobalPos, this._portal1Direction.Normalized() * this._portal1ImpulseStrength);
+		body.Call("Teleport", this._portal1GlobalPos, this._portal1Direction.Normalized() * this._portal1ImpulseStrength);
 	}
 
 	public void TeleportToPortal2(Node2D body)
 	{
-		EmitSignal("TeleportObject", this._portal2GlobalPos, this._portal2Direction.Normalized() * this._portal2ImpulseStrength);
+		body.Call("Teleport", this._portal2GlobalPos, this._portal2Direction.Normalized() * this._portal2ImpulseStrength);
 	}
 }
