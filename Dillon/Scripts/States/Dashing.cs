@@ -63,6 +63,7 @@ public class Dashing : State
         _playerController2D.DashCooldownTimer.Timeout -= OnDashTimerTimeout;
     }
 
+    #region Transitions
     private bool CheckFallingOrMovingTransition()
     {
         var direction = Input.GetAxis("Move_Left", "Move_Right");
@@ -74,5 +75,5 @@ public class Dashing : State
         }
         return false;
     }
-
+    #endregion
 }

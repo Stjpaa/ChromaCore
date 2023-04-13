@@ -26,11 +26,6 @@ public class Falling : State
     }
     public override void Execute(double delta)
     {
-        //_playerController2D.RayNodeTopLeft
-
-
-
-
         timer += (float)delta;
         if(timer <= _playerController2D.CoyoteTimeDuration)
         {
@@ -49,7 +44,7 @@ public class Falling : State
         UpdateJumpBuffering();
 
         if (CheckTransitionToDash()) { return; }
-        if (CheckTransitionToJump()) { return; }
+        if (CheckTransitionToJumping()) { return; }
         if (CheckTransitionToIdle()) { return; }
     }
     public override void Exit()
@@ -93,7 +88,6 @@ public class Falling : State
             _playerController2D.Velocity = velocity;
 
             _playerController2D.ChangeState(new Jumping(_playerController2D));
-            GD.Print("Coyote time allpied");
             return true;
         }
         return false;
@@ -137,6 +131,7 @@ public class Falling : State
         }
     }
 
+    #region Transitions
     private bool CheckTransitionToIdle()
     {
         if (_playerController2D.IsOnFloor())
@@ -157,7 +152,7 @@ public class Falling : State
         }
         return false;
     }
-    private bool CheckTransitionToJump()
+    private bool CheckTransitionToJumping()
     {
         if (_jumpBuffering && _playerController2D.IsOnFloor())
         {
@@ -166,6 +161,7 @@ public class Falling : State
         }
         return false;
     }
+    #endregion
 
     private enum ApexModifierState
     {

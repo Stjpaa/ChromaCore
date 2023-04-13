@@ -1,9 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://xjog32y8jj7h"]
+[gd_scene load_steps=28 format=3 uid="uid://xjog32y8jj7h"]
 
 [ext_resource type="Script" path="res://Dillon/Scripts/PlayerController2D.cs" id="1_nt2cb"]
 [ext_resource type="Resource" uid="uid://uopvg4pom5mk" path="res://Dillon/CharacterController2d_Data.tres" id="2_8g21t"]
 [ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_p8mra"]
-[ext_resource type="Script" path="res://Dillon/Scripts/EdgeDetection.cs" id="4_2e2rj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3q5q"]
 atlas = ExtResource("2_p8mra")
@@ -255,10 +254,6 @@ Jump: Space
 Dash: Shift
 "
 
-[node name="FloorAngle_Line2D" type="Line2D" parent="."]
-position = Vector2(0, 63)
-width = 5.0
-
 [node name="Label" type="Label" parent="."]
 offset_left = -11.0
 offset_top = -129.0
@@ -271,11 +266,3 @@ horizontal_alignment = 1
 [node name="DashCooldown_Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-
-[node name="RayTopRight_Node2D" type="Node2D" parent="."]
-position = Vector2(28, -88)
-script = ExtResource("4_2e2rj")
-
-[node name="RayTopLeft_Node2D" type="Node2D" parent="."]
-position = Vector2(-28, -88)
-script = ExtResource("4_2e2rj")

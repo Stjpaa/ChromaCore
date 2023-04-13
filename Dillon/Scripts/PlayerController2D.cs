@@ -3,12 +3,8 @@ using System;
 
 public partial class PlayerController2D : CharacterBody2D
 {
-    // GitHub Commit logs Version 0.0.8  
-    // Fixed coyote time
-    // - implemented in the falling state
-    // - in the previous version it worked by delaying the transition to the falling state
-    // - now it works by checking if the jump got triggered during a short time perdiod during the falling state
-    // Implemented edge detection
+    // GitHub Commit logs Version 0.0.9
+    // Refactoring
 
     [Export]
     public PlayerController2D_Data data;
@@ -20,16 +16,6 @@ public partial class PlayerController2D : CharacterBody2D
     }
 
     public Timer DashCooldownTimer
-    {
-        get;
-        private set;
-    }
-    public Node2D RayNodeTopLeft
-    {
-        get;
-        private set;
-    }
-    public Node2D RayNodeTopRight
     {
         get;
         private set;
@@ -68,40 +54,30 @@ public partial class PlayerController2D : CharacterBody2D
     private Label floorNormalText;
     private Label floorAngleText;
     private Label dashCooldown;
-    private Line2D floorAngleLine;
 
     public override void _Ready()
     {
         AnimatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         DashCooldownTimer = GetNode<Timer>("DashCooldown_Timer");
 
-        //RayNodeTopLeft = GetNode<Node2D>("RayTopLeft_Node2D");
-        //RayNodeTopRight = GetNode<Node2D>("RayTopRight_Node2D");
-
         velText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("Velocity_Label");
         stateText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("State_Label");
         isOnFloorLabel = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("IsOnFloor_Label");
         floorNormalText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorNormal_Label");
         floorAngleText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorAngle_Label");
-        floorAngleLine = GetNode<Line2D>("FloorAngle_Line2D");
         dashCooldown = GetNode<Label>("Label");
         ChangeState(new Falling(this));
-
-        FloorStopOnSlope = false;
     }
 
     public override void _PhysicsProcess(double delta)
     {
         currentState.Execute(delta);
 
-        floorAngleLine.ClearPoints();
-
         velText.Text = "Velocity: " + Velocity.ToString();
         isOnFloorLabel.Text = "IsOnFloor: " + IsOnFloor();
         floorNormalText.Text = "FloorNormal: " + GetFloorNormal();
         floorAngleText.Text = "FloorAngle: " + GetFloorAngle();
-        floorAngleLine.AddPoint(GetPositionDelta());
-        floorAngleLine.AddPoint(GetPositionDelta() + GetFloorNormal() * 100f);
+
         dashCooldown.Text = string.Format("{0:N0}", DashCooldownTimer.TimeLeft);
         MoveAndSlide();
     }

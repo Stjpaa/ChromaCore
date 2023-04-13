@@ -81,10 +81,11 @@ public class Moving : State
         _playerController2D.Velocity = velocity;
     }
 
-    private bool CheckTransitionToJumping()
+    #region Transitions
+    protected bool CheckTransitionToJumping()
     {
-        var jumpTrigger = Input.IsActionJustPressed("Jump");
-        if (jumpTrigger)
+        var jumpPressedTrigger = Input.IsActionJustPressed("Jump");
+        if (jumpPressedTrigger)
         {
             _playerController2D.ChangeState(new Jumping(_playerController2D));
             return true;
@@ -114,7 +115,6 @@ public class Moving : State
     {
         var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
         if (_playerController2D.Velocity.X == 0 &&
-                _playerController2D.IsOnFloor() &&
                     moveDirection == 0)
         {
             _playerController2D.ChangeState(new Idle(_playerController2D));
@@ -122,4 +122,5 @@ public class Moving : State
         }
         return false;
     }
+    #endregion
 }

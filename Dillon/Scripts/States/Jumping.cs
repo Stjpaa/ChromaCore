@@ -24,6 +24,8 @@ public class Jumping : State
         velocity.Y -= _playerController2D.JumpSpeed;
         _playerController2D.Velocity = velocity;
     }
+
+    #region Transitions
     private bool CheckFallingTransition()
     {
         if (_playerController2D.IsOnFloor() == false)
@@ -33,4 +35,5 @@ public class Jumping : State
         }
         return false;
     }
+    #endregion
 }

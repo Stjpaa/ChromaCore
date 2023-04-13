@@ -17,7 +17,8 @@ public class Idle : State
     }
     public override void Exit() { }
 
-    private bool CheckTransitionToJumping()
+    #region Transitions
+    protected bool CheckTransitionToJumping()
     {
         var jumpPressedTrigger = Input.IsActionJustPressed("Jump");
         if (jumpPressedTrigger)
@@ -37,4 +38,5 @@ public class Idle : State
         }
         return false;
     }
+    #endregion
 }
