@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://uopvg4pom5mk"]
+
+[ext_resource type="Script" path="res://Dillon/Scripts/PlayerController2D_Data.cs" id="1_l1osh"]
+
+[resource]
+script = ExtResource("1_l1osh")
+maxMoveSpeed = 250.0
+moveSpeedAcceleration = 40.0
+moveSpeedDecceleration = 40.0
+maxFallSpeed = 800.0
+fallSpeedAcceleration = 27.0
+maxFallingMoveSpeed = 225.0
+fallingMoveSpeedAcceleration = 32.0
+jumpSpeed = 800.0
+jumpEndModifier = 5.0
+dashSpeed = 1000.0
+dashDuration = 0.2
+coyoteTimeDuration = 2.0
+apexModifierDuration = 0.05
