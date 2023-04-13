@@ -6,7 +6,6 @@ public class Moving : State
     public override string Name { get { return "Move"; } }
 
     private bool _movingLeft;
-    private bool _coyoteTimeTriggered;
 
     public Moving(PlayerController2D controller) : base(controller) { }
     public override void Enter()
@@ -47,8 +46,6 @@ public class Moving : State
 
         #endregion
 
-        if (_coyoteTimeTriggered) { return; }
-
         if (CheckTransitionToFalling()) { return; }
         if (CheckTransitionToIdle()) { return; }
     }
@@ -84,13 +81,6 @@ public class Moving : State
         _playerController2D.Velocity = velocity;
     }
 
-    private async void ApplyCoyoteTime()
-    {
-        _coyoteTimeTriggered = true;
-        await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(_playerController2D.CoyoteTimeDuration), SceneTreeTimer.SignalName.Timeout);
-        _playerController2D.ChangeState(new Falling(_playerController2D));
-    }
-
     private bool CheckTransitionToJumping()
     {
         var jumpTrigger = Input.IsActionJustPressed("Jump");
@@ -113,10 +103,9 @@ public class Moving : State
     }
     private bool CheckTransitionToFalling()
     {
-        if (_playerController2D.Velocity.X == 0 &&
-                _playerController2D.IsOnFloor() == false)
+        if (_playerController2D.IsOnFloor() == false)
         {
-            ApplyCoyoteTime();
+            _playerController2D.ChangeState(new Falling(_playerController2D));
             return true;
         }
         return false;

@@ -17,7 +17,7 @@ public partial class PlayerController2D_Data : Resource
     [Export]
     public float maxFallSpeed = 700f;
     [Export]
-    public float fallSpeedAcceleration = 25f;
+    public float fallSpeedAcceleration = 20f;
     [Export]
     public float maxFallingMoveSpeed = 225f;
     [Export]
@@ -38,7 +38,7 @@ public partial class PlayerController2D_Data : Resource
 
     [ExportCategory("Mechanics")]
     [Export]
-    public float coyoteTimeDuration = 0.08f;
+    public float coyoteTimeDuration = 2f;
     [Export]
     public float apexModifierDuration = 0.05f;
 }

@@ -3,10 +3,13 @@ using System;
 
 public partial class PlayerController2D : CharacterBody2D
 {
-    // GitHub Commit logs Version 0.0.7  
-    // Adapted the variable jump height -> player has now more control over it
-    // Code Refactoring for all states
-    // Outsourced all variables to a resource file
+    // GitHub Commit logs Version 0.0.8  
+    // Fixed coyote time
+    // - implemented in the falling state
+    // - in the previous version it worked by delaying the transition to the falling state
+    // - now it works by checking if the jump got triggered during a short time perdiod during the falling state
+    // Implemented edge detection
+
     [Export]
     public PlayerController2D_Data data;
 
@@ -17,6 +20,16 @@ public partial class PlayerController2D : CharacterBody2D
     }
 
     public Timer DashCooldownTimer
+    {
+        get;
+        private set;
+    }
+    public Node2D RayNodeTopLeft
+    {
+        get;
+        private set;
+    }
+    public Node2D RayNodeTopRight
     {
         get;
         private set;
@@ -61,6 +74,9 @@ public partial class PlayerController2D : CharacterBody2D
     {
         AnimatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         DashCooldownTimer = GetNode<Timer>("DashCooldown_Timer");
+
+        //RayNodeTopLeft = GetNode<Node2D>("RayTopLeft_Node2D");
+        //RayNodeTopRight = GetNode<Node2D>("RayTopRight_Node2D");
 
         velText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("Velocity_Label");
         stateText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("State_Label");

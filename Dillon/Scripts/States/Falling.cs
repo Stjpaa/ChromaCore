@@ -13,6 +13,8 @@ public class Falling : State
 
     private ApexModifierState _state;
 
+    private float timer;
+
     public Falling(PlayerController2D playerController_2D) : base(playerController_2D) { }
 
     public override void Enter()
@@ -24,6 +26,17 @@ public class Falling : State
     }
     public override void Execute(double delta)
     {
+        //_playerController2D.RayNodeTopLeft
+
+
+
+
+        timer += (float)delta;
+        if(timer <= _playerController2D.CoyoteTimeDuration)
+        {
+            if (ApplyCoyoteTime()) { return; }
+        }
+
         ApplyMovement();
 
         if (_state == ApexModifierState.CanBeApplied)
@@ -69,6 +82,21 @@ public class Falling : State
 
         velocity.Y *= _apexGravityModifier;
         _playerController2D.Velocity = velocity;
+    }
+
+    private bool ApplyCoyoteTime()
+    {
+        if(Input.IsActionJustPressed("Jump") && _playerController2D.previousState is Moving)
+        {
+            var velocity = _playerController2D.Velocity;
+            velocity.Y = 0;
+            _playerController2D.Velocity = velocity;
+
+            _playerController2D.ChangeState(new Jumping(_playerController2D));
+            GD.Print("Coyote time allpied");
+            return true;
+        }
+        return false;
     }
 
     private void UpdateApexModifier()
