@@ -33,7 +33,7 @@ public partial class SoundManager : Node
 	{
 		for (int i = 1; i <= _soundVoicesCount; i++)
 		{
-			GD.Print($"testing {(last_voice + i) % _soundVoicesCount}");
+			// GD.Print($"testing {(last_voice + i) % _soundVoicesCount}");
 			if (!sound_players[(last_voice + i) % _soundVoicesCount].Playing)
 			{
 				// GD.Print($"playing {sound_name} with voice {(last_voice + i) % _soundVoicesCount}; last voice {last_voice}");
