@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1sw6dddgaq2d"]
+
+[ext_resource type="Script" path="res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs" id="1_c1ldn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l641i"]
+size = Vector2(38, 6)
+
+[node name="Spikes" type="Area2D"]
+script = ExtResource("1_c1ldn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l641i")
