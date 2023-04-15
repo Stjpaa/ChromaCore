@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://mb5aisolynk5"]
+[gd_scene load_steps=6 format=3 uid="uid://mb5aisolynk5"]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Platforms/JumpPad.cs" id="1_axob7"]
-[ext_resource type="Texture2D" uid="uid://cf5rasrbwjpsu" path="res://Assets/Sprites/Platform_Normal.tres" id="1_fgxnc"]
+
+[sub_resource type="Gradient" id="Gradient_g84sw"]
+colors = PackedColorArray(0, 1, 0, 0, 0, 0.670588, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8bg7h"]
+gradient = SubResource("Gradient_g84sw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5niqk"]
 size = Vector2(16, 8)
@@ -16,7 +21,7 @@ script = ExtResource("1_axob7")
 position = Vector2(-0.0119691, 0.0521761)
 rotation = -1.5708
 scale = Vector2(0.128584, 0.251579)
-texture = ExtResource("1_fgxnc")
+texture = SubResource("GradientTexture2D_8bg7h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
