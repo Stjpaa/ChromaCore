@@ -509,7 +509,6 @@ material = SubResource("ShaderMaterial_w4st0")
 
 [node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("7_vr5mk")]
 position = Vector2(-153, -147)
-_gravityfieldSize = Vector2(70, 70)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
@@ -524,7 +523,6 @@ scale = Vector2(70, 70)
 
 [node name="Gravityfield_Toggle" parent="GravityfieldList" instance=ExtResource("8_i08wq")]
 position = Vector2(145, -133)
-_gravityfieldSize = Vector2(100, 100)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Toggle" index="0"]
 shape = SubResource("RectangleShape2D_c1cb8")

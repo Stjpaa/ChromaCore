@@ -87,7 +87,7 @@ public class Moving : State
         var jumpPressedTrigger = Input.IsActionJustPressed("Jump");
         if (jumpPressedTrigger)
         {
-            _playerController2D.ChangeState(new Jumping(_playerController2D));
+            _playerController2D.ChangeState(new Jumping(_playerController2D, true));
             return true;
         }
         return false;
@@ -106,7 +106,7 @@ public class Moving : State
     {
         if (_playerController2D.IsOnFloor() == false)
         {
-            _playerController2D.ChangeState(new Falling(_playerController2D));
+            _playerController2D.ChangeState(new Falling(_playerController2D, false, true));
             return true;
         }
         return false;

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5b3dgff6ebjl"]
+
+[ext_resource type="Texture2D" uid="uid://usqel3f7jre4" path="res://Dillon/Assets/Chain.png" id="1_e04wa"]
+[ext_resource type="Texture2D" uid="uid://jdvvj5vtumda" path="res://Dillon/Assets/Hook.png" id="1_v8sij"]
+
+[node name="GrapplingHook" type="Node2D"]
+
+[node name="Hook" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hook"]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_v8sij")
+
+[node name="Chain" type="Line2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(-8, 0, -108, 0)
+texture = ExtResource("1_e04wa")
+texture_mode = 1

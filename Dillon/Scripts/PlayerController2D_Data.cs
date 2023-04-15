@@ -26,7 +26,7 @@ public partial class PlayerController2D_Data : Resource
 
     [ExportCategory("Jumping State")]
     [Export]
-    public float jumpSpeed = 600f;
+    public float jumpForce = 600f;
     [Export]
     public float jumpEndModifier = 10f;
 
@@ -41,4 +41,6 @@ public partial class PlayerController2D_Data : Resource
     public float coyoteTimeDuration = 2f;
     [Export]
     public float apexModifierDuration = 0.05f;
+    [Export]
+    public float apexModifierMovementBoost = 2f;
 }

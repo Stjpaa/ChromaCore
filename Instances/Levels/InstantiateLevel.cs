@@ -52,7 +52,7 @@ public partial class InstantiateLevel : Node2D
 				GD.Print("Connected " + portal.Name + " to " + gameobject.Name);
 			}
 
-			if (gameobject.Name == "Player")
+			if (gameobject.Name == "CharacterBody2D")
 			{
 				foreach(var checkpoint in allCheckpoints)
 				{

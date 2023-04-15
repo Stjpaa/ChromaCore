@@ -8,14 +8,46 @@ public class Falling : State
     private float _apexGravityModifier;
     private float _apexMovementModifier;
     private float _apex;
+    private float _timer;
 
-    private bool _jumpBuffering = false;
-
+    private bool _jumpBuffering;
+    private bool _applyVariableJumpHeight;
+    private bool _applyCoyoteTime;
+    private bool _applyCustomGravity;
+    
     private ApexModifierState _state;
 
-    private float timer;
+    private Vector2 _customGravity;
 
-    public Falling(PlayerController2D playerController_2D) : base(playerController_2D) { }
+
+    /// <summary>
+    /// Falling state with default gravity and mechanics.
+    /// </summary>
+    public Falling(PlayerController2D playerController_2D, bool applyVariableJumpHeight, bool applyCoyoteTime) : base(playerController_2D)
+    {
+        _applyVariableJumpHeight = applyVariableJumpHeight;
+        _applyCoyoteTime = applyCoyoteTime;
+        _applyCustomGravity = false;
+    }
+    /// <summary>
+    /// Falling state with default gravity and without mechanics.
+    /// </summary>
+    public Falling(PlayerController2D playerController_2D) : base(playerController_2D)
+    {
+        _applyCoyoteTime = false;
+        _applyVariableJumpHeight = false;
+        _applyCustomGravity = false;
+    }
+    /// <summary>
+    /// Falling state without mechanics and custom gravity.
+    /// </summary>
+    public Falling(PlayerController2D playerController_2D, Vector2 customGravity) : base(playerController_2D)
+    {
+        _applyCoyoteTime = false;
+        _applyVariableJumpHeight = false;
+        _applyCustomGravity = true;
+        _customGravity = customGravity;
+    }
 
     public override void Enter()
     {
@@ -26,11 +58,7 @@ public class Falling : State
     }
     public override void Execute(double delta)
     {
-        timer += (float)delta;
-        if(timer <= _playerController2D.CoyoteTimeDuration)
-        {
-            if (ApplyCoyoteTime()) { return; }
-        }
+        if (ApplyCoyoteTime((float)delta)) { return; }
 
         ApplyMovement();
 
@@ -39,8 +67,9 @@ public class Falling : State
             UpdateApexModifier();
         }
 
-        ApplyGravity();
-
+        if(_applyCustomGravity) { ApplyCustomGravity(); }
+        else { ApplyGravity(); }
+        
         UpdateJumpBuffering();
 
         if (CheckTransitionToDash()) { return; }
@@ -49,7 +78,10 @@ public class Falling : State
     }
     public override void Exit()
     {
-        _playerController2D.Velocity = Vector2.Zero;
+        if (_playerController2D.IsOnFloor())
+        {
+            _playerController2D.Velocity = Vector2.Zero;
+        }
     }
 
     private void ApplyMovement()
@@ -71,23 +103,45 @@ public class Falling : State
     {
         var jumpEndTrigger = Input.IsActionPressed("Jump");
         var velocity = _playerController2D.Velocity;
+        
+        // Variable jump height -> Extra fall speed if the jump button is not pressed
+        if(jumpEndTrigger == false && _applyVariableJumpHeight)
+        {
+            velocity.Y += _playerController2D.FallSpeedAcceleration * _playerController2D.JumpEndModifier;
+        }
+        else
+        {
+            velocity.Y += _playerController2D.FallSpeedAcceleration;
+        }
 
-        velocity.Y += (jumpEndTrigger) ? _playerController2D.FallSpeedAcceleration : (_playerController2D.FallSpeedAcceleration * _playerController2D.JumpEndModifier);
         velocity.Y = Mathf.Clamp(velocity.Y, float.MinValue, _playerController2D.MaxFallSpeed);
 
         velocity.Y *= _apexGravityModifier;
         _playerController2D.Velocity = velocity;
     }
-
-    private bool ApplyCoyoteTime()
+    private void ApplyCustomGravity()
     {
+        var velocity = _playerController2D.Velocity;
+        velocity.Y += _customGravity.Y * 0.1f;
+        velocity.X += _customGravity.X;
+        _playerController2D.Velocity = velocity;
+    }
+
+    /// <summary>
+    /// Short time period where the player is able to jump in air
+    /// </summary>
+    private bool ApplyCoyoteTime(float delta)
+    {
+        _timer += delta;
+        if( _timer > _playerController2D.CoyoteTimeDuration && _applyCoyoteTime) { return false; }
+
         if(Input.IsActionJustPressed("Jump") && _playerController2D.previousState is Moving)
         {
             var velocity = _playerController2D.Velocity;
             velocity.Y = 0;
             _playerController2D.Velocity = velocity;
 
-            _playerController2D.ChangeState(new Jumping(_playerController2D));
+            _playerController2D.ChangeState(new Jumping(_playerController2D, true));
             return true;
         }
         return false;
@@ -110,11 +164,14 @@ public class Falling : State
             }
         }
     }
+    /// <summary>
+    /// For a short time period the gravity is turned off and movement gets a boost
+    /// </summary>
     private async void ApplyApexModifier()
     {
         _state = ApexModifierState.BeingApplied;
         _apexGravityModifier = 0f;
-        _apexMovementModifier = 2f;
+        _apexMovementModifier = _playerController2D.ApexModifierMovementBoost;
 
         await _playerController2D.ToSignal(_playerController2D.GetTree().CreateTimer(_playerController2D.ApexModifierDuration), SceneTreeTimer.SignalName.Timeout);
 
@@ -134,7 +191,7 @@ public class Falling : State
     #region Transitions
     private bool CheckTransitionToIdle()
     {
-        if (_playerController2D.IsOnFloor())
+        if (_playerController2D.IsOnFloor() && _applyCustomGravity == false)
         {
             _playerController2D.ChangeState(new Idle(_playerController2D));
             return true;
@@ -156,7 +213,7 @@ public class Falling : State
     {
         if (_jumpBuffering && _playerController2D.IsOnFloor())
         {
-            _playerController2D.ChangeState(new Jumping(_playerController2D));
+            _playerController2D.ChangeState(new Jumping(_playerController2D, true));
             return true;
         }
         return false;

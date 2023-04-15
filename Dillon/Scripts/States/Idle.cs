@@ -23,7 +23,7 @@ public class Idle : State
         var jumpPressedTrigger = Input.IsActionJustPressed("Jump");
         if (jumpPressedTrigger)
         {
-            _playerController2D.ChangeState(new Jumping(_playerController2D));
+            _playerController2D.ChangeState(new Jumping(_playerController2D, true));
             return true;
         }
         return false;
