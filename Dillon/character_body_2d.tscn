@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://xjog32y8jj7h"]
+[gd_scene load_steps=29 format=3 uid="uid://xjog32y8jj7h"]
 
 [ext_resource type="Script" path="res://Dillon/Scripts/PlayerController2D.cs" id="1_nt2cb"]
 [ext_resource type="Resource" uid="uid://uopvg4pom5mk" path="res://Dillon/CharacterController2d_Data.tres" id="2_8g21t"]
 [ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_p8mra"]
+[ext_resource type="PackedScene" uid="uid://c5b3dgff6ebjl" path="res://Dillon/grappling_hook.tscn" id="4_ufkod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3q5q"]
 atlas = ExtResource("2_p8mra")
@@ -270,3 +271,5 @@ one_shot = true
 
 [node name="Teleport_Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="GrapplingHook_Node2D" parent="." instance=ExtResource("4_ufkod")]

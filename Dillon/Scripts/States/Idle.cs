@@ -12,8 +12,9 @@ public class Idle : State
     }
     public override void Execute(double delta)
     {
-        if (CheckTransitionToJumping()) { return; }
-        if (CheckTransitionToMoving()) { return; }
+        if(CheckTransitionToJumping()) { return; }
+        if(CheckTransitionToMoving()) { return; }
+        if(CheckTransitionToHooking()) { return; }
     }
     public override void Exit() { }
 
@@ -34,6 +35,16 @@ public class Idle : State
         if (axis != 0)
         {
             _playerController2D.ChangeState(new Moving(_playerController2D));
+            return true;
+        }
+        return false;
+    }
+    private bool CheckTransitionToHooking()
+    {
+        var hookTrigger = Input.IsActionJustPressed("GrapplingHook");
+        if (hookTrigger)
+        {
+            _playerController2D.ChangeState(new Hooking(_playerController2D));
             return true;
         }
         return false;

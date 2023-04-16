@@ -3,21 +3,11 @@ using System;
 
 public partial class PlayerController2D : CharacterBody2D
 {
-    // GitHub Commit logs Version 0.0.10
-    // Added variable for apex modifier movement boost to the data and the playercontroller
-    // Falling State:
-    // - Variable jump height can now be turned on or off by a parameter
-    // - Coyote time can now be turned on or off by a parameter
-    // - Custom gravity can be applied but without mechanics
+    // GitHub Commit logs Version 0.0.11
     //
-    // - Implemented interaction with jumppads
-    // - Implemented interaction with gravity fiels
-    // - Implemented interaction with checkpoints
-    // - Implemented interaction with portals
-    // - Added grappling hook visuals
     // Problems:
-    // - Coyote time can be used everytime the Falling state is entered -> solved
     // - Dash works not correctly inside a gravity field -> open
+    // - Teleport makes the player fly if he is in the idle sate after the teleport -> open
 
     [Export]
     public PlayerController2D_Data data;
@@ -39,6 +29,12 @@ public partial class PlayerController2D : CharacterBody2D
     {
         get { return _checkpointPosition; }
         private set { _checkpointPosition = value; }
+    }
+
+    public GrapplingHook GrapplingHook
+    {
+        get;
+        private set;
     }
 
 
@@ -86,6 +82,9 @@ public partial class PlayerController2D : CharacterBody2D
         AnimatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         DashCooldownTimer = GetNode<Timer>("DashCooldown_Timer");
         _teleportTimer = GetNode<Timer>("Teleport_Timer");
+        GrapplingHook = GetNode<GrapplingHook>("GrapplingHook_Node2D");
+        
+        
 
         velText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("Velocity_Label");
         stateText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("State_Label");
