@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=28 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="PackedScene" uid="uid://bvlym33ei744p" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://mb5aisolynk5" path="res://Instances/Gameobjects/Platforms/JumpPad.tscn" id="9_3ixdi"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="10_xwke7"]
 [ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
+[ext_resource type="Texture2D" uid="uid://brdts4odmv0gq" path="res://Assets/Godot Char_Placeholder-1.png" id="12_etfoi"]
 [ext_resource type="PackedScene" uid="uid://xjog32y8jj7h" path="res://Dillon/character_body_2d.tscn" id="12_oyuft"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
@@ -462,6 +463,9 @@ scale = Vector2(3.32, 1)
 [node name="MovingPlatform" parent="PlatformsList" instance=ExtResource("3_sj8q7")]
 position = Vector2(-63, -26)
 
+[node name="CollisionShape2D" parent="PlatformsList/MovingPlatform" index="1"]
+visible = true
+
 [node name="AnimationPlayer" parent="PlatformsList/MovingPlatform" index="2"]
 autoplay = "Move"
 libraries = {
@@ -545,6 +549,15 @@ position = Vector2(37, 112)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("12_oyuft")]
 position = Vector2(-200, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -16)
+scale = Vector2(0.8125, 0.732558)
+texture = ExtResource("12_etfoi")
+
+[node name="AnimatedSprite2D" parent="CharacterBody2D" index="1"]
+visible = false
+animation = &"Dash"
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]
