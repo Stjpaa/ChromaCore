@@ -15,15 +15,7 @@ public partial class TimerUIVisualisation : Label
     }
     private void UpdateTimerUI()
     {
-        double timeInSeconds = levelTimer.timeLevelWasPlayedInSeconds;
-        //string timeFormatedAsText = "%02d : %02d : %04d" % [timeInSeconds,timeInSeconds,timeInSeconds];
-
-
-        //levelTimer.timeLevelWasPlayedInSeconds;
-        //Text = timeFormatedAsText;
-
-        Text = "test";
-        
+        Text = TimeSpan.FromSeconds(levelTimer.timeLevelWasPlayedInSeconds).ToString(@"mm\:ss\:fff");
     }
 
     

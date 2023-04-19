@@ -10,4 +10,9 @@ public partial class LevelTimer : Node2D
     {
         timeLevelWasPlayedInSeconds += delta;
     }
+
+    private void SaveTime(string pathToSavegame) 
+    { 
+    
+    }
 }
