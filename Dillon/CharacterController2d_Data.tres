@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_l1osh")
-maxMoveSpeed = 175.0
-moveSpeedAcceleration = 50.0
-moveSpeedDecceleration = 50.0
-maxFallSpeed = 175.0
-fallSpeedAcceleration = 40.0
-maxFallingMoveSpeed = 175.0
-fallingMoveSpeedAcceleration = 50.0
-jumpSpeed = 400.0
-jumpEndModifier = 5.0
+maxMoveSpeed = 350.0
+moveSpeedAcceleration = 40.0
+moveSpeedDecceleration = 40.0
+maxFallSpeed = 500.0
+fallSpeedAcceleration = 80.0
+maxFallingMoveSpeed = 350.0
+fallingMoveSpeedAcceleration = 40.0
+jumpSpeed = 600.0
+jumpEndModifier = 8.0
 dashSpeed = 300.0
 dashDuration = 0.2
 coyoteTimeDuration = 0.5

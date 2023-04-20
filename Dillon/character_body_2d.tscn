@@ -195,8 +195,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s3vpl"]
-radius = 29.0
-height = 90.0
+radius = 12.5
+height = 40.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ub400"]
 font_size = 25
