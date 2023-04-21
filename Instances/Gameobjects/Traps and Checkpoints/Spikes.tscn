@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1sw6dddgaq2d"]
+
+[ext_resource type="Script" path="res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs" id="1_c1ldn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l641i"]
+size = Vector2(38, 6)
+
+[sub_resource type="Gradient" id="Gradient_mfx8o"]
+colors = PackedColorArray(0.913725, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4cnwg"]
+gradient = SubResource("Gradient_mfx8o")
+width = 30
+
+[node name="Spikes" type="Area2D"]
+script = ExtResource("1_c1ldn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l641i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.28, 5.92)
+texture = SubResource("GradientTexture1D_4cnwg")
