@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=32 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
-[ext_resource type="PackedScene" uid="uid://bvlym33ei744p" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
+[ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
@@ -47,6 +47,17 @@ texture = ExtResource("1_jj2hn")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_2e4j6")
 
+[sub_resource type="Gradient" id="Gradient_hmh3d"]
+offsets = PackedFloat32Array(0, 0.0852941, 0.844118)
+colors = PackedColorArray(1, 1, 1, 0, 0.611765, 0.784314, 0.862745, 0, 0.0352941, 0.462745, 0.662745, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tqo22"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_hmh3d")
+width = 8
+height = 16
+fill_from = Vector2(0, 0.0042735)
+
 [sub_resource type="Animation" id="Animation_kgtk0"]
 resource_name = "Move"
 length = 10.0
@@ -68,6 +79,13 @@ tracks/0/keys = {
 _data = {
 "Move": SubResource("Animation_kgtk0")
 }
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5afbk"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_hmh3d")
+width = 8
+height = 16
+fill_from = Vector2(0, 0.0042735)
 
 [sub_resource type="Animation" id="Animation_ig103"]
 resource_name = "Move"
@@ -438,6 +456,15 @@ shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
 shader_parameter/pause = true
 
+[sub_resource type="Gradient" id="Gradient_g84sw"]
+colors = PackedColorArray(0, 1, 0, 0, 0, 0.670588, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_felqj"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_g84sw")
+width = 8
+height = 30
+
 [node name="LevelPrototype" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -457,10 +484,13 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="NormalPlatform" parent="PlatformsList" instance=ExtResource("2_bkqre")]
 position = Vector2(33, -47)
-scale = Vector2(3.32, 1)
+_collisionSize = Vector2(60, 8)
 
 [node name="MovingPlatform" parent="PlatformsList" instance=ExtResource("3_sj8q7")]
 position = Vector2(-63, -26)
+
+[node name="Sprite" parent="PlatformsList/MovingPlatform" index="0"]
+texture = SubResource("GradientTexture2D_tqo22")
 
 [node name="AnimationPlayer" parent="PlatformsList/MovingPlatform" index="2"]
 autoplay = "Move"
@@ -470,6 +500,9 @@ libraries = {
 
 [node name="MovingPlatform2" parent="PlatformsList" instance=ExtResource("3_sj8q7")]
 position = Vector2(40, -101)
+
+[node name="Sprite" parent="PlatformsList/MovingPlatform2" index="0"]
+texture = SubResource("GradientTexture2D_5afbk")
 
 [node name="AnimationPlayer" parent="PlatformsList/MovingPlatform2" index="2"]
 autoplay = "Move"
@@ -527,7 +560,11 @@ position = Vector2(-44, 17)
 
 [node name="JumpPad" parent="JumpPadsList" instance=ExtResource("9_3ixdi")]
 position = Vector2(-99, -163)
+_objectCollisionSize = Vector2(30, 8)
 _strength = 600.0
+
+[node name="Sprite" parent="JumpPadsList/JumpPad" index="0"]
+texture = SubResource("GradientTexture2D_felqj")
 
 [node name="PortalsList" type="Node" parent="."]
 
@@ -550,5 +587,6 @@ position = Vector2(-200, -2)
 [editable path="GravityfieldList/Gravityfield_Normal"]
 [editable path="GravityfieldList/Gravityfield_Time"]
 [editable path="GravityfieldList/Gravityfield_Toggle"]
+[editable path="JumpPadsList/JumpPad"]
 [editable path="PortalsList/Portals"]
 [editable path="CharacterBody2D"]

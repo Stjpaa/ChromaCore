@@ -22,3 +22,5 @@ mono_crash.*.json
 ide_messaging_meta.txt
 .godot/mono/temp/obj/Debug/Sem6Projekt.assets.cache
 .godot/mono/temp/obj/Debug/Sem6Projekt.GeneratedMSBuildEditorConfig.editorconfig
+.godot/mono/temp/obj/Debug/Sem6Projekt.csproj.CoreCompileInputs.cache
+.godot/mono/temp/obj/Debug/Sem6Projekt.csproj.CoreCompileInputs.cache

@@ -5,5 +5,8 @@ offsets = PackedFloat32Array(0, 0.0852941, 0.844118)
 colors = PackedColorArray(1, 1, 1, 0, 0.611765, 0.784314, 0.862745, 0, 0.0352941, 0.462745, 0.662745, 1)
 
 [resource]
+resource_local_to_scene = true
 gradient = SubResource("Gradient_hmh3d")
+width = 8
+height = 16
 fill_from = Vector2(0, 0.0042735)
