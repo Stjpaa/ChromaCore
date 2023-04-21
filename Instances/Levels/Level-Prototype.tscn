@@ -1,15 +1,18 @@
-[gd_scene load_steps=26 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=31 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="1_vhqca"]
 [ext_resource type="PackedScene" uid="uid://bvlym33ei744p" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
+[ext_resource type="Shader" path="res://Shaders/bloom.gdshader" id="5_8ywcv"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="7_vr5mk"]
 [ext_resource type="PackedScene" uid="uid://rfnsqa1150ea" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="8_i08wq"]
 [ext_resource type="PackedScene" uid="uid://mb5aisolynk5" path="res://Instances/Gameobjects/Platforms/JumpPad.tscn" id="9_3ixdi"]
 [ext_resource type="Script" path="res://Test.cs" id="10_dhdbt"]
+[ext_resource type="Texture2D" uid="uid://cekaod2annpte" path="res://characters.png" id="11_v6wq5"]
+[ext_resource type="Shader" path="res://Shaders/portal.gdshader" id="11_w3k8u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -89,6 +92,12 @@ tracks/0/keys = {
 _data = {
 "Move": SubResource("Animation_ig103")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qexg"]
+shader = ExtResource("5_8ywcv")
+shader_parameter/bloomRadius = 1.0
+shader_parameter/bloomThreshold = 0.8
+shader_parameter/bloomIntensity = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpx1o"]
 resource_local_to_scene = true
@@ -437,6 +446,14 @@ shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
 shader_parameter/pause = true
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7hey"]
+shader = ExtResource("11_w3k8u")
+shader_parameter/color = Color(0, 0.815686, 0.286275, 1)
+shader_parameter/strength = 13.497
+shader_parameter/scale = 4.318
+shader_parameter/speed = 0.5
+shader_parameter/border = 0.849
+
 [node name="LevelPrototype" type="Node2D" node_paths=PackedStringArray("_gravityfieldList", "_gameObjectsList", "_jumpPadsList")]
 script = ExtResource("1_vhqca")
 _gravityfieldList = NodePath("GravityfieldList")
@@ -465,6 +482,9 @@ scale = Vector2(3.32, 1)
 [node name="MovingPlatform" parent="Platforms" instance=ExtResource("3_sj8q7")]
 position = Vector2(-63, -26)
 
+[node name="Sprite2D" parent="Platforms/MovingPlatform" index="0"]
+position = Vector2(63, 45)
+
 [node name="AnimationPlayer" parent="Platforms/MovingPlatform" index="2"]
 autoplay = "Move"
 libraries = {
@@ -483,6 +503,18 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-52, -22)
 zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_3qexg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GameObjects" type="Node" parent="."]
 
@@ -541,6 +573,13 @@ _strength = 600.0
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("10_dhdbt")
+
+[node name="Characters" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_t7hey")
+position = Vector2(-84, -31)
+scale = Vector2(1, 1.18182)
+texture = ExtResource("11_v6wq5")
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]
