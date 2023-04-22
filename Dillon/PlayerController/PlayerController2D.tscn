@@ -1,92 +1,90 @@
-[gd_scene load_steps=29 format=3 uid="uid://xjog32y8jj7h"]
+[gd_scene load_steps=27 format=3 uid="uid://bxrinvpxhsiqc"]
 
-[ext_resource type="Script" path="res://Dillon/Scripts/PlayerController2D.cs" id="1_nt2cb"]
-[ext_resource type="Resource" uid="uid://uopvg4pom5mk" path="res://Dillon/CharacterController2d_Data.tres" id="2_8g21t"]
-[ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_p8mra"]
-[ext_resource type="PackedScene" uid="uid://c5b3dgff6ebjl" path="res://Dillon/grappling_hook.tscn" id="4_ufkod"]
+[ext_resource type="Script" path="res://Dillon/PlayerController/Scripts/PlayerController2D.cs" id="1_pl4lx"]
+[ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_xv8au"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3q5q"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(192, 384, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3idon"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(384, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbaii"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(288, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8prqi"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(0, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0wwj"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(288, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t425r"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(0, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_om2w2"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(768, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_poy51"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(576, 256, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h0nhv"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(672, 256, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1mghb"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(768, 256, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_246j2"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(288, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lrwvj"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(192, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tfp1c"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(768, 0, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0oti"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(0, 512, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bdb4"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(96, 512, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_octxf"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(192, 512, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5i6r"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(288, 512, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6mhc"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(384, 512, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l354i"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(480, 512, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wm34"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(576, 512, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdk8h"]
-atlas = ExtResource("2_p8mra")
+atlas = ExtResource("2_xv8au")
 region = Rect2(672, 512, 96, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p68cg"]
@@ -203,8 +201,8 @@ height = 90.0
 font_size = 25
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_nt2cb")
-data = ExtResource("2_8g21t")
+z_index = 1
+script = ExtResource("1_pl4lx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -63)
@@ -272,4 +270,5 @@ one_shot = true
 [node name="Teleport_Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="GrapplingHook_Node2D" parent="." instance=ExtResource("4_ufkod")]
+[node name="HookStartPosition_Node2D" type="Node2D" parent="."]
+position = Vector2(0, -32)

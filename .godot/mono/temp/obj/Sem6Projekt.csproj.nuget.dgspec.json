@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj": {}
+    "Y:\\Studium\\6. Semester\\Module\\Game Prototyping\\ChromaCore\\Sem6Projekt.csproj": {}
   },
   "projects": {
-    "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj": {
+    "Y:\\Studium\\6. Semester\\Module\\Game Prototyping\\ChromaCore\\Sem6Projekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj",
+        "projectUniqueName": "Y:\\Studium\\6. Semester\\Module\\Game Prototyping\\ChromaCore\\Sem6Projekt.csproj",
         "projectName": "Sem6Projekt",
-        "projectPath": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj",
+        "projectPath": "Y:\\Studium\\6. Semester\\Module\\Game Prototyping\\ChromaCore\\Sem6Projekt.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "Y:\\Studium\\6. Semester\\Module\\Game Prototyping\\ChromaCore\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\User\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"

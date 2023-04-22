@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://oa8sc2ghvyys"]
+[gd_scene load_steps=14 format=3 uid="uid://72enoichqndo"]
 
 [ext_resource type="Texture2D" uid="uid://ds2gsq3ng153g" path="res://Dillon/Assets/tilesheet_complete.png" id="1_bg6fh"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="2_nomqj"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="3_f61ha"]
-[ext_resource type="PackedScene" uid="uid://xjog32y8jj7h" path="res://Dillon/character_body_2d.tscn" id="3_vlc54"]
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="4_cqold"]
+[ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="5_2i888"]
 [ext_resource type="PackedScene" uid="uid://mb5aisolynk5" path="res://Instances/Gameobjects/Platforms/JumpPad.tscn" id="5_3fsnu"]
+[ext_resource type="Resource" path="res://Dillon/PlayerController/PlayerController2D_Data.tres" id="6_414eb"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="7_lx0ly"]
+[ext_resource type="PackedScene" uid="uid://dylusdy1f5t14" path="res://Dillon/GrapplingHook/hookable_area_2d.tscn" id="8_ixhwn"]
+[ext_resource type="PackedScene" uid="uid://ciyswvrmprdt4" path="res://Dillon/GrapplingHook/GrapplingHook.tscn" id="10_eb637"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idpbc"]
 
@@ -855,8 +858,10 @@ _gravityfieldSize = Vector2(50, 180)
 
 [node name="Gameobject_List" type="Node2D" parent="InstantiateLevel"]
 
-[node name="CharacterBody2D" parent="InstantiateLevel/Gameobject_List" instance=ExtResource("3_vlc54")]
-position = Vector2(-240, -89)
+[node name="CharacterBody2D" parent="InstantiateLevel/Gameobject_List" node_paths=PackedStringArray("GrapplingHook") instance=ExtResource("5_2i888")]
+position = Vector2(-351, -78)
+data = ExtResource("6_414eb")
+GrapplingHook = NodePath("../../GrapplingHook_Node2D")
 
 [node name="Jumppad_List" type="Node2D" parent="InstantiateLevel"]
 
@@ -869,3 +874,8 @@ position = Vector2(42, -64)
 position = Vector2(671, -81)
 
 [node name="Checkpoint_List" type="Node2D" parent="InstantiateLevel"]
+
+[node name="Hookable_Area2D" parent="InstantiateLevel" instance=ExtResource("8_ixhwn")]
+position = Vector2(-371, -457)
+
+[node name="GrapplingHook_Node2D" parent="InstantiateLevel" instance=ExtResource("10_eb637")]
