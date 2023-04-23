@@ -35,11 +35,13 @@ public partial class Portals : Node2D
         this._portal1GlobalPos = portal1.GlobalPosition;
 		this._portal2GlobalPos = portal2.GlobalPosition;
 
-		// Get data for editor drawing
+		// Get data for drawing
 		this._portal1GlobalPos = portal1.GlobalPosition;
 		this._portal2GlobalPos = portal2.GlobalPosition;
 		this._portal1Direction = portal1.GetNode<Node2D>("ImpulseDirection").Position;
 		this._portal2Direction = portal2.GetNode<Node2D>("ImpulseDirection").Position;
+		this._portal1LocalPos = GetNode<Area2D>("Portal1").Position;
+		this._portal2LocalPos = GetNode<Area2D>("Portal2").Position;
     }
 
 	public override void _Process(double delta)
@@ -50,9 +52,9 @@ public partial class Portals : Node2D
 			this._portal2LocalPos = GetNode<Area2D>("Portal2").Position;
 			this._portal1Direction = GetNode<Area2D>("Portal1").GetNode<Node2D>("ImpulseDirection").Position;
 			this._portal2Direction = GetNode<Area2D>("Portal2").GetNode<Node2D>("ImpulseDirection").Position;
-
-			QueueRedraw();
 		}
+
+		QueueRedraw();
 	}
 
 	public override void _Draw()
@@ -62,6 +64,8 @@ public partial class Portals : Node2D
 			DrawLine(this._portal1LocalPos, this._portal1LocalPos + this._portal1Direction, Colors.Blue, 0.5f);
 			DrawLine(this._portal2LocalPos, this._portal2LocalPos + this._portal2Direction, Colors.Blue, 0.5f);
 		}
+
+		DrawLine(this._portal1LocalPos, this._portal2LocalPos, new Color(255, 0, 0, 0.5f), 0.9f, true);
 	}
 
 	public void TeleportToPortal1(Node2D body)
