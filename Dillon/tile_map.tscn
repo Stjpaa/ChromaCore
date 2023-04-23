@@ -879,3 +879,7 @@ position = Vector2(671, -81)
 position = Vector2(-371, -457)
 
 [node name="GrapplingHook_Node2D" parent="InstantiateLevel" instance=ExtResource("10_eb637")]
+
+[node name="Camera2D" type="Camera2D" parent="InstantiateLevel"]
+position = Vector2(-92, -292)
+zoom = Vector2(0.75, 0.75)

@@ -8,6 +8,9 @@ namespace GrapplingHook {
 
     public partial class GrapplingHook : Node2D
     {
+        [Export]
+        public PackedScene rope;
+
         private Node2D _hook;
 
         private Sprite2D _hookSprite;

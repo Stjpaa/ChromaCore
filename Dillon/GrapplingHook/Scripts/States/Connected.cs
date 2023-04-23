@@ -1,5 +1,6 @@
 using Godot;
 using PlayerController;
+using PlayerController.States;
 
 namespace GrapplingHook.States
 {
@@ -9,6 +10,8 @@ namespace GrapplingHook.States
 
         private PlayerController2D _playerController;
         private HookableArea _hookableArea;
+        private Rope _rope;
+        private Vector2 _playerVelocity;
 
         public Connected(GrapplingHook grapplingHook) : base(grapplingHook) 
         {
@@ -17,26 +20,31 @@ namespace GrapplingHook.States
 
         public override void Enter() 
         {
+            _playerVelocity = _playerController.Velocity;
             _playerController.Velocity = Vector2.Zero;
             _hookableArea = _grapplingHook.rayCast2Ds.Find(o => o.GetCollider() != null).GetCollider() as HookableArea;
 
-            _hookableArea.GrapplingHookRotation.GlobalPosition = _grapplingHook.GlobalPosition;
-            _hookableArea.PlayerControllerPosition.GlobalPosition = _playerController.HookStartPosition;
+            _rope = _grapplingHook.rope.Instantiate() as Rope;
+            _grapplingHook.GetParent().AddChild(_rope);
+
+            _rope.SpawnRope(_grapplingHook.HookStartPosition, _grapplingHook._globalTargetPosition);          
         }
 
         public override void Execute()
         {
             CheckTransitionToReturning();
 
-            var direction = Input.GetAxis("Move_Right", "Move_Left");
-            var speed = 1f;
-            _hookableArea.GrapplingHookRotation.Rotation += speed * direction * (float)_grapplingHook.GetProcessDeltaTime();
-            _playerController.GlobalPosition = _hookableArea.PlayerControllerPosition.GlobalPosition + new Vector2(0, 32);
+            var newPos = _rope.GetNode<RigidBody2D>("RopeStartPiece").GlobalPosition;
+            newPos.Y += 32;
+            _playerController.GlobalPosition = newPos;
+            var direction = Input.GetAxis("Move_Left", "Move_Right");
+            _rope.GetNode<RigidBody2D>("RopeStartPiece").ApplyImpulse(Vector2.Right * direction * 20f);
+            GD.Print(direction);
         }
 
         public override void Exit() 
-        { 
-
+        {
+            _rope.QueueFree();
         }
 
         private void CheckTransitionToReturning()

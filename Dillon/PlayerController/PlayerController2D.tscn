@@ -214,8 +214,6 @@ position = Vector2(0, -45)
 shape = SubResource("CapsuleShape2D_s3vpl")
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
 offset_left = -64.0
 offset_top = -312.0

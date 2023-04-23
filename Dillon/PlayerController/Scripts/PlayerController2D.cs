@@ -6,10 +6,7 @@ namespace PlayerController
     public partial class PlayerController2D : CharacterBody2D
     {
         // GitHub Commit logs Version 0.0.11
-        // Changed the implementation of the grappling hook. It is now a indipendent node and no longer a child node of the playercontroller.
-        // It was neccessary to do this because ohterwise the hooks move direction would be influenced by the movement of the player.
-        // Added a hookable object
-        // Added state pattern for the grappling hook (Idle, Shooting, Connected, Returning)
+        // Implemented a physical rope for the grappling hook -> works not very good
         // Problems:
         // - Dash works not correctly inside a gravity field -> open
         // - Teleport makes the player fly if he is in the idle sate after the teleport -> open
