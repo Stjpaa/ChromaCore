@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Sem6Projekt": {
+      "commandName": "Project"
+    },
+    "Profil \"1\"": {
+      "commandName": "Executable",
+      "executablePath": "Y:\\Programme Studium\\GODOT\\Godot_v4.0-stable_mono_win64\\Godot_v4.0-stable_mono_win64.exe",
+      "commandLineArgs": "--path.--verbose",
+      "workingDirectory": ".",
+      "nativeDebugging": true
+    }
+  }
+}
