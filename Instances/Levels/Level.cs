@@ -9,9 +9,10 @@ public partial class Level : Node2D
     private bool levelCompleted = false;
 
     
-
     public void LoadLevel()
     {
+
+
         //SaveSystem.LoadLevel(this);
         SaveSystem.LoadLevelWithLevelInstantiator(this);
     }

@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://8kukwt3ntgmj"]
+
+[ext_resource type="Theme" uid="uid://q2jrn1vdduaw" path="res://Instances/Menus/MainMenu/MainMenuTheme.tres" id="1_sqaef"]
+[ext_resource type="Script" path="res://Instances/Menus/MainMenu/PlayButton.cs" id="2_sxrqg"]
+[ext_resource type="PackedScene" uid="uid://6q0qpcor0krb" path="res://Instances/Menus/LevelSelection/LevelSelectScene.tscn" id="3_ckmui"]
+[ext_resource type="Script" path="res://Instances/Menus/MainMenu/ExitButton.cs" id="4_4if3e"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Theme" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sqaef")
+
+[node name="BackgroundPanel" type="Panel" parent="Theme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Theme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Theme/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 35
+
+[node name="PlayButton" type="Button" parent="Theme/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Play"
+script = ExtResource("2_sxrqg")
+levelSelectScene = ExtResource("3_ckmui")
+
+[node name="SettingsButton" type="Button" parent="Theme/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Settings
+"
+
+[node name="ExitButton" type="Button" parent="Theme/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Exit
+"
+script = ExtResource("4_4if3e")
