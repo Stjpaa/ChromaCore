@@ -8,10 +8,15 @@ using System.Reflection;
 
 public partial class LevelInstantiater : Node2D
 {
-    private string pathToJson = "res://testData.json";
+    [Export] public Node2D levelRoot;
 
     public static string levelToBeInstantiatedPath;      // the Base Scene of what Level should be Loaded, we Load the SaveGame of this Scene if a Savegame exsists.
-    [Export] public Node2D levelRoot;
+    public LevelVariablesSaveData levelSaveData;
+
+    private PackedScene sceneToLoad;
+    private string levelVariableSaveDataGlobalPath;
+
+    private LevelTimer timerIngame;
 
     public override void _Ready()
     {
@@ -27,7 +32,79 @@ public partial class LevelInstantiater : Node2D
             return;
         }
         LoadLevel();
+        
+        
+        
+        
+        
+        levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad));   // we need the global path to read/write with File.ReadAllText
+
+        LevelVariablesSaveData testSave = new LevelVariablesSaveData();
+        testSave.levelTimerInSeconds = 1000;
+        SaveLevelVariablesToJson(testSave);
+
+
+
+
+
+
+
+        levelSaveData = LoadLevelVariablesSaveData();
+
+
+
+        //FindLevelTimerInScene();
+
+        if (timerIngame != null)
+        {
+            timerIngame.timeLevelWasPlayedInSeconds = 20;
+        }
+
     }
+
+    private void FindLevelTimerInScene()
+    {
+        Node loadedLevelRoot = levelRoot.GetChild(0);  // the highest node of the loaded Scene
+
+        //foreach (Node node in loadedLevelRoot.GetChildren())
+        //{
+        //    if (node.GetScript().GetType() == typeof(MyScriptType))
+        //    {
+        //        timerIngame = (LevelTimer)node.GetScript(typeof(LevelTimer));
+        //        break;
+        //    }
+        //}
+    }
+
+    private LevelVariablesSaveData LoadLevelVariablesSaveData()
+    {
+        if (SaveSystem.DoesFileExistAtPath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad)))
+        {
+            string text = File.ReadAllText(levelVariableSaveDataGlobalPath);
+
+            return JsonSerializer.Deserialize<LevelVariablesSaveData>(text);
+
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    private void SaveLevelVariablesToJson(LevelVariablesSaveData data)
+    {
+        var options = new JsonSerializerOptions // just makes the Json File better Readable
+        {
+            WriteIndented = true
+        };
+
+        string json_str = JsonSerializer.Serialize(data, options);
+
+        // Write the JSON string to file
+        File.WriteAllText(levelVariableSaveDataGlobalPath, json_str);
+    }
+
+
 
     //public void SaveLevel()
     //{
@@ -43,10 +120,10 @@ public partial class LevelInstantiater : Node2D
             return;
         }
 
-        PackedScene sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
+        sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
 
 
-                    
+
         //string saveGamePath = SaveSystem.GetSaveGamePathOfScene(sceneToLoad);
 
 
@@ -67,7 +144,7 @@ public partial class LevelInstantiater : Node2D
         // Load BaseScene and place it under node
 
         //sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
-            levelRoot.AddChild(sceneToLoad.Instantiate());
+        levelRoot.AddChild(sceneToLoad.Instantiate());
         //}
     }
 
@@ -82,7 +159,7 @@ public partial class LevelInstantiater : Node2D
     //    string test = (string)parentNode.Call("LoadOnInstantiation");       // executes the script on each node if it exists on it
 
 
-        
+
     //    // Recursively write all child nodes
     //    foreach (Node child in parentNode.GetChildren())
     //    {

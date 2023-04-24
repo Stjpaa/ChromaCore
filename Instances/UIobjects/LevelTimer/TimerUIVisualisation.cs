@@ -5,10 +5,6 @@ public partial class TimerUIVisualisation : Label
 {
     [Export]public LevelTimer levelTimer;
 
-    public override void _Ready()
-    {
-    }
-
     public override void _Process(double delta)
     {
         UpdateTimerUI();
@@ -17,6 +13,4 @@ public partial class TimerUIVisualisation : Label
     {
         Text = TimeSpan.FromSeconds(levelTimer.timeLevelWasPlayedInSeconds).ToString(@"mm\:ss\:fff");
     }
-
-    
 }

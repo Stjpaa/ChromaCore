@@ -7,11 +7,10 @@ using static System.Formats.Asn1.AsnWriter;
 
 public static class SaveSystem
 {
-    private const string pathOfLevelInstantiater = "res://Instances/Save System/LevelInstantiater.tscn";
+    private const string pathOfLevelInstantiater = "res://Instances/SaveSystem/LevelInstantiater.tscn";
 
-    private const string pathToLevelSelectScreen = "res://Instances/Save System/LevelSelectScene.tscn";
+    private const string pathToLevelSelectScreen = "res://Instances/Menus/LevelSelection/LevelSelectScene.tscn";
     private const string savePathBegining = "res://SaveData/";
-    private const string savePathEnd = "SaveData.tscn";
 
     //public static void SaveLevel(LevelInstantiater currentlyPlayedLevel)
     //{
@@ -43,6 +42,8 @@ public static class SaveSystem
             GD.PrintErr("No PackedScene was assigned to the Level which was tried to be loaded");
             return;
         }
+
+        GD.PrintErr("possible bug if LevelInstanciaterPath gets changed");
 
         levelToBeLoaded.GetTree().ChangeSceneToFile(pathOfLevelInstantiater);
 
@@ -84,18 +85,32 @@ public static class SaveSystem
         return doesFileExist;
     }
 
-    //public static string GetSaveGamePathOfScene(PackedScene scene)
-    //{
-    //    if(scene == null)
-    //    {
-    //        GD.PrintErr("baseLevel given to SaveSystem.GetPathOfSavegame() does not exist");
-    //        return null;
-    //    }
-    //    string baseLevelFileName = System.IO.Path.GetFileNameWithoutExtension(scene.ResourcePath);  // removes the path and the datatype
-    //    string savegamePath = savePathBegining + baseLevelFileName + savePathEnd;
+    public static string GetSaveGamePathOfScene(PackedScene scene)
+    {
+        if (scene == null)
+        {
+            GD.PrintErr("baseLevel given to SaveSystem.GetPathOfSavegame() does not exist");
+            return null;
+        }
+        string baseLevelFileName = System.IO.Path.GetFileNameWithoutExtension(scene.ResourcePath);  // removes the path and the datatype
+        string savegamePath = savePathBegining + baseLevelFileName + ".tscn";
+;
 
-    //    return savegamePath;
-    //}
+        return savegamePath;
+    }
+
+    public static string GetLevelVariablesSaveDataPath(PackedScene scene)
+    {
+        if (scene == null)
+        {
+            GD.PrintErr("baseLevel given to SaveSystem.GetPathOfSavegame() does not exist");
+            return null;
+        }
+        string baseLevelFileName = System.IO.Path.GetFileNameWithoutExtension(scene.ResourcePath);  // removes the path and the datatype
+        string savegamePath = savePathBegining + baseLevelFileName + ".json";
+
+        return savegamePath;
+    }
 
     //public static void DeleteSaveGameData(PackedScene baseSceneToDeleteSaveData)
     //{

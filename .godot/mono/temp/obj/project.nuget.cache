@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "o64pYP4VitgrnBGskdbuNzB6xofoD6+rxaBXmn564DKZbPRT4eKfNhIFpYLbSk8T10jfoi5Yod0UvWfE0eVPgg==",
+  "dgSpecHash": "qcEmtVk28EIAHJfIQN2v04cLWVLVOdgwethEaqXS2GI3t8BY0ruL5ekDdSYGgcVauPb8gVI6e1uYl39slL5slQ==",
   "success": true,
-  "projectFilePath": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
+  "projectFilePath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godot.sourcegenerators\\4.0.2\\godot.sourcegenerators.4.0.2.nupkg.sha512",
-    "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godotsharp\\4.0.2\\godotsharp.4.0.2.nupkg.sha512",
-    "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godotsharpeditor\\4.0.2\\godotsharpeditor.4.0.2.nupkg.sha512"
+    "C:\\Users\\Martin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godot.sourcegenerators\\4.0.0\\godot.sourcegenerators.4.0.0.nupkg.sha512",
+    "C:\\Users\\Martin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godotsharp\\4.0.0\\godotsharp.4.0.0.nupkg.sha512",
+    "C:\\Users\\Martin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godotsharpeditor\\4.0.0\\godotsharpeditor.4.0.0.nupkg.sha512"
   ],
   "logs": []
 }

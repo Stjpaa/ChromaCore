@@ -3,20 +3,27 @@
 [ext_resource type="Script" path="res://Instances/UIobjects/LevelTimer/LevelTimer.cs" id="1_khsox"]
 [ext_resource type="Script" path="res://Instances/UIobjects/LevelTimer/TimerUIVisualisation.cs" id="2_m5r6d"]
 
-[node name="LevelPlayedTimer" type="Node2D"]
-script = ExtResource("1_khsox")
-
-[node name="Label" type="Label" parent="." node_paths=PackedStringArray("levelTimer")]
+[node name="LevelTimer" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 503.0
-offset_top = 1.0
-offset_right = 620.0
-offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_khsox")
+
+[node name="TimerUI" type="Label" parent="." node_paths=PackedStringArray("levelTimer")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.5
+offset_right = 58.5
+offset_bottom = 26.0
+grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "sssssssssssssss"
+text = "timer
+"
+horizontal_alignment = 1
 script = ExtResource("2_m5r6d")
 levelTimer = NodePath("..")
