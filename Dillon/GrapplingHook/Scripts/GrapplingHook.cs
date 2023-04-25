@@ -9,7 +9,7 @@ namespace GrapplingHook {
     public partial class GrapplingHook : Node2D
     {
         [Export]
-        public PackedScene rope;
+        public PackedScene grapplingHookJB;
 
         private Node2D _hook;
 
@@ -28,7 +28,7 @@ namespace GrapplingHook {
             get { return PlayerController.HookStartPosition; }
         }
 
-        public float HookSpeed { get { return 1000f; } }
+        public float HookSpeed { get { return 1500f; } }
         public float HookLenght { get { return 250f; } }
 
         public State _state;

@@ -21,8 +21,8 @@ shape = SubResource("CapsuleShape2D_gd4it")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="CollisionShape2D"]
 position = Vector2(0, 8)
-bias = 0.503
-softness = 0.01
+bias = 0.15
+softness = 0.25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 4)

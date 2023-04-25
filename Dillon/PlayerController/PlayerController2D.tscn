@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bxrinvpxhsiqc"]
+[gd_scene load_steps=28 format=3 uid="uid://bxrinvpxhsiqc"]
 
 [ext_resource type="Script" path="res://Dillon/PlayerController/Scripts/PlayerController2D.cs" id="1_pl4lx"]
 [ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_xv8au"]
@@ -22,6 +22,10 @@ region = Rect2(0, 0, 96, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0wwj"]
 atlas = ExtResource("2_xv8au")
 region = Rect2(288, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r45w2"]
+atlas = ExtResource("2_xv8au")
+region = Rect2(768, 384, 96, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t425r"]
 atlas = ExtResource("2_xv8au")
@@ -121,6 +125,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r45w2")
+}],
+"loop": false,
+"name": &"Hooking",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t425r")
 }],
 "loop": false,
@@ -207,7 +219,7 @@ script = ExtResource("1_pl4lx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -63)
 sprite_frames = SubResource("SpriteFrames_p68cg")
-animation = &"Idle"
+animation = &"Hooking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -45)

@@ -9,8 +9,8 @@ namespace GrapplingHook.States
         public override string Name { get { return "Connected"; } }
 
         private PlayerController2D _playerController;
+        private GrapplingHookJointBased _grapplingHookJB;
         private HookableArea _hookableArea;
-        private Rope _rope;
         private Vector2 _playerVelocity;
 
         public Connected(GrapplingHook grapplingHook) : base(grapplingHook) 
@@ -24,27 +24,30 @@ namespace GrapplingHook.States
             _playerController.Velocity = Vector2.Zero;
             _hookableArea = _grapplingHook.rayCast2Ds.Find(o => o.GetCollider() != null).GetCollider() as HookableArea;
 
-            _rope = _grapplingHook.rope.Instantiate() as Rope;
-            _grapplingHook.GetParent().AddChild(_rope);
-
-            _rope.SpawnRope(_grapplingHook.HookStartPosition, _grapplingHook._globalTargetPosition);          
+            _grapplingHookJB = _grapplingHook.grapplingHookJB.Instantiate<GrapplingHookJointBased>();
+            _grapplingHook.GetParent().AddChild(_grapplingHookJB);
+            _grapplingHookJB.InitializeHook(_grapplingHook.GlobalPosition, _playerController.HookStartPosition + new Vector2(0, 32), Mathf.RoundToInt(_grapplingHook.GetCurrentHookLenght()));
         }
 
         public override void Execute()
         {
             CheckTransitionToReturning();
 
-            var newPos = _rope.GetNode<RigidBody2D>("RopeStartPiece").GlobalPosition;
-            newPos.Y += 32;
-            _playerController.GlobalPosition = newPos;
-            var direction = Input.GetAxis("Move_Left", "Move_Right");
-            _rope.GetNode<RigidBody2D>("RopeStartPiece").ApplyImpulse(Vector2.Right * direction * 20f);
-            GD.Print(direction);
+            _playerController.GlobalPosition = _grapplingHookJB.hookEnd.GlobalPosition;
+
+            if(Input.IsActionJustPressed("Move_Left"))
+            {
+                _grapplingHookJB.hookEnd.ApplyImpulse(new Vector2(-300, 0));
+            }
+            if (Input.IsActionJustPressed("Move_Right"))
+            {
+                _grapplingHookJB.hookEnd.ApplyImpulse(new Vector2(300, 0));
+            }
         }
 
         public override void Exit() 
         {
-            _rope.QueueFree();
+            _grapplingHookJB.QueueFree();
         }
 
         private void CheckTransitionToReturning()

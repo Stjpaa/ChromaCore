@@ -5,8 +5,8 @@ namespace PlayerController
 {
     public partial class PlayerController2D : CharacterBody2D
     {
-        // GitHub Commit logs Version 0.0.11
-        // Implemented a physical rope for the grappling hook -> works not very good
+        // GitHub Commit logs Version 0.0.13
+        // 
         // Problems:
         // - Dash works not correctly inside a gravity field -> open
         // - Teleport makes the player fly if he is in the idle sate after the teleport -> open

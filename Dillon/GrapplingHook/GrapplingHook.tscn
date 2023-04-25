@@ -1,19 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciyswvrmprdt4"]
+[gd_scene load_steps=5 format=3 uid="uid://ciyswvrmprdt4"]
 
 [ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/GrapplingHook.cs" id="1_bli5b"]
 [ext_resource type="Texture2D" uid="uid://usqel3f7jre4" path="res://Dillon/Assets/Chain.png" id="1_e04wa"]
 [ext_resource type="Texture2D" uid="uid://jdvvj5vtumda" path="res://Dillon/Assets/Hook.png" id="1_v8sij"]
-[ext_resource type="PackedScene" uid="uid://bws37mtyp60dd" path="res://Dillon/Rope/Scenes/Rope.tscn" id="2_5c78s"]
-
-[sub_resource type="Curve2D" id="Curve2D_amy2y"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -86, -1, 0, 0, 0, 0, -80, 10, 0, 0, 0, 0, -74, 20, 0, 0, 0, 0, -67, 30, 0, 0, 0, 0, -57, 40, 0, 0, 0, 0, -46, 47, 0, 0, 0, 0, -34, 54, 0, 0, 0, 0, -24, 58, 0, 0, 0, 0, -10, 62, 0, 0, 0, 0, 8, 62, 0, 0, 0, 0, 24, 60, 0, 0, 0, 0, 39, 55, 0, 0, 0, 0, 51, 49, 0, 0, 0, 0, 61, 40, 0, 0, 0, 0, 71, 29, 0, 0, 0, 0, 78, 17, 0, 0, 0, 0, 82, 9, 0, 0, 0, 0, 86, -1)
-}
-point_count = 18
+[ext_resource type="PackedScene" uid="uid://b2yndqvd8rn34" path="res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn" id="2_133sl"]
 
 [node name="GrapplingHook_Node2D" type="Node2D"]
 script = ExtResource("1_bli5b")
-rope = ExtResource("2_5c78s")
+grapplingHookJB = ExtResource("2_133sl")
 
 [node name="Hook_Node2D" type="Node2D" parent="."]
 
@@ -43,10 +37,3 @@ target_position = Vector2(8, 0)
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_amy2y")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-86, -1)
-rotation = 1.07145

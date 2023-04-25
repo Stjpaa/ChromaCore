@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://72enoichqndo"]
+[gd_scene load_steps=15 format=3 uid="uid://72enoichqndo"]
 
 [ext_resource type="Texture2D" uid="uid://ds2gsq3ng153g" path="res://Dillon/Assets/tilesheet_complete.png" id="1_bg6fh"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="2_nomqj"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="7_lx0ly"]
 [ext_resource type="PackedScene" uid="uid://dylusdy1f5t14" path="res://Dillon/GrapplingHook/hookable_area_2d.tscn" id="8_ixhwn"]
 [ext_resource type="PackedScene" uid="uid://ciyswvrmprdt4" path="res://Dillon/GrapplingHook/GrapplingHook.tscn" id="10_eb637"]
+[ext_resource type="PackedScene" uid="uid://b2yndqvd8rn34" path="res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn" id="11_ejms4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idpbc"]
 
@@ -883,3 +884,11 @@ position = Vector2(-371, -457)
 [node name="Camera2D" type="Camera2D" parent="InstantiateLevel"]
 position = Vector2(-92, -292)
 zoom = Vector2(0.75, 0.75)
+
+[node name="GrapplingHook_JointBased" parent="InstantiateLevel" instance=ExtResource("11_ejms4")]
+
+[node name="DSJ" parent="InstantiateLevel/GrapplingHook_JointBased" index="0"]
+position = Vector2(-158, -672)
+rotation = 1.38283
+
+[editable path="InstantiateLevel/GrapplingHook_JointBased"]
