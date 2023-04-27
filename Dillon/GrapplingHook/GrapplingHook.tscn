@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciyswvrmprdt4"]
+
+[ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/GrapplingHook.cs" id="1_bli5b"]
+[ext_resource type="Texture2D" uid="uid://usqel3f7jre4" path="res://Dillon/Assets/Chain.png" id="1_e04wa"]
+[ext_resource type="Texture2D" uid="uid://jdvvj5vtumda" path="res://Dillon/Assets/Hook.png" id="1_v8sij"]
+[ext_resource type="PackedScene" uid="uid://b2yndqvd8rn34" path="res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn" id="2_133sl"]
+
+[node name="GrapplingHook_Node2D" type="Node2D"]
+script = ExtResource("1_bli5b")
+grapplingHookJB = ExtResource("2_133sl")
+
+[node name="Hook_Node2D" type="Node2D" parent="."]
+
+[node name="Hook_Sprite2D" type="Sprite2D" parent="Hook_Node2D"]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_v8sij")
+
+[node name="Chain_Line2D" type="Line2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(0, 0, -85, 0)
+width = 16.0
+texture = ExtResource("1_e04wa")
+texture_mode = 1
+
+[node name="Top_RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
+target_position = Vector2(8, 0)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Bottom_RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+target_position = Vector2(8, 0)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
