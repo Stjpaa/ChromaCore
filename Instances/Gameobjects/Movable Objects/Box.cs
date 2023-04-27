@@ -63,7 +63,7 @@ public partial class Box : RigidBody2D, IMechanicMethods
 
 		if (this._collided)
 		{
-			state.ApplyImpulse(this._collisionImpulse);
+			state.ApplyCentralImpulse(this._collisionImpulse);
 			this._collided = false;
 		}
 	}

@@ -1,6 +1,8 @@
-res://Dillon/tile_map.tscn
-res://Dillon/GrapplingHook/GrapplingHook.tscn
-res://Dillon/GrapplingHook/hookable_area_2d.tscn
+res://Instances/Levels/Level-Prototype.tscn
+res://Dillon/PlayerController/PlayerController2D_Data.tres
+res://Assets/Sprites/Platform_Normal.tres
+res://Assets/Sprites/Platform_Moving.tres
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Dillon/PlayerController/PlayerController2D.tscn
 res://Dillon/Rope/Scenes/Teststage.tscn
 res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn

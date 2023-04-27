@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj": {}
+    "E:\\Semester6Projekt\\Sem6Projekt.csproj": {}
   },
   "projects": {
-    "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj": {
+    "E:\\Semester6Projekt\\Sem6Projekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj",
+        "projectUniqueName": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
         "projectName": "Sem6Projekt",
-        "projectPath": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\Sem6Projekt.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "Y:\\STUDIUM\\6. SEMESTER\\MODULE\\GAME PROTOTYPING\\CHROMACORE\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
+        "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
+        "outputPath": "E:\\Semester6Projekt\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Users\\User\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+          "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +28,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,15 +49,15 @@
           "dependencies": {
             "Godot.SourceGenerators": {
               "target": "Package",
-              "version": "[4.0.0, )"
+              "version": "[4.0.2, )"
             },
             "GodotSharp": {
               "target": "Package",
-              "version": "[4.0.0, )"
+              "version": "[4.0.2, )"
             },
             "GodotSharpEditor": {
               "target": "Package",
-              "version": "[4.0.0, )"
+              "version": "[4.0.2, )"
             }
           },
           "imports": [
@@ -73,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
