@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_l1osh")
-maxMoveSpeed = 250.0
-moveSpeedAcceleration = 40.0
-moveSpeedDecceleration = 40.0
-maxFallSpeed = 800.0
-fallSpeedAcceleration = 27.0
-maxFallingMoveSpeed = 225.0
-fallingMoveSpeedAcceleration = 32.0
-jumpSpeed = 800.0
-jumpEndModifier = 5.0
-dashSpeed = 1000.0
+maxMoveSpeed = 350.0
+moveSpeedAcceleration = 70.0
+moveSpeedDecceleration = 60.0
+maxFallSpeed = 500.0
+fallSpeedAcceleration = 60.0
+maxFallingMoveSpeed = 300.0
+fallingMoveSpeedAcceleration = 80.0
+jumpSpeed = 625.0
+jumpEndModifier = 6.0
+dashSpeed = 400.0
 dashDuration = 0.2
-coyoteTimeDuration = 2.0
+coyoteTimeDuration = 0.5
 apexModifierDuration = 0.05

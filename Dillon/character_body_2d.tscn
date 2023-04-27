@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://xjog32y8jj7h"]
+[gd_scene load_steps=29 format=3 uid="uid://xjog32y8jj7h"]
 
 [ext_resource type="Script" path="res://Dillon/Scripts/PlayerController2D.cs" id="1_nt2cb"]
 [ext_resource type="Resource" uid="uid://uopvg4pom5mk" path="res://Dillon/CharacterController2d_Data.tres" id="2_8g21t"]
 [ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_p8mra"]
+[ext_resource type="Texture2D" uid="uid://cwyo5igh1of5c" path="res://Godot Char_Placeholder-1.png" id="3_7l57s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3q5q"]
 atlas = ExtResource("2_p8mra")
@@ -195,8 +196,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s3vpl"]
-radius = 29.0
-height = 90.0
+radius = 12.5
+height = 40.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ub400"]
 font_size = 25
@@ -205,13 +206,19 @@ font_size = 25
 script = ExtResource("1_nt2cb")
 data = ExtResource("2_8g21t")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -21)
+scale = Vector2(0.92, 0.880001)
+texture = ExtResource("3_7l57s")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0, -63)
 sprite_frames = SubResource("SpriteFrames_p68cg")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -45)
+position = Vector2(0, -21)
 shape = SubResource("CapsuleShape2D_s3vpl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
