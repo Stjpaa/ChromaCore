@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="4_cqold"]
 [ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="5_2i888"]
 [ext_resource type="PackedScene" uid="uid://mb5aisolynk5" path="res://Instances/Gameobjects/Platforms/JumpPad.tscn" id="5_3fsnu"]
-[ext_resource type="Resource" path="res://Dillon/PlayerController/PlayerController2D_Data.tres" id="6_414eb"]
+[ext_resource type="Resource" uid="uid://cay1arq22pcih" path="res://Dillon/PlayerController/test.tres" id="6_lumch"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="7_6cak5"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="7_lx0ly"]
 [ext_resource type="PackedScene" uid="uid://dylusdy1f5t14" path="res://Dillon/GrapplingHook/hookable_area_2d.tscn" id="8_ixhwn"]
@@ -861,7 +861,7 @@ _gravityfieldSize = Vector2(50, 180)
 
 [node name="CharacterBody2D" parent="InstantiateLevel/Gameobject_List" node_paths=PackedStringArray("GrapplingHook") instance=ExtResource("5_2i888")]
 position = Vector2(-351, -78)
-data = ExtResource("6_414eb")
+data = ExtResource("6_lumch")
 GrapplingHook = NodePath("../../GrapplingHook_Node2D")
 
 [node name="Box" parent="InstantiateLevel/Gameobject_List" instance=ExtResource("7_6cak5")]

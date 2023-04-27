@@ -1,9 +1,8 @@
 res://Dillon/tile_map.tscn
-res://Assets/Sprites/Platform_Normal.tres
+res://Dillon/PlayerController/PlayerController2D_Data.tres
 res://Dillon/GrapplingHook/GrapplingHook.tscn
 res://Dillon/GrapplingHook/hookable_area_2d.tscn
 res://Dillon/PlayerController/PlayerController2D.tscn
 res://Dillon/Rope/Scenes/Teststage.tscn
 res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn
-res://Dillon/Rope/Scenes/RopePiece.tscn
-res://Dillon/Rope/Scenes/RopeEndPiece.tscn
+res://Dillon/PlayerController/test.tres
