@@ -31,7 +31,7 @@ public partial class Gravityfield_Normal : Area2D
 		this._gravityDirectionNode = this._gravityfieldCollider.GetNode<Node2D>("GravityDirection");
 		this._sprite = this._gravityfieldCollider.GetNode<Sprite2D>("Sprite");
 
-		// Set collider- and spritesize
+		// Set collider- and sprite size
 		this._gravityfieldCollider.Shape.Set("size", this._gravityfieldSize);
 		this._sprite.Scale = this._gravityfieldCollider.Shape.GetRect().Size;
 
@@ -70,11 +70,11 @@ public partial class Gravityfield_Normal : Area2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		EmitSignal("OnGravityfieldEntered", this._gravityDirection.Normalized() * this._gravityStrength);
+		body.Call("ChangeGravityProperties", this._gravityDirection.Normalized() * this._gravityStrength);
 	}	
 
 	public void OnBodyExited(Node2D body)
 	{
-		EmitSignal("OnGravityfieldExited");
+		body.Call("ResetGravityProperties");
 	}
 }

@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://rfnsqa1150ea"]
+[gd_scene load_steps=7 format=3 uid="uid://rfnsqa1150ea"]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs" id="1_hbaih"]
-[ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/GravityfieldSwitch.cs" id="2_r7pr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38fv1"]
 resource_local_to_scene = true
 size = Vector2(50, 50)
 
-[sub_resource type="Shader" id="Shader_t6nll"]
+[sub_resource type="Shader" id="Shader_h68oi"]
 code = "shader_type canvas_item;
 
 uniform float width : hint_range(10, 1000) = 30;
@@ -107,7 +106,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6i3qd"]
 resource_local_to_scene = true
-shader = SubResource("Shader_t6nll")
+shader = SubResource("Shader_h68oi")
 shader_parameter/width = 50.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
@@ -122,7 +121,7 @@ shader_parameter/pause = true
 [sub_resource type="CanvasTexture" id="CanvasTexture_t4xum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pxg"]
-size = Vector2(20, 2.22961)
+size = Vector2(20, 2.1148)
 
 [node name="Gravityfield_Toggle" type="Area2D"]
 script = ExtResource("1_hbaih")
@@ -141,12 +140,12 @@ texture = SubResource("CanvasTexture_t4xum")
 
 [node name="Switch" type="Area2D" parent="."]
 position = Vector2(-44, 0)
-script = ExtResource("2_r7pr8")
 
 [node name="SwitchCollider" type="CollisionShape2D" parent="Switch"]
+position = Vector2(0, -0.0574025)
 shape = SubResource("RectangleShape2D_d6pxg")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="." to="." method="OnBodyExited"]
-[connection signal="body_entered" from="Switch" to="Switch" method="OnBodyEntered"]
-[connection signal="body_exited" from="Switch" to="Switch" method="OnBodyExited"]
+[connection signal="body_entered" from="Switch" to="." method="EnableGravityfield"]
+[connection signal="body_exited" from="Switch" to="." method="DisableGravityfield"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt56jo4o7i0hw"]
 
-[ext_resource type="Script" path="res://Instances/Gameobjects/Portals/Portals.cs" id="1_ansxf"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/Portals/Portals.cs" id="1_2xib1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_52bir"]
 
 [node name="Portals" type="Node2D"]
-script = ExtResource("1_ansxf")
+script = ExtResource("1_2xib1")
 
 [node name="Portal1" type="Area2D" parent="."]
 position = Vector2(-30, 0)
