@@ -76,7 +76,7 @@ namespace PlayerController.States
 
             if (CheckTransitionToDash()) { return; }
             if (CheckTransitionToJumping()) { return; }
-            if (CheckTransitionToHooking()) { return; }
+            //if (CheckTransitionToHooking()) { return; }
             if (CheckTransitionToIdle()) { return; }
         }
         public override void Exit()

@@ -18,7 +18,7 @@ namespace PlayerController.States
         {
             if (CheckTransitionToJumping()) { return; }
             if (CheckTransitionToDashing()) { return; }
-            if (CheckTransitionToHooking()) { return; }
+            //if (CheckTransitionToHooking()) { return; }
 
             #region Movement
             var moveDirection = Input.GetAxis("Move_Left", "Move_Right");

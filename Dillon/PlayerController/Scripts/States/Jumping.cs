@@ -7,15 +7,18 @@ namespace PlayerController.States
     {
         public override string Name { get { return "Jumping"; } }
 
-        private float _jumpForce;
+        private Vector2 _jumpVelocity;
 
         private bool _applyVariableJumpHeight;
 
-
-        /// <param name="jumpForce"> If no custom jump force is given, the default jump force from the playercontroller data will be applied </param>
-        public Jumping(PlayerController2D playerController_2D, bool applyVariableJumpHeight, float jumpForce = 0) : base(playerController_2D)
+        public Jumping(PlayerController2D playerController2D, bool applyVariableJumpHeight, Vector2 jumpVelocity) : base(playerController2D)
         {
-            _jumpForce = (jumpForce == 0) ? _playerController2D.JumpForce : Mathf.Abs(jumpForce);
+            _jumpVelocity = jumpVelocity;
+            _applyVariableJumpHeight = applyVariableJumpHeight;
+        }
+        public Jumping(PlayerController2D playerContoller2D, bool applyVariableJumpHeight) : base(playerContoller2D)
+        {
+            _jumpVelocity = new Vector2(0, -_playerController2D.JumpForce);
             _applyVariableJumpHeight = applyVariableJumpHeight;
         }
 
@@ -32,10 +35,7 @@ namespace PlayerController.States
 
         private void Jump()
         {
-            var velocity = _playerController2D.Velocity;
-            // Negavtive velocity means upwards movement
-            velocity.Y = -_jumpForce;
-            _playerController2D.Velocity = velocity;
+            _playerController2D.Velocity = _jumpVelocity;
         }
 
         #region Transitions

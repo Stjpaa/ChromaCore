@@ -12,7 +12,9 @@ script = ExtResource("1_opsds")
 node_a = NodePath("HookStart")
 node_b = NodePath("HookEnd")
 length = 100.0
+rest_length = 99.0
 stiffness = 64.0
+damping = 16.0
 
 [node name="HookStart" type="RigidBody2D" parent="DSJ"]
 collision_layer = 0
@@ -41,9 +43,3 @@ metadata/_edit_lock_ = true
 z_index = 5
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_qlons")
-
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
-node_a = NodePath("../DSJ/HookEnd")
-node_b = NodePath("../DSJ/HookStart")
-stiffness = 64.0
-damping = 16.0

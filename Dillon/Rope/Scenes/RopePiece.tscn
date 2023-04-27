@@ -25,7 +25,7 @@ bias = 0.15
 softness = 0.25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(-4.54747e-13, 8)
 rotation = 1.5708
-scale = Vector2(0.5, 0.327016)
+scale = Vector2(0.995, 0.324)
 texture = ExtResource("2_3snpi")

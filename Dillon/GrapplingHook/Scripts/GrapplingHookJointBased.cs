@@ -24,7 +24,8 @@ public partial class GrapplingHookJointBased : Node
 
     private void SetHookLength(int length)
     {
-        joint.Length = length;
+        joint.Length = length + 1;
+        joint.RestLength = length;
         hookEnd.Position = new Vector2(0, length);
     }
 

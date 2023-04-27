@@ -15,7 +15,7 @@ namespace PlayerController.States
         {
             if (CheckTransitionToJumping()) { return; }
             if (CheckTransitionToMoving()) { return; }
-            if (CheckTransitionToHooking()) { return; }
+            //if (CheckTransitionToHooking()) { return; }
         }
         public override void Exit() { }
 

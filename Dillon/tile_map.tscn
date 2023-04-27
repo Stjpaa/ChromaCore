@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="5_2i888"]
 [ext_resource type="PackedScene" uid="uid://mb5aisolynk5" path="res://Instances/Gameobjects/Platforms/JumpPad.tscn" id="5_3fsnu"]
 [ext_resource type="Resource" path="res://Dillon/PlayerController/PlayerController2D_Data.tres" id="6_414eb"]
+[ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="7_6cak5"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="7_lx0ly"]
 [ext_resource type="PackedScene" uid="uid://dylusdy1f5t14" path="res://Dillon/GrapplingHook/hookable_area_2d.tscn" id="8_ixhwn"]
 [ext_resource type="PackedScene" uid="uid://ciyswvrmprdt4" path="res://Dillon/GrapplingHook/GrapplingHook.tscn" id="10_eb637"]
-[ext_resource type="PackedScene" uid="uid://b2yndqvd8rn34" path="res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn" id="11_ejms4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idpbc"]
 
@@ -864,6 +864,9 @@ position = Vector2(-351, -78)
 data = ExtResource("6_414eb")
 GrapplingHook = NodePath("../../GrapplingHook_Node2D")
 
+[node name="Box" parent="InstantiateLevel/Gameobject_List" instance=ExtResource("7_6cak5")]
+position = Vector2(-238, -123)
+
 [node name="Jumppad_List" type="Node2D" parent="InstantiateLevel"]
 
 [node name="JumpPad" parent="InstantiateLevel/Jumppad_List" instance=ExtResource("5_3fsnu")]
@@ -880,15 +883,3 @@ position = Vector2(671, -81)
 position = Vector2(-371, -457)
 
 [node name="GrapplingHook_Node2D" parent="InstantiateLevel" instance=ExtResource("10_eb637")]
-
-[node name="Camera2D" type="Camera2D" parent="InstantiateLevel"]
-position = Vector2(-92, -292)
-zoom = Vector2(0.75, 0.75)
-
-[node name="GrapplingHook_JointBased" parent="InstantiateLevel" instance=ExtResource("11_ejms4")]
-
-[node name="DSJ" parent="InstantiateLevel/GrapplingHook_JointBased" index="0"]
-position = Vector2(-158, -672)
-rotation = 1.38283
-
-[editable path="InstantiateLevel/GrapplingHook_JointBased"]

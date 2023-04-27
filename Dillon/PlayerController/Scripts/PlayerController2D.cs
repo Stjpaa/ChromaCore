@@ -5,11 +5,11 @@ namespace PlayerController
 {
     public partial class PlayerController2D : CharacterBody2D
     {
-        // GitHub Commit logs Version 0.0.13
-        // 
+        // GitHub Commit logs Version 0.0.14
+        // Deactivated grappling hook for merge into main
+        // Fixed the teleport bug after entering a portal in idle state. The player executes a jump instead of changing the velocity directly
         // Problems:
-        // - Dash works not correctly inside a gravity field -> open
-        // - Teleport makes the player fly if he is in the idle sate after the teleport -> open
+        // - Dash works not correctly inside a gravity field => open
 
         [Export]
         public PlayerController2D_Data data;
@@ -141,7 +141,7 @@ namespace PlayerController
         private void ApplyJumpPadForce(Vector2 strength)
         {
             GD.Print("Jumppad entered");
-            ChangeState(new Jumping(this, false, strength.Y));
+            ChangeState(new Jumping(this, false, strength));
         }
 
         private void Teleport(Vector2 newPos, Vector2 impulse)
@@ -151,8 +151,7 @@ namespace PlayerController
 
             // Set the position to the teleport position
             Transform = new Transform2D(0, newPos);
-            Velocity = Vector2.Zero;
-            Velocity += impulse;
+            ChangeState(new Jumping(this, false, impulse));
 
             _teleportTimer.Start();
         }
