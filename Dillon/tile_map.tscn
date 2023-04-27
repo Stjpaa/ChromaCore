@@ -865,7 +865,7 @@ data = ExtResource("6_lumch")
 GrapplingHook = NodePath("../../GrapplingHook_Node2D")
 
 [node name="Box" parent="InstantiateLevel/Gameobject_List" instance=ExtResource("7_6cak5")]
-position = Vector2(-238, -123)
+position = Vector2(-223, -124)
 
 [node name="Jumppad_List" type="Node2D" parent="InstantiateLevel"]
 

@@ -205,9 +205,8 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s3vpl"]
-radius = 29.0
-height = 90.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5upv1"]
+size = Vector2(42, 90)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ub400"]
 font_size = 25
@@ -219,11 +218,11 @@ script = ExtResource("1_pl4lx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -63)
 sprite_frames = SubResource("SpriteFrames_p68cg")
-animation = &"Hooking"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -45)
-shape = SubResource("CapsuleShape2D_s3vpl")
+position = Vector2(1, -45)
+shape = SubResource("RectangleShape2D_5upv1")
 metadata/_edit_lock_ = true
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]

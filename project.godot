@@ -78,4 +78,9 @@ ReleaseGrapplingHook={
 
 [layer_names]
 
-2d_physics/layer_5="HookableArea"
+2d_physics/layer_6="World"
+2d_physics/layer_7="Player"
+2d_physics/layer_8="Objects"
+2d_physics/layer_9="Traps"
+2d_physics/layer_10="GravityFields"
+2d_physics/layer_11="JumpPads"

@@ -5,9 +5,8 @@ namespace PlayerController
 {
     public partial class PlayerController2D : CharacterBody2D
     {
-        // GitHub Commit logs Version 0.0.14
-        // Deactivated grappling hook for merge into main
-        // Fixed the teleport bug after entering a portal in idle state. The player executes a jump instead of changing the velocity directly
+        // GitHub Commit logs Version 0.0.16
+        // Implemented interaction with a box
         // Problems:
         // - Dash works not correctly inside a gravity field => open
 
@@ -112,6 +111,7 @@ namespace PlayerController
 
             dashCooldown.Text = string.Format("{0:N0}", DashCooldownTimer.TimeLeft);
             MoveAndSlide();
+            CheckCollisionWithBox();
         }
 
         public void ChangeState(State newState)
@@ -154,6 +154,18 @@ namespace PlayerController
             ChangeState(new Jumping(this, false, impulse));
 
             _teleportTimer.Start();
+        }
+
+        private void CheckCollisionWithBox()
+        {
+            if (GetSlideCollisionCount() > 0)
+            {
+                if (GetLastSlideCollision().GetCollider() is Box)
+                {
+                    var @object = GetLastSlideCollision().GetCollider() as Box;
+                    @object.ApplyCollisionImpulse(new Vector2(20 * Input.GetAxis("Move_Left", "Move_Right"), 0));
+                }
+            }
         }
 
         private void SaveCheckpointLocation()
