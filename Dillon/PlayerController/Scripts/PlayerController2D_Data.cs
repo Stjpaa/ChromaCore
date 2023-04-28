@@ -22,6 +22,8 @@ public partial class PlayerController2D_Data : Resource
     public float maxFallingMoveSpeed = 225f;
     [Export]
     public float fallingMoveSpeedAcceleration = 32f;
+    [Export]
+    public float FallingMoveSpeedDeceleration = 10f;
 
 
     [ExportCategory("Jumping State")]
