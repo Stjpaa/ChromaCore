@@ -5,13 +5,14 @@ using System.Text.Json;
 
 public partial class LoadTestSkript : Node2D
 {
-    private string pathInGodot = "res://SaveData/test.json";
+    private string pathInGodot = "user://test.json";
     private string pathGlobal;
+
     public override void _Ready()
     {
         pathGlobal = ProjectSettings.GlobalizePath(pathInGodot);
 
-        GD.Print("exists");
+        GD.Print(pathGlobal);
         SaveLevelVariablesToJson();
         LoadLevelVariablesToJson();
     }

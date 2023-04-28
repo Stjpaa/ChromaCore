@@ -10,18 +10,18 @@ public partial class CursorManager : Node2D
         //if (Input.GetLastMouseSpeed() == Vector2.Zero)
         {
             // Hide the cursor
-            GetTree().Root.Visible = false;
+            Input.MouseMode = Input.MouseModeEnum.Hidden;
         }
     }
 
     private void HideCursor()
     {
-        GetTree().Root.Visible = false;
+        Input.MouseMode = Input.MouseModeEnum.Hidden;
     }
 
     private void ShowCursor()
     {
-        GetTree().Root.Visible = true;
+        Input.MouseMode = Input.MouseModeEnum.Visible;
     }
 
 }
