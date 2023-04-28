@@ -8,15 +8,16 @@ using System.Reflection;
 
 public partial class LevelInstantiater : Node2D
 {
+    public static string levelToBeInstantiatedPath;      // the Base Scene of what Level should be Loaded, we Load the SaveGame of this Scene if a Savegame exsists.
+    
     [Export] public Node2D levelRoot;
 
-    public static string levelToBeInstantiatedPath;      // the Base Scene of what Level should be Loaded, we Load the SaveGame of this Scene if a Savegame exsists.
     public LevelVariablesSaveData levelSaveData;
 
     private PackedScene sceneToLoad;
     private string levelVariableSaveDataGlobalPath;
 
-    private LevelTimer timerIngame;
+    private LevelManager levelManager;
 
     public override void _Ready()
     {
@@ -33,7 +34,7 @@ public partial class LevelInstantiater : Node2D
         }
         LoadLevel();
         
-        
+         
         
         
         
@@ -45,36 +46,15 @@ public partial class LevelInstantiater : Node2D
 
 
 
-
-
-
-
         levelSaveData = LoadLevelVariablesSaveData();
 
+        levelManager = (LevelManager)levelRoot.GetChild(0).GetNode("LevelManager");
 
-
-        //FindLevelTimerInScene();
-
-        if (timerIngame != null)
-        {
-            timerIngame.timeLevelWasPlayedInSeconds = 20;
-        }
+        levelManager.InstantiateValues(levelSaveData);
 
     }
 
-    private void FindLevelTimerInScene()
-    {
-        Node loadedLevelRoot = levelRoot.GetChild(0);  // the highest node of the loaded Scene
 
-        //foreach (Node node in loadedLevelRoot.GetChildren())
-        //{
-        //    if (node.GetScript().GetType() == typeof(MyScriptType))
-        //    {
-        //        timerIngame = (LevelTimer)node.GetScript(typeof(LevelTimer));
-        //        break;
-        //    }
-        //}
-    }
 
     private LevelVariablesSaveData LoadLevelVariablesSaveData()
     {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=34 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="PackedScene" uid="uid://bvlym33ei744p" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
 [ext_resource type="PackedScene" uid="uid://b3clekngejd46" path="res://Instances/UIobjects/LevelTimer/timer.tscn" id="12_hienb"]
 [ext_resource type="PackedScene" uid="uid://xjog32y8jj7h" path="res://Dillon/character_body_2d.tscn" id="12_oyuft"]
+[ext_resource type="PackedScene" uid="uid://cs253h11xbsa5" path="res://Instances/Levels/LevelManager.tscn" id="13_w8s05"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -594,6 +595,9 @@ offset_top = -299.0
 offset_right = -191.0
 offset_bottom = -299.0
 grow_vertical = 1
+
+[node name="LevelManager" parent="." node_paths=PackedStringArray("levelTimer") instance=ExtResource("13_w8s05")]
+levelTimer = NodePath("../LevelTimer")
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]

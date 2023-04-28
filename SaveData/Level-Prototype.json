@@ -1,4 +1,5 @@
 {
   "levelTimerInSeconds": 1000,
-  "levelCompleted": false
+  "levelCompleted": false,
+  "bestCompletionTime": 0
 }
