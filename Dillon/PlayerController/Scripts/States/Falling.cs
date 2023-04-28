@@ -77,11 +77,12 @@ namespace PlayerController.States
             if (CheckTransitionToDash()) { return; }
             if (CheckTransitionToJumping()) { return; }
             //if (CheckTransitionToHooking()) { return; }
+            if (CheckTransitionToMove()) { return; }
             if (CheckTransitionToIdle()) { return; }
         }
         public override void Exit()
         {
-            if (_playerController2D.IsOnFloor())
+            if (_playerController2D.IsOnFloor() && Input.GetAxis("Move_Left", "Move_Right") == 0)
             {
                 _playerController2D.Velocity = Vector2.Zero;
             }
@@ -92,7 +93,22 @@ namespace PlayerController.States
             var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
             var velocity = _playerController2D.Velocity;
 
-            velocity.X += _playerController2D.FallingMoveSpeedAcceleration * _apexMovementModifier * moveDirection;
+            if (moveDirection != 0)
+            {
+                velocity.X += _playerController2D.FallingMoveSpeedAcceleration * _apexMovementModifier * moveDirection;                
+            }
+            else
+            {
+                if (velocity.X > 0)
+                {
+                    velocity.X -= _playerController2D.FallingMoveSpeedDeceleration;
+                }
+                else if (velocity.X < 0)
+                {
+                    velocity.X += _playerController2D.FallingMoveSpeedDeceleration;
+                }
+            }
+
 
             if (_state is not ApexModifierState.BeingApplied)
             {
@@ -192,6 +208,17 @@ namespace PlayerController.States
         }
 
         #region Transitions
+
+        private bool CheckTransitionToMove()
+        {
+            if (_playerController2D.IsOnFloor() && Input.GetAxis("Move_Left", "Move_Right") != 0)
+            {
+                _playerController2D.ChangeState(new Moving(_playerController2D));
+                return true;
+            }
+            return false;
+        }
+
         private bool CheckTransitionToIdle()
         {
             if (_playerController2D.IsOnFloor() && _applyCustomGravity == false)

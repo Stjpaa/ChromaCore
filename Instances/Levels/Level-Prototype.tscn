@@ -513,10 +513,11 @@ libraries = {
 [node name="GameObjectsList" type="Node" parent="."]
 
 [node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(173, -106)
+position = Vector2(-379, 7)
+max_contacts_reported = 0
 
-[node name="Box2" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(125, -99)
+[node name="TeleportCooldown" parent="GameObjectsList/Box" index="2"]
+process_callback = 0
 
 [node name="GravityfieldList" type="Node" parent="."]
 
@@ -572,21 +573,24 @@ texture = SubResource("GradientTexture2D_felqj")
 position = Vector2(-272, 28)
 
 [node name="ImpulseDirection" parent="PortalsList/Portals/Portal1" index="1"]
-position = Vector2(34, -56)
+position = Vector2(-44, -70)
 
 [node name="CheckpointsList" type="Node" parent="."]
 
 [node name="Checkpoint" parent="CheckpointsList" instance=ExtResource("11_l85ei")]
 position = Vector2(37, 112)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("11_xf5fx")]
+[node name="Player" parent="." instance=ExtResource("11_xf5fx")]
 position = Vector2(-415, 26)
+
+[node name="Miscellaneous" type="Node" parent="."]
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]
+[editable path="GameObjectsList/Box"]
 [editable path="GravityfieldList/Gravityfield_Normal"]
 [editable path="GravityfieldList/Gravityfield_Time"]
 [editable path="GravityfieldList/Gravityfield_Toggle"]
 [editable path="JumpPadsList/JumpPad"]
 [editable path="PortalsList/Portals"]
-[editable path="CharacterBody2D"]
+[editable path="Player"]

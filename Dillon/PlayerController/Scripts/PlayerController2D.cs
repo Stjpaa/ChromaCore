@@ -53,6 +53,8 @@ namespace PlayerController
         public float FallSpeedAcceleration { get { return data.fallSpeedAcceleration; } }
         public float MaxFallingMoveSpeed { get { return data.maxFallingMoveSpeed; } }
         public float FallingMoveSpeedAcceleration { get { return data.fallingMoveSpeedAcceleration; } }
+
+        public float FallingMoveSpeedDeceleration { get { return data.FallingMoveSpeedDeceleration; }}
         #endregion
         #region Jumping State Variables
         public float JumpForce { get { return data.jumpForce; } }

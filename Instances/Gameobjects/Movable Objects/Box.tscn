@@ -32,5 +32,5 @@ texture = ExtResource("1_5yp08")
 shape = SubResource("RectangleShape2D_ns5g7")
 
 [node name="TeleportCooldown" type="Timer" parent="."]
-
-[connection signal="timeout" from="TeleportCooldown" to="." method="OnTimerTimeout"]
+one_shot = true
+autostart = true

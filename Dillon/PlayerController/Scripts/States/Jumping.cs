@@ -18,7 +18,7 @@ namespace PlayerController.States
         }
         public Jumping(PlayerController2D playerContoller2D, bool applyVariableJumpHeight) : base(playerContoller2D)
         {
-            _jumpVelocity = new Vector2(0, -_playerController2D.JumpForce);
+            _jumpVelocity = new Vector2(playerContoller2D.Velocity.X, -_playerController2D.JumpForce);
             _applyVariableJumpHeight = applyVariableJumpHeight;
         }
 

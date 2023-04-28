@@ -1,8 +1,9 @@
-res://Instances/Levels/Level-Prototype.tscn
-res://Dillon/PlayerController/PlayerController2D_Data.tres
+res://Dillon/PlayerController/PlayerController2D.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Dillon/PlayerController/PlayerController2D.tscn
 res://Dillon/Rope/Scenes/Teststage.tscn
 res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn
+res://Instances/Levels/Level-Prototype.tscn
+res://Instances/Gameobjects/Movable Objects/Box.tscn
+res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn
