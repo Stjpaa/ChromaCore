@@ -114,8 +114,6 @@ namespace PlayerController
             dashCooldown.Text = string.Format("{0:N0}", DashCooldownTimer.TimeLeft);
             MoveAndSlide();
             CheckCollisionWithBox();
-
-            // GD.Print(currentState.Name);
         }
 
         public void ChangeState(State newState)

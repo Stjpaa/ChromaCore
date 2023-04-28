@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://nv4s53vmoxpl"]
+
+[ext_resource type="Script" path="res://Instances/Gameobjects/Movable Objects/ObjectResetter.cs" id="1_4661k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2rcc"]
+size = Vector2(20, 5)
+
+[node name="ObjectResetter" type="Area2D"]
+script = ExtResource("1_4661k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t2rcc")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

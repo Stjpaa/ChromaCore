@@ -117,7 +117,6 @@ namespace PlayerController.States
             }
 
             _playerController2D.Velocity = velocity;
-            GD.Print(_playerController2D.Velocity);
         }
         private void ApplyGravity()
         {

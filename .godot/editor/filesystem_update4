@@ -6,3 +6,4 @@ res://Dillon/Rope/Scenes/Teststage.tscn
 res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn
 res://Instances/Levels/Level-Prototype.tscn
 res://Instances/Gameobjects/Movable Objects/Box.tscn
+res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn

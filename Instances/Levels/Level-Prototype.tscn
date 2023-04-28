@@ -338,7 +338,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7464"]
 resource_local_to_scene = true
@@ -513,7 +513,8 @@ libraries = {
 [node name="GameObjectsList" type="Node" parent="."]
 
 [node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(-356, 25)
+position = Vector2(-379, 7)
+max_contacts_reported = 0
 
 [node name="TeleportCooldown" parent="GameObjectsList/Box" index="2"]
 process_callback = 0
@@ -537,7 +538,6 @@ position = Vector2(-153, -147)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
-disabled = false
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
@@ -580,8 +580,10 @@ position = Vector2(-44, -70)
 [node name="Checkpoint" parent="CheckpointsList" instance=ExtResource("11_l85ei")]
 position = Vector2(37, 112)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("11_xf5fx")]
+[node name="Player" parent="." instance=ExtResource("11_xf5fx")]
 position = Vector2(-415, 26)
+
+[node name="Miscellaneous" type="Node" parent="."]
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]
@@ -591,4 +593,4 @@ position = Vector2(-415, 26)
 [editable path="GravityfieldList/Gravityfield_Toggle"]
 [editable path="JumpPadsList/JumpPad"]
 [editable path="PortalsList/Portals"]
-[editable path="CharacterBody2D"]
+[editable path="Player"]
