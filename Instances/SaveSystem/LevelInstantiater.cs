@@ -71,6 +71,11 @@ public partial class LevelInstantiater : Node2D
         }
     }
 
+    public void SaveLevelVariables()
+    {
+        SaveLevelVariablesToJson(levelManager.CreateUpdatedLevelVariablesSaveData());
+    }
+
     private void SaveLevelVariablesToJson(LevelVariablesSaveData data)
     {
         var options = new JsonSerializerOptions // just makes the Json File better Readable
