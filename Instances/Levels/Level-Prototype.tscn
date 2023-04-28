@@ -513,10 +513,10 @@ libraries = {
 [node name="GameObjectsList" type="Node" parent="."]
 
 [node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(173, -106)
+position = Vector2(-356, 25)
 
-[node name="Box2" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(125, -99)
+[node name="TeleportCooldown" parent="GameObjectsList/Box" index="2"]
+process_callback = 0
 
 [node name="GravityfieldList" type="Node" parent="."]
 
@@ -573,7 +573,7 @@ texture = SubResource("GradientTexture2D_felqj")
 position = Vector2(-272, 28)
 
 [node name="ImpulseDirection" parent="PortalsList/Portals/Portal1" index="1"]
-position = Vector2(34, -56)
+position = Vector2(-44, -70)
 
 [node name="CheckpointsList" type="Node" parent="."]
 
@@ -585,6 +585,7 @@ position = Vector2(-415, 26)
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]
+[editable path="GameObjectsList/Box"]
 [editable path="GravityfieldList/Gravityfield_Normal"]
 [editable path="GravityfieldList/Gravityfield_Time"]
 [editable path="GravityfieldList/Gravityfield_Toggle"]
