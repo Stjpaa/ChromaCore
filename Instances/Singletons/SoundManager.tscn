@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bh6syno8vmmow"]
 
 [ext_resource type="Script" path="res://Instances/Singletons/SoundManager.cs" id="1_nqdiv"]
-[ext_resource type="AudioStream" path="res://Rise01.ogg" id="2_ja56f"]
+[ext_resource type="AudioStream" uid="uid://jgc611fku52m" path="res://Rise01.ogg" id="2_ja56f"]
 [ext_resource type="AudioStream" uid="uid://dq707m4iuhlnj" path="res://Music/Juhani Junkala [Retro Game Music Pack] Level 3.ogg" id="3_wsvxh"]
 
 [node name="SoundManager" type="Node"]
