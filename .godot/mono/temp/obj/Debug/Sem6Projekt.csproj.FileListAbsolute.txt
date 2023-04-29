@@ -49,20 +49,20 @@ E:\Semester6Projekt\.godot\mono\temp\obj\Debug\refint\Sem6Projekt.dll
 E:\Semester6Projekt\.godot\mono\temp\obj\Debug\Sem6Projekt.pdb
 E:\Semester6Projekt\.godot\mono\temp\obj\Debug\Sem6Projekt.genruntimeconfig.cache
 E:\Semester6Projekt\.godot\mono\temp\obj\Debug\ref\Sem6Projekt.dll
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.deps.json
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.runtimeconfig.json
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.dll
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.pdb
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\GodotSharp.dll
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.AssemblyReference.cache
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.AssemblyInfoInputs.cache
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.AssemblyInfo.cs
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.CoreCompileInputs.cache
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.CopyComplete
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.dll
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\refint\Sem6Projekt.dll
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.pdb
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.genruntimeconfig.cache
-C:\Users\Martin\Documents\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\ref\Sem6Projekt.dll
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.deps.json
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.runtimeconfig.json
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.dll
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.pdb
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.AssemblyReference.cache
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.GeneratedMSBuildEditorConfig.editorconfig
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.AssemblyInfoInputs.cache
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.AssemblyInfo.cs
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.CoreCompileInputs.cache
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.CopyComplete
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.dll
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\refint\Sem6Projekt.dll
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.pdb
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.genruntimeconfig.cache
+D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\ref\Sem6Projekt.dll

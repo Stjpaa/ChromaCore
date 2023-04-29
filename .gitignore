@@ -1,6 +1,6 @@
 # Godot 4+ specific ignores
 # This folder stores various project cache data
-#.godot/
+.godot/
 # Stores all the files the engine imports automatically based on your source assets and their import flags
 .godot/imported/
 # Holds data regarding the editor state, such as currently opened script files, and recently used nodes
@@ -16,11 +16,3 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
-mono_crash.*.json
-
-# Custom
-ide_messaging_meta.txt
-.godot/mono/temp/obj/Debug/Sem6Projekt.assets.cache
-.godot/mono/temp/obj/Debug/Sem6Projekt.GeneratedMSBuildEditorConfig.editorconfig
-.godot/mono/temp/obj/Debug/Sem6Projekt.csproj.CoreCompileInputs.cache
-.godot/mono/temp/obj/Debug/Sem6Projekt.csproj.CoreCompileInputs.cache
