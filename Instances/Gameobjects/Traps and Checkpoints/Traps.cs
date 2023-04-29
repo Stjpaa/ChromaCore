@@ -7,7 +7,7 @@ public partial class Traps : Area2D
 	{
 		if (body.Name == "Player")
 		{
-			body.Call("TeleportToLastCheckPoint");
+			body.Call("Respawn");
 		}
 	}
 }

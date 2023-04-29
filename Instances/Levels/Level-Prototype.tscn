@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=33 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
@@ -108,6 +108,9 @@ tracks/0/keys = {
 _data = {
 "Move": SubResource("Animation_ig103")
 }
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ypp4y"]
+friction = 0.6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpx1o"]
 resource_local_to_scene = true
@@ -338,7 +341,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7464"]
 resource_local_to_scene = true
@@ -513,7 +516,10 @@ libraries = {
 [node name="GameObjectsList" type="Node" parent="."]
 
 [node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(-379, 7)
+position = Vector2(-471, 11)
+center_of_mass_mode = 0
+physics_material_override = SubResource("PhysicsMaterial_ypp4y")
+continuous_cd = 2
 max_contacts_reported = 0
 
 [node name="TeleportCooldown" parent="GameObjectsList/Box" index="2"]
@@ -538,6 +544,7 @@ position = Vector2(-153, -147)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
+disabled = false
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)

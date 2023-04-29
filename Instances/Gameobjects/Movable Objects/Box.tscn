@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7s6ybr43gk6l"]
+[gd_scene load_steps=7 format=3 uid="uid://c7s6ybr43gk6l"]
 
 [ext_resource type="Shader" path="res://Shaders/radar-outline.gdshader" id="1_3lsjp"]
 [ext_resource type="Texture2D" uid="uid://dgf4hdhfp5tc6" path="res://Assets/Sprites/Box.png" id="1_5yp08"]
@@ -14,11 +14,17 @@ shader_parameter/beam_angle = 0.2
 shader_parameter/trail_speed = 1.0
 shader_parameter/trail_width = 0.5
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u6koh"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5g7"]
 size = Vector2(32, 32)
 
 [node name="Box" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_cvvj3")
+mass = 0.5
+inertia = 100.0
+center_of_mass_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_u6koh")
 custom_integrator = true
 max_contacts_reported = 2
 contact_monitor = true
