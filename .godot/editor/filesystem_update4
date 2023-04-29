@@ -1,5 +1,5 @@
 res://Instances/Levels/world_1_level.tscn
 res://Assets/Sprites/Platform_Normal.tres
-res://Dillon/PlayerController/Scripts/PlayerController2D.cs
-res://Dillon/PlayerController/Scripts/PlayerController2D_Data.cs
+res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Levels/Level-Prototype.tscn
+res://Dillon/PlayerController/PlayerController2D_Data.tres
