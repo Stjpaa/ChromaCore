@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=35 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b3clekngejd46" path="res://Instances/UIobjects/LevelTimer/timer.tscn" id="12_hienb"]
 [ext_resource type="PackedScene" uid="uid://xjog32y8jj7h" path="res://Dillon/character_body_2d.tscn" id="12_oyuft"]
 [ext_resource type="PackedScene" uid="uid://cs253h11xbsa5" path="res://Instances/Levels/LevelManager.tscn" id="13_w8s05"]
+[ext_resource type="PackedScene" uid="uid://cf5e8m8gqmt4m" path="res://Instances/Menus/PauseMenu/pause_menu.tscn" id="14_bghxo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -340,7 +341,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7464"]
 resource_local_to_scene = true
@@ -539,6 +540,7 @@ position = Vector2(-153, -147)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
+disabled = true
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
@@ -597,6 +599,8 @@ grow_vertical = 1
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("levelTimer") instance=ExtResource("13_w8s05")]
 levelTimer = NodePath("../LevelTimer")
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_bghxo")]
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]

@@ -17,7 +17,7 @@ public partial class LevelInstantiater : Node2D
     private PackedScene sceneToLoad;
     private string levelVariableSaveDataGlobalPath;
 
-    private LevelManager levelManager;
+    private LevelManager levelManager;      // responsible for creating the updated SaveData for the current Level
 
     public override void _Ready()
     {
