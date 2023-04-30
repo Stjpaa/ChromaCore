@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://8kukwt3ntgmj"]
+[gd_scene load_steps=6 format=3 uid="uid://8kukwt3ntgmj"]
 
+[ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_81wmq"]
 [ext_resource type="Theme" uid="uid://q2jrn1vdduaw" path="res://Instances/Menus/MainMenu/MainMenuTheme.tres" id="1_sqaef"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/PlayButton.cs" id="2_sxrqg"]
 [ext_resource type="PackedScene" uid="uid://6q0qpcor0krb" path="res://Instances/Menus/LevelSelection/LevelSelectScene.tscn" id="3_ckmui"]
@@ -12,6 +13,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("1_81wmq")]
+layout_mode = 1
+focusNodeOnStart = NodePath("../Theme/MarginContainer/VBoxContainer/PlayButton")
 
 [node name="Theme" type="Control" parent="."]
 layout_mode = 1

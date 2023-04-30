@@ -1,9 +1,9 @@
-res://Dillon/PlayerController/PlayerController2D.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
-res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Dillon/Rope/Scenes/Teststage.tscn
-res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn
+res://Instances/Menus/ui_navigation_manager#.tscn
+res://Instances/Menus/ui_navigation_manager.tscn
+res://Instances/Menus/MainMenu/main_menu.tscn
+res://Instances/Menus/MainMenu/MainMenuTheme.tres
 res://Instances/Levels/Level-Prototype.tscn
-res://Instances/Gameobjects/Movable Objects/Box.tscn
-res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn
+res://Instances/Menus/SettingsMenu/settings_menu.tscn
+res://Instances/Menus/loading_screen.tscn
