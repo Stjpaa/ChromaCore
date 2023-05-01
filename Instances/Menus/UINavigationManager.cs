@@ -81,7 +81,7 @@ public partial class UINavigationManager : Control
     private void SwitchToKeyboardControl()
     {
         mouseBlockPanel.Visible = true;
-        GD.PrintErr("Change the way this works, reset when this gets disabled");
+        GD.PrintErr("Change the way UINavigationManager works, reset when this gets disabled");
         MoveMouseScreenPosition(GetViewport().GetMousePosition() + new Vector2(0.1f,0));   // ugly temporary solution. Fixes the Problem, that an UI element still thinks its being hovered by the mouse after the block panel was added. this gets updated once the mouse is moved
 
 

@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://cn5pdby1dc4iv"]
+[gd_scene load_steps=4 format=3 uid="uid://cn5pdby1dc4iv"]
+
+[ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/SettingsMenu.cs" id="1_74ihc"]
+[ext_resource type="Theme" uid="uid://q2jrn1vdduaw" path="res://Instances/Menus/MainMenu/MainMenuTheme.tres" id="1_ec6cu"]
+[ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/BackButton.cs" id="2_wvox4"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +11,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_74ihc")
+
+[node name="Theme" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ec6cu")
+
+[node name="BackgroundPanel" type="Panel" parent="Theme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Theme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Theme/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 35
+
+[node name="BackButton" type="Button" parent="Theme/MarginContainer/VBoxContainer" node_paths=PackedStringArray("settingsMenu")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Back
+"
+script = ExtResource("2_wvox4")
+settingsMenu = NodePath("../../../..")
+
+[node name="MasterContainer" type="VBoxContainer" parent="Theme/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Theme/MarginContainer/VBoxContainer/MasterContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="Theme/MarginContainer/VBoxContainer/MasterContainer"]
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+
+[connection signal="value_changed" from="Theme/MarginContainer/VBoxContainer/MasterContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]

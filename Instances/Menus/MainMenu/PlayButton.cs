@@ -19,9 +19,9 @@ public partial class PlayButton : Button
 
     public override void _Process(double delta)
     {
-        if (IsHovered())
-        {
-            GD.Print("hovered");
-        }
+        //if (IsHovered())          // test to see if UINavigationManager works (the Block Panel)
+        //{
+        //    GD.Print("hovered");
+        //}
     }
 }

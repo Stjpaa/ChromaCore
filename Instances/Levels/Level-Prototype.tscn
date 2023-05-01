@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=33 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="10_xwke7"]
 [ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
 [ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="11_xf5fx"]
+[ext_resource type="PackedScene" uid="uid://cf5e8m8gqmt4m" path="res://Instances/Menus/PauseMenu/pause_menu.tscn" id="12_hr3j4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -583,6 +584,14 @@ position = Vector2(37, 112)
 
 [node name="Player" parent="." instance=ExtResource("11_xf5fx")]
 position = Vector2(-415, 26)
+
+[node name="PauseMenu" parent="Player" instance=ExtResource("12_hr3j4")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Miscellaneous" type="Node" parent="."]
 

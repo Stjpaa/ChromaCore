@@ -1,3 +1,8 @@
+Control
+VBoxContainer
+Container
+Label
+HSlider
 CanvasLayer
 Panel
 CollisionShape2D
