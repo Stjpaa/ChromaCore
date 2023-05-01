@@ -31,6 +31,20 @@ public partial class Laser : Node2D
 		
 		if (result.Count > 0)
 		{
+			if (!Engine.IsEditorHint())
+			{
+				try
+				{
+					PlayerController.PlayerController2D player_body = (PlayerController.PlayerController2D)result["collider"];
+					if(player_body != null)
+					{
+						player_body.KilledPlayer();
+					}
+				}
+				catch(InvalidCastException)
+				{ /* do nothing */ }
+			}
+
 			Vector2 laser_origin = this.GetGlobalTransform().Origin;
 			Vector2 laser_target_position = (Vector2)result["position"];
 			Vector2 laser_path = laser_target_position - laser_origin;
@@ -79,7 +93,6 @@ public partial class Laser : Node2D
 			{
 				progress = _switchTime - (_pauseTime - timer);
 			}
-			GD.Print($"progress: {progress}");
 			shader_material.SetShaderParameter("progress", Math.Clamp(progress, 0.0f, _switchTime) / _switchTime);
 		}
 	}
