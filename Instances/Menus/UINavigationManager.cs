@@ -7,11 +7,12 @@ using System;
 public partial class UINavigationManager : Control
 {
     [Export] private Control focusNodeOnStart; // the first Node that will be Highlighted when navigating a menu
+    [Export] private Panel mouseBlockPanel;  // stops mouse UI Interaction while active
 
     private Control currentlyFocusedNode;
 
     private double mouseMoveDistance = 0f;
-    private const double distanceToGetVisable = 10;
+    private const double distanceToGetVisable = 20;
 
     private enum UIControlTypeEnum
     {
@@ -31,8 +32,8 @@ public partial class UINavigationManager : Control
         {
             GD.PrintErr("assign first highlighted control node in UINavigationManager");
         }
-
         SwitchToKeyboardControl();
+
     }
 
     public override void _Process(double delta)
@@ -51,8 +52,6 @@ public partial class UINavigationManager : Control
                 }
                 break;
 
-
-
             case UIControlTypeEnum.MouseControl:
                 {
                     if (KeyboardInteractionHappened())
@@ -62,12 +61,6 @@ public partial class UINavigationManager : Control
                 }
                 break;
         }
-
-
-
-
-
-
     }
 
     private void MoveMouseScreenPosition(Vector2 position)
@@ -77,6 +70,7 @@ public partial class UINavigationManager : Control
 
     private void SwitchToMouseControl()
     {
+        mouseBlockPanel.Visible = false;
         Input.MouseMode = Input.MouseModeEnum.Visible;
         currentControlType = UIControlTypeEnum.MouseControl;
 
@@ -86,18 +80,22 @@ public partial class UINavigationManager : Control
 
     private void SwitchToKeyboardControl()
     {
-        GD.PrintErr("switch on any Key pressed not justui_up/down");
+        mouseBlockPanel.Visible = true;
+        GD.PrintErr("Change the way this works, reset when this gets disabled");
+        MoveMouseScreenPosition(GetViewport().GetMousePosition() + new Vector2(0.1f,0));   // ugly temporary solution. Fixes the Problem, that an UI element still thinks its being hovered by the mouse after the block panel was added. this gets updated once the mouse is moved
+
 
         currentlyFocusedNode.GrabFocus();
 
         Input.MouseMode = Input.MouseModeEnum.Hidden;
         currentControlType = UIControlTypeEnum.KeyboardControl;
-
         mouseMoveDistance = 0;  // Reset Distance because 
     }
 
     private bool KeyboardInteractionHappened()
     {
+        // maybe switch to on any Key pressed not just some ui events.
+
         if (Input.IsActionJustPressed("ui_up"))
         {
             return true;
@@ -106,9 +104,23 @@ public partial class UINavigationManager : Control
         {
             return true;
         }
+        else if (Input.IsActionJustPressed("ui_accept"))
+        {
+            return true;
+        }
+        else if (Input.IsActionJustPressed("ui_left"))
+        {
+            return true;
+        }
+        else if (Input.IsActionJustPressed("ui_right"))
+        {
+            return true;
+        }
         else
         {
             return false;
         }
+
+        
     }
 }

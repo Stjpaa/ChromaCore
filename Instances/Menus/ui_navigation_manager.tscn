@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Instances/Menus/UINavigationManager.cs" id="1_tkvdj"]
 
-[node name="UINavigationManager" type="Control"]
+[node name="UINavigationManager" type="Control" node_paths=PackedStringArray("mouseBlockPanel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,3 +10,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tkvdj")
+mouseBlockPanel = NodePath("MouseBlockPanel")
+
+[node name="MouseBlockPanel" type="Panel" parent="."]
+modulate = Color(1, 1, 0.996078, 0)
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

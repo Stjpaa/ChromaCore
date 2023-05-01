@@ -16,4 +16,12 @@ public partial class PlayButton : Button
 
         GetTree().ChangeSceneToPacked(levelSelectScene);
     }
+
+    public override void _Process(double delta)
+    {
+        if (IsHovered())
+        {
+            GD.Print("hovered");
+        }
+    }
 }
