@@ -1,5 +1,12 @@
 # Godot 4+ specific ignores
+# This folder stores various project cache data
 .godot/
+# Stores all the files the engine imports automatically based on your source assets and their import flags
+.godot/imported/
+# Holds data regarding the editor state, such as currently opened script files, and recently used nodes
+.godot/editor/
+# These files are binary imported translations generated from CSV files
+*.translation
 
 # Godot-specific ignores
 .import/

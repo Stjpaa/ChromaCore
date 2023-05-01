@@ -10,12 +10,6 @@ public partial class Gravityfield_Toggle : Area2D
 	[Export]
 	private float _gravityStrength = 200;
 
-	[Signal]
-	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction, float strength);
-
-	[Signal]
-	public delegate void OnGravityfieldExitedEventHandler();
-
 	private Sprite2D _sprite;
 
 	private ShaderMaterial _spriteMat;
@@ -49,11 +43,6 @@ public partial class Gravityfield_Toggle : Area2D
 		this._spriteMat.SetShaderParameter("width", this._gravityfieldCollider.Shape.GetRect().Size.X);
 		this._spriteMat.SetShaderParameter("heigth", this._gravityfieldCollider.Shape.GetRect().Size.Y);
 		this._sprite.Material = this._spriteMat;
-
-		// Connect signals for switch
-		Area2D Switch = GetNode<Area2D>("Switch");
-		Switch.Connect("OnSwitchTriggered", new Callable(this, MethodName.EnableGravityfield));
-		Switch.Connect("OnSwitchLeft", new Callable(this, MethodName.DisableGravityfield));
 	}
 
 	public override void _Process(double delta)
@@ -72,28 +61,27 @@ public partial class Gravityfield_Toggle : Area2D
     {
 		if (Engine.IsEditorHint())
 		{
-			DrawLine(new Vector2(0,0), this._gravityDirection, Colors.Blue, 0.3f);
+			DrawLine(new Vector2(0,0), this._gravityDirection, Colors.Blue, 0.5f);
 		}
     }
 
 	public void OnBodyEntered(Node2D body)
 	{
-		EmitSignal("OnGravityfieldEntered", this._gravityDirection, this._gravityStrength);
+		body.Call("ChangeGravityProperties", this._gravityDirection.Normalized() * this._gravityStrength);
 	}	
 
 	public void OnBodyExited(Node2D body)
 	{
-
-		EmitSignal("OnGravityfieldExited");
+		body.Call("ResetGravityProperties");
 	}
 
-	public void EnableGravityfield()
+	public void EnableGravityfield(Node2D body)
 	{
 		SetDeferred("_gravityfieldCollider", false);
 		this._spriteMat.SetShaderParameter("pause", false);
 	}
 
-	public void DisableGravityfield()
+	public void DisableGravityfield(Node2D body)
 	{
 		SetDeferred("_gravityfieldCollider", true);
 		this._spriteMat.SetShaderParameter("pause", true);

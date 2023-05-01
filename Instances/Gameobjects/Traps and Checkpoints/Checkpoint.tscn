@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://oj3xa6mp45cx"]
+
+[ext_resource type="Script" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.cs" id="1_ehkwy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33f00"]
+size = Vector2(6, 30)
+
+[sub_resource type="Gradient" id="Gradient_gsemu"]
+offsets = PackedFloat32Array(0, 0.562874, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.562874, 0.562874, 0.562874, 1, 0.466181, 0.466181, 0.466181, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v70di"]
+gradient = SubResource("Gradient_gsemu")
+
+[node name="Checkpoint" type="Area2D"]
+script = ExtResource("1_ehkwy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_33f00")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.0743246, -14.9258)
+rotation = -1.5708
+scale = Vector2(0.117347, 6.20179)
+texture = SubResource("GradientTexture1D_v70di")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
