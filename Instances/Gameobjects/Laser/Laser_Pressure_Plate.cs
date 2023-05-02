@@ -80,9 +80,8 @@ public partial class Laser_Pressure_Plate : Node2D
 		}
 	}
 
-	private void Toggle(Node2D body)
+	private void Toggle(Node2D _body)
 	{
-		GD.Print($"body entered: {body}");
 		timer = _switchTime;
 		on = !on;
 	}
