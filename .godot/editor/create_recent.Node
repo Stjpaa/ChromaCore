@@ -1,9 +1,9 @@
+Sprite2D
 Node
 TileMap
 CollisionShape2D
 Area2D
 Node2D
-Sprite2D
 Camera2D
 StaticBody2D
 RigidBody2D

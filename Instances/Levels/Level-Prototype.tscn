@@ -567,7 +567,7 @@ texture = SubResource("GradientTexture2D_felqj")
 [node name="PortalsList" type="Node" parent="."]
 
 [node name="Portals" parent="PortalsList" instance=ExtResource("10_xwke7")]
-position = Vector2(-272, 28)
+position = Vector2(-289, 14)
 
 [node name="ImpulseDirection" parent="PortalsList/Portals/Portal1" index="1"]
 position = Vector2(-44, -70)

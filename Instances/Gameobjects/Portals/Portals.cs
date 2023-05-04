@@ -65,7 +65,7 @@ public partial class Portals : Node2D
 			DrawLine(this._portal2LocalPos, this._portal2LocalPos + this._portal2Direction, Colors.Blue, 0.5f);
 		}
 
-		DrawLine(this._portal1LocalPos, this._portal2LocalPos, new Color(255, 0, 0, 0.5f), 0.9f, true);
+		DrawLine(this._portal1LocalPos, this._portal2LocalPos, new Color(255, 0, 0, 0.2f), 0.9f, true);
 	}
 
 	public void TeleportToPortal1(Node2D body)

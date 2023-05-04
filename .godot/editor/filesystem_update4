@@ -5,3 +5,6 @@ res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Levels/world_1_level.tscn
 res://Instances/Gameobjects/Movable Objects/Box.tscn
 res://Instances/Gameobjects/Platforms/NormalPlatform.tscn
+res://Instances/Gameobjects/Portals/Portals.tscn
+res://Shaders/portal.gdshader
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn
