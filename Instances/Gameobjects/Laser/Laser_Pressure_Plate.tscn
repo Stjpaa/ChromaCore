@@ -28,7 +28,6 @@ size = Vector2(20, 54)
 
 [node name="Laser_Pressure_Plate" type="Node2D"]
 script = ExtResource("1_v3pp5")
-_switchTime = 0.3
 
 [node name="Laser_Sprite" type="Sprite2D" parent="."]
 texture_filter = 1

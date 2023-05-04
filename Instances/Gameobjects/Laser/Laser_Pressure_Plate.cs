@@ -8,7 +8,7 @@ public partial class Laser_Pressure_Plate : Node2D
 	[Export(PropertyHint.Range, "0.0,10,0.1")]
 	private float _switchTime = 0.3f;
 
-	private bool on = true;
+	private bool on = false;
 	private float timer;
 
 	private Node2D target;
@@ -62,7 +62,8 @@ public partial class Laser_Pressure_Plate : Node2D
 		shader_material = laser_rect.Material as ShaderMaterial;
 		RecalculateLaser();
 
-		collider.BodyEntered += Toggle;
+		collider.BodyEntered += TurnOn;
+		collider.BodyExited += TurnOff;
 	}
 
 	public override void _Process(double delta)
@@ -80,9 +81,15 @@ public partial class Laser_Pressure_Plate : Node2D
 		}
 	}
 
-	private void Toggle(Node2D _body)
+	private void TurnOn(Node2D _body)
 	{
 		timer = _switchTime;
-		on = !on;
+		on = true;
+	}
+
+	private void TurnOff(Node2D _body)
+	{
+		timer = _switchTime;
+		on = false;
 	}
 }
