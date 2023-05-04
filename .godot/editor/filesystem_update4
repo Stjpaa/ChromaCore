@@ -1,5 +1,7 @@
-res://Instances/Levels/world_1_level.tscn
+res://Instances/Levels/Level-Prototype.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
-res://Instances/Levels/Level-Prototype.tscn
-res://Dillon/PlayerController/PlayerController2D_Data.tres
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
+res://Instances/Levels/world_1_level.tscn
+res://Instances/Gameobjects/Movable Objects/Box.tscn
+res://Instances/Gameobjects/Platforms/NormalPlatform.tscn

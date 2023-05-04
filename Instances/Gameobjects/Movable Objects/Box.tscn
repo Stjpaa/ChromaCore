@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7s6ybr43gk6l"]
+[gd_scene load_steps=8 format=3 uid="uid://c7s6ybr43gk6l"]
 
 [ext_resource type="Shader" path="res://Shaders/radar-outline.gdshader" id="1_3lsjp"]
-[ext_resource type="Texture2D" uid="uid://dgf4hdhfp5tc6" path="res://Assets/Sprites/Box.png" id="1_5yp08"]
 [ext_resource type="Script" path="res://Instances/Gameobjects/Movable Objects/Box.cs" id="1_61n4i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cvvj3"]
@@ -14,23 +13,40 @@ shader_parameter/beam_angle = 0.2
 shader_parameter/trail_speed = 1.0
 shader_parameter/trail_width = 0.5
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0dgtd"]
+friction = 0.6
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5g7"]
-size = Vector2(32, 32)
+size = Vector2(40, 40)
+
+[sub_resource type="Gradient" id="Gradient_5kk12"]
+colors = PackedColorArray(0.00784314, 0.219608, 0.94902, 1, 0.00784314, 0.219608, 0.94902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hi7iq"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_5kk12")
+width = 20
+height = 20
 
 [node name="Box" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_cvvj3")
-custom_integrator = true
+mass = 0.5
+inertia = 100.0
+physics_material_override = SubResource("PhysicsMaterial_0dgtd")
 max_contacts_reported = 2
 contact_monitor = true
 can_sleep = false
+linear_velocity = Vector2(0, 980)
 script = ExtResource("1_61n4i")
+_boxSize = 20.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5yp08")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BoxCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ns5g7")
 
 [node name="TeleportCooldown" type="Timer" parent="."]
 one_shot = true
-autostart = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_hi7iq")
+
+[connection signal="property_list_changed" from="." to="." method="OnPropertyChanged"]
