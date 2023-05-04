@@ -164,7 +164,7 @@ namespace PlayerController
             {
                 if (GetLastSlideCollision().GetCollider() is Box)
                 {
-                    Vector2 collisionNormal = GetLastSlideCollision().GetNormal();
+                    Vector2 collisionNormal = GetLastSlideCollision().GetNormal(); 
                     if (collisionNormal.X > 0.5 || collisionNormal.X < -0.5)
                     {
                         var @object = GetLastSlideCollision().GetCollider() as Box;
