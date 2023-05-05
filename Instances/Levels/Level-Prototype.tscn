@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=36 format=3 uid="uid://bvymvvotbov41"]
 
 [ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="10_xwke7"]
 [ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
 [ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="11_xf5fx"]
+[ext_resource type="PackedScene" uid="uid://c2o1dkvnu6rgc" path="res://Instances/Gameobjects/Laser/Laser_Timed.tscn" id="12_wa0no"]
+[ext_resource type="PackedScene" uid="uid://b7ojqpd7vuhx2" path="res://Instances/Gameobjects/Laser/Laser_Pressure_Plate.tscn" id="13_k7e8d"]
+[ext_resource type="PackedScene" uid="uid://b2oylbolrog3e" path="res://Instances/Gameobjects/LevelRotator/LevelRotatorTrigger.tscn" id="14_ki612"]
+[ext_resource type="Script" path="res://Instances/Gameobjects/LevelRotator/LevelRotator.cs" id="14_xkrme"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
 texture = ExtResource("1_jj2hn")
@@ -467,7 +471,9 @@ height = 30
 
 [node name="LevelPrototype" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMapList" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="TileMapList"]
 tile_set = SubResource("TileSet_32w8q")
 format = 2
 layer_0/name = "Solid Blocks"
@@ -582,6 +588,45 @@ position = Vector2(-415, 26)
 
 [node name="Miscellaneous" type="Node" parent="."]
 
+[node name="LaserList" type="Node" parent="."]
+
+[node name="Laser_Timed" parent="LaserList" instance=ExtResource("12_wa0no")]
+position = Vector2(-334, -73)
+_switchTime = 0.1
+
+[node name="Laser_Rect" parent="LaserList/Laser_Timed" index="1"]
+rotation = 1.76819
+
+[node name="Laser_Target" parent="LaserList/Laser_Timed" index="2"]
+position = Vector2(-8, 40)
+
+[node name="Laser_Timed2" parent="LaserList" instance=ExtResource("12_wa0no")]
+position = Vector2(-269, -102)
+
+[node name="Laser_Rect" parent="LaserList/Laser_Timed2" index="1"]
+rotation = 0.76617
+
+[node name="Laser_Target" parent="LaserList/Laser_Timed2" index="2"]
+position = Vector2(53, 51)
+
+[node name="Laser_Pressure_Plate" parent="LaserList" instance=ExtResource("13_k7e8d")]
+position = Vector2(-549, 35)
+
+[node name="Laser_Rect" parent="LaserList/Laser_Pressure_Plate" index="1"]
+offset_right = 122.5
+
+[node name="LevelRotatorList" type="Node" parent="."]
+
+[node name="LevelRotatorTrigger" parent="LevelRotatorList" node_paths=PackedStringArray("_levelRotator") instance=ExtResource("14_ki612")]
+position = Vector2(-712, 46)
+_levelRotator = NodePath("../../Rotator")
+
+[node name="Rotator" type="Node" parent="." node_paths=PackedStringArray("_player")]
+script = ExtResource("14_xkrme")
+_player = NodePath("../Player")
+_rotatingLists = Array[NodePath]([NodePath("../TileMapList"), NodePath("../GravityfieldList"), NodePath("../LaserList"), NodePath("../PortalsList"), NodePath("../CheckpointsList"), NodePath("../LevelRotatorList")])
+_nonRotatingLists = Array[NodePath]([NodePath("../PlatformsList"), NodePath("../JumpPadsList"), NodePath("../Miscellaneous")])
+
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]
 [editable path="GravityfieldList/Gravityfield_Normal"]
@@ -590,3 +635,6 @@ position = Vector2(-415, 26)
 [editable path="JumpPadsList/JumpPad"]
 [editable path="PortalsList/Portals"]
 [editable path="Player"]
+[editable path="LaserList/Laser_Timed"]
+[editable path="LaserList/Laser_Timed2"]
+[editable path="LaserList/Laser_Pressure_Plate"]
