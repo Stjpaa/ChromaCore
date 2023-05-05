@@ -39,7 +39,7 @@ public partial class Laser_Timed : Node2D
 					PlayerController.PlayerController2D player_body = (PlayerController.PlayerController2D)result["collider"];
 					if(player_body != null)
 					{
-						player_body.KilledPlayer();
+						player_body.Respawn();
 					}
 				}
 				catch(InvalidCastException)

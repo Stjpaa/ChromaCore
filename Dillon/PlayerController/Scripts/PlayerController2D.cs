@@ -181,7 +181,7 @@ namespace PlayerController
             _checkpointPosition = Transform;
         }
 
-        private void Respawn()
+        public void Respawn()
         {
             GD.Print("Respawn");
             Transform = _checkpointPosition;
