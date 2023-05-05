@@ -342,7 +342,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7464"]
 resource_local_to_scene = true
@@ -492,25 +492,27 @@ layer_1/tile_data = PackedInt32Array()
 position = Vector2(33, -47)
 _collisionSize = Vector2(60, 8)
 
-[node name="MovingPlatform" parent="PlatformsList" instance=ExtResource("3_sj8q7")]
+[node name="MovingPlatformList" type="Node" parent="."]
+
+[node name="MovingPlatform" parent="MovingPlatformList" instance=ExtResource("3_sj8q7")]
 position = Vector2(-63, -26)
 
-[node name="Sprite" parent="PlatformsList/MovingPlatform" index="0"]
+[node name="Sprite" parent="MovingPlatformList/MovingPlatform" index="0"]
 texture = SubResource("GradientTexture2D_tqo22")
 
-[node name="AnimationPlayer" parent="PlatformsList/MovingPlatform" index="2"]
+[node name="AnimationPlayer" parent="MovingPlatformList/MovingPlatform" index="2"]
 autoplay = "Move"
 libraries = {
 "": SubResource("AnimationLibrary_wdbp8")
 }
 
-[node name="MovingPlatform2" parent="PlatformsList" instance=ExtResource("3_sj8q7")]
+[node name="MovingPlatform2" parent="MovingPlatformList" instance=ExtResource("3_sj8q7")]
 position = Vector2(40, -101)
 
-[node name="Sprite" parent="PlatformsList/MovingPlatform2" index="0"]
+[node name="Sprite" parent="MovingPlatformList/MovingPlatform2" index="0"]
 texture = SubResource("GradientTexture2D_5afbk")
 
-[node name="AnimationPlayer" parent="PlatformsList/MovingPlatform2" index="2"]
+[node name="AnimationPlayer" parent="MovingPlatformList/MovingPlatform2" index="2"]
 autoplay = "Move"
 libraries = {
 "": SubResource("AnimationLibrary_mpaml")
@@ -544,6 +546,7 @@ position = Vector2(-153, -147)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
+disabled = false
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
@@ -598,6 +601,7 @@ position = Vector2(-334, -73)
 _switchTime = 0.1
 
 [node name="Laser_Rect" parent="LaserList/Laser_Timed" index="1"]
+offset_right = 123.396
 rotation = 1.76819
 
 [node name="Laser_Target" parent="LaserList/Laser_Timed" index="2"]
@@ -607,6 +611,7 @@ position = Vector2(-8, 40)
 position = Vector2(-269, -102)
 
 [node name="Laser_Rect" parent="LaserList/Laser_Timed2" index="1"]
+offset_right = 170.181
 rotation = 0.76617
 
 [node name="Laser_Target" parent="LaserList/Laser_Timed2" index="2"]
@@ -624,14 +629,20 @@ offset_right = 122.5
 position = Vector2(-712, 46)
 _levelRotator = NodePath("../../Rotator")
 
-[node name="Rotator" type="Node" parent="." node_paths=PackedStringArray("_player")]
+[node name="LevelRotatorTrigger2" parent="LevelRotatorList" node_paths=PackedStringArray("_levelRotator") instance=ExtResource("14_ki612")]
+position = Vector2(-827, -19)
+_levelRotator = NodePath("../../Rotator")
+_clockwise = false
+
+[node name="Rotator" type="Node" parent="." node_paths=PackedStringArray("_player", "_movingPlatformList")]
 script = ExtResource("14_xkrme")
 _player = NodePath("../Player")
 _rotatingLists = Array[NodePath]([NodePath("../TileMapList"), NodePath("../GravityfieldList"), NodePath("../LaserList"), NodePath("../PortalsList"), NodePath("../CheckpointsList"), NodePath("../LevelRotatorList")])
 _nonRotatingLists = Array[NodePath]([NodePath("../PlatformsList"), NodePath("../JumpPadsList"), NodePath("../Miscellaneous")])
+_movingPlatformList = NodePath("../MovingPlatformList")
 
-[editable path="PlatformsList/MovingPlatform"]
-[editable path="PlatformsList/MovingPlatform2"]
+[editable path="MovingPlatformList/MovingPlatform"]
+[editable path="MovingPlatformList/MovingPlatform2"]
 [editable path="GameObjectsList/Box"]
 [editable path="GravityfieldList/Gravityfield_Normal"]
 [editable path="GravityfieldList/Gravityfield_Time"]
