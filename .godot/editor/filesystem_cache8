@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683380199
+::res://::1683382287
 characters.png::CompressedTexture2D::5074265719891268926::1682243510::1682243643::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1681926387::1681926387::1::::<><>::
 icon.svg::CompressedTexture2D::1834291139676260366::1681572821::1681573162::1::::<><>::
@@ -9,13 +9,13 @@ Test.cs::CSharpScript::-1::1682243510::0::1::::<><>::
 ::res://Assets/::1681926512
 Godot Char_Placeholder-1.png::CompressedTexture2D::3587011470912294664::1681926322::1681926512::1::::<><>::
 Tileset.png::CompressedTexture2D::8284885313224175507::1681572821::1681573162::1::::<><>::
-::res://Assets/Sprites/::1683368854
+::res://Assets/Sprites/::1683382052
 Ball.png::CompressedTexture2D::2812879286531544329::1681572821::1681573162::1::::<><>::
 Box.png::CompressedTexture2D::7592490463657462767::1681572821::1681573162::1::::<><>::
 Gravityfield_Normal.png::CompressedTexture2D::462385158180725172::1681572821::1681573162::1::::<><>::
 MovingPlatform.png::CompressedTexture2D::8402143123705161151::1681572821::1681573162::1::::<><>::
-Platform_Moving.tres::GradientTexture2D::6902438974613199686::1683368854::0::1::::<><>::
-Platform_Normal.tres::GradientTexture2D::5186750078832371388::1683368854::0::1::::<><>::
+Platform_Moving.tres::GradientTexture2D::6902438974613199686::1683380252::0::1::::<><>::
+Platform_Normal.tres::GradientTexture2D::5186750078832371388::1683382052::0::1::::<><>::
 ::res://Assets/Sprites/Tileset Sprites/::1681573162
 16x16_Dark.png::CompressedTexture2D::2204448306954857976::1681572821::1681573162::1::::<><>::
 16x16_Light.png::CompressedTexture2D::1624209815697792348::1681572821::1681573162::1::::<><>::
@@ -77,8 +77,8 @@ RopePiece.cs::CSharpScript::-1::1682698523::0::1::::<><>::
 Teststage.cs::CSharpScript::-1::1682698523::0::1::::<><>::
 ::res://Instances/::1681572821
 ::res://Instances/Gameobjects/::1683368676
-::res://Instances/Gameobjects/Gravityfields/::1683368854
-Gravityfield_Normal.cs::CSharpScript::-1::1683368854::0::1::::<><>::
+::res://Instances/Gameobjects/Gravityfields/::1683380252
+Gravityfield_Normal.cs::CSharpScript::-1::1683380252::0::1::::<><>::
 Gravityfield_Normal.tscn::PackedScene::8203964619402760068::1681572821::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 Gravityfield_Time.cs::CSharpScript::-1::1681573163::0::1::::<><>::
 Gravityfield_Time.tscn::PackedScene::4266977411605829208::1682698523::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs
@@ -113,11 +113,11 @@ Checkpoint.cs::CSharpScript::-1::1682790462::0::1::::<><>::
 Checkpoint.tscn::PackedScene::1002964408231646571::1681573163::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.cs
 Spikes.tscn::PackedScene::4249880713655740377::1681576651::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs
 Traps.cs::CSharpScript::-1::1682790462::0::1::::<><>::
-::res://Instances/Levels/::1683379999
+::res://Instances/Levels/::1683382052
 InstantiateLevel.cs::CSharpScript::-1::1681573163::0::1::::<><>::
-Level-Prototype.tscn::PackedScene::3910698697257215912::1683379514::0::1::::<><>::uid://dqbi36m2q5bb4<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>uid://b2oylbolrog3e<>res://Instances/Gameobjects/LevelRotator/LevelRotator.cs
+Level-Prototype.tscn::PackedScene::3910698697257215912::1683381319::0::1::::<><>::uid://dqbi36m2q5bb4<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>uid://b2oylbolrog3e<>res://Instances/Gameobjects/LevelRotator/LevelRotator.cs
 Level.cs::CSharpScript::-1::1681572821::0::1::::<><>::
-world_1_level.tscn::PackedScene::1176266911922254984::1683379999::0::1::::<><>::uid://dqbi36m2q5bb4<>uid://bxrinvpxhsiqc<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://oj3xa6mp45cx
+world_1_level.tscn::PackedScene::1176266911922254984::1683382052::0::1::::<><>::uid://dqbi36m2q5bb4<>uid://bxrinvpxhsiqc<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://oj3xa6mp45cx
 ::res://Instances/Save System/::1681572821
 ButtonDeleteScene.cs::CSharpScript::-1::1681572821::0::1::::<><>::
 ButtonLevelLoader.cs::CSharpScript::-1::1681572821::0::1::::<><>::
