@@ -8,46 +8,31 @@ namespace GrapplingHook.States
     {
         public override string Name { get { return "Connected"; } }
 
-        private PlayerController2D _playerController;
-        private GrapplingHookJointBased _grapplingHookJB;
-        private HookableArea _hookableArea;
-        private Vector2 _playerVelocity;
-
-        public Connected(GrapplingHook grapplingHook) : base(grapplingHook) 
-        {
-            _playerController = grapplingHook.PlayerController;
-        }
+        public Connected(GrapplingHook grapplingHook) : base(grapplingHook) { }
 
         public override void Enter() 
         {
-            _playerVelocity = _playerController.Velocity;
-            _playerController.Velocity = Vector2.Zero;
-            _hookableArea = _grapplingHook.rayCast2Ds.Find(o => o.GetCollider() != null).GetCollider() as HookableArea;
+            // Attatch the player to the chain start node
 
-            _grapplingHookJB = _grapplingHook.grapplingHookJB.Instantiate<GrapplingHookJointBased>();
-            _grapplingHook.GetParent().AddChild(_grapplingHookJB);
-            _grapplingHookJB.InitializeHook(_grapplingHook.GlobalPosition, _playerController.HookStartPosition + new Vector2(0, 32), Mathf.RoundToInt(_grapplingHook.GetCurrentHookLenght()));
+
+            _grapplingHook.Physics.Initialize(_grapplingHook.GetHookStartPosition(),
+                                              _grapplingHook.GetHookTargetPosition());
         }
 
         public override void Execute()
         {
-            CheckTransitionToReturning();
+            CheckTransitionToReturning();           
 
-            _playerController.GlobalPosition = _grapplingHookJB.hookEnd.GlobalPosition;
+            var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
 
-            if(Input.IsActionJustPressed("Move_Left"))
-            {
-                _grapplingHookJB.hookEnd.ApplyImpulse(new Vector2(-300, 0));
-            }
-            if (Input.IsActionJustPressed("Move_Right"))
-            {
-                _grapplingHookJB.hookEnd.ApplyImpulse(new Vector2(300, 0));
-            }
+            _grapplingHook.Physics.ChainStart.ApplyImpulse(new Vector2(25, 0) * moveDirection);
+
+            
         }
 
         public override void Exit() 
         {
-            _grapplingHookJB.QueueFree();
+
         }
 
         private void CheckTransitionToReturning()
@@ -56,6 +41,8 @@ namespace GrapplingHook.States
             if (returnTrigger)
             {
                 _grapplingHook.ChangeState(new Returning(_grapplingHook));
+                //_grapplingHook.PlayerController.Velocity = _grapplingHookJB.hookStart.LinearVelocity * 2;
+                //_grapplingHook.PlayerController.ChangeState(new Jumping(_grapplingHook.PlayerController, false, _grapplingHookJB.hookStart.LinearVelocity * 1.5f));
             }
         }
     }

@@ -1,39 +1,75 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciyswvrmprdt4"]
+[gd_scene load_steps=9 format=3 uid="uid://m3mpklc8drsk"]
 
 [ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/GrapplingHook.cs" id="1_bli5b"]
 [ext_resource type="Texture2D" uid="uid://usqel3f7jre4" path="res://Dillon/Assets/Chain.png" id="1_e04wa"]
 [ext_resource type="Texture2D" uid="uid://jdvvj5vtumda" path="res://Dillon/Assets/Hook.png" id="1_v8sij"]
-[ext_resource type="PackedScene" uid="uid://b2yndqvd8rn34" path="res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn" id="2_133sl"]
+[ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/Physics.cs" id="3_1xgur"]
+[ext_resource type="Texture2D" uid="uid://1esrigfqux07" path="res://icon.svg" id="3_7ndy8"]
+[ext_resource type="Texture2D" uid="uid://u2va2687sl8w" path="res://Dillon/Assets/DebugPoint.png" id="6_4ucms"]
 
-[node name="GrapplingHook_Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thrqb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy76t"]
+size = Vector2(24, 42)
+
+[node name="GrapplingHook" type="Node"]
 script = ExtResource("1_bli5b")
-grapplingHookJB = ExtResource("2_133sl")
 
-[node name="Hook_Node2D" type="Node2D" parent="."]
+[node name="Visuals" type="Node" parent="."]
 
-[node name="Hook_Sprite2D" type="Sprite2D" parent="Hook_Node2D"]
+[node name="Hook" type="Node2D" parent="Visuals"]
+rotation = -1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/Hook"]
 texture_filter = 1
 texture_repeat = 1
 texture = ExtResource("1_v8sij")
 
-[node name="Chain_Line2D" type="Line2D" parent="."]
+[node name="Chain" type="Line2D" parent="Visuals/Hook"]
 texture_filter = 1
 texture_repeat = 2
-points = PackedVector2Array(0, 0, -85, 0)
+points = PackedVector2Array(0, 0, -100, -4.37114e-06)
 width = 16.0
 texture = ExtResource("1_e04wa")
 texture_mode = 1
 
-[node name="Top_RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, 8)
-target_position = Vector2(8, 0)
-collision_mask = 8
-collide_with_areas = true
-collide_with_bodies = false
+[node name="Physics" type="Node" parent="."]
+script = ExtResource("3_1xgur")
 
-[node name="Bottom_RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -8)
-target_position = Vector2(8, 0)
-collision_mask = 8
-collide_with_areas = true
-collide_with_bodies = false
+[node name="DSJ" type="DampedSpringJoint2D" parent="Physics"]
+node_a = NodePath("HookEnd")
+node_b = NodePath("HookStart")
+disable_collision = false
+length = 100.0
+rest_length = 99.0
+stiffness = 64.0
+damping = 16.0
+
+[node name="HookEnd" type="StaticBody2D" parent="Physics/DSJ"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/DSJ/HookEnd"]
+shape = SubResource("RectangleShape2D_thrqb")
+
+[node name="HookStart" type="RigidBody2D" parent="Physics/DSJ"]
+position = Vector2(0, 100)
+collision_layer = 0
+collision_mask = 0
+mass = 2.0
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/DSJ/HookStart"]
+position = Vector2(4.76837e-07, 0)
+shape = SubResource("RectangleShape2D_jy76t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Physics/DSJ/HookStart"]
+z_index = 5
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_7ndy8")
+
+[node name="Node2D" type="Node2D" parent="Physics/DSJ"]
+position = Vector2(0, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Physics/DSJ/Node2D"]
+texture = ExtResource("6_4ucms")

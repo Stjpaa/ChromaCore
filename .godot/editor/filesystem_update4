@@ -1,9 +1,8 @@
-res://Dillon/PlayerController/PlayerController2D.tscn
+res://Instances/Levels/Level-Prototype.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
-res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Dillon/Rope/Scenes/Teststage.tscn
-res://Dillon/GrapplingHook/GrapplingHook_JointBased.tscn
-res://Instances/Levels/Level-Prototype.tscn
-res://Instances/Gameobjects/Movable Objects/Box.tscn
-res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn
+res://Dillon/tile_map.tscn
+res://Dillon/PlayerController/PlayerController2D.tscn
+res://Dillon/GrapplingHook/GrapplingHook.tscn
+res://Dillon/GrapplingHook/HookableArea.tscn
+res://Dillon/Prototyps/Rope/Scenes/Teststage.tscn

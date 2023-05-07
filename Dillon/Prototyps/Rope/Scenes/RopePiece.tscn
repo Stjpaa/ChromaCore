@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://byhf0p5olelx3"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://Dillon/Rope/Scripts/RopePiece.cs" id="1_4dbau"]
+[ext_resource type="Script" path="res://Dillon/Prototyps/Rope/Scripts/RopePiece.cs" id="1_4dbau"]
 [ext_resource type="Texture2D" uid="uid://usqel3f7jre4" path="res://Dillon/Assets/Chain.png" id="2_3snpi"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gd4it"]
 radius = 2.0

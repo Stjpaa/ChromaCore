@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpsxcn81u63h2"]
+
+[ext_resource type="Script" path="res://Dillon/Prototyps/Chain.cs" id="1_dy85i"]
+[ext_resource type="Texture2D" uid="uid://usqel3f7jre4" path="res://Dillon/Assets/Chain.png" id="2_dk041"]
+[ext_resource type="Texture2D" uid="uid://jdvvj5vtumda" path="res://Dillon/Assets/Hook.png" id="3_bi3no"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygjk8"]
+radius = 7.0
+height = 16.0
+
+[node name="Chain" type="Node"]
+
+[node name="Chain" type="Node2D" parent="."]
+script = ExtResource("1_dy85i")
+
+[node name="Links" type="Line2D" parent="Chain"]
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(1, 0, -50, 0)
+texture = ExtResource("2_dk041")
+texture_mode = 1
+
+[node name="Tip" type="CharacterBody2D" parent="Chain"]
+rotation = -0.00233436
+collision_layer = 0
+
+[node name="Hook" type="Sprite2D" parent="Chain/Tip"]
+texture_filter = 1
+texture = ExtResource("3_bi3no")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Tip"]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_ygjk8")

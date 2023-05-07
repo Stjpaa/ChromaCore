@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://0vuadphoaeog"]
+
+[ext_resource type="Texture2D" uid="uid://uhcph3ufydda" path="res://Dillon/Assets/HookableArea.png" id="1_fbsf8"]
+[ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/HookableArea.cs" id="1_fmnge"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jstte"]
+radius = 200.0
+
+[node name="HookableArea" type="Area2D"]
+collision_layer = 2048
+collision_mask = 64
+script = ExtResource("1_fmnge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jstte")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_fbsf8")

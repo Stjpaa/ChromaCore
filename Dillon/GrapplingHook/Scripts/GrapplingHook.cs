@@ -1,67 +1,53 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 using PlayerController;
 using GrapplingHook.States;
+using GrapplingHook.Physics;
 
-namespace GrapplingHook {
-
-    public partial class GrapplingHook : Node2D
+namespace GrapplingHook
+{
+    public partial class GrapplingHook : Node
     {
-        [Export]
-        public PackedScene grapplingHookJB;
+        // Visuals
+        public Node2D Hook { get; private set; }
 
-        private Node2D _hook;
+        public Line2D Chain { get; private set; }
 
-        private Sprite2D _hookSprite;
+        // Physics
+        public Physics.Physics Physics { get; private set; }
 
-        private Line2D _chain;
+        // References
+        private PlayerController2D _playerController;
 
-        public PlayerController2D PlayerController
-        {
-            get;
-            private set;
-        }
+        private Node2D _target;
 
-        public Vector2 HookStartPosition
-        {
-            get { return PlayerController.HookStartPosition; }
-        }
+        // Variables
+        private State _state;
 
-        public float HookSpeed { get { return 1500f; } }
-        public float HookLenght { get { return 250f; } }
+        // Events
+        public event Action ShootEvent;
 
-        public State _state;
-
-        public Vector2 _globalTargetPosition;
-        public Vector2 _direction;
-
-        public event Action shootEvent;
-
-        public List<RayCast2D> rayCast2Ds;
 
         public override void _Ready()
         {
-            _hook = GetNode<Node2D>("Hook_Node2D");
-            _hookSprite = _hook.GetNode<Sprite2D>("Hook_Sprite2D");
-            _chain = GetNode<Line2D>("Chain_Line2D");
-            rayCast2Ds = new List<RayCast2D>();
-            rayCast2Ds.Add(GetNode<RayCast2D>("Top_RayCast2D"));
-            rayCast2Ds.Add(GetNode<RayCast2D>("Bottom_RayCast2D"));
-
+            Hook = GetNode<Node2D>("Visuals/Hook");
+            Chain = GetNode<Line2D>("Visuals/Hook/Chain");
+            Physics = GetNode<Physics.Physics>("Physics");
+            
             ChangeState(new Idle(this));
         }
 
         public override void _Process(double delta)
         {
-            _state.Execute();
             UpdateChainPosition();
+            
         }
 
         public override void _PhysicsProcess(double delta)
         {
-            
-        }
+            _state.Execute();
+            //_playerController.GlobalPosition = Physics.ChainStart.GlobalPosition;
+        }      
 
         public void ChangeState(State newState)
         {
@@ -73,22 +59,50 @@ namespace GrapplingHook {
 
         public void ShootHook(PlayerController2D playerController)
         {
-            PlayerController = playerController;     
-            _globalTargetPosition = PlayerController.GetGlobalMousePosition();
-            shootEvent?.Invoke();
+            _playerController = playerController;
+            if (_target != null)
+            {
+                ShootEvent?.Invoke();
+            }
+        }
+
+        public void SetTarget(Node2D target)
+        {
+            if(target == _target) { _target = null; }
+            else { _target = target; }
+        }
+
+        public Vector2 GetHookStartPosition()
+        {
+            if(_playerController == null)
+            {
+                GD.PrintErr("PlayerController is null");
+                return Vector2.Zero;
+            }
+            return _playerController.HookStartPosition;
+        }
+
+        public Vector2 GetHookTargetPosition()
+        {
+            if(_target == null)
+            {
+                GD.PrintErr("Target is null");
+                return Vector2.Zero;
+            }
+            return _target.GlobalPosition;
+        }
+
+        private int GetCurrentHookLength()
+         {
+            return Mathf.RoundToInt(_playerController.HookStartPosition.DistanceTo(Hook.GlobalPosition));
         }
 
         private void UpdateChainPosition()
         {
-            // Get the chain lenght - both points must be in the coordinate space of the chain
-            var chainOffset = _chain.ToLocal(PlayerController.HookStartPosition) - ToLocal(Transform.Origin);
-            _chain.SetPointPosition(1, chainOffset);
-        }
+            var offset = GetCurrentHookLength();
+            Chain.SetPointPosition(1, new Vector2(offset, 0));
 
-        public float GetCurrentHookLenght()
-        {
-            return ((_chain.GetPointPosition(1) + _chain.GlobalPosition) - GlobalPosition).Length();
+            Chain.LookAt(_playerController.HookStartPosition);
         }
-
-    }  
+    }
 }

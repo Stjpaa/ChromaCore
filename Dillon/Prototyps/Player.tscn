@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccrnmgdb5po5r"]
+
+[ext_resource type="Script" path="res://Dillon/Prototyps/Player.cs" id="1_m5prh"]
+[ext_resource type="Texture2D" uid="uid://1esrigfqux07" path="res://icon.svg" id="1_tro55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lwk2"]
+size = Vector2(38, 38)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 64
+script = ExtResource("1_m5prh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1lwk2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_tro55")
+
+[node name="Camera2D" type="Camera2D" parent="."]

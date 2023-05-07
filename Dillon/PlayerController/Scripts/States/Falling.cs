@@ -76,7 +76,7 @@ namespace PlayerController.States
 
             if (CheckTransitionToDash()) { return; }
             if (CheckTransitionToJumping()) { return; }
-            //if (CheckTransitionToHooking()) { return; }
+            if (CheckTransitionToHooking()) { return; }
             if (CheckTransitionToMove()) { return; }
             if (CheckTransitionToIdle()) { return; }
         }
@@ -108,7 +108,6 @@ namespace PlayerController.States
                     velocity.X += _playerController2D.FallingMoveSpeedDeceleration;
                 }
             }
-
 
             if (_state is not ApexModifierState.BeingApplied)
             {
@@ -211,7 +210,8 @@ namespace PlayerController.States
 
         private bool CheckTransitionToMove()
         {
-            if (_playerController2D.IsOnFloor() && Input.GetAxis("Move_Left", "Move_Right") != 0)
+            var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
+            if (_playerController2D.IsOnFloor() && moveDirection != 0)
             {
                 _playerController2D.ChangeState(new Moving(_playerController2D));
                 return true;
@@ -253,8 +253,7 @@ namespace PlayerController.States
             var hookTrigger = Input.IsActionJustPressed("ShootGrapplingHook");
             if (hookTrigger)
             {
-                //_playerController2D.GrapplingHook.ShootHook(_playerController2D);
-                _playerController2D.ChangeState(new Hooking(_playerController2D));
+                _playerController2D.GrapplingHook.ShootHook(_playerController2D);
                 return true;
             }
             return false;

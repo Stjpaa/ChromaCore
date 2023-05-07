@@ -5,8 +5,18 @@ namespace PlayerController
 {
     public partial class PlayerController2D : CharacterBody2D
     {
-        // GitHub Commit logs Version 0.0.16
-        // Implemented interaction with a box
+        // GitHub Commit logs Version 0.0.17
+        // Grappling hook based on joints no longer stretches. The Swinging mechanic works perfect.
+        // Transition from the physic based movement from the grappling hook to the character2d physic need to be improved
+        //
+        // Refactoring for the grappling hook. Combined visuals and physics into one node.
+        // Physics need to be instantiated and deleted othwerwise grappling hook doesnt work.
+        // The grappling hook end body moves to the position it gets set even though its global position gets set  (Bug?)
+        //
+        // Updated the collision layers for the player, hookable area, grappling hook (box etc. open)
+        //
+        // Implemented a grappling hook based on a character2D with own physics -> works not really
+        // Implemented a following camera prototyp -> works not as expected (laggy)
         // Problems:
         // - Dash works not correctly inside a gravity field => open
 
@@ -174,14 +184,6 @@ namespace PlayerController
         {
             GD.Print("Checkpoint entered");
             _checkpointPosition = Transform;
-        }
-
-        public enum InteractionMode
-        {
-            Nothing = 0,
-            GravityField,
-            JumpPad,
-            Teleport
         }
         #endregion
     }

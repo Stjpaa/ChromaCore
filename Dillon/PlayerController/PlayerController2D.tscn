@@ -208,13 +208,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5upv1"]
-size = Vector2(23, 43)
+size = Vector2(23, 42.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ub400"]
 font_size = 25
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 64
+collision_mask = 2049
 script = ExtResource("1_pl4lx")
 data = ExtResource("2_1wb36")
 
@@ -225,13 +227,14 @@ sprite_frames = SubResource("SpriteFrames_p68cg")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_5upv1")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
-offset_left = -567.0
-offset_top = -172.0
-offset_right = -464.0
-offset_bottom = -56.0
+offset_left = -445.0
+offset_top = -95.0
+offset_right = -342.0
+offset_bottom = 21.0
 
 [node name="State_Label" type="Label" parent="HFlowContainer"]
 layout_mode = 2
@@ -254,10 +257,10 @@ layout_mode = 2
 text = "FloorAngle:"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -568.0
-offset_top = -320.0
-offset_right = -348.0
-offset_bottom = -202.0
+offset_left = -446.0
+offset_top = -243.0
+offset_right = -226.0
+offset_bottom = -125.0
 text = "Controls:
 Move left: W
 Move right: D
@@ -282,9 +285,9 @@ one_shot = true
 one_shot = true
 
 [node name="HookStartPosition_Node2D" type="Node2D" parent="."]
-position = Vector2(0, -32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.253, 1.253)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_pdse6")

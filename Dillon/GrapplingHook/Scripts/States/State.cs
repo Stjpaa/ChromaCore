@@ -1,4 +1,6 @@
 
+using Godot;
+
 namespace GrapplingHook.States
 {
     public abstract class State
