@@ -13,6 +13,14 @@ public partial class SettingsMenu : Control
 
     public void _on_master_slider_value_changed(float sliderValue)
     {
+        if(sliderValue == 0)    // Mute the bus if the slider is 0
+        {
+            AudioServer.SetBusMute(masterIndex, true);
+            return;
+        }
+
+        AudioServer.SetBusMute(masterIndex, false);
+
         AudioServer.SetBusVolumeDb(masterIndex, sliderValue);
 
 

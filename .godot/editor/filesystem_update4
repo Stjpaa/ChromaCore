@@ -1,7 +1,8 @@
-res://Instances/Menus/MainMenu/main_menu.tscn
-res://Instances/Menus/MainMenu/MainMenuTheme.tres
+res://Instances/Menus/loading_screen.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
+res://Instances/Menus/MainMenu/MainMenuTheme.tres
 res://Instances/Menus/SettingsMenu/settings_menu.tscn
-res://Instances/Levels/Level-Prototype.tscn
 res://Instances/Menus/ui_navigation_manager.tscn
+res://Instances/Menus/MainMenu/main_menu.tscn
+res://Instances/Levels/Level-Prototype.tscn

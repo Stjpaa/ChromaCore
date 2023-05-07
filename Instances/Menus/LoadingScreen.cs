@@ -1,71 +1,84 @@
 using Godot;
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 
 public partial class LoadingScreen : Control
 {
-    //private PackedScene loadingScene;
+    private AnimationPlayer LoadingscreenAnimationPlayer;
 
-    //public override void _Ready()
-    //{
-    //    loadingScene = GD.Load<PackedScene>("res://Load.tscn");
-    //}
+    [Export] private PackedScene testLevelToLoad;
 
-    //public void LoadScene(Node currentScene, string nextScene)
-    //{
-    //    // Add loading scene to the root
-    //    var loadingSceneInstance = (Node)loadingScene.Instantiate();
-    //    GetTree().Root.CallDeferred("AddChild", loadingSceneInstance);
+    public override void _Ready()
+    {
+        LoadingscreenAnimationPlayer = (AnimationPlayer)GetNode("LoadingScreenAnimation");
+        StartLoadSceneAsync(testLevelToLoad.ResourcePath);
+    }
 
-    //    // Find the targeted scene
-    //    var loader = ResourceLoader.LoadInteractive(nextScene);
-        
+    private void StartLoadSceneAsync(string sceneToLoadPath)
+    {
+        _ = LoadSceneAsync(sceneToLoadPath);    // _ = means the value gets discarded on completion 
+    }
 
-    //    // Check for errors
-    //    if (loader == null)
-    //    {
-    //        // Handle your error
-    //        GD.Print("Error occurred while getting the scene");
-    //        return;
-    //    }
+    private async Task LoadSceneAsync(string sceneToLoad)
+    {
+        ResourceLoader.LoadThreadedRequest(sceneToLoad);    // initiate the Background Loading
 
-    //    currentScene.QueueFree();
-    //    // Creating a little delay, that lets the loading screen to appear.
-    //    IEnumerator CreateTimer()
-    //    {
-    //        yield return GetTree().CreateTimer(0.5f);
-    //    }
-    //    StartCoroutine(CreateTimer());
+        var sceneLoadStatus = ResourceLoader.LoadThreadedGetStatus(sceneToLoad);
 
-    //    // Loading the next_scene using Poll() function
-    //    // Since Poll() function loads data in chunks thus we need to put that in loop
-    //    while (true)
-    //    {
-    //        var error = loader.Poll();
-    //        // When we get a chunk of data
-    //        if (error == Error.Ok)
-    //        {
-    //            // Update the progress bar according to amount of data loaded
-    //            var progressBar = (ProgressBar)loadingSceneInstance.GetNode("ProgressBar");
-    //            progressBar.Value = (float)loader.GetStage() / loader.GetStageCount() * 100f;
-    //        }
-    //        // When all the data have been loaded
-    //        else if (error == Error.FileEof)
-    //        {
-    //            // Creating scene instance from loaded data
-    //            var scene = (Node)loader.GetResource().Instance();
-    //            // Adding scene to the root
-    //            GetTree().Root.CallDeferred("AddChild", scene);
-    //            // Removing loading scene
-    //            loadingSceneInstance.QueueFree();
-    //            return;
-    //        }
-    //        else
-    //        {
-    //            // Handle your error
-    //            GD.Print("Error occurred while loading chunks of data");
-    //            return;
-    //        }
-    //    }
-    //}
+
+
+        await LoadingScreenStartAnimation();
+
+
+
+
+        do    // ensures the middle animation always gets played at least once
+        {
+            await LoadingScreenLoopAnimation();
+        } while (sceneLoadStatus == ResourceLoader.ThreadLoadStatus.InProgress);
+
+
+        // maybe switch scene and pause game before fading out the loading screen
+        await LoadingScreenEndAnimation();
+
+        var loadedScene = (PackedScene)ResourceLoader.LoadThreadedGet(sceneToLoad);     // Change to the Loaded Scene
+        GetTree().ChangeSceneToPacked(loadedScene);
+
+
+    }
+
+
+    private async Task LoadingScreenStartAnimation()
+    {
+        LoadingscreenAnimationPlayer.Play("LoadingScreenStartAnimation");
+
+        while (LoadingscreenAnimationPlayer.IsPlaying())    // wait until Animation is done
+        {
+            // Wait for a short time before checking again
+            await Task.Delay(50);
+        }
+    }
+
+    async Task LoadingScreenEndAnimation()
+    {
+        LoadingscreenAnimationPlayer.Play("LoadingScreenEndAnimation");
+
+        while (LoadingscreenAnimationPlayer.IsPlaying())    // wait until Animation is done
+        {
+            // Wait for a short time before checking again
+            await Task.Delay(50);
+        }
+    }
+
+    async Task LoadingScreenLoopAnimation()
+    {
+        LoadingscreenAnimationPlayer.Play("LoadingScreenLoopAnimation");
+
+        while (LoadingscreenAnimationPlayer.IsPlaying())    // wait until Animation is done
+        {
+            // Wait for a short time before checking again
+            await Task.Delay(50);
+        }
+    }
 }
