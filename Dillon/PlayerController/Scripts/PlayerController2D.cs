@@ -19,6 +19,12 @@ namespace PlayerController
 			get;
 			private set;
 		}
+		[Export]
+		private GpuParticles2D _gpuParticleLanding;
+		[Export]
+		private GpuParticles2D _gpuParticleSpeed;
+		[Export(PropertyHint.Range, "0,1000,1.0")]
+		private float _speedParticleTriggerVelocity = 400.0f;
 
 		public AnimatedSprite2D AnimatedSprite2D
 		{
@@ -86,6 +92,8 @@ namespace PlayerController
 		private Label floorAngleText;
 		private Label dashCooldown;
 
+		private bool is_grounded = true;
+
 		public override void _Ready()
 		{
 			AnimatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -110,6 +118,25 @@ namespace PlayerController
 			isOnFloorLabel.Text = "IsOnFloor: " + IsOnFloor();
 			floorNormalText.Text = "FloorNormal: " + GetFloorNormal();
 			floorAngleText.Text = "FloorAngle: " + GetFloorAngle();
+
+			if(!is_grounded && IsOnFloor())
+			{
+				is_grounded = true;
+				// trigger landing particle
+				_gpuParticleLanding.Restart();
+			}
+			else if(!IsOnFloor())
+			{
+				is_grounded = false;
+			}
+			if(Velocity.Length() >= _speedParticleTriggerVelocity)
+			{
+				_gpuParticleSpeed.Emitting = true;
+			}
+			else
+			{
+				_gpuParticleSpeed.Emitting = false;
+			}
 
 			dashCooldown.Text = string.Format("{0:N0}", DashCooldownTimer.TimeLeft);
 			MoveAndSlide();
