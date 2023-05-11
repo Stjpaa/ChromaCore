@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://rfnsqa1150ea"]
+[gd_scene load_steps=8 format=3 uid="uid://rfnsqa1150ea"]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs" id="1_hbaih"]
+[ext_resource type="Texture2D" uid="uid://cp1ogcfgfwqy0" path="res://Assets/Sprites/Switch.png" id="2_4k21u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38fv1"]
 resource_local_to_scene = true
@@ -121,7 +122,7 @@ shader_parameter/pause = true
 [sub_resource type="CanvasTexture" id="CanvasTexture_t4xum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pxg"]
-size = Vector2(20, 2.1148)
+size = Vector2(16, 2.1148)
 
 [node name="Gravityfield_Toggle" type="Area2D"]
 script = ExtResource("1_hbaih")
@@ -142,8 +143,11 @@ texture = SubResource("CanvasTexture_t4xum")
 position = Vector2(-44, 0)
 
 [node name="SwitchCollider" type="CollisionShape2D" parent="Switch"]
-position = Vector2(0, -0.0574025)
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_d6pxg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Switch"]
+texture = ExtResource("2_4k21u")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="." to="." method="OnBodyExited"]

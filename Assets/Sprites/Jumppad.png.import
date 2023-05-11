@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d258ygtkx5fid"
-path="res://.godot/imported/smoke_01.png-5eb65756ae8754f43adb4d6d6587e4bd.ctex"
+uid="uid://dab8xjkkrhfxf"
+path="res://.godot/imported/Jumppad.png-2fbaaaca58f84a033d73c9a6f0a48834.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://smoke_01.png"
-dest_files=["res://.godot/imported/smoke_01.png-5eb65756ae8754f43adb4d6d6587e4bd.ctex"]
+source_file="res://Assets/Sprites/Jumppad.png"
+dest_files=["res://.godot/imported/Jumppad.png-2fbaaaca58f84a033d73c9a6f0a48834.ctex"]
 
 [params]
 
