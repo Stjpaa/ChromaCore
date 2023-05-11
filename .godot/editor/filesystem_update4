@@ -1,6 +1,7 @@
-res://Instances/Levels/Level-Prototype.tscn
+res://Instances/Levels/world_1_level.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
-res://star-sky.gdshader
-res://Shaders/star-sky.gdshader
-res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
+res://Shaders/dustcloud_landing_particle_process_material.tres
+res://Shaders/color-palette.gdshader
+res://Instances/Levels/Level-Prototype.tscn

@@ -1,7 +1,7 @@
-[gd_scene load_steps=59 format=3 uid="uid://b1ohwrgah4meq"]
+[gd_scene load_steps=61 format=3 uid="uid://besp4vl5cfm8a"]
 
-[ext_resource type="Texture2D" uid="uid://b6s1d4o1k6nx4" path="res://Assets/atlas.png" id="1_dxho2"]
-[ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
+[ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/atlas.png" id="1_dxho2"]
+[ext_resource type="Texture2D" uid="uid://chb1cn1avyu4c" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_rm56s"]
 [ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
 [ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="11_xf5fx"]
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="13_3inke"]
-[ext_resource type="Texture2D" uid="uid://bsu6aquff70be" path="res://Assets/Sprites/p1_stand.png" id="14_kjbvf"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/p1_stand.png" id="14_kjbvf"]
 
 [sub_resource type="Gradient" id="Gradient_b1py6"]
 colors = PackedColorArray(1, 0.305933, 0.172762, 1, 0.814486, 0.163879, 2.88785e-07, 1)
@@ -205,6 +205,15 @@ _data = {
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ypp4y"]
 friction = 0.6
+
+[sub_resource type="Gradient" id="Gradient_5kk12"]
+colors = PackedColorArray(0.00784314, 0.219608, 0.94902, 1, 0.00784314, 0.219608, 0.94902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7nr0o"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_5kk12")
+width = 20
+height = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpx1o"]
 resource_local_to_scene = true
@@ -774,7 +783,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0nt22"]
 resource_local_to_scene = true
 shader = SubResource("Shader_8gbjc")
-shader_parameter/width = 78.0
+shader_parameter/width = 80.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
 shader_parameter/background_color = Color(0, 0, 1, 0.168627)
@@ -792,13 +801,13 @@ size = Vector2(64, 352)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nhevw"]
 resource_local_to_scene = true
 shader = SubResource("Shader_w06af")
-shader_parameter/width = 50.0
+shader_parameter/width = 64.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(0, 1)
+shader_parameter/direction = Vector2(0, -1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
 shader_parameter/pause = false
@@ -810,13 +819,13 @@ size = Vector2(450, 64)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_034wp"]
 resource_local_to_scene = true
 shader = SubResource("Shader_w06af")
-shader_parameter/width = 50.0
+shader_parameter/width = 450.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(0, 1)
+shader_parameter/direction = Vector2(1, 0)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
 shader_parameter/pause = false
@@ -926,7 +935,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gi30v"]
 resource_local_to_scene = true
 shader = SubResource("Shader_thejt")
-shader_parameter/width = 50.0
+shader_parameter/width = 48.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.701961, 0.701961, 0, 1)
 shader_parameter/background_color = Color(0.992157, 0.854902, 0, 0.156863)
@@ -935,7 +944,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="Gradient" id="Gradient_g84sw"]
 colors = PackedColorArray(0, 1, 0, 0, 0, 0.670588, 0, 1)
@@ -1016,13 +1025,15 @@ libraries = {
 
 [node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
 position = Vector2(-307, -786)
-center_of_mass_mode = 0
 physics_material_override = SubResource("PhysicsMaterial_ypp4y")
 continuous_cd = 2
 max_contacts_reported = 0
 
-[node name="TeleportCooldown" parent="GameObjectsList/Box" index="2"]
+[node name="TeleportCooldown" parent="GameObjectsList/Box" index="1"]
 process_callback = 0
+
+[node name="Sprite" parent="GameObjectsList/Box" index="2"]
+texture = SubResource("GradientTexture2D_7nr0o")
 
 [node name="GravityfieldList" type="Node" parent="."]
 
@@ -1127,7 +1138,6 @@ _gravityfieldSize = Vector2(48, 144)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_6apcr")
-disabled = false
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Time2/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_gi30v")
