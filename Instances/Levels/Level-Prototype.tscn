@@ -1,8 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=42 format=3 uid="uid://eu352ky1n1pd"]
 
-[ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
+[ext_resource type="Texture2D" uid="uid://hnns8fyx8bhk" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
-[ext_resource type="Texture2D" uid="uid://bqunht4v8uhmr" path="res://Assets/tileset.png" id="3_qev7g"]
+[ext_resource type="Texture2D" uid="uid://bqunht4v8uhmr" path="res://Assets/assets.png" id="3_7l1et"]
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
@@ -40,15 +40,12 @@ texture = ExtResource("1_jj2hn")
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:0/size_in_atlas = Vector2i(2, 2)
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
-6:0/size_in_atlas = Vector2i(4, 4)
 6:0/0 = 0
 6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:0/0/physics_layer_0/angular_velocity = 0.0
-10:0/size_in_atlas = Vector2i(4, 4)
 10:0/0 = 0
 10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:0/0/physics_layer_0/angular_velocity = 0.0
@@ -62,7 +59,7 @@ texture = ExtResource("1_jj2hn")
 2:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acod"]
-texture = ExtResource("3_qev7g")
+texture = ExtResource("3_7l1et")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
