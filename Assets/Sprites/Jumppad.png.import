@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu5u5bhei4xlu"
-path="res://.godot/imported/Box.png-dfe5a57988d9438cde5b988b2d17cc8b.ctex"
+uid="uid://dab8xjkkrhfxf"
+path="res://.godot/imported/Jumppad.png-2fbaaaca58f84a033d73c9a6f0a48834.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Box.png"
-dest_files=["res://.godot/imported/Box.png-dfe5a57988d9438cde5b988b2d17cc8b.ctex"]
+source_file="res://Assets/Sprites/Jumppad.png"
+dest_files=["res://.godot/imported/Jumppad.png-2fbaaaca58f84a033d73c9a6f0a48834.ctex"]
 
 [params]
 

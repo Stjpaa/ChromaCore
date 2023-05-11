@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu5u5bhei4xlu"
-path="res://.godot/imported/Box.png-dfe5a57988d9438cde5b988b2d17cc8b.ctex"
+uid="uid://b6s1d4o1k6nx4"
+path="res://.godot/imported/atlas.png-9cef794873c0a0de8290cc9de4fefdff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Box.png"
-dest_files=["res://.godot/imported/Box.png-dfe5a57988d9438cde5b988b2d17cc8b.ctex"]
+source_file="res://Assets/atlas.png"
+dest_files=["res://.godot/imported/atlas.png-9cef794873c0a0de8290cc9de4fefdff.ctex"]
 
 [params]
 
