@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://8kukwt3ntgmj"]
+[gd_scene load_steps=6 format=3 uid="uid://8kukwt3ntgmj"]
 
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_81wmq"]
-[ext_resource type="Theme" uid="uid://q2jrn1vdduaw" path="res://Instances/Menus/MainMenu/MainMenuTheme.tres" id="1_sqaef"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/PlayButton.cs" id="2_sxrqg"]
 [ext_resource type="PackedScene" uid="uid://6q0qpcor0krb" path="res://Instances/Menus/LevelSelection/LevelSelectScene.tscn" id="3_ckmui"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/ExitButton.cs" id="4_4if3e"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/SettingsButton.cs" id="5_mygwh"]
-[ext_resource type="PackedScene" uid="uid://cn5pdby1dc4iv" path="res://Instances/Menus/SettingsMenu/settings_menu.tscn" id="6_4b5ta"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -15,10 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("1_81wmq")]
-layout_mode = 1
-focusNodeOnStart = NodePath("../Menus/MainMenu/Theme/MarginContainer/VBoxContainer/PlayButton")
 
 [node name="Menus" type="Control" parent="."]
 layout_mode = 1
@@ -36,6 +30,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="UINavigationManager" parent="Menus/MainMenu" instance=ExtResource("1_81wmq")]
+layout_mode = 1
+
 [node name="Theme" type="Control" parent="Menus/MainMenu"]
 layout_mode = 1
 anchors_preset = 15
@@ -43,57 +40,74 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_sqaef")
 
-[node name="BackgroundPanel" type="Panel" parent="Menus/MainMenu/Theme"]
+[node name="BackgroundColor" type="ColorRect" parent="Menus/MainMenu/Theme"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0.0666667)
 
-[node name="MarginContainer" type="MarginContainer" parent="Menus/MainMenu/Theme"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="PanelContainer" type="PanelContainer" parent="Menus/MainMenu/Theme/BackgroundColor"]
+layout_mode = 2
+offset_left = 476.0
+offset_top = 188.5
+offset_right = 676.0
+offset_bottom = 459.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 35
-theme_override_constants/margin_top = 35
-theme_override_constants/margin_right = 35
-theme_override_constants/margin_bottom = 35
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/MainMenu/Theme/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 35
 
-[node name="PlayButton" type="Button" parent="Menus/MainMenu/Theme/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath(".")
+focus_mode = 0
 theme_override_font_sizes/font_size = 25
 text = "Play"
 script = ExtResource("2_sxrqg")
 levelSelectScene = ExtResource("3_ckmui")
 
-[node name="SettingsButton" type="Button" parent="Menus/MainMenu/Theme/MarginContainer/VBoxContainer" node_paths=PackedStringArray("menuOfThisButton", "settingsMenu")]
+[node name="SettingsButton" type="Button" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("menuOfThisButton", "settingsMenu")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../PlayButton")
 theme_override_font_sizes/font_size = 25
 text = "Settings
 "
 script = ExtResource("5_mygwh")
-menuOfThisButton = NodePath("../../../..")
-settingsMenu = NodePath("../../../../../SettingsMenu")
+menuOfThisButton = NodePath("../../../../../..")
+settingsMenu = NodePath("")
 
-[node name="ExitButton" type="Button" parent="Menus/MainMenu/Theme/MarginContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Exit
 "
 script = ExtResource("4_4if3e")
-
-[node name="SettingsMenu" parent="Menus" instance=ExtResource("6_4b5ta")]
-visible = false
-layout_mode = 1

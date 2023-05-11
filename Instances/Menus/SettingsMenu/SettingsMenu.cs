@@ -11,7 +11,12 @@ public partial class SettingsMenu : Control
         masterIndex = AudioServer.GetBusIndex("Master");
     }
 
-    public void _on_master_slider_value_changed(float sliderValue)
+    public void SignalFullScreenCheckBox(bool checkBoxChecked)
+    {
+        ChangeToFullscreen(checkBoxChecked);
+    }
+
+    public void SignalMasterSliderValueChanged(float sliderValue)
     {
         if(sliderValue == 0)    // Mute the bus if the slider is 0
         {
@@ -42,4 +47,15 @@ public partial class SettingsMenu : Control
         menuToReturnTo.Visible = true;
     }
 
+    public void ChangeToFullscreen(bool changeToFullscreen)
+    {
+        if(changeToFullscreen) 
+        {
+            DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
+        }
+        else 
+        { 
+            DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
+        }
+    }
 }

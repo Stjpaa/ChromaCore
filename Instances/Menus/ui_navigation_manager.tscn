@@ -9,10 +9,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_tkvdj")
 mouseBlockPanel = NodePath("MouseBlockPanel")
 
 [node name="MouseBlockPanel" type="Panel" parent="."]
+visible = false
 modulate = Color(1, 1, 0.996078, 0)
 top_level = true
 layout_mode = 1

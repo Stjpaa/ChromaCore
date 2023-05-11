@@ -9,8 +9,6 @@ public partial class UINavigationManager : Control
     [Export] private Control focusNodeOnStart; // the first Node that will be Highlighted when navigating a menu
     [Export] private Panel mouseBlockPanel;  // stops mouse UI Interaction while active
 
-    private Control currentlyFocusedNode;
-
     private double mouseMoveDistance = 0f;
     private const double distanceToGetVisable = 20;
 
@@ -21,46 +19,68 @@ public partial class UINavigationManager : Control
     }
     private UIControlTypeEnum currentControlType;
 
+    public void SignalOnMenuVisabilityChange()  // happens whenever this Node becomes visable in scene. -> the menu this is part of grabs ui focus
+    {
+        //if (this.IsVisibleInTree())
+        //{
+        //    if (Input.MouseMode == Input.MouseModeEnum.Visible)
+        //    {
+        //        SwitchToMouseControl();
+        //    }
+        //    else
+        //    {
+        //        SwitchToKeyboardControl();
+        //    }
+        //}
+        //else     // when no longer visable
+        //{
+        //    mouseBlockPanel.Visible = false;
+        //}
+    }
+
+
+
     public override void _Ready()
     {
-        if (focusNodeOnStart != null)
+        if (this.IsVisibleInTree() == false) // dont grab focus if this isnst the active menu
         {
-            focusNodeOnStart.GrabFocus();
-            currentlyFocusedNode = focusNodeOnStart;
+            return;
         }
-        else
-        {
-            GD.PrintErr("assign first highlighted control node in UINavigationManager");
-        }
-        SwitchToKeyboardControl();
+
+        GD.Print("visible");
+
+        //SwitchToKeyboardControl();  // on the first menu start with keyboard control
 
     }
 
+
+
+    //public override void _
     public override void _Process(double delta)
     {
-        switch (currentControlType)
-        {
-            case UIControlTypeEnum.KeyboardControl:
-                {
-                    mouseMoveDistance += Input.GetLastMouseVelocity().Length() * delta;
+        //switch (currentControlType)
+        //{
+        //    case UIControlTypeEnum.KeyboardControl:
+        //        {
+        //            mouseMoveDistance += Input.GetLastMouseVelocity().Length() * delta;
 
-                    if (mouseMoveDistance >= distanceToGetVisable)
-                    {
-                        SwitchToMouseControl();
-                        mouseMoveDistance = 0;
-                    }
-                }
-                break;
+        //            if (mouseMoveDistance >= distanceToGetVisable)
+        //            {
+        //                SwitchToMouseControl();
+        //                mouseMoveDistance = 0;
+        //            }
+        //        }
+        //        break;
 
-            case UIControlTypeEnum.MouseControl:
-                {
-                    if (KeyboardInteractionHappened())
-                    {
-                        SwitchToKeyboardControl();
-                    }
-                }
-                break;
-        }
+        //    case UIControlTypeEnum.MouseControl:
+        //        {
+        //            if (KeyboardInteractionHappened())
+        //            {
+        //                SwitchToKeyboardControl();
+        //            }
+        //        }
+        //        break;
+        //}
     }
 
     private void MoveMouseScreenPosition(Vector2 position)
@@ -70,22 +90,25 @@ public partial class UINavigationManager : Control
 
     private void SwitchToMouseControl()
     {
+        GD.Print("SwitchToMouseControl");
         mouseBlockPanel.Visible = false;
         Input.MouseMode = Input.MouseModeEnum.Visible;
         currentControlType = UIControlTypeEnum.MouseControl;
 
-        currentlyFocusedNode.GrabFocus();   // to insure the Focus gets removed, Focus wouldnt get removed out of Scene if a different Control currently has Focus
-        currentlyFocusedNode.ReleaseFocus();
+        focusNodeOnStart.GrabFocus();   // to insure the Focus gets removed, Focus wouldnt get removed out of Scene if a different Control currently has Focus
+        focusNodeOnStart.ReleaseFocus();
     }
 
     private void SwitchToKeyboardControl()
     {
-        mouseBlockPanel.Visible = true;
+        GD.Print("SwitchToKeyboardControl");
+
         GD.PrintErr("Change the way UINavigationManager works, reset when this gets disabled");
-        MoveMouseScreenPosition(GetViewport().GetMousePosition() + new Vector2(0.1f,0));   // ugly temporary solution. Fixes the Problem, that an UI element still thinks its being hovered by the mouse after the block panel was added. this gets updated once the mouse is moved
+        mouseBlockPanel.Visible = true;
+        MoveMouseScreenPosition(GetViewport().GetMousePosition() + new Vector2(0.1f, 0));   // ugly temporary solution. Fixes the Problem, that an UI element still thinks its being hovered by the mouse after the block panel was added. this gets updated once the mouse is moved
 
 
-        currentlyFocusedNode.GrabFocus();
+        focusNodeOnStart.GrabFocus();
 
         Input.MouseMode = Input.MouseModeEnum.Hidden;
         currentControlType = UIControlTypeEnum.KeyboardControl;
@@ -121,6 +144,6 @@ public partial class UINavigationManager : Control
             return false;
         }
 
-        
+
     }
 }
