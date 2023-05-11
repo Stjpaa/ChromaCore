@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
 [ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="11_xf5fx"]
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="13_3inke"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/p1_stand.png" id="14_kjbvf"]
+[ext_resource type="Texture2D" uid="uid://bsu6aquff70be" path="res://Assets/Sprites/p1_stand.png" id="14_kjbvf"]
 
 [sub_resource type="Gradient" id="Gradient_b1py6"]
 colors = PackedColorArray(1, 0.305933, 0.172762, 1, 0.814486, 0.163879, 2.88785e-07, 1)

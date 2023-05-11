@@ -2,6 +2,6 @@ res://Instances/Levels/world_1_level.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Shaders/dustcloud_landing_particle_process_material.tres
-res://Shaders/color-palette.gdshader
 res://Instances/Levels/Level-Prototype.tscn
+res://Shaders/color-palette.gdshader
+res://Instances/Levels/world_1_level.gdshader
