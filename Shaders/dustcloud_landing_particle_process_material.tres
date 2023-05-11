@@ -1,17 +1,18 @@
 [gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://e4wj8hl86jwx"]
 
 [sub_resource type="Gradient" id="Gradient_8qfpm"]
-colors = PackedColorArray(0.255659, 0.255659, 0.255659, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_736nl"]
 gradient = SubResource("Gradient_8qfpm")
 
 [resource]
 emission_shape = 3
-emission_box_extents = Vector3(6, 3, 1)
+emission_box_extents = Vector3(10, 3, 1)
 direction = Vector3(0, -1, 0)
-spread = 70.0
 gravity = Vector3(0, 0, 0)
 initial_velocity_min = 4.95
 initial_velocity_max = 4.95
+scale_min = 0.02
+scale_max = 0.03
 color_ramp = SubResource("GradientTexture1D_736nl")

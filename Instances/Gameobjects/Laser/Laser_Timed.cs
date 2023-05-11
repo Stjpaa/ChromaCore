@@ -22,7 +22,7 @@ public partial class Laser_Timed : Node2D
 	private void RecalculateLaser()
 	{
 		Vector2 target_vector = target.GetGlobalTransform().Origin - this.GetGlobalTransform().Origin;
-		float laser_angle = target_vector.Angle();
+		float laser_angle = target_vector.Angle() - this.Rotation;
 		PhysicsDirectSpaceState2D spaceState = GetWorld2D().DirectSpaceState;
 		PhysicsRayQueryParameters2D query = PhysicsRayQueryParameters2D.Create(this.GetGlobalTransform().Origin, this.GetGlobalTransform().Origin + Vector2.FromAngle(laser_angle) * 1000);
 		query.CollideWithAreas = true;
