@@ -1,8 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://bvymvvotbov41"]
+[gd_scene load_steps=44 format=3 uid="uid://besp4vl5cfm8a"]
 
-[ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
+[ext_resource type="Texture2D" uid="uid://chb1cn1avyu4c" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
-[ext_resource type="Texture2D" uid="uid://bqunht4v8uhmr" path="res://Assets/tileset.png" id="3_qev7g"]
+[ext_resource type="Texture2D" uid="uid://bqunht4v8uhmr" path="res://Assets/atlas.png" id="3_buwcf"]
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
@@ -40,15 +40,12 @@ texture = ExtResource("1_jj2hn")
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:0/size_in_atlas = Vector2i(2, 2)
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
-6:0/size_in_atlas = Vector2i(4, 4)
 6:0/0 = 0
 6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:0/0/physics_layer_0/angular_velocity = 0.0
-10:0/size_in_atlas = Vector2i(4, 4)
 10:0/0 = 0
 10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:0/0/physics_layer_0/angular_velocity = 0.0
@@ -62,7 +59,7 @@ texture = ExtResource("1_jj2hn")
 2:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acod"]
-texture = ExtResource("3_qev7g")
+texture = ExtResource("3_buwcf")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -190,6 +187,15 @@ tracks/0/keys = {
 _data = {
 "Move": SubResource("Animation_ig103")
 }
+
+[sub_resource type="Gradient" id="Gradient_5kk12"]
+colors = PackedColorArray(0.00784314, 0.219608, 0.94902, 1, 0.00784314, 0.219608, 0.94902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gvifu"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_5kk12")
+width = 20
+height = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpx1o"]
 resource_local_to_scene = true
@@ -420,7 +426,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7464"]
 resource_local_to_scene = true
@@ -604,8 +610,11 @@ libraries = {
 position = Vector2(-379, 7)
 max_contacts_reported = 0
 
-[node name="TeleportCooldown" parent="GameObjectsList/Box" index="2"]
+[node name="TeleportCooldown" parent="GameObjectsList/Box" index="1"]
 process_callback = 0
+
+[node name="Sprite" parent="GameObjectsList/Box" index="2"]
+texture = SubResource("GradientTexture2D_gvifu")
 
 [node name="GravityfieldList" type="Node" parent="."]
 
@@ -626,6 +635,7 @@ position = Vector2(-153, -147)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
+disabled = false
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
@@ -680,7 +690,6 @@ position = Vector2(-334, -73)
 _switchTime = 0.1
 
 [node name="Laser_Rect" parent="LaserList/Laser_Timed" index="1"]
-offset_right = 123.396
 rotation = 1.76819
 
 [node name="Laser_Target" parent="LaserList/Laser_Timed" index="2"]
@@ -690,7 +699,6 @@ position = Vector2(-8, 40)
 position = Vector2(-269, -102)
 
 [node name="Laser_Rect" parent="LaserList/Laser_Timed2" index="1"]
-offset_right = 170.181
 rotation = 0.76617
 
 [node name="Laser_Target" parent="LaserList/Laser_Timed2" index="2"]
@@ -709,7 +717,6 @@ position = Vector2(-712, 46)
 
 [node name="LevelRotatorTrigger2" parent="LevelRotatorList" instance=ExtResource("14_ki612")]
 position = Vector2(-827, -19)
-_clockwise = false
 
 [node name="Rotator" type="Node" parent="."]
 script = ExtResource("14_xkrme")
