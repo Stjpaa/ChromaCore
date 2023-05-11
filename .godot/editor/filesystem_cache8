@@ -7,8 +7,8 @@ README.md::TextFile::-1::1681572821::0::1::::<><>::
 Rise01.ogg::AudioStreamOggVorbis::644264058876615546::1682243510::1682243642::1::::<><>::
 star-sky.gdshader::Shader::-1::1683833042::0::1::::<><>::
 Test.cs::CSharpScript::-1::1682243510::0::1::::<><>::
-::res://Assets/::1683833185
-atlas.png::CompressedTexture2D::8723023418343030::1683833137::1683833196::1::::<><>::
+::res://Assets/::1683838480
+atlas.png::CompressedTexture2D::8723023418343030::1683838482::1683838483::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::3587011470912294664::1681926322::1681926512::1::::<><>::
 Tileset.png::CompressedTexture2D::5267810587003723580::1683833185::1683833185::1::::<><>::
 ::res://Assets/Sprites/::1683833042
@@ -110,11 +110,11 @@ Checkpoint.cs::CSharpScript::-1::1682790462::0::1::::<><>::
 Checkpoint.tscn::PackedScene::1002964408231646571::1681573163::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.cs
 Spikes.tscn::PackedScene::4249880713655740377::1681576651::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs
 Traps.cs::CSharpScript::-1::1682790462::0::1::::<><>::
-::res://Instances/Levels/::1683833137
+::res://Instances/Levels/::1683838423
 InstantiateLevel.cs::CSharpScript::-1::1681573163::0::1::::<><>::
-Level-Prototype.tscn::PackedScene::2705298522082194010::1683832229::0::1::::<><>::uid://chb1cn1avyu4c<>uid://b3t2mpsrlclj1<>uid://bqunht4v8uhmr<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>uid://c2o1dkvnu6rgc<>uid://b7ojqpd7vuhx2<>uid://b2oylbolrog3e<>res://Instances/Gameobjects/LevelRotator/LevelRotator.cs<>res://Shaders/color-palette.gdshader
+Level-Prototype.tscn::PackedScene::2705298522082194010::1683838423::0::1::::<><>::uid://ehww7w412i1<>uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>res://Assets/Sprites/p1_stand.png
 Level.cs::CSharpScript::-1::1681572821::0::1::::<><>::
-world_1_level.tscn::PackedScene::1176266911922254984::1683833009::0::1::::<><>::res://Shaders/color-palette.gdshader<>uid://chb1cn1avyu4c<>uid://bxrinvpxhsiqc<>uid://bqunht4v8uhmr<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://oj3xa6mp45cx<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d
+world_1_level.tscn::PackedScene::1176266911922254984::1683838423::0::1::::<><>::uid://chb1cn1avyu4c<>uid://bxrinvpxhsiqc<>uid://ehww7w412i1<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://oj3xa6mp45cx<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7
 ::res://Instances/Save System/::1681572821
 ButtonDeleteScene.cs::CSharpScript::-1::1681572821::0::1::::<><>::
 ButtonLevelLoader.cs::CSharpScript::-1::1681572821::0::1::::<><>::
