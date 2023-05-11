@@ -1,10 +1,11 @@
 shader_type canvas_item;
 
-uniform vec4 color : source_color;
-uniform float strength : hint_range(0.0, 50.0) = 8.0;
+uniform vec4 color : source_color = vec4(0, 1, 0, 1);
+uniform vec4 background_color : source_color = vec4(0.3, 0.3, 0.3, 1.0);
+uniform float strength : hint_range(0.0, 50.0) = 20.0;
 uniform float scale : hint_range(0.0, 20.0) = 2.5;
 uniform float speed : hint_range(0.0, 10.0) = 0.5;
-uniform float border : hint_range(0.0, 1.0) = 0.8;
+uniform float border : hint_range(0.0, 1.0) = 0.4;
 
 vec2 Unity_Twirl_float(vec2 my_UV, vec2 Center, float Strength, vec2 Offset){
     vec2 delta = my_UV - Center;
@@ -46,6 +47,15 @@ vec2 Unity_Voronoi_float(vec2 my_UV, float AngleOffset, float CellDensity){
 void fragment(){
 	vec2 new_position = Unity_Twirl_float(UV, vec2(0.5, 0.5), strength, vec2(TIME * speed));
 	float voronoi = Unity_Voronoi_float(new_position, 1.0, scale).x;
-    // vec4 main_texture = texture(TEXTURE, new_position);
-    COLOR = vec4(color.xyz, voronoi * border - distance(UV, vec2(0.5, 0.5)));
+	float border_distance = distance(UV, vec2(0.5, 0.5));
+    vec4 background = vec4(
+		background_color.xyz,
+		background_color.a * (pow(border_distance * 2.0, 8.0) * -1.0 + 1.0)
+	);
+    vec4 portal = vec4(color.xyz, voronoi * border - distance(UV, vec2(0.5, 0.5)));
+	COLOR = mix(
+		background,
+		portal,
+		portal.a
+	);
 }

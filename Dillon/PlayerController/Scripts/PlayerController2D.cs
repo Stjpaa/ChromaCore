@@ -3,186 +3,222 @@ using PlayerController.States;
 
 namespace PlayerController
 {
-    public partial class PlayerController2D : CharacterBody2D
-    {
-        // GitHub Commit logs Version 0.0.16
-        // Implemented interaction with a box
-        // Problems:
-        // - Dash works not correctly inside a gravity field => open
+	public partial class PlayerController2D : CharacterBody2D
+	{
+		// GitHub Commit logs Version 0.0.16
+		// Implemented interaction with a box
+		// Problems:
+		// - Dash works not correctly inside a gravity field => open
 
-        [Export]
-        public PlayerController2D_Data data;
+		[Export]
+		public PlayerController2D_Data data;
 
-        [Export]
-        public GrapplingHook.GrapplingHook GrapplingHook
-        {
-            get;
-            private set;
-        }
+		[Export]
+		public GrapplingHook.GrapplingHook GrapplingHook
+		{
+			get;
+			private set;
+		}
+		[Export]
+		private GpuParticles2D _gpuParticleLanding;
+		[Export]
+		private GpuParticles2D _gpuParticleSpeed;
+		[Export(PropertyHint.Range, "0,1000,1.0")]
+		private float _speedParticleTriggerVelocity = 400.0f;
 
-        public AnimatedSprite2D AnimatedSprite2D
-        {
-            get;
-            private set;
-        }
+		public AnimatedSprite2D AnimatedSprite2D
+		{
+			get;
+			private set;
+		}
 
-        public Timer DashCooldownTimer
-        {
-            get;
-            private set;
-        }
+		public Timer DashCooldownTimer
+		{
+			get;
+			private set;
+		}
 
-        public Transform2D CheckpointPosition
-        {
-            get { return _checkpointPosition; }
-            private set { _checkpointPosition = value; }
-        }
+		public Transform2D CheckpointPosition
+		{
+			get { return _checkpointPosition; }
+			private set { _checkpointPosition = value; }
+		}
 
-        public Vector2 HookStartPosition
-        {
-            get { return _hookStartPositioNode.GlobalPosition; }
-        }
+		public Vector2 HookStartPosition
+		{
+			get { return _hookStartPositioNode.GlobalPosition; }
+		}
 
-        #region Moving State Variables
-        public float MaxMoveSpeed { get { return data.maxMoveSpeed; } }
-        public float MoveSpeedAcceleration { get { return data.moveSpeedAcceleration; } }
-        public float MoveSpeedDecceleration { get { return data.moveSpeedDecceleration; } }
-        #endregion
-        #region Falling State Variables
-        public float MaxFallSpeed { get { return data.maxFallSpeed; } }
-        public float FallSpeedAcceleration { get { return data.fallSpeedAcceleration; } }
-        public float MaxFallingMoveSpeed { get { return data.maxFallingMoveSpeed; } }
-        public float FallingMoveSpeedAcceleration { get { return data.fallingMoveSpeedAcceleration; } }
+		#region Moving State Variables
+		public float MaxMoveSpeed { get { return data.maxMoveSpeed; } }
+		public float MoveSpeedAcceleration { get { return data.moveSpeedAcceleration; } }
+		public float MoveSpeedDecceleration { get { return data.moveSpeedDecceleration; } }
+		#endregion
+		#region Falling State Variables
+		public float MaxFallSpeed { get { return data.maxFallSpeed; } }
+		public float FallSpeedAcceleration { get { return data.fallSpeedAcceleration; } }
+		public float MaxFallingMoveSpeed { get { return data.maxFallingMoveSpeed; } }
+		public float FallingMoveSpeedAcceleration { get { return data.fallingMoveSpeedAcceleration; } }
 
-        public float FallingMoveSpeedDeceleration { get { return data.FallingMoveSpeedDeceleration; }}
-        #endregion
-        #region Jumping State Variables
-        public float JumpForce { get { return data.jumpForce; } }
-        public float JumpEndModifier { get { return data.jumpEndModifier; } }
-        #endregion
-        #region Dashing State Variables
-        public float DashSpeed { get { return data.dashSpeed; } }
-        public float DashDuration { get { return data.dashDuration; } }
-        #endregion
-        #region Mechanics Variables
-        public float CoyoteTimeDuration { get { return data.coyoteTimeDuration; } }
-        public float ApexModifierDuration { get { return data.apexModifierDuration; } }
-        public float ApexModifierMovementBoost { get { return data.apexModifierMovementBoost; } }
-        #endregion
+		public float FallingMoveSpeedDeceleration { get { return data.FallingMoveSpeedDeceleration; }}
+		#endregion
+		#region Jumping State Variables
+		public float JumpForce { get { return data.jumpForce; } }
+		public float JumpEndModifier { get { return data.jumpEndModifier; } }
+		#endregion
+		#region Dashing State Variables
+		public float DashSpeed { get { return data.dashSpeed; } }
+		public float DashDuration { get { return data.dashDuration; } }
+		#endregion
+		#region Mechanics Variables
+		public float CoyoteTimeDuration { get { return data.coyoteTimeDuration; } }
+		public float ApexModifierDuration { get { return data.apexModifierDuration; } }
+		public float ApexModifierMovementBoost { get { return data.apexModifierMovementBoost; } }
+		#endregion
 
-        public State currentState;
-        public State previousState;
+		public State currentState;
+		public State previousState;
 
-        private Transform2D _checkpointPosition;
+		private Transform2D _checkpointPosition;
 
-        private Timer _teleportTimer;
+		private Timer _teleportTimer;
 
-        private Node2D _hookStartPositioNode;
+		private Node2D _hookStartPositioNode;
 
-        private Label velText;
-        private Label stateText;
-        private Label isOnFloorLabel;
-        private Label floorNormalText;
-        private Label floorAngleText;
-        private Label dashCooldown;
+		private Label velText;
+		private Label stateText;
+		private Label isOnFloorLabel;
+		private Label floorNormalText;
+		private Label floorAngleText;
+		private Label dashCooldown;
 
-        public override void _Ready()
-        {
-            AnimatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-            DashCooldownTimer = GetNode<Timer>("DashCooldown_Timer");
-            _teleportTimer = GetNode<Timer>("Teleport_Timer");
-            _hookStartPositioNode = GetNode<Node2D>("HookStartPosition_Node2D");
+		private bool is_grounded = true;
 
-            velText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("Velocity_Label");
-            stateText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("State_Label");
-            isOnFloorLabel = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("IsOnFloor_Label");
-            floorNormalText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorNormal_Label");
-            floorAngleText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorAngle_Label");
-            dashCooldown = GetNode<Label>("Label");
-            ChangeState(new Falling(this));
-        }
+		public override void _Ready()
+		{
+			AnimatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+			DashCooldownTimer = GetNode<Timer>("DashCooldown_Timer");
+			_teleportTimer = GetNode<Timer>("Teleport_Timer");
+			_hookStartPositioNode = GetNode<Node2D>("HookStartPosition_Node2D");
 
-        public override void _PhysicsProcess(double delta)
-        {
-            currentState.Execute();
+			velText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("Velocity_Label");
+			stateText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("State_Label");
+			isOnFloorLabel = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("IsOnFloor_Label");
+			floorNormalText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorNormal_Label");
+			floorAngleText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorAngle_Label");
+			dashCooldown = GetNode<Label>("Label");
+			ChangeState(new Falling(this));
+		}
 
-            velText.Text = "Velocity: " + Velocity.ToString();
-            isOnFloorLabel.Text = "IsOnFloor: " + IsOnFloor();
-            floorNormalText.Text = "FloorNormal: " + GetFloorNormal();
-            floorAngleText.Text = "FloorAngle: " + GetFloorAngle();
+		public override void _PhysicsProcess(double delta)
+		{
+			currentState.Execute();
 
-            dashCooldown.Text = string.Format("{0:N0}", DashCooldownTimer.TimeLeft);
-            MoveAndSlide();
-            CheckCollisionWithBox();
-        }
+			velText.Text = "Velocity: " + Velocity.ToString();
+			isOnFloorLabel.Text = "IsOnFloor: " + IsOnFloor();
+			floorNormalText.Text = "FloorNormal: " + GetFloorNormal();
+			floorAngleText.Text = "FloorAngle: " + GetFloorAngle();
 
-        public void ChangeState(State newState)
-        {
-            previousState = currentState;
-            currentState = newState;
+			if(!is_grounded && IsOnFloor())
+			{
+				is_grounded = true;
+				// trigger landing particle
+				_gpuParticleLanding.Restart();
+			}
+			else if(!IsOnFloor())
+			{
+				is_grounded = false;
+			}
+			if(Velocity.Length() >= _speedParticleTriggerVelocity)
+			{
+				_gpuParticleSpeed.Emitting = true;
+			}
+			else
+			{
+				_gpuParticleSpeed.Emitting = false;
+			}
 
-            previousState?.Exit();
-            currentState.Enter();
+			dashCooldown.Text = string.Format("{0:N0}", DashCooldownTimer.TimeLeft);
+			MoveAndSlide();
+			CheckCollisionWithBox();
+		}
 
-            stateText.Text = "State: " + currentState.Name;
-        }
+		public void ChangeState(State newState)
+		{
+			previousState = currentState;
+			currentState = newState;
 
-        #region Communication with other game objects
-        private void ChangeGravityProperties(Vector2 direction)
-        {
-            GD.Print("Gravity field entered");
-            ChangeState(new Falling(this, direction));
-        }
+			previousState?.Exit();
+			currentState.Enter();
 
-        private void ResetGravityProperties()
-        {
-            GD.Print("Gravity field left");
-            ChangeState(new Falling(this));
-        }
+			stateText.Text = "State: " + currentState.Name;
+		}
 
-        private void ApplyJumpPadForce(Vector2 strength)
-        {
-            GD.Print("Jumppad entered");
-            ChangeState(new Jumping(this, false, strength));
-        }
+		public void KilledPlayer()
+		{
+			/*
+				TODO
+				player is killed. a fail-state should be displayed and then reset the game to a checkpoint
+			*/
+			GD.Print("Player killed. please stop what you are doing and reset the game to a previous Checkpoint");
+		}
 
-        private void Teleport(Vector2 newPos, Vector2 impulse)
-        {
-            GD.Print("Teleport entered");
-            if (_teleportTimer.TimeLeft > 0) { return; }
+		#region Communication with other game objects
+		private void ChangeGravityProperties(Vector2 direction)
+		{
+			GD.Print("Gravity field entered");
+			ChangeState(new Falling(this, direction));
+		}
 
-            // Set the position to the teleport position
-            Transform = new Transform2D(0, newPos);
-            ChangeState(new Jumping(this, false, impulse));
+		private void ResetGravityProperties()
+		{
+			GD.Print("Gravity field left");
+			ChangeState(new Falling(this));
+		}
 
-            _teleportTimer.Start();
-        }
+		private void ApplyJumpPadForce(Vector2 strength)
+		{
+			GD.Print("Jumppad entered");
+			ChangeState(new Jumping(this, false, strength));
+		}
 
-        private void CheckCollisionWithBox()
-        {
-            if (GetSlideCollisionCount() > 0)
-            {
-                if (GetLastSlideCollision().GetCollider() is Box)
-                {
-                    var @object = GetLastSlideCollision().GetCollider() as Box;
-                    @object.ApplyCollisionImpulse(new Vector2(20 * Input.GetAxis("Move_Left", "Move_Right"), 0));
-                }
-            }
-        }
+		private void Teleport(Vector2 newPos, Vector2 impulse)
+		{
+			GD.Print("Teleport entered");
+			if (_teleportTimer.TimeLeft > 0) { return; }
 
-        private void SaveCheckpointLocation()
-        {
-            GD.Print("Checkpoint entered");
-            _checkpointPosition = Transform;
-        }
+			// Set the position to the teleport position
+			Transform = new Transform2D(0, newPos);
+			ChangeState(new Jumping(this, false, impulse));
 
-        public enum InteractionMode
-        {
-            Nothing = 0,
-            GravityField,
-            JumpPad,
-            Teleport
-        }
-        #endregion
-    }
+			_teleportTimer.Start();
+		}
+
+		private void CheckCollisionWithBox()
+		{
+			if (GetSlideCollisionCount() > 0)
+			{
+				if (GetLastSlideCollision().GetCollider() is Box)
+				{
+					var @object = GetLastSlideCollision().GetCollider() as Box;
+					@object.ApplyCollisionImpulse(new Vector2(20 * Input.GetAxis("Move_Left", "Move_Right"), 0));
+				}
+			}
+		}
+
+		private void SaveCheckpointLocation()
+		{
+			GD.Print("Checkpoint entered");
+			_checkpointPosition = Transform;
+		}
+
+		public enum InteractionMode
+		{
+			Nothing = 0,
+			GravityField,
+			JumpPad,
+			Teleport
+		}
+		#endregion
+	}
 }

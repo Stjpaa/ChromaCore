@@ -1,9 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://bxrinvpxhsiqc"]
+[gd_scene load_steps=39 format=3 uid="uid://bxrinvpxhsiqc"]
 
 [ext_resource type="Script" path="res://Dillon/PlayerController/Scripts/PlayerController2D.cs" id="1_pl4lx"]
 [ext_resource type="Resource" uid="uid://d1vr7kylk8xma" path="res://Dillon/PlayerController/PlayerController2D_Data.tres" id="2_1wb36"]
 [ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_xv8au"]
 [ext_resource type="Texture2D" uid="uid://cwyo5igh1of5c" path="res://Godot Char_Placeholder-1.png" id="3_pdse6"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="4_4113s"]
+[ext_resource type="Material" uid="uid://e4wj8hl86jwx" path="res://Shaders/dustcloud_landing_particle_process_material.tres" id="5_mqrvi"]
+[ext_resource type="Texture2D" uid="uid://d258ygtkx5fid" path="res://smoke_01.png" id="7_oju7h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3q5q"]
 atlas = ExtResource("2_xv8au")
@@ -213,10 +216,39 @@ size = Vector2(23, 43)
 [sub_resource type="LabelSettings" id="LabelSettings_ub400"]
 font_size = 25
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fxxw6"]
+shader = ExtResource("4_4113s")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.5
+shader_parameter/trail_speed = 1.0
+
+[sub_resource type="Gradient" id="Gradient_k8281"]
+offsets = PackedFloat32Array(0, 0.657143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.235294, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7mojq"]
+gradient = SubResource("Gradient_k8281")
+
+[sub_resource type="Curve" id="Curve_mhlvk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.827273), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4kkw2"]
+curve = SubResource("Curve_mhlvk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xxdum"]
+particle_flag_disable_z = true
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_4kkw2")
+color_ramp = SubResource("GradientTexture1D_7mojq")
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("_gpuParticleLanding", "_gpuParticleSpeed")]
 z_index = 1
 script = ExtResource("1_pl4lx")
 data = ExtResource("2_1wb36")
+_gpuParticleLanding = NodePath("GPUParticles2D_Landing")
+_gpuParticleSpeed = NodePath("GPUParticles2D_Speed")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -287,4 +319,23 @@ position = Vector2(0, -32)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fxxw6")
 texture = ExtResource("3_pdse6")
+
+[node name="GPUParticles2D_Landing" type="GPUParticles2D" parent="."]
+position = Vector2(0, 17)
+scale = Vector2(2.231, 2.231)
+emitting = false
+amount = 20
+process_material = ExtResource("5_mqrvi")
+texture = ExtResource("7_oju7h")
+one_shot = true
+explosiveness = 1.0
+
+[node name="GPUParticles2D_Speed" type="GPUParticles2D" parent="."]
+z_index = -1
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_xxdum")
+texture = ExtResource("3_pdse6")
+lifetime = 0.3
