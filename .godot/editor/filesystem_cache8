@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683840086
+::res://::1683889260
 characters.png::CompressedTexture2D::5074265719891268926::1682243510::1682243643::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1681926387::1681926387::1::::<><>::
 icon.svg::CompressedTexture2D::1834291139676260366::1681572821::1681573162::1::::<><>::
@@ -12,15 +12,15 @@ Test.cs::CSharpScript::-1::1682243510::0::1::::<><>::
 atlas.png::CompressedTexture2D::8723023418343030::1683838482::1683838483::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::3587011470912294664::1681926322::1681926512::1::::<><>::
 Tileset.png::CompressedTexture2D::5267810587003723580::1683833185::1683833185::1::::<><>::
-::res://Assets/Sprites/::1683833042
+::res://Assets/Sprites/::1683840527
 Ball.png::CompressedTexture2D::2812879286531544329::1681572821::1681573162::1::::<><>::
 Box.png::CompressedTexture2D::7592490463657462767::1683833042::1683833042::1::::<><>::
 Gravityfield_Normal.png::CompressedTexture2D::462385158180725172::1681572821::1681573162::1::::<><>::
 Jumppad.png::CompressedTexture2D::7163371651490017967::1683833042::1683833042::1::::<><>::
 MovingPlatform.png::CompressedTexture2D::8402143123705161151::1681572821::1681573162::1::::<><>::
 p1_stand.png::CompressedTexture2D::3692990522539475962::1683833042::1683833042::1::::<><>::
-Platform_Moving.tres::GradientTexture2D::6902438974613199686::1683831769::0::1::::<><>::
-Platform_Normal.tres::GradientTexture2D::5186750078832371388::1683831769::0::1::::<><>::
+Platform_Moving.tres::GradientTexture2D::6902438974613199686::1683840526::0::1::::<><>::
+Platform_Normal.tres::GradientTexture2D::5186750078832371388::1683840526::0::1::::<><>::
 Spikes.png::CompressedTexture2D::8537367750236661456::1683833042::1683833042::1::::<><>::
 Switch.png::CompressedTexture2D::5880208709275302537::1683833042::1683833042::1::::<><>::
 ::res://Assets/Sprites/Tileset Sprites/::1681573162
@@ -84,8 +84,8 @@ RopePiece.cs::CSharpScript::-1::1682698523::0::1::::<><>::
 Teststage.cs::CSharpScript::-1::1682698523::0::1::::<><>::
 ::res://Instances/::1681572821
 ::res://Instances/Gameobjects/::1683833137
-::res://Instances/Gameobjects/Gravityfields/::1683833042
-Gravityfield_Normal.cs::CSharpScript::-1::1683831769::0::1::::<><>::
+::res://Instances/Gameobjects/Gravityfields/::1683840527
+Gravityfield_Normal.cs::CSharpScript::-1::1683840527::0::1::::<><>::
 Gravityfield_Normal.tscn::PackedScene::8203964619402760068::1681572821::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 Gravityfield_Time.cs::CSharpScript::-1::1681573163::0::1::::<><>::
 Gravityfield_Time.tscn::PackedScene::4266977411605829208::1682698523::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs
@@ -111,11 +111,12 @@ Checkpoint.cs::CSharpScript::-1::1682790462::0::1::::<><>::
 Checkpoint.tscn::PackedScene::1002964408231646571::1681573163::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.cs
 Spikes.tscn::PackedScene::4249880713655740377::1681576651::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs
 Traps.cs::CSharpScript::-1::1682790462::0::1::::<><>::
-::res://Instances/Levels/::1683839470
+::res://Instances/Levels/::1683845805
 InstantiateLevel.cs::CSharpScript::-1::1681573163::0::1::::<><>::
-Level-Prototype.tscn::PackedScene::2705298522082194010::1683839470::0::1::::<><>::uid://ehww7w412i1<>uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>res://Assets/Sprites/p1_stand.png
+Level-Prototype.tscn::PackedScene::2705298522082194010::1683844949::0::1::::<><>::uid://ehww7w412i1<>uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>uid://bsu6aquff70be
 Level.cs::CSharpScript::-1::1681572821::0::1::::<><>::
-world_1_level.tscn::PackedScene::1176266911922254984::1683839470::0::1::::<><>::uid://chb1cn1avyu4c<>uid://bxrinvpxhsiqc<>uid://ehww7w412i1<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://oj3xa6mp45cx<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7
+world_1_level.gdshader::Shader::-1::1683845805::0::1::::<><>::
+world_1_level.tscn::PackedScene::1176266911922254984::1683845804::0::1::::<><>::uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://bxrinvpxhsiqc<>uid://ehww7w412i1<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://oj3xa6mp45cx<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea
 ::res://Instances/Save System/::1681572821
 ButtonDeleteScene.cs::CSharpScript::-1::1681572821::0::1::::<><>::
 ButtonLevelLoader.cs::CSharpScript::-1::1681572821::0::1::::<><>::
@@ -136,9 +137,9 @@ Juhani Junkala [Retro Game Music Pack] Level 3.ogg::AudioStreamOggVorbis::834991
 Juhani Junkala [Retro Game Music Pack] Title Screen.ogg::AudioStreamOggVorbis::8728882447058957871::1682243510::1682243642::1::::<><>::
 ::res://Properties/::1681573163
 launchSettings.json::JSON::-1::1681573163::0::1::::<><>::
-::res://Shaders/::1683833042
+::res://Shaders/::1683845805
 bouncyness.gdshader::Shader::-1::1681572821::0::1::::<><>::
-color-palette.gdshader::Shader::-1::1683831769::0::1::::<><>::
+color-palette.gdshader::Shader::-1::1683845805::0::1::::<><>::
 dissolve.gdshader::Shader::-1::1681572821::0::1::::<><>::
 dustcloud_landing_particle_process_material.tres::ParticleProcessMaterial::341975920035173327::1683833042::0::1::::<><>::
 forcefield.gdshader::Shader::-1::1681572821::0::1::::<><>::
