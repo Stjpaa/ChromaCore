@@ -444,7 +444,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7464"]
 resource_local_to_scene = true
@@ -944,7 +944,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="Gradient" id="Gradient_g84sw"]
 colors = PackedColorArray(0, 1, 0, 0, 0, 0.670588, 0, 1)
@@ -1054,7 +1054,6 @@ position = Vector2(-153, -147)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
-disabled = false
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
@@ -1139,7 +1138,6 @@ _gravityfieldSize = Vector2(48, 144)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_6apcr")
-disabled = false
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Time2/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_gi30v")
