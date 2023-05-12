@@ -1,7 +1,7 @@
-[gd_scene load_steps=59 format=3 uid="uid://besp4vl5cfm8a"]
+[gd_scene load_steps=61 format=3 uid="uid://besp4vl5cfm8a"]
 
-[ext_resource type="Texture2D" uid="uid://b6s1d4o1k6nx4" path="res://Assets/atlas.png" id="1_dxho2"]
-[ext_resource type="Texture2D" uid="uid://dqbi36m2q5bb4" path="res://Assets/Tileset.png" id="1_jj2hn"]
+[ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/atlas.png" id="1_dxho2"]
+[ext_resource type="Texture2D" uid="uid://chb1cn1avyu4c" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_rm56s"]
 [ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
 [ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
@@ -206,6 +206,15 @@ _data = {
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ypp4y"]
 friction = 0.6
+
+[sub_resource type="Gradient" id="Gradient_5kk12"]
+colors = PackedColorArray(0.00784314, 0.219608, 0.94902, 1, 0.00784314, 0.219608, 0.94902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dkal7"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_5kk12")
+width = 20
+height = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpx1o"]
 resource_local_to_scene = true
@@ -919,13 +928,15 @@ libraries = {
 
 [node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
 position = Vector2(-349, -788)
-center_of_mass_mode = 0
 physics_material_override = SubResource("PhysicsMaterial_ypp4y")
 continuous_cd = 2
 max_contacts_reported = 0
 
-[node name="TeleportCooldown" parent="GameObjectsList/Box" index="2"]
+[node name="TeleportCooldown" parent="GameObjectsList/Box" index="1"]
 process_callback = 0
+
+[node name="Sprite" parent="GameObjectsList/Box" index="2"]
+texture = SubResource("GradientTexture2D_dkal7")
 
 [node name="GravityfieldList" type="Node" parent="."]
 
