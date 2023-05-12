@@ -1,13 +1,12 @@
+Area2D
+Node2D
 Node
-TileMap
 Sprite2D
 CanvasGroup
 CanvasModulate
 CanvasLayer
 WorldEnvironment
 CollisionShape2D
-Area2D
-Node2D
 Camera2D
 StaticBody2D
 RigidBody2D

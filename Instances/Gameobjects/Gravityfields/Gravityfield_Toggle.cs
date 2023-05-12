@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [Tool]
-public partial class Gravityfield_Toggle : Area2D
+public partial class Gravityfield_Toggle : Node2D
 {
 	[Export]
 	private Vector2 _gravityfieldSize = new Vector2(50, 50);
@@ -16,6 +16,8 @@ public partial class Gravityfield_Toggle : Area2D
 
 	private CollisionShape2D _gravityfieldCollider;
 
+	private bool _gravityfieldDisabled = true;
+
 	private Node2D _gravityDirectionNode;
 
 	private Vector2 _gravityDirection;
@@ -25,9 +27,9 @@ public partial class Gravityfield_Toggle : Area2D
 	public override void _Ready()
 	{
 		// Get dependencies
-		this._gravityfieldCollider = GetNode<CollisionShape2D>("GravityfieldCollider");
-		this._gravityDirectionNode = this._gravityfieldCollider.GetNode<Node2D>("GravityDirection");
-		this._sprite = this._gravityfieldCollider.GetNode<Sprite2D>("Sprite");
+		this._gravityfieldCollider = GetNode<CollisionShape2D>("Gravityfield/GravityfieldCollider");
+		this._gravityDirectionNode = GetNode<Node2D>("Gravityfield/GravityDirection");
+		this._sprite = GetNode<Sprite2D>("Gravityfield/Sprite");
 
 		// Set collider- and spritesize
 		this._gravityfieldCollider.Shape.Set("size", this._gravityfieldSize);
@@ -67,23 +69,31 @@ public partial class Gravityfield_Toggle : Area2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		body.Call("ChangeGravityProperties", this._gravityDirection.Normalized() * this._gravityStrength);
+		GD.Print("Entered");
+		if (!this._gravityfieldDisabled)
+		{
+			body.Call("ChangeGravityProperties", this._gravityDirection.Normalized() * this._gravityStrength);
+		}
 	}	
 
 	public void OnBodyExited(Node2D body)
 	{
-		body.Call("ResetGravityProperties");
+		if (!this._gravityfieldDisabled)
+		{
+			body.Call("ResetGravityProperties");			
+		}
 	}
 
 	public void EnableGravityfield(Node2D body)
 	{
-		SetDeferred("_gravityfieldCollider", false);
+		// Does not work with SetDeffered => probably bugged
+		this._gravityfieldDisabled = false;
 		this._spriteMat.SetShaderParameter("pause", false);
 	}
 
 	public void DisableGravityfield(Node2D body)
 	{
-		SetDeferred("_gravityfieldCollider", true);
+		this._gravityfieldDisabled = true;
 		this._spriteMat.SetShaderParameter("pause", true);
 	}
 }
