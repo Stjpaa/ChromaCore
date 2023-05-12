@@ -124,20 +124,22 @@ shader_parameter/pause = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pxg"]
 size = Vector2(16, 2.1148)
 
-[node name="Gravityfield_Toggle" type="Area2D"]
+[node name="Gravityfield_Toggle" type="Node2D"]
 script = ExtResource("1_hbaih")
 
-[node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
+[node name="Gravityfield" type="Area2D" parent="."]
+
+[node name="GravityfieldCollider" type="CollisionShape2D" parent="Gravityfield"]
 shape = SubResource("RectangleShape2D_38fv1")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="GravityDirection" type="Node2D" parent="GravityfieldCollider"]
-position = Vector2(0, -18)
-
-[node name="Sprite" type="Sprite2D" parent="GravityfieldCollider"]
+[node name="Sprite" type="Sprite2D" parent="Gravityfield"]
 material = SubResource("ShaderMaterial_6i3qd")
 scale = Vector2(50, 50)
 texture = SubResource("CanvasTexture_t4xum")
+
+[node name="GravityDirection" type="Node2D" parent="Gravityfield"]
+position = Vector2(0, -18)
 
 [node name="Switch" type="Area2D" parent="."]
 position = Vector2(-44, 0)
@@ -149,7 +151,7 @@ shape = SubResource("RectangleShape2D_d6pxg")
 [node name="Sprite2D" type="Sprite2D" parent="Switch"]
 texture = ExtResource("2_4k21u")
 
-[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
-[connection signal="body_exited" from="." to="." method="OnBodyExited"]
+[connection signal="body_entered" from="Gravityfield" to="." method="OnBodyEntered"]
+[connection signal="body_exited" from="Gravityfield" to="." method="OnBodyExited"]
 [connection signal="body_entered" from="Switch" to="." method="EnableGravityfield"]
 [connection signal="body_exited" from="Switch" to="." method="DisableGravityfield"]

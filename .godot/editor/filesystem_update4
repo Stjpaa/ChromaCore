@@ -1,6 +1,5 @@
 res://Instances/Levels/Level-Prototype.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
-res://star-sky.gdshader
-res://Shaders/star-sky.gdshader
+res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn
