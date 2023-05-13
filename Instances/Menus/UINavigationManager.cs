@@ -12,6 +12,8 @@ public partial class UINavigationManager : Control
     private double mouseMoveDistance = 0f;
     private const double distanceToGetVisable = 20;
 
+    private bool readyHappened = false;
+
     private enum UIControlTypeEnum
     {
         MouseControl,
@@ -21,8 +23,14 @@ public partial class UINavigationManager : Control
 
     public void SignalOnMenuVisabilityChange()  // happens whenever this Node becomes visable in scene. -> the menu this is part of grabs ui focus
     {
+        if (readyHappened == false)     // this signal gets called before Ready happens which causes an error, because the sceneTree doesnst seem to be created before this is called.
+        {                               
+            return; 
+        }
+
         if (this.IsVisibleInTree())
         {
+
             if (Input.MouseMode == Input.MouseModeEnum.Visible)
             {
                 SwitchToMouseControl();
@@ -42,12 +50,11 @@ public partial class UINavigationManager : Control
 
     public override void _Ready()
     {
+        readyHappened = true;
         if (this.IsVisibleInTree() == false) // dont grab focus if this isnst the active menu
         {
             return;
         }
-
-        GD.Print("visible");
 
         SwitchToKeyboardControl();  // on the first menu start with keyboard control
 
@@ -57,7 +64,6 @@ public partial class UINavigationManager : Control
     public override void _Process(double delta)
     {
 
-        //GD.Print("hello");
         switch (currentControlType)
         {
             case UIControlTypeEnum.KeyboardControl:
@@ -90,7 +96,6 @@ public partial class UINavigationManager : Control
 
     private void SwitchToMouseControl()
     {
-        GD.Print("SwitchToMouseControl");
         mouseBlockPanel.Visible = false;
         Input.MouseMode = Input.MouseModeEnum.Visible;
         currentControlType = UIControlTypeEnum.MouseControl;
@@ -101,9 +106,7 @@ public partial class UINavigationManager : Control
 
     private void SwitchToKeyboardControl()
     {
-        GD.Print("SwitchToKeyboardControl");
 
-        GD.PrintErr("Change the way UINavigationManager works, reset when this gets disabled");
         mouseBlockPanel.Visible = true;
         MoveMouseScreenPosition(GetViewport().GetMousePosition() + new Vector2(0.1f, 0));   // ugly temporary solution. Fixes the Problem, that an UI element still thinks its being hovered by the mouse after the block panel was added. this gets updated once the mouse is moved
 

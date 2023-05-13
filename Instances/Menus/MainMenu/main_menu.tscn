@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://8kukwt3ntgmj"]
+[gd_scene load_steps=8 format=3 uid="uid://8kukwt3ntgmj"]
 
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_81wmq"]
+[ext_resource type="Script" path="res://Instances/Menus/MainMenu/MenuReadyDisabler.cs" id="1_sj37n"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/PlayButton.cs" id="2_sxrqg"]
 [ext_resource type="PackedScene" uid="uid://6q0qpcor0krb" path="res://Instances/Menus/LevelSelection/LevelSelectScene.tscn" id="3_ckmui"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/ExitButton.cs" id="4_4if3e"]
@@ -15,7 +16,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menus" type="Control" parent="."]
+[node name="Menu Ready Disabler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sj37n")
+
+[node name="MainMenu" type="Control" parent="Menu Ready Disabler"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,19 +33,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenu" type="Control" parent="Menus"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="UINavigationManager" parent="Menus/MainMenu" node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("1_81wmq")]
+[node name="UINavigationManager" parent="Menu Ready Disabler/MainMenu" node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("1_81wmq")]
 layout_mode = 1
 focusNodeOnStart = NodePath("../Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer/PlayButton")
 
-[node name="Theme" type="Control" parent="Menus/MainMenu"]
+[node name="Theme" type="Control" parent="Menu Ready Disabler/MainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,7 +45,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackgroundColor" type="ColorRect" parent="Menus/MainMenu/Theme"]
+[node name="BackgroundColor" type="ColorRect" parent="Menu Ready Disabler/MainMenu/Theme"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.0666667)
 
-[node name="PanelContainer" type="PanelContainer" parent="Menus/MainMenu/Theme/BackgroundColor"]
+[node name="PanelContainer" type="PanelContainer" parent="Menu Ready Disabler/MainMenu/Theme/BackgroundColor"]
 layout_mode = 2
 offset_left = 476.0
 offset_top = 188.5
@@ -61,28 +63,28 @@ offset_bottom = 459.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu Ready Disabler/MainMenu/Theme/BackgroundColor/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu Ready Disabler/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 35
 
-[node name="Label" type="Label" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Menu Ready Disabler/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayButton" type="Button" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Menu Ready Disabler/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath("../SettingsButton")
@@ -93,7 +95,7 @@ text = "Play"
 script = ExtResource("2_sxrqg")
 levelSelectScene = ExtResource("3_ckmui")
 
-[node name="SettingsButton" type="Button" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("menuOfThisButton", "settingsMenu")]
+[node name="SettingsButton" type="Button" parent="Menu Ready Disabler/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("menuOfThisButton", "settingsMenu")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
 focus_neighbor_bottom = NodePath("../ExitButton")
@@ -104,9 +106,9 @@ text = "Settings
 "
 script = ExtResource("5_mygwh")
 menuOfThisButton = NodePath("../../../../../..")
-settingsMenu = NodePath("")
+settingsMenu = NodePath("../../../../../../../SettingsMenu")
 
-[node name="ExitButton" type="Button" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Menu Ready Disabler/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath(".")
@@ -117,6 +119,6 @@ text = "Exit
 "
 script = ExtResource("4_4if3e")
 
-[node name="SettingsMenu" parent="Menus" instance=ExtResource("6_h7h74")]
+[node name="SettingsMenu" parent="Menu Ready Disabler" instance=ExtResource("6_h7h74")]
 visible = false
 layout_mode = 1

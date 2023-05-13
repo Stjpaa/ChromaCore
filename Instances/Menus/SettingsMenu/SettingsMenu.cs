@@ -36,9 +36,9 @@ public partial class SettingsMenu : Control
 
     public void CloseSettingsMenu()     // called by the BackButton
     {
-        this.Visible = false;
+        DisableMenu();
 
-        if(menuToReturnTo == null)
+        if (menuToReturnTo == null)
         {
             GD.PrintErr("no menuToReturnTo was assigned when oppening the SettingsMenu");
             return;

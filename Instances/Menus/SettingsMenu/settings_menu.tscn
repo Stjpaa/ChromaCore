@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn5pdby1dc4iv"]
+[gd_scene load_steps=3 format=3 uid="uid://cn5pdby1dc4iv"]
 
 [ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/SettingsMenu.cs" id="1_74ihc"]
+[ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="2_upaap"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -77,6 +78,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Back
 "
+
+[node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("2_upaap")]
+layout_mode = 1
+focusNodeOnStart = NodePath("../Theme/MarginContainer/VBoxContainer/MasterContainer/MasterSlider")
 
 [connection signal="value_changed" from="Theme/MarginContainer/VBoxContainer/MasterContainer/MasterSlider" to="." method="SignalMasterSliderValueChanged"]
 [connection signal="toggled" from="Theme/MarginContainer/VBoxContainer/FullscreenContainer/CheckBox" to="." method="ChangeToFullscreen"]
