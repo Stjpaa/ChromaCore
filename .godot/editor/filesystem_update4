@@ -4,3 +4,4 @@ res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Menus/SettingsMenu/settings_menu.tscn
 res://Instances/Menus/ui_navigation_manager.tscn
 res://test_ui_focus.tscn
+res://Instances/Menus/MainMenu/MenuReadyDisabler.cs

@@ -9,7 +9,31 @@ using System;
 public partial class MenuReadyDisabler : Control
 {
     [Export] private Control firstActiveMenu;
-    private Control[] Allmenus;
 
 
+    public override void _Ready()
+    {
+        DisableAllMenus();
+
+        ActivateFirstMenu();
+    }
+
+    private void ActivateFirstMenu()
+    {
+        firstActiveMenu.Visible = true;
+        firstActiveMenu.ProcessMode = ProcessModeEnum.Inherit;
+    }
+
+    private void DisableAllMenus()
+    {
+        foreach (var child in GetChildren())
+        {
+            Control childAsControl = child as Control;
+            if (childAsControl != null)
+            {
+                childAsControl.Visible = false;
+                childAsControl.ProcessMode = ProcessModeEnum.Disabled;
+            }
+        }
+    }
 }
