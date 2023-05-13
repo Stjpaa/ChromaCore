@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://8kukwt3ntgmj"]
+[gd_scene load_steps=7 format=3 uid="uid://8kukwt3ntgmj"]
 
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_81wmq"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/PlayButton.cs" id="2_sxrqg"]
 [ext_resource type="PackedScene" uid="uid://6q0qpcor0krb" path="res://Instances/Menus/LevelSelection/LevelSelectScene.tscn" id="3_ckmui"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/ExitButton.cs" id="4_4if3e"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/SettingsButton.cs" id="5_mygwh"]
+[ext_resource type="PackedScene" uid="uid://cn5pdby1dc4iv" path="res://Instances/Menus/SettingsMenu/settings_menu.tscn" id="6_h7h74"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -30,8 +31,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UINavigationManager" parent="Menus/MainMenu" instance=ExtResource("1_81wmq")]
+[node name="UINavigationManager" parent="Menus/MainMenu" node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("1_81wmq")]
 layout_mode = 1
+focusNodeOnStart = NodePath("../Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer/PlayButton")
 
 [node name="Theme" type="Control" parent="Menus/MainMenu"]
 layout_mode = 1
@@ -86,7 +88,6 @@ focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath("../SettingsButton")
 focus_next = NodePath("../SettingsButton")
 focus_previous = NodePath(".")
-focus_mode = 0
 theme_override_font_sizes/font_size = 25
 text = "Play"
 script = ExtResource("2_sxrqg")
@@ -107,7 +108,15 @@ settingsMenu = NodePath("")
 
 [node name="ExitButton" type="Button" parent="Menus/MainMenu/Theme/BackgroundColor/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../SettingsButton")
 theme_override_font_sizes/font_size = 25
 text = "Exit
 "
 script = ExtResource("4_4if3e")
+
+[node name="SettingsMenu" parent="Menus" instance=ExtResource("6_h7h74")]
+visible = false
+layout_mode = 1

@@ -44,6 +44,7 @@ public partial class SettingsMenu : Control
             return;
         }
 
+        menuToReturnTo.ProcessMode = ProcessModeEnum.Inherit;
         menuToReturnTo.Visible = true;
     }
 
@@ -57,5 +58,17 @@ public partial class SettingsMenu : Control
         { 
             DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
         }
+    }
+
+    public void DisableMenu()
+    {
+        this.Visible = false;
+        this.ProcessMode = ProcessModeEnum.Disabled;
+    }
+
+    public void EnableMenu()
+    {
+        this.Visible = true;
+        this.ProcessMode = ProcessModeEnum.Inherit;
     }
 }

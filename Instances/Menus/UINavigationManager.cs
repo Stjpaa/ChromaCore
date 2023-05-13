@@ -21,21 +21,21 @@ public partial class UINavigationManager : Control
 
     public void SignalOnMenuVisabilityChange()  // happens whenever this Node becomes visable in scene. -> the menu this is part of grabs ui focus
     {
-        //if (this.IsVisibleInTree())
-        //{
-        //    if (Input.MouseMode == Input.MouseModeEnum.Visible)
-        //    {
-        //        SwitchToMouseControl();
-        //    }
-        //    else
-        //    {
-        //        SwitchToKeyboardControl();
-        //    }
-        //}
-        //else     // when no longer visable
-        //{
-        //    mouseBlockPanel.Visible = false;
-        //}
+        if (this.IsVisibleInTree())
+        {
+            if (Input.MouseMode == Input.MouseModeEnum.Visible)
+            {
+                SwitchToMouseControl();
+            }
+            else
+            {
+                SwitchToKeyboardControl();
+            }
+        }
+        else     // when no longer visable
+        {
+            mouseBlockPanel.Visible = false;
+        }
     }
 
 
@@ -49,38 +49,38 @@ public partial class UINavigationManager : Control
 
         GD.Print("visible");
 
-        //SwitchToKeyboardControl();  // on the first menu start with keyboard control
+        SwitchToKeyboardControl();  // on the first menu start with keyboard control
 
     }
 
 
-
-    //public override void _
     public override void _Process(double delta)
     {
-        //switch (currentControlType)
-        //{
-        //    case UIControlTypeEnum.KeyboardControl:
-        //        {
-        //            mouseMoveDistance += Input.GetLastMouseVelocity().Length() * delta;
 
-        //            if (mouseMoveDistance >= distanceToGetVisable)
-        //            {
-        //                SwitchToMouseControl();
-        //                mouseMoveDistance = 0;
-        //            }
-        //        }
-        //        break;
+        //GD.Print("hello");
+        switch (currentControlType)
+        {
+            case UIControlTypeEnum.KeyboardControl:
+                {
+                    mouseMoveDistance += Input.GetLastMouseVelocity().Length() * delta;
 
-        //    case UIControlTypeEnum.MouseControl:
-        //        {
-        //            if (KeyboardInteractionHappened())
-        //            {
-        //                SwitchToKeyboardControl();
-        //            }
-        //        }
-        //        break;
-        //}
+                    if (mouseMoveDistance >= distanceToGetVisable)
+                    {
+                        SwitchToMouseControl();
+                        mouseMoveDistance = 0;
+                    }
+                }
+                break;
+
+            case UIControlTypeEnum.MouseControl:
+                {
+                    if (KeyboardInteractionHappened())
+                    {
+                        SwitchToKeyboardControl();
+                    }
+                }
+                break;
+        }
     }
 
     private void MoveMouseScreenPosition(Vector2 position)
@@ -146,4 +146,6 @@ public partial class UINavigationManager : Control
 
 
     }
+
+
 }

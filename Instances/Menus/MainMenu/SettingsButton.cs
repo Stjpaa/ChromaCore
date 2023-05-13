@@ -6,12 +6,18 @@ public partial class SettingsButton : Button
     [Export] private Control menuOfThisButton;
     [Export] private SettingsMenu settingsMenu;
 
+    public override void _Ready()
+    {
+        settingsMenu.DisableMenu();
+    }
 
     public override void _Pressed()
     {
-        settingsMenu.Visible = true;
+        settingsMenu.EnableMenu();
         settingsMenu.menuToReturnTo = menuOfThisButton;
 
+
         menuOfThisButton.Visible = false;
+        menuOfThisButton.ProcessMode = ProcessModeEnum.Inherit;
     }
 }

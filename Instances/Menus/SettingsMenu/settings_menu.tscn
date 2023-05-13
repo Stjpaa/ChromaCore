@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn5pdby1dc4iv"]
+[gd_scene load_steps=2 format=3 uid="uid://cn5pdby1dc4iv"]
 
 [ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/SettingsMenu.cs" id="1_74ihc"]
-[ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/BackButton.cs" id="2_wvox4"]
 
 [node name="SettingsMenu" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,13 +72,12 @@ offset_bottom = 22.0
 text = "Fullscreen
 "
 
-[node name="BackButton" type="Button" parent="Theme/MarginContainer/VBoxContainer" node_paths=PackedStringArray("settingsMenu")]
+[node name="BackButton" type="Button" parent="Theme/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Back
 "
-script = ExtResource("2_wvox4")
-settingsMenu = NodePath("../../../..")
 
 [connection signal="value_changed" from="Theme/MarginContainer/VBoxContainer/MasterContainer/MasterSlider" to="." method="SignalMasterSliderValueChanged"]
 [connection signal="toggled" from="Theme/MarginContainer/VBoxContainer/FullscreenContainer/CheckBox" to="." method="ChangeToFullscreen"]
+[connection signal="pressed" from="Theme/MarginContainer/VBoxContainer/BackButton" to="." method="CloseSettingsMenu"]

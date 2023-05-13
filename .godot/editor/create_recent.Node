@@ -1,9 +1,10 @@
+Control
+Node2D
 PanelContainer
 CheckBox
 AnimationPlayer
 ColorRect
 Node
-Control
 VBoxContainer
 Container
 Label
@@ -12,7 +13,6 @@ CanvasLayer
 Panel
 CollisionShape2D
 Area2D
-Node2D
 Sprite2D
 Camera2D
 StaticBody2D
