@@ -25,14 +25,14 @@ public partial class Portals : Node2D
 	[Signal]
 	public delegate void TeleportObjectEventHandler(Vector2 teleportTo, Vector2 impulse);
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		// Get dependencies
 		Area2D portal1 = GetNode<Area2D>("Portal1");
 		Area2D portal2 = GetNode<Area2D>("Portal2");
 
 		// Get teleport positions
-        this._portal1GlobalPos = portal1.GlobalPosition;
+		this._portal1GlobalPos = portal1.GlobalPosition;
 		this._portal2GlobalPos = portal2.GlobalPosition;
 
 		// Get data for drawing
@@ -42,7 +42,7 @@ public partial class Portals : Node2D
 		this._portal2Direction = portal2.GetNode<Node2D>("ImpulseDirection").Position;
 		this._portal1LocalPos = GetNode<Area2D>("Portal1").Position;
 		this._portal2LocalPos = GetNode<Area2D>("Portal2").Position;
-    }
+	}
 
 	public override void _Process(double delta)
 	{
@@ -65,7 +65,7 @@ public partial class Portals : Node2D
 			DrawLine(this._portal2LocalPos, this._portal2LocalPos + this._portal2Direction, Colors.Blue, 0.5f);
 		}
 
-		DrawLine(this._portal1LocalPos, this._portal2LocalPos, new Color(255, 0, 0, 0.5f), 0.9f, true);
+		DrawLine(this._portal1LocalPos, this._portal2LocalPos, new Color(255, 0, 0, 0.2f), 0.9f, true);
 	}
 
 	public void TeleportToPortal1(Node2D body)

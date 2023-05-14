@@ -11,6 +11,7 @@ public interface IMechanicMethods
 	void ResetPosition();
 }
 
+[Tool]
 public partial class Box : RigidBody2D, IMechanicMethods
 {
 	#region Physics Variables
@@ -46,58 +47,80 @@ public partial class Box : RigidBody2D, IMechanicMethods
 	private Vector2 _originalPos;
 
 	private bool _shouldReset = false;
+	#endregion
+
+	#region Size Variables
+	private Texture _sprite;
+
+	private CollisionShape2D _boxCollider;
 
 	[Export]
-	private bool _canReset = true;
+	private float _boxSize = 32f;
 	#endregion
 
 	#region Methods
 	public override void _Ready()
 	{
+		// Get dependencies
+		this._boxCollider = GetNode<CollisionShape2D>("BoxCollider");
+		this._sprite = GetNode<Sprite2D>("Sprite").Texture;
+
 		this._currentGravity = this._defaultGravity;
 		LinearVelocity = this._currentGravity;
 		this._timerNode = GetNode<Timer>("TeleportCooldown");
 		this._timerNode.Start(this._teleportCooldown);
 		this._originalPos = this.GlobalPosition;
+		this._boxCollider.Shape.Set("size", new Vector2(this._boxSize, this._boxSize));
+		this._sprite.Set("width", this._boxCollider.Shape.GetRect().Size.Y);
+		this._sprite.Set("height", this._boxCollider.Shape.GetRect().Size.X);
+	}
 
-		if (!this._canReset)
+	public override void _Process(double delta)
+	{
+		if (Engine.IsEditorHint())
 		{
-			GetNode<CollisionShape2D>("Node2D/ResetArea/CollisionShape2D").Disabled = true;
+			this._boxCollider.Shape.Set("size", new Vector2(this._boxSize, this._boxSize));
+			this._sprite.Set("width", this._boxSize);
+			this._sprite.Set("height", this._boxSize);
 		}
 	}
 
 	public override void _IntegrateForces(PhysicsDirectBodyState2D state)
 	{
-		state.LinearVelocity += this._currentGravity * (float)GetPhysicsProcessDeltaTime();
-		
-		if (this._enteredJumpPad)
+		if (!Engine.IsEditorHint())
 		{
-			state.ApplyImpulse(this._jumpPadImpulse);
-			this._enteredJumpPad = false;
+			state.LinearVelocity += this._currentGravity * (float)GetPhysicsProcessDeltaTime();
+			
+			if (this._enteredJumpPad)
+			{
+				state.ApplyImpulse(this._jumpPadImpulse);
+				this._enteredJumpPad = false;
+			}
+
+			if (this._teleportTriggered)
+			{
+				state.Transform = new Transform2D(0, this._teleportPos);
+				state.LinearVelocity = new Vector2(0, 0);
+				state.ApplyImpulse(this._teleportImpulse);
+				this._canTeleport =  false;
+				this._teleportTriggered = false;
+				this._timerNode.Start(this._teleportCooldown);
+			}
+
+			if (this._collided)
+			{
+				state.ApplyCentralImpulse(this._collisionImpulse);
+				this._collided = false;
+			}
+
+			if (this._shouldReset)
+			{
+				GD.Print("Triggered");
+				state.Transform = new Transform2D(0, this._originalPos);
+				this._shouldReset = false;
+			}			
 		}
 
-		if (this._teleportTriggered)
-		{
-			state.Transform = new Transform2D(0, this._teleportPos);
-			state.LinearVelocity = new Vector2(0, 0);
-			state.ApplyImpulse(this._teleportImpulse);
-			this._canTeleport =  false;
-			this._teleportTriggered = false;
-			this._timerNode.Start(this._teleportCooldown);
-		}
-
-		if (this._collided)
-		{
-			state.ApplyCentralImpulse(this._collisionImpulse);
-			this._collided = false;
-		}
-
-		if (this._shouldReset)
-		{
-			GD.Print("Triggered");
-			state.Transform = new Transform2D(0, this._originalPos);
-			this._shouldReset = false;
-		}
 	}
 
 	public void ApplyCollisionImpulse(Vector2 impulse)

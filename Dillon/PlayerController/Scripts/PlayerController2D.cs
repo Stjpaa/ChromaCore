@@ -164,8 +164,13 @@ namespace PlayerController
             {
                 if (GetLastSlideCollision().GetCollider() is Box)
                 {
-                    var @object = GetLastSlideCollision().GetCollider() as Box;
-                    @object.ApplyCollisionImpulse(new Vector2(20 * Input.GetAxis("Move_Left", "Move_Right"), 0));
+                    Vector2 collisionNormal = GetLastSlideCollision().GetNormal(); 
+                    if (collisionNormal.X > 0.5 || collisionNormal.X < -0.5)
+                    {
+                        var @object = GetLastSlideCollision().GetCollider() as Box;
+                        GD.Print(GetLastSlideCollision().GetNormal());
+                        @object.ApplyCollisionImpulse(new Vector2(15 * Input.GetAxis("Move_Left", "Move_Right"), 0));                        
+                    }
                 }
             }
         }
@@ -174,6 +179,12 @@ namespace PlayerController
         {
             GD.Print("Checkpoint entered");
             _checkpointPosition = Transform;
+        }
+
+        private void Respawn()
+        {
+            GD.Print("Respawn");
+            Transform = _checkpointPosition;
         }
 
         public enum InteractionMode
