@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://m3mpklc8drsk"]
 
 [ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/GrapplingHook.cs" id="1_bli5b"]
-[ext_resource type="Texture2D" uid="uid://usqel3f7jre4" path="res://Dillon/Assets/Chain.png" id="1_e04wa"]
-[ext_resource type="Texture2D" uid="uid://jdvvj5vtumda" path="res://Dillon/Assets/Hook.png" id="1_v8sij"]
+[ext_resource type="Texture2D" uid="uid://c4oinqy36rul1" path="res://Dillon/Assets/HookKenney.png" id="2_dgme7"]
 [ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/Physics.cs" id="3_1xgur"]
 [ext_resource type="Texture2D" uid="uid://1esrigfqux07" path="res://icon.svg" id="3_7ndy8"]
-[ext_resource type="Texture2D" uid="uid://u2va2687sl8w" path="res://Dillon/Assets/DebugPoint.png" id="6_4ucms"]
+[ext_resource type="Texture2D" uid="uid://v6umju4ch2ct" path="res://Dillon/Assets/ChainKenney.png" id="3_bcye1"]
+[ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/HookStart.cs" id="5_jybqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thrqb"]
 
@@ -23,14 +23,14 @@ rotation = -1.5708
 [node name="Sprite2D" type="Sprite2D" parent="Visuals/Hook"]
 texture_filter = 1
 texture_repeat = 1
-texture = ExtResource("1_v8sij")
+texture = ExtResource("2_dgme7")
 
 [node name="Chain" type="Line2D" parent="Visuals/Hook"]
 texture_filter = 1
 texture_repeat = 2
 points = PackedVector2Array(0, 0, -100, -4.37114e-06)
 width = 16.0
-texture = ExtResource("1_e04wa")
+texture = ExtResource("3_bcye1")
 texture_mode = 1
 
 [node name="Physics" type="Node" parent="."]
@@ -54,10 +54,10 @@ shape = SubResource("RectangleShape2D_thrqb")
 
 [node name="HookStart" type="RigidBody2D" parent="Physics/DSJ"]
 position = Vector2(0, 100)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 16384
 mass = 2.0
 lock_rotation = true
+script = ExtResource("5_jybqi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/DSJ/HookStart"]
 position = Vector2(4.76837e-07, 0)
@@ -67,9 +67,3 @@ shape = SubResource("RectangleShape2D_jy76t")
 z_index = 5
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_7ndy8")
-
-[node name="Node2D" type="Node2D" parent="Physics/DSJ"]
-position = Vector2(0, 100)
-
-[node name="Sprite2D" type="Sprite2D" parent="Physics/DSJ/Node2D"]
-texture = ExtResource("6_4ucms")

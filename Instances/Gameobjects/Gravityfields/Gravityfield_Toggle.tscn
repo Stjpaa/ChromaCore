@@ -124,6 +124,8 @@ shader_parameter/pause = true
 size = Vector2(20, 2.1148)
 
 [node name="Gravityfield_Toggle" type="Area2D"]
+collision_layer = 512
+collision_mask = 192
 script = ExtResource("1_hbaih")
 
 [node name="GravityfieldCollider" type="CollisionShape2D" parent="."]

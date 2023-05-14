@@ -7,19 +7,20 @@ namespace GrapplingHook.Physics
     {
         public DampedSpringJoint2D Joint { get; private set; }
 
-        public RigidBody2D ChainStart { get; private set; }
+        public HookStart HookStart { get; private set; }
 
         public override void _Ready()
         {
             Joint = GetNode<DampedSpringJoint2D>("DSJ");
-            ChainStart = GetNode<RigidBody2D>("DSJ/HookStart");
-            Joint.Stiffness = 1000f;
+            HookStart = GetNode<HookStart>("DSJ/HookStart");
+            // To prevent bending of the spring
+            Joint.Stiffness = 2000f;
         }
 
         public void Initialize(Vector2 hookStartPos, Vector2 targetPosition)
         {
             var length =  Mathf.RoundToInt(hookStartPos.DistanceTo(targetPosition));
-            SetHookTargetPosition(targetPosition);
+            SetHookTargetPosition(targetPosition, hookStartPos);
             SetHookLength(length);
             SetHookRotation(hookStartPos, targetPosition);
         }
@@ -28,12 +29,13 @@ namespace GrapplingHook.Physics
         {
             Joint.Length = length;
             Joint.RestLength = length;
-            ChainStart.Position = new Vector2(0, length);
+            HookStart.Position = new Vector2(0, length);
         }
 
-        private void SetHookTargetPosition(Vector2 position)
+        private void SetHookTargetPosition(Vector2 targetPosition, Vector2 hookStartPosition)
         {
-            Joint.GlobalPosition = position;
+            Joint.GlobalPosition = targetPosition;
+            HookStart.SetPosition(hookStartPosition);
         }
 
         private void SetHookRotation(Vector2 startPos, Vector2 endPos)

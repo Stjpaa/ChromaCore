@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwqdkb6ruqq08"
-path="res://.godot/imported/ChainVertical.png-7c12e84d3f8a56e8212791edcda9550f.ctex"
+uid="uid://v6umju4ch2ct"
+path="res://.godot/imported/ChainKenney.png-aa582dedae1a23a2dc8902a4c37063fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Dillon/Assets/ChainVertical.png"
-dest_files=["res://.godot/imported/ChainVertical.png-7c12e84d3f8a56e8212791edcda9550f.ctex"]
+source_file="res://Dillon/Assets/ChainKenney.png"
+dest_files=["res://.godot/imported/ChainKenney.png-aa582dedae1a23a2dc8902a4c37063fa.ctex"]
 
 [params]
 

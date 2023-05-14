@@ -1,9 +1,18 @@
 using Godot;
 using PlayerController;
 using PlayerController.States;
+using System;
 
 namespace GrapplingHook.States
 {
+    /// <summary>
+    /// In this state the grappling hook gets connected to the player.
+    /// Grappling hook physics are initialized, 
+    /// the players state changes to hooking,
+    /// the players parent is set to the grappling hooks start node and
+    /// the controls for the grappling hook get activated
+    /// When the hotkey for the release of the grappling hokk is pressed the hook changes to the state returning.
+    /// </summary>
     public class Connected : State
     {
         public override string Name { get { return "Connected"; } }
@@ -11,28 +20,32 @@ namespace GrapplingHook.States
         public Connected(GrapplingHook grapplingHook) : base(grapplingHook) { }
 
         public override void Enter() 
-        {
-            // Attatch the player to the chain start node
-
-
+        {           
             _grapplingHook.Physics.Initialize(_grapplingHook.GetHookStartPosition(),
                                               _grapplingHook.GetHookTargetPosition());
+
+            _grapplingHook.SetPlayerAsChild();
+
+            _grapplingHook.ChangePlayerStateToHooking();
+
+            _grapplingHook.Physics.HookStart.SetControlsActive(true);
+
+            _grapplingHook.Physics.HookStart.LinearVelocity = _grapplingHook.GetPlayerVelocity() * 2;
         }
 
-        public override void Execute()
+        public override void ExecuteProcess()
         {
-            CheckTransitionToReturning();           
-
-            var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
-
-            _grapplingHook.Physics.ChainStart.ApplyImpulse(new Vector2(25, 0) * moveDirection);
-
-            
+            CheckTransitionToReturning();            
         }
+
+        public override void ExecutePhysicsProcess() { }
 
         public override void Exit() 
         {
+            // Detach the player from the hook start node
+            _grapplingHook.RemovePlayerAsChild();
 
+            _grapplingHook.Physics.HookStart.SetControlsActive(false);
         }
 
         private void CheckTransitionToReturning()
@@ -41,8 +54,6 @@ namespace GrapplingHook.States
             if (returnTrigger)
             {
                 _grapplingHook.ChangeState(new Returning(_grapplingHook));
-                //_grapplingHook.PlayerController.Velocity = _grapplingHookJB.hookStart.LinearVelocity * 2;
-                //_grapplingHook.PlayerController.ChangeState(new Jumping(_grapplingHook.PlayerController, false, _grapplingHookJB.hookStart.LinearVelocity * 1.5f));
             }
         }
     }

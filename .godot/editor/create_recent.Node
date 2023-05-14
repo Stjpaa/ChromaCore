@@ -1,13 +1,13 @@
-Sprite2D
+Camera2D
 Node2D
+RigidBody2D
+Sprite2D
 CollisionShape2D
 StaticBody2D
 Area2D
 Node
-Camera2D
 CharacterBody2D
 Line2D
-RigidBody2D
 DampedSpringJoint2D
 CollisionPolygon2D
 AnimatedSprite2D

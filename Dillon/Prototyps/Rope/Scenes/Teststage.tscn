@@ -17,4 +17,9 @@ zoom = Vector2(1.961, 1.961)
 position = Vector2(-96, 41)
 rotation = -1.06204
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Node2D"]
+position = Vector2(0, 50)
+
 [editable path="GrapplingHook_JointBased"]

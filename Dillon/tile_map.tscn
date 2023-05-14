@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://rvfeev6xxebh"]
+[gd_scene load_steps=17 format=3 uid="uid://rvfeev6xxebh"]
 
 [ext_resource type="Texture2D" uid="uid://ds2gsq3ng153g" path="res://Dillon/Assets/tilesheet_complete.png" id="1_bg6fh"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="2_nomqj"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="7_lx0ly"]
 [ext_resource type="PackedScene" uid="uid://m3mpklc8drsk" path="res://Dillon/GrapplingHook/GrapplingHook.tscn" id="10_6abn4"]
 [ext_resource type="PackedScene" uid="uid://0vuadphoaeog" path="res://Dillon/GrapplingHook/HookableArea.tscn" id="10_6y4uv"]
+[ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="12_ayfjc"]
+[ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="13_l42sd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idpbc"]
 
@@ -830,7 +832,8 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_nspgo"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 32
+physics_layer_0/collision_mask = 0
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_idpbc")
 sources/0 = SubResource("TileSetAtlasSource_sr7sd")
 
@@ -877,6 +880,12 @@ position = Vector2(42, -64)
 [node name="Portals" parent="InstantiateLevel/Portals_List" instance=ExtResource("7_lx0ly")]
 position = Vector2(671, -81)
 
+[node name="Portal1" parent="InstantiateLevel/Portals_List/Portals" index="0"]
+position = Vector2(-1015, -6)
+
+[node name="Portal2" parent="InstantiateLevel/Portals_List/Portals" index="1"]
+position = Vector2(-548, -393)
+
 [node name="Checkpoint_List" type="Node2D" parent="InstantiateLevel"]
 
 [node name="HookableArea" parent="." instance=ExtResource("10_6y4uv")]
@@ -895,3 +904,11 @@ position = Vector2(1540, -138)
 position = Vector2(2054, -138)
 
 [node name="GrapplingHook" parent="." instance=ExtResource("10_6abn4")]
+
+[node name="Spikes" parent="." instance=ExtResource("12_ayfjc")]
+position = Vector2(162, -69)
+
+[node name="Checkpoint" parent="." instance=ExtResource("13_l42sd")]
+position = Vector2(6, -450)
+
+[editable path="InstantiateLevel/Portals_List/Portals"]

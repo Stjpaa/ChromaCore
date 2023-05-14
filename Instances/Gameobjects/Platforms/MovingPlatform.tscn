@@ -7,6 +7,8 @@
 size = Vector2(16, 8)
 
 [node name="MovingPlatform" type="AnimatableBody2D"]
+collision_layer = 32
+collision_mask = 192
 script = ExtResource("1_te2d8")
 
 [node name="Sprite" type="Sprite2D" parent="."]

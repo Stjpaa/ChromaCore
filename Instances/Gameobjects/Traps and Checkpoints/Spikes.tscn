@@ -13,6 +13,8 @@ gradient = SubResource("Gradient_mfx8o")
 width = 30
 
 [node name="Spikes" type="Area2D"]
+collision_layer = 256
+collision_mask = 64
 script = ExtResource("1_c1ldn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

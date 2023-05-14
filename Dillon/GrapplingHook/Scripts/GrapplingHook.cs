@@ -17,15 +17,16 @@ namespace GrapplingHook
         public Physics.Physics Physics { get; private set; }
 
         // References
-        private PlayerController2D _playerController;
-
-        private Node2D _target;
+        private PlayerController2D _playerController;      
 
         // Variables
         private State _state;
 
+        private Node2D _target;
+
         // Events
         public event Action ShootEvent;
+        public event Action ReleaseEvent;
 
 
         public override void _Ready()
@@ -39,18 +40,22 @@ namespace GrapplingHook
 
         public override void _Process(double delta)
         {
+            _state.ExecuteProcess();
             UpdateChainPosition();
-            
         }
 
         public override void _PhysicsProcess(double delta)
         {
-            _state.Execute();
-            //_playerController.GlobalPosition = Physics.ChainStart.GlobalPosition;
-        }      
+            _state.ExecutePhysicsProcess();
+        }          
 
         public void ChangeState(State newState)
         {
+            if(_state is Connected)
+            {
+                ReleaseEvent?.Invoke();
+            }
+
             _state?.Exit();
             _state = newState;
             _state.Enter();
@@ -66,10 +71,55 @@ namespace GrapplingHook
             }
         }
 
+        private void UpdateChainPosition()
+        {
+            var offset = GetCurrentHookLength();
+            Chain.SetPointPosition(1, new Vector2(offset, 0));
+
+            Chain.LookAt(_playerController.HookStartPosition);
+        }
+
         public void SetTarget(Node2D target)
         {
-            if(target == _target) { _target = null; }
-            else { _target = target; }
+            _target = target;
+        }
+
+
+        #region Methods
+        /// <summary>
+        /// Makes the player node to a child of the grappling hook
+        /// </summary>
+        public void SetPlayerAsChild()
+        {
+            _playerController.SetParent(Physics.HookStart);
+        }
+
+        public void RemovePlayerAsChild()
+        {
+            _playerController.ResetParent();
+        }
+
+        public void ChangePlayerStateToHooking()
+        {
+            _playerController.ChangeState(new PlayerController.States.Hooking(_playerController, this));
+        }
+        #endregion
+
+        #region Getters
+
+        public Node2D GetTarget()
+        {
+            return _target;
+        }
+
+        public Vector2 GetHookVelocityOnRelease()
+        {
+            return Physics.HookStart.LinearVelocity * 1.5f;
+        }
+
+        public Vector2 GetPlayerVelocity()
+        {
+            return _playerController.Velocity;
         }
 
         public Vector2 GetHookStartPosition()
@@ -90,19 +140,12 @@ namespace GrapplingHook
                 return Vector2.Zero;
             }
             return _target.GlobalPosition;
-        }
+        }       
 
         private int GetCurrentHookLength()
          {
             return Mathf.RoundToInt(_playerController.HookStartPosition.DistanceTo(Hook.GlobalPosition));
         }
-
-        private void UpdateChainPosition()
-        {
-            var offset = GetCurrentHookLength();
-            Chain.SetPointPosition(1, new Vector2(offset, 0));
-
-            Chain.LookAt(_playerController.HookStartPosition);
-        }
+        #endregion       
     }
 }

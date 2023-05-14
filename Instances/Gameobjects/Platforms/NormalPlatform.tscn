@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cf5rasrbwjpsu" path="res://Assets/Sprites/Platform_Normal.tres" id="1_gxhil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5niqk"]
-size = Vector2(60, 8)
+size = Vector2(16, 8)
 
 [node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 192
 script = ExtResource("1_bmktm")
 
 [node name="Sprite" type="Sprite2D" parent="."]

@@ -5,18 +5,14 @@ namespace PlayerController
 {
     public partial class PlayerController2D : CharacterBody2D
     {
-        // GitHub Commit logs Version 0.0.17
-        // Grappling hook based on joints no longer stretches. The Swinging mechanic works perfect.
-        // Transition from the physic based movement from the grappling hook to the character2d physic need to be improved
+        // GitHub Commit logs Version 0.0.18
+        // Refactoring for the grappling hook and for the states
+        // 
         //
-        // Refactoring for the grappling hook. Combined visuals and physics into one node.
-        // Physics need to be instantiated and deleted othwerwise grappling hook doesnt work.
-        // The grappling hook end body moves to the position it gets set even though its global position gets set  (Bug?)
-        //
-        // Updated the collision layers for the player, hookable area, grappling hook (box etc. open)
-        //
-        // Implemented a grappling hook based on a character2D with own physics -> works not really
-        // Implemented a following camera prototyp -> works not as expected (laggy)
+        // Updated the collision masks for the checkpoint, traps etc.
+        // Added new visuals for the grappling hook
+        // Implemented interaction with traps
+        // When entering a checkpoint the position of the checkpoint will saved and not the player position 
         // Problems:
         // - Dash works not correctly inside a gravity field => open
 
@@ -42,7 +38,7 @@ namespace PlayerController
             private set;
         }
 
-        public Transform2D CheckpointPosition
+        public Vector2 CheckpointPosition
         {
             get { return _checkpointPosition; }
             private set { _checkpointPosition = value; }
@@ -83,11 +79,13 @@ namespace PlayerController
         public State currentState;
         public State previousState;
 
-        private Transform2D _checkpointPosition;
+        private Vector2 _checkpointPosition;
 
         private Timer _teleportTimer;
 
         private Node2D _hookStartPositioNode;
+
+        private Node _parent;
 
         private Label velText;
         private Label stateText;
@@ -102,6 +100,7 @@ namespace PlayerController
             DashCooldownTimer = GetNode<Timer>("DashCooldown_Timer");
             _teleportTimer = GetNode<Timer>("Teleport_Timer");
             _hookStartPositioNode = GetNode<Node2D>("HookStartPosition_Node2D");
+            _parent = GetParent();
 
             velText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("Velocity_Label");
             stateText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("State_Label");
@@ -138,6 +137,21 @@ namespace PlayerController
         }
 
         #region Communication with other game objects
+        public void SetParent(Node newParent)
+        {
+            Position = Vector2.Zero;
+            GetParent().RemoveChild(this);
+            newParent.AddChild(this);
+        }
+
+        public void ResetParent()
+        {
+            var globalPosition = GlobalPosition;
+            GetParent().RemoveChild(this);
+            _parent.AddChild(this);
+            GlobalPosition = globalPosition;
+        }
+
         private void ChangeGravityProperties(Vector2 direction)
         {
             GD.Print("Gravity field entered");
@@ -168,6 +182,11 @@ namespace PlayerController
             _teleportTimer.Start();
         }
 
+        private void TeleportToLastCheckPoint()
+        {
+            Transform = new Transform2D(0, _checkpointPosition);
+        }
+
         private void CheckCollisionWithBox()
         {
             if (GetSlideCollisionCount() > 0)
@@ -180,10 +199,10 @@ namespace PlayerController
             }
         }
 
-        private void SaveCheckpointLocation()
+        private void SaveCheckpointLocation(Vector2 checkpointPosition)
         {
             GD.Print("Checkpoint entered");
-            _checkpointPosition = Transform;
+            _checkpointPosition = checkpointPosition;
         }
         #endregion
     }

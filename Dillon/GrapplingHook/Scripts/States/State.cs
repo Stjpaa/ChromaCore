@@ -14,7 +14,8 @@ namespace GrapplingHook.States
             _grapplingHook = grapplingHook;
         }
         public abstract void Enter();
-        public abstract void Execute();
+        public abstract void ExecuteProcess();
+        public abstract void ExecutePhysicsProcess();
         public abstract void Exit();
     }
 }

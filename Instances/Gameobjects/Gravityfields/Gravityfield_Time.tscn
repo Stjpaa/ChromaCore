@@ -121,6 +121,8 @@ shader_parameter/pause = true
 [sub_resource type="CanvasTexture" id="CanvasTexture_ulhn2"]
 
 [node name="Gravityfield_Time" type="Area2D"]
+collision_layer = 512
+collision_mask = 192
 script = ExtResource("1_pp184")
 
 [node name="GravityfieldCollider" type="CollisionShape2D" parent="."]

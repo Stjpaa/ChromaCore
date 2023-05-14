@@ -17,13 +17,14 @@ namespace GrapplingHook.States
 
         public override void Enter() 
         {
+            // Returning animation of the grappling hook
             _tween = _grapplingHook.GetTree().CreateTween();
             _tween.TweenProperty(_grapplingHook.Hook, "position", _grapplingHook.GetHookStartPosition(), 0.1f);
             _tween.Finished += TransitionToIdle;
         }
 
-        public override void Execute() { }
-
+        public override void ExecuteProcess() { }
+        public override void ExecutePhysicsProcess() { }
         public override void Exit() { }
 
         private void TransitionToIdle()

@@ -13,6 +13,8 @@ colors = PackedColorArray(0, 0, 0, 1, 0.562874, 0.562874, 0.562874, 1, 0.466181,
 gradient = SubResource("Gradient_gsemu")
 
 [node name="Checkpoint" type="Area2D"]
+collision_layer = 2048
+collision_mask = 64
 script = ExtResource("1_ehkwy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

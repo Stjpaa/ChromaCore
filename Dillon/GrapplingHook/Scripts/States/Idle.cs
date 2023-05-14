@@ -19,7 +19,8 @@ namespace GrapplingHook.States
             SetGrapplingHookPassive();
         }
 
-        public override void Execute() { }
+        public override void ExecuteProcess() { }
+        public override void ExecutePhysicsProcess() { }
 
         public override void Exit()
         {
