@@ -1,7 +1,7 @@
-res://Instances/Menus/MainMenu/main_menu.tscn
+res://Instances/Menus/ui_navigation_manager.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
+res://Instances/Menus/MainMenu/main_menu.tscn
 res://Instances/Menus/SettingsMenu/settings_menu.tscn
-res://Instances/Menus/ui_navigation_manager.tscn
-res://test_ui_focus.tscn
-res://Instances/Menus/MainMenu/MenuReadyDisabler.cs
+res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
+res://Instances/Menus/PauseMenu/pause_menu.tscn

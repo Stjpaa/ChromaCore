@@ -40,12 +40,18 @@ public partial class PauseMenu : Control
     {
         GetTree().Paused = true;    // affects all Nodes that have the property: Node -> Mode -> Inherit .    this Node should be set to Always instead
 
+        Input.MouseMode = Input.MouseModeEnum.Hidden;
+
+        pauseMenuUI.ProcessMode = ProcessModeEnum.Inherit;
         pauseMenuUI.Visible = true;    //Show Pause Menu
     }
 
     public void UnPauseGame()
     {
         GetTree().Paused = false;
+        Input.MouseMode = Input.MouseModeEnum.ConfinedHidden;
+
+        pauseMenuUI.ProcessMode = ProcessModeEnum.Disabled;
         pauseMenuUI.Visible = false;     //Hide Pause Menu
     }
 

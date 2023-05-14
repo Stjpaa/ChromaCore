@@ -1,11 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://6q0qpcor0krb"]
 
 [ext_resource type="Script" path="res://Instances/Levels/Level.cs" id="1_flvfp"]
+[ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_xdpmu"]
 [ext_resource type="PackedScene" uid="uid://bvymvvotbov41" path="res://Instances/Levels/Level-Prototype.tscn" id="2_f42i2"]
 [ext_resource type="Script" path="res://Instances/Menus/LevelSelection/ButtonLevelLoader.cs" id="3_1dvww"]
-[ext_resource type="Script" path="res://Instances/Menus/LevelSelection/ButtonDeleteScene.cs" id="4_5ov2j"]
 
 [node name="LevelSelectScene" type="Node2D"]
+
+[node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("1_xdpmu")]
+focusNodeOnStart = NodePath("../Level1/Level One Button")
 
 [node name="Level1" type="Node2D" parent="."]
 scale = Vector2(1, 1.01031)
@@ -14,30 +17,23 @@ baseLevelToLoad = ExtResource("2_f42i2")
 
 [node name="Level One Button" type="Button" parent="Level1" node_paths=PackedStringArray("levelToBeLoaded")]
 offset_left = 52.0
-offset_top = 23.0
+offset_top = 17.8163
 offset_right = 454.0
-offset_bottom = 321.0
+offset_bottom = 315.816
+focus_neighbor_right = NodePath("../../Level2/Level Two Button")
 text = "Load Scene 1"
 script = ExtResource("3_1dvww")
 levelToBeLoaded = NodePath("..")
-
-[node name="Level One Delete Savedata" type="Button" parent="Level1" node_paths=PackedStringArray("level")]
-offset_left = 48.0
-offset_top = 323.663
-offset_right = 450.0
-offset_bottom = 621.663
-text = "Delete Scene 1 Data"
-script = ExtResource("4_5ov2j")
-level = NodePath("..")
 
 [node name="Level2" type="Node2D" parent="."]
 script = ExtResource("1_flvfp")
 
 [node name="Level Two Button" type="Button" parent="Level2" node_paths=PackedStringArray("levelToBeLoaded")]
 offset_left = 481.0
-offset_top = 17.0
+offset_top = 23.0
 offset_right = 883.0
-offset_bottom = 315.0
+offset_bottom = 321.0
+focus_neighbor_left = NodePath("../../Level1/Level One Button")
 text = "Load Scene 2"
 script = ExtResource("3_1dvww")
 levelToBeLoaded = NodePath("..")

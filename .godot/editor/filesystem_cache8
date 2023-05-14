@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683972070
+::res://::1684064518
 characters.png::CompressedTexture2D::5074265719891268926::1682282112::1682282152::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::6781716155928282535::1682975419::0::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1682788980::1682788980::1::::<><>::
@@ -10,13 +10,13 @@ Test.cs::CSharpScript::-1::1682282112::0::1::::<><>::
 ::res://Assets/::1682788980
 Godot Char_Placeholder-1.png::CompressedTexture2D::3587011470912294664::1682788980::1682788980::1::::<><>::
 Tileset.png::CompressedTexture2D::8284885313224175507::1679057536::1682787201::1::::<><>::
-::res://Assets/Sprites/::1683947337
+::res://Assets/Sprites/::1683973326
 Ball.png::CompressedTexture2D::2812879286531544329::1679057536::1682787201::1::::<><>::
 Box.png::CompressedTexture2D::7592490463657462767::1679057536::1682787201::1::::<><>::
 Gravityfield_Normal.png::CompressedTexture2D::462385158180725172::1679443981::1682787201::1::::<><>::
 MovingPlatform.png::CompressedTexture2D::8402143123705161151::1679057536::1682787201::1::::<><>::
-Platform_Moving.tres::GradientTexture2D::6902438974613199686::1683947337::0::1::::<><>::
-Platform_Normal.tres::GradientTexture2D::5186750078832371388::1683947337::0::1::::<><>::
+Platform_Moving.tres::GradientTexture2D::6902438974613199686::1683973326::0::1::::<><>::
+Platform_Normal.tres::GradientTexture2D::5186750078832371388::1683973326::0::1::::<><>::
 ::res://Assets/Sprites/Tileset Sprites/::1682787201
 16x16_Dark.png::CompressedTexture2D::2204448306954857976::1679057536::1682787201::1::::<><>::
 16x16_Light.png::CompressedTexture2D::1624209815697792348::1679057536::1682787201::1::::<><>::
@@ -111,29 +111,30 @@ Level-Prototype.tscn::PackedScene::3910698697257215912::1683629199::0::1::::<><>
 Level.cs::CSharpScript::-1::1682787148::0::1::::<><>::
 LevelManager.cs::CSharpScript::-1::1682787148::0::1::::<><>::
 LevelManager.tscn::PackedScene::6093850673283212702::1682787148::0::1::::<><>::res://Instances/Levels/LevelManager.cs
-::res://Instances/Menus/::1683949853
+::res://Instances/Menus/::1683993576
 LoadingScreen.cs::CSharpScript::-1::1683502660::0::1::::<><>::
 loading_screen.tscn::PackedScene::5738991558887455560::1683803351::0::1::::<><>::res://Instances/Menus/LoadingScreen.cs<>uid://bvymvvotbov41
-UINavigationManager.cs::CSharpScript::-1::1683949218::0::1::::<><>::
-ui_navigation_manager.tscn::PackedScene::398571667513817080::1683949853::0::1::::<><>::res://Instances/Menus/UINavigationManager.cs
+UINavigationManager.cs::CSharpScript::-1::1683976493::0::1::::<><>::
+ui_navigation_manager.tscn::PackedScene::398571667513817080::1683993576::0::1::::<><>::res://Instances/Menus/UINavigationManager.cs
 ::res://Instances/Menus/LevelSelection/::1682787148
 ButtonDeleteScene.cs::CSharpScript::-1::1682787148::0::1::::<><>::
 ButtonLevelLoader.cs::CSharpScript::-1::1682787148::0::1::::<><>::
 LevelSelectScene.tscn::PackedScene::2210431485965269635::1682787148::0::1::::<><>::res://Instances/Levels/Level.cs<>uid://bvymvvotbov41<>res://Instances/Menus/LevelSelection/ButtonLevelLoader.cs<>res://Instances/Menus/LevelSelection/ButtonDeleteScene.cs
-::res://Instances/Menus/MainMenu/::1683950004
+::res://Instances/Menus/MainMenu/::1683993587
 ExitButton.cs::CSharpScript::-1::1682787148::0::1::::<><>::
 MainMenuTheme.tres::Theme::1179337232926174158::1683628593::0::1::::<><>::
-main_menu.tscn::PackedScene::2338109001545350113::1683949853::0::1::::<><>::uid://fxcogg7m5cng<>res://Instances/Menus/MainMenu/PlayButton.cs<>uid://6q0qpcor0krb<>res://Instances/Menus/MainMenu/ExitButton.cs<>res://Instances/Menus/MainMenu/SettingsButton.cs<>uid://cn5pdby1dc4iv
+main_menu.tscn::PackedScene::2338109001545350113::1683993587::0::1::::<><>::uid://fxcogg7m5cng<>res://Instances/Menus/MainMenu/MenuReadyDisabler.cs<>res://Instances/Menus/MainMenu/PlayButton.cs<>uid://6q0qpcor0krb<>res://Instances/Menus/MainMenu/ExitButton.cs<>res://Instances/Menus/MainMenu/SettingsButton.cs<>uid://cn5pdby1dc4iv
+MenuReadyDisabler.cs::CSharpScript::-1::1683993526::0::1::::<><>::
 PlayButton.cs::CSharpScript::-1::1682977083::0::1::::<><>::
-SettingsButton.cs::CSharpScript::-1::1683950004::0::1::::<><>::
+SettingsButton.cs::CSharpScript::-1::1683993406::0::1::::<><>::
 ::res://Instances/Menus/PauseMenu/::1683803351
 ContinueButton.cs::CSharpScript::-1::1682787148::0::1::::<><>::
 PauseMenu.cs::CSharpScript::-1::1682787148::0::1::::<><>::
 pause_menu.tscn::PackedScene::5186019398921320722::1683803351::0::1::::<><>::res://Instances/Menus/PauseMenu/PauseMenu.cs<>res://Instances/Menus/PauseMenu/ContinueButton.cs<>res://Instances/Menus/PauseMenu/QuitButton.cs
 QuitButton.cs::CSharpScript::-1::1682787148::0::1::::<><>::
-::res://Instances/Menus/SettingsMenu/::1683950694
-SettingsMenu.cs::CSharpScript::-1::1683949971::0::1::::<><>::
-settings_menu.tscn::PackedScene::5748143870359726617::1683950694::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs
+::res://Instances/Menus/SettingsMenu/::1683993576
+SettingsMenu.cs::CSharpScript::-1::1683993459::0::1::::<><>::
+settings_menu.tscn::PackedScene::5748143870359726617::1683993576::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>uid://fxcogg7m5cng
 ::res://Instances/SaveSystem/::1682787148
 LevelInstantiater.cs::CSharpScript::-1::1682787148::0::1::::<><>::
 LevelInstantiater.tscn::PackedScene::2102581500260938997::1682787148::0::1::::<><>::res://Instances/SaveSystem/LevelInstantiater.cs

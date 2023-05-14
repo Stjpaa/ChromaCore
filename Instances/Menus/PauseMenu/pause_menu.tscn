@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf5e8m8gqmt4m"]
+[gd_scene load_steps=5 format=3 uid="uid://cf5e8m8gqmt4m"]
 
 [ext_resource type="Script" path="res://Instances/Menus/PauseMenu/PauseMenu.cs" id="1_jqf4e"]
 [ext_resource type="Script" path="res://Instances/Menus/PauseMenu/ContinueButton.cs" id="2_818q1"]
+[ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="2_mwr5w"]
 [ext_resource type="Script" path="res://Instances/Menus/PauseMenu/QuitButton.cs" id="3_21861"]
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("pauseMenuUI")]
@@ -23,6 +24,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="UINavigationManager" parent="PauseMenuUI" node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("2_mwr5w")]
+layout_mode = 1
+focusNodeOnStart = NodePath("../Blur/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/ContinueButton")
 
 [node name="Blur" type="ColorRect" parent="PauseMenuUI"]
 layout_mode = 1
@@ -65,6 +70,7 @@ vertical_alignment = 1
 [node name="ContinueButton" type="Button" parent="PauseMenuUI/Blur/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("pauseMenu")]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../SettingsButton")
 text = "Continue	"
 script = ExtResource("2_818q1")
 pauseMenu = NodePath("../../../../../../..")
@@ -72,12 +78,15 @@ pauseMenu = NodePath("../../../../../../..")
 [node name="SettingsButton" type="Button" parent="PauseMenuUI/Blur/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Settings
 "
 
 [node name="QuitButton" type="Button" parent="PauseMenuUI/Blur/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("pauseMenu")]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../SettingsButton")
 text = "Quit
 "
 script = ExtResource("3_21861")
