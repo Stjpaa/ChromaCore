@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3p3f83ty7noa"]
+
+[ext_resource type="Script" path="res://Instances/Levels/Level.cs" id="1_wmrcw"]
+[ext_resource type="Script" path="res://Instances/Menus/LevelSelection/LevelSelectVisualisation.cs" id="4_3eut0"]
+
+[node name="LevelButton" type="Button"]
+offset_right = 402.0
+offset_bottom = 298.0
+focus_neighbor_right = NodePath("../../Level2/Level2Button")
+text = "Load Scene 1"
+script = ExtResource("1_wmrcw")
+
+[node name="LevelTimeVisualisation" type="Label" parent="." node_paths=PackedStringArray("level")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Time Level was Played:"
+script = ExtResource("4_3eut0")
+level = NodePath("..")

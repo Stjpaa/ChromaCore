@@ -1,6 +1,7 @@
-[gd_scene load_steps=61 format=3 uid="uid://besp4vl5cfm8a"]
+[gd_scene load_steps=62 format=3 uid="uid://besp4vl5cfm8a"]
 
 [ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/atlas.png" id="1_dxho2"]
+[ext_resource type="PackedScene" uid="uid://cs253h11xbsa5" path="res://Instances/Levels/LevelManager.tscn" id="1_ivd61"]
 [ext_resource type="Texture2D" uid="uid://chb1cn1avyu4c" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_rm56s"]
 [ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
@@ -1106,6 +1107,8 @@ texture = SubResource("CanvasTexture_ry0wi")
 
 [node name="Spikes" parent="SpikesList" instance=ExtResource("16_b88yk")]
 position = Vector2(-814, -644)
+
+[node name="LevelManager" parent="." instance=ExtResource("1_ivd61")]
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]

@@ -46,9 +46,15 @@ public partial class LevelInstantiater : Node2D
 
 
 
-        levelSaveData = LoadLevelVariablesSaveData();
+        levelSaveData = SaveSystem.LoadLevelVariablesSaveData(sceneToLoad);
 
         levelManager = (LevelManager)levelRoot.GetChild(0).GetNode("LevelManager");
+
+        if(levelManager == null)
+        {
+            GD.PrintErr("Add LevelManager to Level");
+            return;
+        }
 
         levelManager.InstantiateValues(levelSaveData);
 
@@ -56,20 +62,20 @@ public partial class LevelInstantiater : Node2D
 
 
 
-    private LevelVariablesSaveData LoadLevelVariablesSaveData()
-    {
-        if (SaveSystem.DoesFileExistAtPath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad)))
-        {
-            string text = File.ReadAllText(levelVariableSaveDataGlobalPath);
+    //public LevelVariablesSaveData LoadLevelVariablesSaveData(PackedScene sceneToLoad)
+    //{
+    //    if (SaveSystem.DoesFileExistAtPath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad)))
+    //    {
+    //        string text = File.ReadAllText(levelVariableSaveDataGlobalPath);
 
-            return JsonSerializer.Deserialize<LevelVariablesSaveData>(text);
+    //        return JsonSerializer.Deserialize<LevelVariablesSaveData>(text);
 
-        }
-        else
-        {
-            return null;
-        }
-    }
+    //    }
+    //    else
+    //    {
+    //        return null;
+    //    }
+    //}
 
     public void SaveLevelVariables()
     {

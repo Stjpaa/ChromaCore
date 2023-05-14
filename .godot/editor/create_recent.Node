@@ -1,3 +1,5 @@
+Label
+HBoxContainer
 Control
 Node2D
 PanelContainer
@@ -7,7 +9,6 @@ ColorRect
 Node
 VBoxContainer
 Container
-Label
 HSlider
 CanvasLayer
 Panel

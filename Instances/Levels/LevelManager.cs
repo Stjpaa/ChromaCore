@@ -12,8 +12,10 @@ public partial class LevelManager : Node2D
     {
         levelVariablesOnLoad = saveData;
 
-
-        levelTimer.timeLevelWasPlayedInSeconds = levelVariablesOnLoad.levelTimerInSeconds;
+        if(levelTimer != null)
+        {
+            levelTimer.timeLevelWasPlayedInSeconds = levelVariablesOnLoad.levelTimerInSeconds;
+        }
     }
 
     public LevelVariablesSaveData CreateUpdatedLevelVariablesSaveData()

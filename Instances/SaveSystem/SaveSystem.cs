@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text.Json;
 using static System.Formats.Asn1.AsnWriter;
 
 public static class SaveSystem
@@ -110,6 +111,23 @@ public static class SaveSystem
         string savegamePath = savePathBegining + baseLevelFileName + ".json";
 
         return savegamePath;
+    }
+
+    public static LevelVariablesSaveData LoadLevelVariablesSaveData(PackedScene sceneToLoad)
+    {
+        string levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad));
+
+        if (SaveSystem.DoesFileExistAtPath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad)))
+        {
+            string text = File.ReadAllText(levelVariableSaveDataGlobalPath);
+
+            return JsonSerializer.Deserialize<LevelVariablesSaveData>(text);
+
+        }
+        else
+        {
+            return new LevelVariablesSaveData();
+        }
     }
 
     //public static void DeleteSaveGameData(PackedScene baseSceneToDeleteSaveData)

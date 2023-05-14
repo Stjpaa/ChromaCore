@@ -79,6 +79,9 @@ theme_override_font_sizes/font_size = 25
 text = "Back
 "
 
+[node name="ChangeContols" type="HBoxContainer" parent="Theme/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("2_upaap")]
 layout_mode = 1
 focusNodeOnStart = NodePath("../Theme/MarginContainer/VBoxContainer/MasterContainer/MasterSlider")
