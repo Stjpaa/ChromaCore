@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="16_b88yk"]
 
 [sub_resource type="Gradient" id="Gradient_b1py6"]
-colors = PackedColorArray(1, 0.305933, 0.172762, 1, 0.814486, 0.163879, 2.88785e-07, 1)
+colors = PackedColorArray(1, 0.305882, 0.172549, 1, 0.815686, 0.164706, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hh2lp"]
 gradient = SubResource("Gradient_b1py6")
@@ -445,7 +445,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfdn"]
 resource_local_to_scene = true
@@ -847,7 +847,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="Gradient" id="Gradient_g84sw"]
 colors = PackedColorArray(0, 1, 0, 0, 0, 0.670588, 0, 1)
@@ -931,6 +931,7 @@ position = Vector2(-349, -788)
 physics_material_override = SubResource("PhysicsMaterial_ypp4y")
 continuous_cd = 2
 max_contacts_reported = 0
+_boxSize = 32.0
 
 [node name="TeleportCooldown" parent="GameObjectsList/Box" index="1"]
 process_callback = 0
@@ -957,7 +958,6 @@ position = Vector2(-153, -147)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
-disabled = false
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
@@ -1043,7 +1043,6 @@ _gravityfieldSize = Vector2(48, 144)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_6apcr")
-disabled = false
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Time2/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_gi30v")
