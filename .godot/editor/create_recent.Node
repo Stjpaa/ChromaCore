@@ -1,3 +1,6 @@
+TextureRect
+Panel
+PanelContainer
 HBoxContainer
 Control
 Button
@@ -5,7 +8,6 @@ VBoxContainer
 Label
 ItemList
 Node2D
-PanelContainer
 CheckBox
 AnimationPlayer
 ColorRect
@@ -13,7 +15,6 @@ Node
 Container
 HSlider
 CanvasLayer
-Panel
 CollisionShape2D
 Area2D
 Sprite2D
