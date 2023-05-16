@@ -1,3 +1,6 @@
+AnimationPlayer
+PathFollow2D
+Path2D
 TextureRect
 Panel
 PanelContainer
@@ -9,7 +12,6 @@ Label
 ItemList
 Node2D
 CheckBox
-AnimationPlayer
 ColorRect
 Node
 Container
@@ -23,8 +25,6 @@ StaticBody2D
 RigidBody2D
 PinJoint2D
 DampedSpringJoint2D
-PathFollow2D
-Path2D
 RayCast2D
 Line2D
 Timer
