@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn5pdby1dc4iv"]
+[gd_scene load_steps=4 format=3 uid="uid://cn5pdby1dc4iv"]
 
 [ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/SettingsMenu.cs" id="1_74ihc"]
+[ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/RemapInputs.cs" id="2_fquhs"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="2_upaap"]
 
 [node name="SettingsMenu" type="Control"]
@@ -79,8 +80,9 @@ theme_override_font_sizes/font_size = 25
 text = "Back
 "
 
-[node name="ChangeContols" type="HBoxContainer" parent="Theme/MarginContainer/VBoxContainer"]
+[node name="RemapInputs" type="HBoxContainer" parent="Theme/MarginContainer/VBoxContainer"]
 layout_mode = 2
+script = ExtResource("2_fquhs")
 
 [node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("2_upaap")]
 layout_mode = 1

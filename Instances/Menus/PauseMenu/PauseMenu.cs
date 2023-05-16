@@ -9,7 +9,7 @@ public partial class PauseMenu : Control
     {
         if (GetTree().Paused)
         {
-            PauseGame();    
+            PauseGame();
         }
         else
         {
@@ -36,7 +36,7 @@ public partial class PauseMenu : Control
 
     }
 
-    public void PauseGame()        
+    public void PauseGame()
     {
         GetTree().Paused = true;    // affects all Nodes that have the property: Node -> Mode -> Inherit .    this Node should be set to Always instead
 
@@ -53,6 +53,28 @@ public partial class PauseMenu : Control
 
         pauseMenuUI.ProcessMode = ProcessModeEnum.Disabled;
         pauseMenuUI.Visible = false;     //Hide Pause Menu
+    }
+
+    public void QuitGame()
+    {
+
+        // return to main menu, or quit?
+
+        SaveSystem.BackToLevelSelectScreen(GetTree());
+    }
+
+    public void TestSave()
+    {
+        LevelInstantiater instantiator = (LevelInstantiater)GetTree().Root.GetNode("LevelInstantiater");
+
+        if (instantiator == null)
+        {
+            GD.PrintErr("No LevelInstantiater in Scene");
+            return;
+        }
+        instantiator.SaveLevelVariables();
+
+
     }
 
 }

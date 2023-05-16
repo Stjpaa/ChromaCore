@@ -1,13 +1,15 @@
-Label
 HBoxContainer
+Button
+Label
+VBoxContainer
 Control
+ItemList
 Node2D
 PanelContainer
 CheckBox
 AnimationPlayer
 ColorRect
 Node
-VBoxContainer
 Container
 HSlider
 CanvasLayer

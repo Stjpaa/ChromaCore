@@ -40,13 +40,14 @@ public partial class LevelInstantiater : Node2D
         
         levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad));   // we need the global path to read/write with File.ReadAllText
 
-        LevelVariablesSaveData testSave = new LevelVariablesSaveData();
-        testSave.levelTimerInSeconds = 1000;
-        SaveLevelVariablesToJson(testSave);
-
-
-
         levelSaveData = SaveSystem.LoadLevelVariablesSaveData(sceneToLoad);
+
+        if(levelSaveData == null)
+        {
+            levelSaveData = new LevelVariablesSaveData();
+        }
+
+
 
         levelManager = (LevelManager)levelRoot.GetChild(0).GetNode("LevelManager");
 
@@ -76,6 +77,8 @@ public partial class LevelInstantiater : Node2D
     //        return null;
     //    }
     //}
+
+    
 
     public void SaveLevelVariables()
     {

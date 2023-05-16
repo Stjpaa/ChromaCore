@@ -12,16 +12,19 @@ public partial class LevelManager : Node2D
     {
         levelVariablesOnLoad = saveData;
 
-        if(levelTimer != null)
+        if (levelTimer == null)
         {
-            levelTimer.timeLevelWasPlayedInSeconds = levelVariablesOnLoad.levelTimerInSeconds;
+            GD.PrintErr("Assign levelTimer in LevelManager");
+            return;
         }
+        levelTimer.timeLevelWasPlayedInSeconds = levelVariablesOnLoad.levelTimerInSeconds;
     }
 
     public LevelVariablesSaveData CreateUpdatedLevelVariablesSaveData()
     {
         LevelVariablesSaveData updatedSaveData = levelVariablesOnLoad;    // keep everything that was not changed
 
+        GD.Print("timer: " +updatedSaveData.levelTimerInSeconds);
         updatedSaveData.levelTimerInSeconds = levelTimer.timeLevelWasPlayedInSeconds;
 
         return updatedSaveData;

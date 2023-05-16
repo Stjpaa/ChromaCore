@@ -5,13 +5,18 @@ public partial class Level : Button
 {
     [Export] public PackedScene baseLevelToLoad;
     //[Export] public Node2D nodeWhichToPack;
-    public LevelVariablesSaveData levelVariablesSaveData;
+    private LevelVariablesSaveData levelVariablesSaveData;
+
+    private LevelSelectVisualisation dataVisualisation;
 
 
 
     public override void _Ready()
     {
-        LoadSaveData();     // also called in LevelSelectVisualisation.Ready() because its needed before this _Ready() happens
+        LoadSaveData();
+
+        dataVisualisation = (LevelSelectVisualisation)GetNode("LevelSelectVisualisation");
+        dataVisualisation.VisualizeData(levelVariablesSaveData);
     }
 
     public void LoadSaveData()

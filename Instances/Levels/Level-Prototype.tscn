@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://besp4vl5cfm8a"]
+[gd_scene load_steps=64 format=3 uid="uid://besp4vl5cfm8a"]
 
 [ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/atlas.png" id="1_dxho2"]
 [ext_resource type="PackedScene" uid="uid://cs253h11xbsa5" path="res://Instances/Levels/LevelManager.tscn" id="1_ivd61"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="11_xf5fx"]
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="13_3inke"]
 [ext_resource type="Texture2D" uid="uid://bsu6aquff70be" path="res://Assets/Sprites/p1_stand.png" id="14_kjbvf"]
+[ext_resource type="PackedScene" uid="uid://b3clekngejd46" path="res://Instances/UIobjects/LevelTimer/timer.tscn" id="15_pespk"]
 [ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="16_b88yk"]
+[ext_resource type="PackedScene" uid="uid://cf5e8m8gqmt4m" path="res://Instances/Menus/PauseMenu/pause_menu.tscn" id="16_snrys"]
 
 [sub_resource type="Gradient" id="Gradient_b1py6"]
 colors = PackedColorArray(1, 0.305933, 0.172762, 1, 0.814486, 0.163879, 2.88785e-07, 1)
@@ -1089,6 +1091,14 @@ zoom = Vector2(1.5, 1.5)
 scale = Vector2(0.461, 0.461)
 texture = ExtResource("14_kjbvf")
 
+[node name="LevelTimer" parent="Player" instance=ExtResource("15_pespk")]
+offset_left = -7.0
+offset_top = -212.0
+offset_right = -7.0
+offset_bottom = -212.0
+
+[node name="PauseMenu" parent="Player" instance=ExtResource("16_snrys")]
+
 [node name="Miscellaneous" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1108,7 +1118,8 @@ texture = SubResource("CanvasTexture_ry0wi")
 [node name="Spikes" parent="SpikesList" instance=ExtResource("16_b88yk")]
 position = Vector2(-814, -644)
 
-[node name="LevelManager" parent="." instance=ExtResource("1_ivd61")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("levelTimer") instance=ExtResource("1_ivd61")]
+levelTimer = NodePath("../Player/LevelTimer")
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]

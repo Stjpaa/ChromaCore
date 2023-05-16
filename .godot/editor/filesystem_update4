@@ -1,10 +1,10 @@
 res://Instances/Menus/SettingsMenu/settings_menu.tscn
+res://Instances/Menus/LevelSelection/RemapInputs.tscn
+res://Instances/SaveSystem/LevelInstantiater.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Instances/Menus/MainMenu/main_menu.tscn
-res://Instances/Menus/ui_navigation_manager.tscn
-res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
-res://Instances/SaveSystem/LevelInstantiater.tscn
 res://Instances/Levels/Level-Prototype.tscn
+res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
+res://Instances/Menus/PauseMenu/pause_menu.tscn
 res://Instances/Menus/LevelSelection/LevelSelectionLevel.tscn
