@@ -57,7 +57,6 @@ public partial class PauseMenu : Control
 
     public void QuitGame()
     {
-
         // return to main menu, or quit?
 
         SaveSystem.BackToLevelSelectScreen(GetTree());
@@ -77,4 +76,8 @@ public partial class PauseMenu : Control
 
     }
 
+    public override void _ExitTree()
+    {
+        UnPauseGame();
+    }
 }

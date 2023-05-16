@@ -75,14 +75,14 @@ text = "Continue	"
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../ContinueButton")
-focus_neighbor_bottom = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../TestSaveButton")
 text = "Settings
 "
 
 [node name="TestSaveButton" type="Button" parent="PauseMenuUI/Blur/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Test Save
 "
@@ -90,7 +90,7 @@ text = "Test Save
 [node name="QuitButton" type="Button" parent="PauseMenuUI/Blur/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_top = NodePath("../TestSaveButton")
 text = "Quit
 "
 

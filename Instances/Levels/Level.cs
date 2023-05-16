@@ -38,8 +38,8 @@ public partial class Level : Control
 
     public void LoadLevel()
     {
-        //SaveSystem.LoadLevel(this);
         SaveSystem.LoadLevelWithLevelInstantiator(this);
+
     }
 
 
