@@ -1,8 +1,8 @@
 HBoxContainer
-Button
-Label
-VBoxContainer
 Control
+Button
+VBoxContainer
+Label
 ItemList
 Node2D
 PanelContainer

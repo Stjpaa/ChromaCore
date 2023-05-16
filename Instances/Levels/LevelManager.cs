@@ -24,7 +24,6 @@ public partial class LevelManager : Node2D
     {
         LevelVariablesSaveData updatedSaveData = levelVariablesOnLoad;    // keep everything that was not changed
 
-        GD.Print("timer: " +updatedSaveData.levelTimerInSeconds);
         updatedSaveData.levelTimerInSeconds = levelTimer.timeLevelWasPlayedInSeconds;
 
         return updatedSaveData;

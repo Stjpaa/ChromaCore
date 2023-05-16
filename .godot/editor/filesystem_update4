@@ -8,3 +8,4 @@ res://Instances/Levels/Level-Prototype.tscn
 res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
 res://Instances/Menus/PauseMenu/pause_menu.tscn
 res://Instances/Menus/LevelSelection/LevelSelectionLevel.tscn
+res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn

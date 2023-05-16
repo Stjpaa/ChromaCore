@@ -1,22 +1,26 @@
 using Godot;
 using System;
 
-public partial class Level : Button
+public partial class Level : Control
 {
     [Export] public PackedScene baseLevelToLoad;
     //[Export] public Node2D nodeWhichToPack;
     private LevelVariablesSaveData levelVariablesSaveData;
 
-    private LevelSelectVisualisation dataVisualisation;
+    [Export]private LevelSelectVisualisation dataVisualisation;
 
 
 
     public override void _Ready()
     {
+        UpdateValues();
+    }
+
+    private void UpdateValues()
+    {
         LoadSaveData();
 
-        dataVisualisation = (LevelSelectVisualisation)GetNode("LevelSelectVisualisation");
-        dataVisualisation.VisualizeData(levelVariablesSaveData);
+        DisplayLevelTime();
     }
 
     public void LoadSaveData()
@@ -32,11 +36,6 @@ public partial class Level : Button
     }
 
 
-    public override void _Pressed()
-    {
-        LoadLevel();
-    }
-
     public void LoadLevel()
     {
         //SaveSystem.LoadLevel(this);
@@ -47,10 +46,13 @@ public partial class Level : Button
 
     private void DisplayLevelTime()
     {
-
+        dataVisualisation.VisualizeData(levelVariablesSaveData);
     }
-    //public void DeleteSaveData()
-    //{
-    //    SaveSystem.DeleteSaveGameData(baseLevelToLoad);
-    //}
+
+    public void DeleteSaveData()
+    {
+        SaveSystem.DeleteLevelVariableSaveData(baseLevelToLoad);
+
+        UpdateValues();
+    }
 }

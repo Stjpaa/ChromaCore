@@ -130,6 +130,26 @@ public static class SaveSystem
         }
     }
 
+    public static void SaveLevelVariablesToJson(PackedScene scene, LevelVariablesSaveData data)
+    {
+        var options = new JsonSerializerOptions // just makes the Json File better Readable
+        {
+            WriteIndented = true
+        };
+
+        string sceneSaveDataPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(scene));
+
+        string json_str = JsonSerializer.Serialize(data, options);
+
+        // Write the JSON string to file
+        File.WriteAllText(sceneSaveDataPath, json_str);
+    }
+
+    public static void DeleteLevelVariableSaveData(PackedScene scene)
+    {
+        SaveLevelVariablesToJson(scene, new LevelVariablesSaveData());
+    }
+
     //public static void DeleteSaveGameData(PackedScene baseSceneToDeleteSaveData)
     //{
     //    if (baseSceneToDeleteSaveData == null)
