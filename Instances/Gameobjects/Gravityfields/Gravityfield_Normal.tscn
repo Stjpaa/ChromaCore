@@ -142,6 +142,7 @@ texture = SubResource("CanvasTexture_n1qrv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_upusr")
+panning_strength = 2.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_lwh1p")
