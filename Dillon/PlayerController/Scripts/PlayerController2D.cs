@@ -127,6 +127,15 @@ namespace PlayerController
             stateText.Text = "State: " + currentState.Name;
         }
 
+        public void KilledPlayer()
+		{
+			/*
+				TODO
+				player is killed. a fail-state should be displayed and then reset the game to a checkpoint
+			*/
+			GD.Print("Player killed. please stop what you are doing and reset the game to a previous Checkpoint");
+		}
+
         #region Communication with other game objects
         private void ChangeGravityProperties(Vector2 direction)
         {

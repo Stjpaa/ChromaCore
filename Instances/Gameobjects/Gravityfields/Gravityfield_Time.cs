@@ -15,6 +15,11 @@ public partial class Gravityfield_Time : Area2D
 
 	[Export]
 	private float _enabledTime = 3;
+	
+	[Export]
+	private AudioStreamPlayer2D _audioPlayerOutside;
+	[Export]
+	private AudioStreamPlayer _audioPlayerInside;
 
 	[Signal]
 	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction);
@@ -59,6 +64,9 @@ public partial class Gravityfield_Time : Area2D
 		this._spriteMat.SetShaderParameter("width", this._gravityfieldCollider.Shape.GetRect().Size.X);
 		this._spriteMat.SetShaderParameter("heigth", this._gravityfieldCollider.Shape.GetRect().Size.Y);
 		this._sprite.Material = this._spriteMat;
+		_audioPlayerOutside.Play();
+		_audioPlayerInside.Play();
+		_audioPlayerInside.VolumeDb = -100;
 	}
 
 	public override void _Process(double delta)
@@ -75,12 +83,12 @@ public partial class Gravityfield_Time : Area2D
 	}
 
 	public override void _Draw()
-    {
+	{
 		if (Engine.IsEditorHint())
 		{
 			DrawLine(new Vector2(0,0), this._gravityDirection, Colors.Blue, 0.5f);
 		}
-    }
+	}
 
 	public void OnIntervalTimeout()
 	{
@@ -99,10 +107,32 @@ public partial class Gravityfield_Time : Area2D
 	public void OnBodyEntered(Node2D body)
 	{
 		body.Call("ChangeGravityProperties", this._gravityDirection.Normalized() * this._gravityStrength);
+		try
+		{
+			PlayerController.PlayerController2D player_body = (PlayerController.PlayerController2D)body;
+			if(player_body != null)
+			{
+				_audioPlayerInside.VolumeDb = 0;
+				_audioPlayerOutside.VolumeDb = -100;
+			}
+		}
+		catch(InvalidCastException)
+		{ /* do nothing */ }
 	}	
 
 	public void OnBodyExited(Node2D body)
 	{
 		body.Call("ResetGravityProperties");
+		try
+		{
+			PlayerController.PlayerController2D player_body = (PlayerController.PlayerController2D)body;
+			if(player_body != null)
+			{
+				_audioPlayerOutside.VolumeDb = 0;
+				_audioPlayerInside.VolumeDb = -100;
+			}
+		}
+		catch(InvalidCastException)
+		{ /* do nothing */ }
 	}
 }
