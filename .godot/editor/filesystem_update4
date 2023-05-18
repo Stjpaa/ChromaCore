@@ -3,5 +3,4 @@ res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Levels/Level-Prototype.tscn
-res://Dillon/PlayerController/PlayerController2D_Data.tres
-res://Instances/Gameobjects/Portals/Portals.cs
+res://Instances/Gameobjects/Movable Objects/Box.tscn

@@ -448,7 +448,7 @@ size = Vector2(330, 50)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ahknm"]
 resource_local_to_scene = true
 shader = SubResource("Shader_s4k2c")
-shader_parameter/width = 320.0
+shader_parameter/width = 330.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
