@@ -1,11 +1,9 @@
-res://Instances/Menus/loading_screen.tscn
+res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
 res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn
 res://Instances/Menus/LevelSelection/RemapInputs.tscn
 res://Instances/Menus/PauseMenu/pause_menu.tscn
-res://star-sky.gdshader
-res://Instances/Levels/Level-Prototype.tscn
+res://Instances/Menus/loading_screen.tscn
 res://Instances/Menus/MainMenu/main_menu.tscn
