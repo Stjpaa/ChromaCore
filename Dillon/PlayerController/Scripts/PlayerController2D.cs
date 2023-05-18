@@ -15,6 +15,7 @@ namespace PlayerController
         // When entering a checkpoint the position of the checkpoint will saved and not the player position 
         // Problems:
         // - Dash works not correctly inside a gravity field => open
+        // - Gravity field is not effecting the player during moving state 
 
         [Export]
         public PlayerController2D_Data data;

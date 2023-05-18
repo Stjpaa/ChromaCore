@@ -66,3 +66,20 @@ D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\refint\Sem6Projekt
 D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.pdb
 D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.genruntimeconfig.cache
 D:\Godot\Projekt 6. Sem\ChromaCore\.godot\mono\temp\obj\Debug\ref\Sem6Projekt.dll
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.deps.json
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.runtimeconfig.json
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.dll
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\Sem6Projekt.pdb
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.AssemblyReference.cache
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.AssemblyInfoInputs.cache
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.AssemblyInfo.cs
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.CoreCompileInputs.cache
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.csproj.CopyComplete
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.dll
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\refint\Sem6Projekt.dll
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.pdb
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\Sem6Projekt.genruntimeconfig.cache
+C:\Studium\6. Semester\Module\Semesterprojekt\GitHub\ChromaCore\.godot\mono\temp\obj\Debug\ref\Sem6Projekt.dll

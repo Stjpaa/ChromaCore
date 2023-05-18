@@ -3,6 +3,10 @@ using System;
 
 namespace GrapplingHook.Physics
 {
+    /// <summary>
+    /// Contains the physisc for the grappling hook.
+    /// 
+    /// </summary>
     public partial class Physics : Node
     {
         public DampedSpringJoint2D Joint { get; private set; }

@@ -26,11 +26,12 @@ namespace GrapplingHook.States
 
             _grapplingHook.SetPlayerAsChild();
 
-            _grapplingHook.ChangePlayerStateToHooking();
-
             _grapplingHook.Physics.HookStart.SetControlsActive(true);
+            _grapplingHook.Physics.HookStart.SetStartVelocity(_grapplingHook.GetPlayerVelocityOnStart());
 
-            _grapplingHook.Physics.HookStart.LinearVelocity = _grapplingHook.GetPlayerVelocity() * 2;
+            // Before changing the players state to hooking -> Player velocity is set to zero in the hooking state
+
+            _grapplingHook.ChangePlayerStateToHooking();
         }
 
         public override void ExecuteProcess()
