@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_81wmq"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/MenuReadyDisabler.cs" id="1_sj37n"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/PlayButton.cs" id="2_sxrqg"]
-[ext_resource type="PackedScene" uid="uid://6q0qpcor0krb" path="res://Instances/Menus/LevelSelection/LevelSelectScene.tscn" id="3_ckmui"]
+[ext_resource type="PackedScene" uid="uid://butb3javps1yf" path="res://Instances/Menus/LevelSelection/LevelSelectScene.tscn" id="3_ckmui"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/ExitButton.cs" id="4_4if3e"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/SettingsButton.cs" id="5_mygwh"]
 [ext_resource type="PackedScene" uid="uid://cn5pdby1dc4iv" path="res://Instances/Menus/SettingsMenu/settings_menu.tscn" id="6_h7h74"]
@@ -13,6 +13,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -1.0
+offset_right = -3.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 

@@ -5,21 +5,38 @@ using System.Threading.Tasks;
 
 public partial class LoadingScreen : Control
 {
-    private AnimationPlayer LoadingscreenAnimationPlayer;
-    [Export] private Control loadingScreenBackground;
+    private AnimationPlayer loadingscreenAnimationPlayer;
+    private Panel loadingScreenBackground;
+    [Export]private TextureRect startPlanet;
+    [Export]private TextureRect destinationPlanet;
+
 
     [Export] private PackedScene testLevelToLoad;
 
+
+
+    [Export] private Texture2D testPlanetOne;
+    [Export] private Texture2D testPlanetTwo;
+
+    //[Export]
+
     public override void _Ready()
     {
-        LoadingscreenAnimationPlayer = (AnimationPlayer)GetNode("LoadingScreenAP");
+        loadingScreenBackground = (Panel)GetNode("LoadingScreenBackground");
+        loadingscreenAnimationPlayer = (AnimationPlayer)GetNode("LoadingScreenAP");
+
+        HideLoadingScreen();
+
+
         StartLoadSceneAsync(testLevelToLoad.ResourcePath);
+
     }
 
     private void StartLoadSceneAsync(string sceneToLoadPath)
     {
         //_ = LoadSceneAsync(sceneToLoadPath);    // _ = means the value gets discarded on completion 
-        _ = LoadingScreenAsync(new Image(), new Image());    // _ = means the value gets discarded on completion 
+
+        _ = LoadingScreenAsync(testPlanetOne, testPlanetTwo);    // _ = means the value gets discarded on completion 
     }
 
     //private async Task LoadSceneAsync(string sceneToLoad)
@@ -48,13 +65,15 @@ public partial class LoadingScreen : Control
     //}
 
 
-    public async Task LoadingScreenAsync(Image startLocation, Image destination)
+    public async Task LoadingScreenAsync(Texture2D startLocation, Texture2D destination)
     {
         ShowLoadingScreen();
+        startPlanet.Texture = startLocation;
+        destinationPlanet.Texture = destination;    
 
-        LoadingscreenAnimationPlayer.Play("RocketFlight");
+        loadingscreenAnimationPlayer.Play("RocketFlight");
 
-        while (LoadingscreenAnimationPlayer.IsPlaying())    // wait until Animation is done
+        while (loadingscreenAnimationPlayer.IsPlaying())    // wait until Animation is done
         {
             // Wait for a short time before checking again
             await Task.Delay(50);
@@ -68,10 +87,14 @@ public partial class LoadingScreen : Control
 
     private void HideLoadingScreen()
     {
+        loadingScreenBackground.Visible = false;
+        loadingScreenBackground.ProcessMode = ProcessModeEnum.Disabled;
     }
 
     private void ShowLoadingScreen()
     {
+        loadingScreenBackground.Visible = true;
+        loadingScreenBackground.ProcessMode = ProcessModeEnum.Inherit;
     }
 
 

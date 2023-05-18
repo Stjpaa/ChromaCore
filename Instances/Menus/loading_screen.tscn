@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cn1al8qtngpmu"]
+[gd_scene load_steps=12 format=3 uid="uid://cn1al8qtngpmu"]
 
 [ext_resource type="Script" path="res://Instances/Menus/LoadingScreen.cs" id="1_ckfbm"]
 [ext_resource type="PackedScene" uid="uid://besp4vl5cfm8a" path="res://Instances/Levels/Level-Prototype.tscn" id="2_4fgny"]
 [ext_resource type="Texture2D" uid="uid://c8wba4tymv8ji" path="res://Assets/spaceRockets_001.png" id="3_hxonf"]
+[ext_resource type="Texture2D" uid="uid://dr7ridf1uhbc4" path="res://Assets/Planets/CompletedPlanets/planet09.png" id="3_my1sh"]
+[ext_resource type="Texture2D" uid="uid://dxl4wb7b8rvul" path="res://Assets/Planets/CompletedPlanets/planet02.png" id="4_d1vld"]
 [ext_resource type="Texture2D" uid="uid://cto7aik31qnlh" path="res://Assets/Planets/CompletedPlanets/planet00.png" id="4_wmgmc"]
+[ext_resource type="Shader" path="res://star-sky.gdshader" id="5_6oipt"]
 
 [sub_resource type="Animation" id="Animation_6gkd7"]
 resource_name = "RocketFlight"
-length = 3.0
+length = 5.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,7 +20,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 3)
+"times": PackedFloat32Array(0, 5)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wg8u0"]
@@ -25,13 +28,17 @@ _data = {
 "RocketFlight": SubResource("Animation_6gkd7")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_alyb8"]
+shader = ExtResource("5_6oipt")
+shader_parameter/bg_color = null
+
 [sub_resource type="Curve2D" id="Curve2D_ligrx"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 194, 326, -88.6904, 7.98072, 88.6904, -7.98072, 268, 334, -61.1168, 3.89089, 61.1168, -3.89089, 388, 295, -83.4386, 7.07107, 83.4386, -7.07107, 500, 344, -61.3004, -1.41421, 61.3004, 1.41421, 603, 292, -33.9258, -2.82843, 33.9258, 2.82843, 694, 349, -25.1882, 18.354, 25.1882, -18.354, 775, 307, -16.6342, -23.5371, 16.6342, 23.5371, 871, 319, -30.524, -9.14265, 30.524, 9.14265, 940, 373, 0, 0, 0, 0, 1016, 319)
 }
 point_count = 10
 
-[node name="LoadingScreen" type="Control" node_paths=PackedStringArray("loadingScreenBackground")]
+[node name="LoadingScreen" type="Control" node_paths=PackedStringArray("startPlanet", "destinationPlanet")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,8 +46,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ckfbm")
-loadingScreenBackground = NodePath("LoadingScreenBackground")
+startPlanet = NodePath("LoadingScreenBackground/StartPlanet")
+destinationPlanet = NodePath("LoadingScreenBackground/DestinationPlanet")
 testLevelToLoad = ExtResource("2_4fgny")
+testPlanetOne = ExtResource("3_my1sh")
+testPlanetTwo = ExtResource("4_d1vld")
 
 [node name="LoadingScreenAP" type="AnimationPlayer" parent="."]
 root_node = NodePath("../LoadingScreenBackground")
@@ -49,6 +59,7 @@ libraries = {
 }
 
 [node name="LoadingScreenBackground" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_alyb8")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

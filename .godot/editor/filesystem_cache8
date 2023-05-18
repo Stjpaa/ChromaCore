@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1684231947
+::res://::1684409207
 characters.png::CompressedTexture2D::5074265719891268926::1682282112::1682282152::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::6781716155928282535::1682975419::0::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1682788980::1682788980::1::::<><>::
@@ -7,7 +7,7 @@ icon.svg::CompressedTexture2D::1834291139676260366::1679057536::1682787201::1:::
 merge.png::CompressedTexture2D::3634859478629105443::1684065886::1684065886::1::::<><>::
 README.md::TextFile::-1::1682357161::0::1::::<><>::
 Rise01.ogg::AudioStreamOggVorbis::644264058876615546::1682282112::1682282152::1::::<><>::
-star-sky.gdshader::Shader::-1::1684065886::0::1::::<><>::
+star-sky.gdshader::Shader::-1::1684242275::0::1::::<><>::
 Test.cs::CSharpScript::-1::1682282112::0::1::::<><>::
 ::res://Assets/::1684232059
 atlas.png::CompressedTexture2D::8723023418343030::1684065886::1684065886::1::::<><>::
@@ -168,34 +168,34 @@ Checkpoint.cs::CSharpScript::-1::1682282112::0::1::::<><>::
 Checkpoint.tscn::PackedScene::1002964408231646571::1682282112::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.cs
 Spikes.tscn::PackedScene::4249880713655740377::1684065886::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs
 Traps.cs::CSharpScript::-1::1684065886::0::1::::<><>::
-::res://Instances/Levels/::1684201635
+::res://Instances/Levels/::1684241669
 InstantiateLevel.cs::CSharpScript::-1::1682282112::0::1::::<><>::
-Level-Prototype.tscn::PackedScene::2705298522082194010::1684199679::0::1::::<><>::uid://ehww7w412i1<>uid://cs253h11xbsa5<>uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>uid://bsu6aquff70be<>uid://b3clekngejd46<>uid://b1sw6dddgaq2d<>uid://cf5e8m8gqmt4m
+Level-Prototype.tscn::PackedScene::2705298522082194010::1684241669::0::1::::<><>::uid://ehww7w412i1<>uid://cs253h11xbsa5<>uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>uid://bsu6aquff70be<>uid://b3clekngejd46<>uid://b1sw6dddgaq2d<>uid://cf5e8m8gqmt4m
 Level.cs::CSharpScript::-1::1684201635::0::1::::<><>::
 LevelManager.cs::CSharpScript::-1::1684199334::0::1::::<><>::
 LevelManager.tscn::PackedScene::6093850673283212702::1682787148::0::1::::<><>::res://Instances/Levels/LevelManager.cs
 world_1_level.gdshader::Shader::-1::1684065886::0::1::::<><>::
 world_1_level.tscn::PackedScene::1176266911922254984::1684065886::0::1::::<><>::uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://bxrinvpxhsiqc<>uid://ehww7w412i1<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://oj3xa6mp45cx<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://dt56jo4o7i0hw
-::res://Instances/Menus/::1684231598
-LoadingScreen.cs::CSharpScript::-1::1683502660::0::1::::<><>::
-loading_screen.tscn::PackedScene::5738991558887455560::1684231598::0::1::::<><>::res://Instances/Menus/LoadingScreen.cs<>uid://besp4vl5cfm8a
+::res://Instances/Menus/::1684241669
+LoadingScreen.cs::CSharpScript::-1::1684236313::0::1::::<><>::
+loading_screen.tscn::PackedScene::5738991558887455560::1684241669::0::1::::<><>::res://Instances/Menus/LoadingScreen.cs<>uid://besp4vl5cfm8a<>uid://c8wba4tymv8ji<>uid://dr7ridf1uhbc4<>uid://dxl4wb7b8rvul<>uid://cto7aik31qnlh<>res://star-sky.gdshader
 UINavigationManager.cs::CSharpScript::-1::1684065043::0::1::::<><>::
 ui_navigation_manager.tscn::PackedScene::398571667513817080::1684067431::0::1::::<><>::res://Instances/Menus/UINavigationManager.cs
-::res://Instances/Menus/LevelSelection/::1684201811
-LevelSelectLevel.tscn::PackedScene::6770805437750687728::1684201783::0::1::::<><>::res://Instances/Levels/Level.cs<>res://Instances/Menus/LevelSelection/LevelSelectVisualisation.cs
-LevelSelectScene.tscn::PackedScene::3829531926688066621::1684201811::0::1::::<><>::uid://fxcogg7m5cng<>uid://besp4vl5cfm8a<>uid://c3p3f83ty7noa
+::res://Instances/Menus/LevelSelection/::1684241669
+LevelSelectLevel.tscn::PackedScene::6770805437750687728::1684241669::0::1::::<><>::res://Instances/Levels/Level.cs<>res://Instances/Menus/LevelSelection/LevelSelectVisualisation.cs
+LevelSelectScene.tscn::PackedScene::3829531926688066621::1684241669::0::1::::<><>::uid://fxcogg7m5cng<>uid://besp4vl5cfm8a<>uid://c3p3f83ty7noa
 LevelSelectVisualisation.cs::CSharpScript::-1::1684199796::0::1::::<><>::
-RemapInputs.tscn::PackedScene::8454192594244159099::1684201783::0::1::::<><>::res://Instances/Menus/SettingsMenu/RemapInputs.cs
-::res://Instances/Menus/MainMenu/::1684067431
+RemapInputs.tscn::PackedScene::8454192594244159099::1684241669::0::1::::<><>::res://Instances/Menus/SettingsMenu/RemapInputs.cs
+::res://Instances/Menus/MainMenu/::1684241669
 ExitButton.cs::CSharpScript::-1::1682787148::0::1::::<><>::
 MainMenuTheme.tres::Theme::1179337232926174158::1683628593::0::1::::<><>::
-main_menu.tscn::PackedScene::2338109001545350113::1684067431::0::1::::<><>::uid://fxcogg7m5cng<>res://Instances/Menus/MainMenu/MenuReadyDisabler.cs<>res://Instances/Menus/MainMenu/PlayButton.cs<>uid://6q0qpcor0krb<>res://Instances/Menus/MainMenu/ExitButton.cs<>res://Instances/Menus/MainMenu/SettingsButton.cs<>uid://cn5pdby1dc4iv
+main_menu.tscn::PackedScene::2338109001545350113::1684241669::0::1::::<><>::uid://fxcogg7m5cng<>res://Instances/Menus/MainMenu/MenuReadyDisabler.cs<>res://Instances/Menus/MainMenu/PlayButton.cs<>uid://butb3javps1yf<>res://Instances/Menus/MainMenu/ExitButton.cs<>res://Instances/Menus/MainMenu/SettingsButton.cs<>uid://cn5pdby1dc4iv
 MenuReadyDisabler.cs::CSharpScript::-1::1683993526::0::1::::<><>::
 PlayButton.cs::CSharpScript::-1::1682977083::0::1::::<><>::
 SettingsButton.cs::CSharpScript::-1::1683993406::0::1::::<><>::
-::res://Instances/Menus/PauseMenu/::1684201783
+::res://Instances/Menus/PauseMenu/::1684241669
 PauseMenu.cs::CSharpScript::-1::1684201781::0::1::::<><>::
-pause_menu.tscn::PackedScene::5186019398921320722::1684201783::0::1::::<><>::res://Instances/Menus/PauseMenu/PauseMenu.cs<>uid://fxcogg7m5cng
+pause_menu.tscn::PackedScene::5186019398921320722::1684241669::0::1::::<><>::res://Instances/Menus/PauseMenu/PauseMenu.cs<>uid://fxcogg7m5cng
 ::res://Instances/Menus/SettingsMenu/::1684197223
 RemapInputs.cs::CSharpScript::-1::1684196572::0::1::::<><>::
 SettingsMenu.cs::CSharpScript::-1::1683993459::0::1::::<><>::

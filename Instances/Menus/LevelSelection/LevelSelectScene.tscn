@@ -20,7 +20,4 @@ grow_vertical = 2
 layout_mode = 2
 baseLevelToLoad = ExtResource("2_f42i2")
 
-[node name="VBoxContainer" parent="Levels/Level1" index="0"]
-layout_mode = 0
-
 [editable path="Levels/Level1"]

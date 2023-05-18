@@ -77,9 +77,9 @@ text = "Right"
 [node name="Button" type="Button" parent="VBoxContainer/RightHBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "R"
+text = "D"
 
 [node name="Button2" type="Button" parent="VBoxContainer/RightHBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "R"
+text = "D"

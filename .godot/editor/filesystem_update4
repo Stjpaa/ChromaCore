@@ -6,3 +6,6 @@ res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
 res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn
 res://Instances/Menus/LevelSelection/RemapInputs.tscn
 res://Instances/Menus/PauseMenu/pause_menu.tscn
+res://star-sky.gdshader
+res://Instances/Levels/Level-Prototype.tscn
+res://Instances/Menus/MainMenu/main_menu.tscn
