@@ -13,10 +13,10 @@ width = 8
 height = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5niqk"]
-size = Vector2(16, 8)
+size = Vector2(30, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p11qv"]
-size = Vector2(14, 1)
+size = Vector2(28, 1)
 
 [node name="JumpPad" type="StaticBody2D" node_paths=PackedStringArray("_audioPlayer")]
 script = ExtResource("1_axob7")

@@ -97,8 +97,7 @@ public partial class Gravityfield_Toggle : Node2D
 		body.Call("ResetGravityProperties");	
 		try
 		{
-			PlayerController.PlayerController2D player_body = (PlayerController.PlayerController2D)body;
-			if(player_body != null)
+			if (body is PlayerController.PlayerController2D)
 			{
 				_audioPlayerOutside.VolumeDb = 0;
 				_audioPlayerInside.VolumeDb = -100;

@@ -1204,7 +1204,7 @@ position = Vector2(37, 112)
 position = Vector2(-667, -640)
 
 [node name="Player" parent="." instance=ExtResource("11_xf5fx")]
-position = Vector2(-2171, 19)
+position = Vector2(146, 79)
 
 [node name="Label" parent="Player" index="4"]
 visible = false

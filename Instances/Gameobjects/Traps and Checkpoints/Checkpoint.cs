@@ -23,10 +23,9 @@ public partial class Checkpoint : Area2D
 		}
 	}
 
-
 	public void OnBodyEntered(Node2D body)
 	{
-		if (body.Name == "Player")
+		if (body is PlayerController.PlayerController2D)
 		{
 			body.Call("SaveCheckpointLocation", this.GlobalPosition);
 		}
