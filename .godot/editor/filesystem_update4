@@ -1,8 +1,7 @@
-res://Instances/Levels/world_1_level.tscn
-res://Assets/Sprites/Platform_Normal.tres
-res://Assets/Sprites/Platform_Moving.tres
+res://Assets/Sprites/Game objects/Platform_Normal.tres
+res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Instances/Levels/Level-Prototype.tscn
-res://Instances/Gameobjects/Movable Objects/Box.tscn
-res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn
-res://Instances/Gameobjects/Platforms/JumpPad.tscn
+res://Instances/Artifacts/Artifact1.tscn
+res://Instances/Artifacts/Artifact1_1.tscn
+res://Instances/Artifacts/Artifact1_2.tscn
+res://Instances/Artifacts/Artifact1_3.tscn
