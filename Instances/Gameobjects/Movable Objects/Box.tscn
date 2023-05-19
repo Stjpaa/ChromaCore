@@ -17,7 +17,7 @@ shader_parameter/trail_width = 0.5
 friction = 0.6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5g7"]
-size = Vector2(32, 32)
+size = Vector2(45, 45)
 
 [sub_resource type="Gradient" id="Gradient_5kk12"]
 colors = PackedColorArray(0.00784314, 0.219608, 0.94902, 1, 0.00784314, 0.219608, 0.94902, 1)

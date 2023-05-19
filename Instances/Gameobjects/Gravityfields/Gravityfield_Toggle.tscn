@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://rfnsqa1150ea"]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs" id="1_hbaih"]
-[ext_resource type="Texture2D" uid="uid://cp1ogcfgfwqy0" path="res://Assets/Sprites/Switch.png" id="2_4k21u"]
+[ext_resource type="Texture2D" uid="uid://cp1ogcfgfwqy0" path="res://Assets/Sprites/Game objects/Switch.png" id="2_4k21u"]
 [ext_resource type="AudioStream" uid="uid://byknlivrlw2yu" path="res://Assets/Sounds/ForceField_Take01_Outside.wav" id="3_mgax4"]
 [ext_resource type="AudioStream" uid="uid://b26twq3i0cyse" path="res://Assets/Sounds/ForceField_Take01_Inside.wav" id="4_0ldbw"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38fv1"]
 resource_local_to_scene = true

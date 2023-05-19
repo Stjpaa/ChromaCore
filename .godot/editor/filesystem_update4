@@ -4,3 +4,5 @@ res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Levels/Level-Prototype.tscn
 res://Instances/Gameobjects/Movable Objects/Box.tscn
+res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn
+res://Instances/Gameobjects/Platforms/JumpPad.tscn

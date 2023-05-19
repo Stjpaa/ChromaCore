@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://copwnbrcbk0bm"
-path="res://.godot/imported/64x64_Light.png-8c816313f541da7d47ba03a4680cdb11.ctex"
+uid="uid://dtvtg1v8ts23m"
+path="res://.godot/imported/Spikes.png-5c5fb5158fae5cf10a8d09ecfb75ba07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tileset Sprites/64x64_Light.png"
-dest_files=["res://.godot/imported/64x64_Light.png-8c816313f541da7d47ba03a4680cdb11.ctex"]
+source_file="res://Assets/Sprites/Game objects/Spikes.png"
+dest_files=["res://.godot/imported/Spikes.png-5c5fb5158fae5cf10a8d09ecfb75ba07.ctex"]
 
 [params]
 
