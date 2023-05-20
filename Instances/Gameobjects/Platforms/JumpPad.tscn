@@ -19,6 +19,8 @@ size = Vector2(30, 8)
 size = Vector2(28, 1)
 
 [node name="JumpPad" type="StaticBody2D" node_paths=PackedStringArray("_audioPlayer")]
+collision_layer = 1024
+collision_mask = 192
 script = ExtResource("1_axob7")
 _audioPlayer = NodePath("AudioStreamPlayer2D")
 
@@ -32,6 +34,8 @@ shape = SubResource("RectangleShape2D_5niqk")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -0.1)
+collision_layer = 1024
+collision_mask = 192
 
 [node name="JumpCollider" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -4.5)

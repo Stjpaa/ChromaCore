@@ -23,6 +23,8 @@ animations = [{
 }]
 
 [node name="Checkpoint" type="Area2D"]
+collision_layer = 2048
+collision_mask = 64
 script = ExtResource("1_ehkwy")
 _collisionWidth = 100.0
 

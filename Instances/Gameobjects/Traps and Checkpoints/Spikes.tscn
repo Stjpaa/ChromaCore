@@ -6,6 +6,8 @@
 size = Vector2(64, 6)
 
 [node name="Spikes" type="Area2D"]
+collision_layer = 256
+collision_mask = 64
 script = ExtResource("1_c1ldn")
 
 [node name="Collider" type="CollisionShape2D" parent="."]

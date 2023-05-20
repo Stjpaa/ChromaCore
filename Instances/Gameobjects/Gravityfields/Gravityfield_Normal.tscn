@@ -123,6 +123,8 @@ shader_parameter/pause = false
 [sub_resource type="CanvasTexture" id="CanvasTexture_n1qrv"]
 
 [node name="Gravityfield_Normal" type="Area2D" node_paths=PackedStringArray("_audioPlayerOutside", "_audioPlayerInside")]
+collision_layer = 512
+collision_mask = 192
 script = ExtResource("1_vak0t")
 _gravityStrength = 200.0
 _audioPlayerOutside = NodePath("AudioStreamPlayer2D")
