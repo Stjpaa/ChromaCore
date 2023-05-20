@@ -8,8 +8,24 @@ using System.Linq;
 
 namespace GrapplingHook
 {
+    /// <summary>
+    /// The grappling hook is seperated into two parts. One for the visuals and one for the physics. Both work independently.
+    /// <para>
+    /// The visuals is implemented as a Node with two childs. A sprite for the tip
+    /// and a line2d node for the chain that holds two points.
+    /// The first point is always at the tip of the hook and 
+    /// the second point is updated during process to the player hook start position.
+    /// </para>
+    /// <para>
+    /// The physics are controled in the states of the hook.
+    /// See class physics for the implementation of the physics.
+    /// </para>
+    /// </summary>
     public partial class GrapplingHook : Node
     {
+        [Export]
+        public GrapplingHook_Data data;
+
         // Visuals
         public Node2D Hook { get; private set; }
 
@@ -30,10 +46,14 @@ namespace GrapplingHook
         public event Action ShootEvent;
         public event Action ReleaseEvent;
 
-        // Balancing
-        public float HookVelocityMultiplikatorOnRelease { get { return 1.5f; } }
-        public float PlayerVelocityMultiplikatorOnStart { get { return 1f; } }
-
+        #region Balancing
+        public float HookVelocityMultiplikatorOnRelease { get { return data.HookVelocityMultiplikatorOnRelease; } }
+        public float MaxHookUpwardsVelocityOnRelease { get { return data.MaxHookUpwardsVelocityOnRelease; } }
+        public float PlayerVelocityMultiplikatorOnStart { get { return data.PlayerVelocityMultiplikatorOnStart; } }
+        public float MinDistance { get { return data.MinDistance; } }
+        public float MaxDistance { get { return data.MaxDistance; } }
+        public float StartImpulse { get { return data.MaxDistance; } }
+        #endregion
 
         public override void _Ready()
         {
@@ -49,7 +69,6 @@ namespace GrapplingHook
         public override void _Process(double delta)
         {
             _state.ExecuteProcess();
-            UpdateChainEndPosition();
         }
 
         public override void _PhysicsProcess(double delta)
@@ -80,10 +99,9 @@ namespace GrapplingHook
             {
                 ShootEvent?.Invoke();
             }
-            //TODO GH only possible if 
         }
        
-        #region Methods
+        #region Communication with the player controller
         /// <summary>
         /// Makes the player node to a child of the grappling hook
         /// </summary>
@@ -102,6 +120,18 @@ namespace GrapplingHook
             _playerController.ChangeState(new PlayerController.States.Hooking(_playerController, this));
         }
 
+        /// <summary>
+        /// Changes the state of the hook to returning
+        /// </summary>
+        public void ReturnHook()
+        {
+            if(_state is not Connected) { return; }
+
+            ChangeState(new Returning(this));
+        }
+        #endregion
+
+        #region Target
         public void AddTarget(Node2D target)
         {
             _targetList.Add(target);
@@ -125,29 +155,39 @@ namespace GrapplingHook
                 return;
             }
 
+            // Get the closest target
             var minDistance = _targetList.Min(o => o.GlobalPosition.DistanceTo(GetHookStartPosition()));
             var closestTarget = from target in _targetList
-                                where target.GlobalPosition.DistanceTo(GetHookStartPosition()) == minDistance
+                                where target.GlobalPosition.DistanceTo(GetHookStartPosition()) == minDistance &&
+                                // Min Distance check
+                                target.GlobalPosition.DistanceTo(GetHookStartPosition()) > MinDistance &&
+                                // Max Distance check
+                                target.GlobalPosition.DistanceTo(GetHookStartPosition()) <= MaxDistance &&
+                                // Is on ground check
+                                _playerController.IsOnFloor() == false
                                 select target;
 
             _currentTarget = closestTarget.FirstOrDefault();
 
-            // Min distance check
-            if(minDistance < 50)
-            {
-                _currentTarget = null;
-            }
+            GD.Print(minDistance);
         }
+        #endregion
 
+        #region Visuals
         /// <summary>
-        /// Updates the visuals of the chain.
+        /// Updates the second position of the line2d node.
         /// </summary>
-        private void UpdateChainEndPosition()
+        public void UpdateChainEndPosition()
         {
             var offset = GetCurrentHookLength();
             Chain.SetPointPosition(1, new Vector2(offset, 0));
 
             Chain.LookAt(_playerController.HookStartPosition);
+        }
+
+        private int GetCurrentHookLength()
+        {
+            return Mathf.RoundToInt(_playerController.HookStartPosition.DistanceTo(Hook.GlobalPosition));
         }
         #endregion
 
@@ -155,7 +195,13 @@ namespace GrapplingHook
 
         public Vector2 GetHookVelocityOnRelease()
         {
-            return Physics.HookStart.LinearVelocity * HookVelocityMultiplikatorOnRelease;
+            var velocity = Physics.HookStart.LinearVelocity * HookVelocityMultiplikatorOnRelease;
+            // Clamp the upwards movement
+            if(velocity.Y < 0)
+            {
+                velocity.Y = Mathf.Clamp(velocity.Y, -MaxHookUpwardsVelocityOnRelease, float.MaxValue);
+            }            
+            return velocity;
         }
 
         public Vector2 GetPlayerVelocityOnStart()
@@ -181,12 +227,7 @@ namespace GrapplingHook
                 return Vector2.Zero;
             }
             return _currentTarget.GlobalPosition;
-        }       
-
-        private int GetCurrentHookLength()
-         {
-            return Mathf.RoundToInt(_playerController.HookStartPosition.DistanceTo(Hook.GlobalPosition));
-        }
+        }              
         #endregion       
     }
 }

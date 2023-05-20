@@ -3,14 +3,19 @@ using System;
 
 namespace GrapplingHook.Physics
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class HookStart : RigidBody2D
     {
         private bool _setPosition;
         private bool _controlsActivated;
         private bool _setVelocity;
+        private bool _setStartImpulse;
 
         private Vector2 _position;
         private Vector2 _velocity;
+        private Vector2 _startImpulse;
 
         public override void _IntegrateForces(PhysicsDirectBodyState2D state)
         {
@@ -25,21 +30,30 @@ namespace GrapplingHook.Physics
                 state.LinearVelocity = _velocity;
                 _setVelocity = false;
             }
+            
 
             if (_controlsActivated)
             {
-                var moveDirection = Input.GetAxis("Move_Left", "Move_Right");                
+                var moveDirection = Input.GetAxis("Move_Left", "Move_Right");
 
                 var direction = GlobalPosition - (GetParent() as Node2D).GlobalPosition;
                 var angle = Mathf.RadToDeg(direction.Angle());
 
-                if (angle > 20 && angle < 160)
+                // Player can cotrol the direction
+                if (angle >= 20 && angle <= 160)
                 {
                     state.ApplyImpulse(moveDirection * new Vector2(700, 0) * (float)GetPhysicsProcessDeltaTime());
+                    
                 }
                 else
                 {
-                    state.ApplyImpulse( -LinearVelocity * 3 * (float)GetPhysicsProcessDeltaTime());
+                    state.ApplyImpulse(2000 * Vector2.Down * (float)GetPhysicsProcessDeltaTime());
+                }
+
+                if(_setStartImpulse)
+                {
+                    state.ApplyImpulse(_startImpulse);
+                    _setStartImpulse = false;
                 }
             }
         }
@@ -55,6 +69,12 @@ namespace GrapplingHook.Physics
         {
             _velocity = velocity;
             _setVelocity = true;
+        }
+
+        public void SetStartImpulse(Vector2 impulse)
+        {
+            _startImpulse = impulse;
+            _setStartImpulse= true;
         }
 
         public void SetControlsActive(bool value)

@@ -21,7 +21,6 @@ namespace PlayerController.States
 
         public override void Enter()
         {
-            _playerController2D.GrapplingHook.ShootHook(_playerController2D);
             _playerController2D.AnimatedSprite2D.Play("Hooking");
             _playerController2D.Velocity = Vector2.Zero;
             _grapplingHook.ReleaseEvent += TransitionToJumping;

@@ -3,21 +3,18 @@ using System;
 
 public partial class FollowingCamera : Camera2D
 {
-    private const float DEAD_ZONE = 160;
+    [Export]
+    public Node2D target = null;
+    [Export]
+    public float followingSpeed = 1.0f;
 
-    public override void _Input(InputEvent @event)
+    public override void _Process(double delta)
     {
-        if(@event is InputEventMouseMotion)
-        {
-            var target = GetGlobalMousePosition() - GetViewportRect().Size / 2f;
-            if(target.Length() < DEAD_ZONE)
-            {
-                Position = Vector2.Zero;
-            }
-            else
-            {
-                Position = target.Normalized() * (target.Length() - DEAD_ZONE) * 0.25f;
-            }
-        }
+        System.Numerics.Vector2 cameraVector = new System.Numerics.Vector2(GlobalPosition.X, GlobalPosition.Y);
+        System.Numerics.Vector2 targetVector = new System.Numerics.Vector2(target.GlobalPosition.X, target.GlobalPosition.Y);
+
+        cameraVector = System.Numerics.Vector2.Lerp(cameraVector, targetVector, followingSpeed * (float)delta);
+
+        GlobalPosition = new Vector2(cameraVector.X, cameraVector.Y);
     }
 }

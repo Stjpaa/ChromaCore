@@ -29,22 +29,24 @@ namespace GrapplingHook.States
 
         private void SetGrapplingHookActive()
         {
+            // Eneable visuals
             _grapplingHook.Hook.Visible = true;
             _grapplingHook.Chain.Visible = true;
-
+            // Eneable processing
             _grapplingHook.SetProcess(true);
             _grapplingHook.SetPhysicsProcess(true);
-
+            // Unsubscribe to the shoot event
             _grapplingHook.ShootEvent -= TransitionToShooting;
         }
         private void SetGrapplingHookPassive()
         {
+            // Disable visuals
             _grapplingHook.Hook.Visible = false;
             _grapplingHook.Chain.Visible = false;
-
+            // Disable processing
             _grapplingHook.SetProcess(false);
             _grapplingHook.SetPhysicsProcess(false);
-
+            // Subscribe to the shoot event
             _grapplingHook.ShootEvent += TransitionToShooting;
         }
 

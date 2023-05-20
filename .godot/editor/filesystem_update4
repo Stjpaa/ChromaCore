@@ -5,3 +5,4 @@ res://Dillon/tile_map.tscn
 res://Dillon/PlayerController/PlayerController2D.tscn
 res://Dillon/GrapplingHook/GrapplingHook.tscn
 res://Dillon/GrapplingHook/HookableArea.tscn
+res://Dillon/Camera/FollowingCamera.tscn

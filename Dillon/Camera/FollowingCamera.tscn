@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bph68e4uce5xc"]
+
+[ext_resource type="Script" path="res://Dillon/Camera/FollowingCamera.cs" id="1_oqvoa"]
+
+[node name="FollowingCamera" type="Camera2D"]
+script = ExtResource("1_oqvoa")

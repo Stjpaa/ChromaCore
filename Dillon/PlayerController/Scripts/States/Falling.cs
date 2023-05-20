@@ -253,8 +253,7 @@ namespace PlayerController.States
             var hookTrigger = Input.IsActionJustPressed("ShootGrapplingHook");
             if (hookTrigger)
             {
-                _playerController2D.GrapplingHook.ShootHook(_playerController2D);
-                return true;
+                return _playerController2D.ShootGrapplingHook();
             }
             return false;
         }

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://m3mpklc8drsk"]
+[gd_scene load_steps=10 format=3 uid="uid://m3mpklc8drsk"]
 
 [ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/GrapplingHook.cs" id="1_bli5b"]
+[ext_resource type="Resource" uid="uid://wspkhwy41qcp" path="res://Dillon/GrapplingHook/GrapplingHook_Data.tres" id="2_48gmm"]
 [ext_resource type="Texture2D" uid="uid://c4oinqy36rul1" path="res://Dillon/Assets/HookKenney.png" id="2_dgme7"]
 [ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/Physics.cs" id="3_1xgur"]
 [ext_resource type="Texture2D" uid="uid://1esrigfqux07" path="res://icon.svg" id="3_7ndy8"]
@@ -14,6 +15,7 @@ size = Vector2(24, 42)
 
 [node name="GrapplingHook" type="Node"]
 script = ExtResource("1_bli5b")
+data = ExtResource("2_48gmm")
 
 [node name="Visuals" type="Node" parent="."]
 

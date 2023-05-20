@@ -6,16 +6,27 @@ namespace PlayerController
     public partial class PlayerController2D : CharacterBody2D
     {
         // GitHub Commit logs Version 0.0.18
-        // Refactoring for the grappling hook and for the states
+        // Refactoring and documentation for the states of the grappling hook
+        // - Idle - Shooting - Connected - Returning
+        // Refactoring and documentation
+        // - Grappling Hook - Grappling Hook.Physics -
         // 
-        //
+        // Added a indicator icon for the hookable area
+        // Added grappling hook data for balancing
+        // Implemented grappling hook constraints
+        // -> min max distance
+        // -> only if the player is not on the ground
+        // -> max upwards velocity on release
+        // Implemented grappling hook velocity transition
         // Updated the collision masks for the checkpoint, traps etc.
         // Added new visuals for the grappling hook
         // Implemented interaction with traps
-        // When entering a checkpoint the position of the checkpoint will saved and not the player position 
+        // Implemented interaction between grappling hook and portals, gravity fiels and jump pad
+        // When entering a checkpoint the position of the checkpoint is saved and not the position of the player
+        //
         // Problems:
         // - Dash works not correctly inside a gravity field => open
-        // - Gravity field is not effecting the player during moving state 
+        // - Gravity field is not effecting the player during moving state => open 
 
         [Export]
         public PlayerController2D_Data data;
@@ -50,6 +61,8 @@ namespace PlayerController
             get { return _hookStartPositioNode.GlobalPosition; }
         }
 
+        public bool HookIsReady { get; private set; }
+
         #region Moving State Variables
         public float MaxMoveSpeed { get { return data.maxMoveSpeed; } }
         public float MoveSpeedAcceleration { get { return data.moveSpeedAcceleration; } }
@@ -78,7 +91,7 @@ namespace PlayerController
         #endregion
 
         public State currentState;
-        public State previousState;
+        public State previousState;      
 
         private Vector2 _checkpointPosition;
 
@@ -153,28 +166,68 @@ namespace PlayerController
             GlobalPosition = globalPosition;
         }
 
+        public bool ShootGrapplingHook()
+        {
+            if(HookIsReady)
+            {
+                GrapplingHook.ShootHook(this);
+            }
+            return HookIsReady;
+        }
+
+        /// <summary>
+        /// Called by gravity fields
+        /// </summary>
         private void ChangeGravityProperties(Vector2 direction)
         {
+            if(currentState is Hooking) 
+            {
+                GrapplingHook.ReturnHook();
+            }
+            HookIsReady = false;
+
             GD.Print("Gravity field entered");
             ChangeState(new Falling(this, direction));
         }
 
+        /// <summary>
+        /// Called by gravity fields
+        /// </summary>
         private void ResetGravityProperties()
         {
+            HookIsReady = true;
+
             GD.Print("Gravity field left");
             ChangeState(new Falling(this));
         }
 
+        /// <summary>
+        /// Called by jump pads
+        /// </summary>
         private void ApplyJumpPadForce(Vector2 strength)
         {
+            if (currentState is Hooking)
+            {
+                GrapplingHook.ReturnHook();
+            }
+
             GD.Print("Jumppad entered");
             ChangeState(new Jumping(this, false, strength));
         }
 
+        /// <summary>
+        /// Called by portals
+        /// </summary>
         private void Teleport(Vector2 newPos, Vector2 impulse)
-        {
+        {           
             GD.Print("Teleport entered");
             if (_teleportTimer.TimeLeft > 0) { return; }
+
+            if (currentState is Hooking)
+            {
+                GrapplingHook.ReturnHook();
+                GrapplingHook.Chain.Visible = false;
+            }
 
             // Set the position to the teleport position
             Transform = new Transform2D(0, newPos);
@@ -183,8 +236,16 @@ namespace PlayerController
             _teleportTimer.Start();
         }
 
+        /// <summary>
+        /// Called by traps
+        /// </summary>
         private void TeleportToLastCheckPoint()
         {
+            if (currentState is Hooking)
+            {
+                GrapplingHook.ReturnHook();
+            }
+
             Transform = new Transform2D(0, _checkpointPosition);
         }
 
@@ -200,6 +261,9 @@ namespace PlayerController
             }
         }
 
+        /// <summary>
+        /// Called by check points
+        /// </summary>
         private void SaveCheckpointLocation(Vector2 checkpointPosition)
         {
             GD.Print("Checkpoint entered");

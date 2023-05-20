@@ -1,33 +1,44 @@
 using Godot;
-using GrapplingHook.States;
 using PlayerController;
-using System;
-using System.Runtime.Intrinsics.X86;
 
 namespace GrapplingHook
 {
     public partial class HookableArea : Area2D
     {
-        private Sprite2D _sprite;
+        [Export]
+        public GrapplingHook_Data data;
+        [Export]
+        public bool showDebugLines;
+
+        private Sprite2D _indicatorIcon;
 
         public override void _Draw()
         {
-            var radius = (GetNode<CollisionShape2D>("CollisionShape2D").Shape as CircleShape2D).Radius;
+            (GetNode<CollisionShape2D>("CollisionShape2D").Shape as CircleShape2D).Radius = data.MaxDistance;
+            var radius = data.MaxDistance;
 
             // Max distance for grappling hook
             DrawArc(Vector2.Zero,
                     radius,
                     0, 360, 64, new Color(1, 0, 0));
 
-            // Min distance for grappling hook
-            DrawArc(Vector2.Zero,
-                    50, 0, 64, 360, new Color(1, 0, 0));
+            if (showDebugLines)
+            {
+                // Min distance for grappling hook
+                DrawArc(Vector2.Zero,
+                        50, 0, 64, 360, new Color(1, 0, 0));
 
-            var dirLeft = Vector2.Right.Rotated(Mathf.DegToRad(160));
-            var dirRight = Vector2.Right.Rotated(Mathf.DegToRad(20));
-            DrawLine(Vector2.Zero, dirLeft * radius, new Color(0, 1, 0));
-            DrawLine(Vector2.Zero, dirRight * radius, new Color(0, 1, 0));
+                var dirLeft = Vector2.Right.Rotated(Mathf.DegToRad(160));
+                var dirRight = Vector2.Right.Rotated(Mathf.DegToRad(20));
+                DrawLine(Vector2.Zero, dirLeft * radius, new Color(0, 1, 0));
+                DrawLine(Vector2.Zero, dirRight * radius, new Color(0, 1, 0));
 
+                // Start impuls for grappling hook
+                var dirLeft1 = Vector2.Right.Rotated(Mathf.DegToRad(-70));
+                var dirRight1 = Vector2.Right.Rotated(Mathf.DegToRad(-110));
+                DrawLine(Vector2.Zero, dirLeft1 * radius, new Color(0, 1, 1));
+                DrawLine(Vector2.Zero, dirRight1 * radius, new Color(0, 1, 1));
+            }
         }
 
         public override void _Process(double delta)
@@ -37,29 +48,31 @@ namespace GrapplingHook
 
         public override void _Ready()
         {
-            _sprite = GetNode<Sprite2D>("Sprite2D");
+            _indicatorIcon = GetNode<Sprite2D>("Indicator");
             
             BodyEntered += OnPlayerEnteredHookableArea;
             BodyExited += OnPlayerExitedHookableArea;
 
-            _sprite.Visible = false;
+            _indicatorIcon.Visible = false;
             QueueRedraw();
         }
 
         private void OnPlayerEnteredHookableArea(Node2D body)
-        {
-            _sprite.Visible = true;
+        {           
             if(body is PlayerController2D)
             {
+                _indicatorIcon.Visible = true;
+
                 (body as PlayerController2D).GrapplingHook.AddTarget(this);
             }
         }
 
         private void OnPlayerExitedHookableArea(Node2D body)
-        {
-            _sprite.Visible = false;
+        {            
             if (body is PlayerController2D)
             {
+                _indicatorIcon.Visible = false;
+
                 var playerController = body as PlayerController2D;
                 playerController.GrapplingHook.RemoveTarget(this);               
             }

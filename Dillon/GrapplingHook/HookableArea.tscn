@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://0vuadphoaeog"]
+[gd_scene load_steps=6 format=3 uid="uid://0vuadphoaeog"]
 
 [ext_resource type="Texture2D" uid="uid://uhcph3ufydda" path="res://Dillon/Assets/HookableArea.png" id="1_fbsf8"]
 [ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/HookableArea.cs" id="1_fmnge"]
+[ext_resource type="Resource" uid="uid://wspkhwy41qcp" path="res://Dillon/GrapplingHook/GrapplingHook_Data.tres" id="2_hvnyr"]
+[ext_resource type="Texture2D" uid="uid://7lov5mst0y3j" path="res://Dillon/Assets/exclamation.png" id="4_27svv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jstte"]
 radius = 200.0
@@ -10,10 +12,16 @@ radius = 200.0
 collision_layer = 8192
 collision_mask = 64
 script = ExtResource("1_fmnge")
+data = ExtResource("2_hvnyr")
+showDebugLines = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jstte")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Visual" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_fbsf8")
+
+[node name="Indicator" type="Sprite2D" parent="."]
+position = Vector2(0, -38)
+texture = ExtResource("4_27svv")

@@ -34,7 +34,10 @@ namespace GrapplingHook.States
             _tween.Finished += TransitionToConnected;
         }
 
-        public override void ExecuteProcess() { }
+        public override void ExecuteProcess() 
+        {
+            _grapplingHook.UpdateChainEndPosition();
+        }
         public override void ExecutePhysicsProcess() { }
         public override void Exit() { }
 

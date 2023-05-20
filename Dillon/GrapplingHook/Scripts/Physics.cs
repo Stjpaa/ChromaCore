@@ -5,7 +5,14 @@ namespace GrapplingHook.Physics
 {
     /// <summary>
     /// Contains the physisc for the grappling hook.
-    /// 
+    /// <para>
+    /// Implemented as a dampedspringjoint. Bending is avoided by setting its stiffness to a high value.
+    /// It has two childs which are assigned to the dsj.
+    /// A staticbody2d which is the hook end and a rigidbody2d which is the hook start.
+    /// Due to the node composition only the dsj has to be set to the target position and then rotated towards the players hook start position.
+    /// Then the length of the dsj is set and the local position of the hook start node is also set to the length.
+    /// By applying forces to the hook start a swinging mechanic is simulated.
+    /// </para>
     /// </summary>
     public partial class Physics : Node
     {
