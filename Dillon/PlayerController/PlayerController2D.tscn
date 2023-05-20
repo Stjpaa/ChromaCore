@@ -217,6 +217,7 @@ font_size = 25
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lkady"]
 shader = ExtResource("4_io7vd")
 shader_parameter/bg_color = null
+shader_parameter/position = Vector2(0, 0)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 1
