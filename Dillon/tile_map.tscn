@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://m3mpklc8drsk" path="res://Dillon/GrapplingHook/GrapplingHook.tscn" id="10_6abn4"]
 [ext_resource type="PackedScene" uid="uid://0vuadphoaeog" path="res://Dillon/GrapplingHook/HookableArea.tscn" id="10_6y4uv"]
 [ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="12_ayfjc"]
-[ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="13_l42sd"]
+[ext_resource type="PackedScene" uid="uid://d2dmdifx4vsp7" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="13_l42sd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idpbc"]
 

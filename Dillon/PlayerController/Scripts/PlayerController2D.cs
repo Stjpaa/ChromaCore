@@ -5,25 +5,8 @@ namespace PlayerController
 {
     public partial class PlayerController2D : CharacterBody2D
     {
-        // GitHub Commit logs Version 0.0.18
-        // Refactoring and documentation for the states of the grappling hook
-        // - Idle - Shooting - Connected - Returning
-        // Refactoring and documentation
-        // - Grappling Hook - Grappling Hook.Physics -
-        // 
-        // Added a indicator icon for the hookable area
-        // Added grappling hook data for balancing
-        // Implemented grappling hook constraints
-        // -> min max distance
-        // -> only if the player is not on the ground
-        // -> max upwards velocity on release
-        // Implemented grappling hook velocity transition
-        // Updated the collision masks for the checkpoint, traps etc.
-        // Added new visuals for the grappling hook
-        // Implemented interaction with traps
-        // Implemented interaction between grappling hook and portals, gravity fiels and jump pad
-        // When entering a checkpoint the position of the checkpoint is saved and not the position of the player
-        //
+        // GitHub Commit logs Version 0.0.19
+        // Implemented interaction with laser
         // Problems:
         // - Dash works not correctly inside a gravity field => open
         // - Gravity field is not effecting the player during moving state => open 
@@ -268,6 +251,18 @@ namespace PlayerController
         {
             GD.Print("Checkpoint entered");
             _checkpointPosition = checkpointPosition;
+        }
+
+        /// <summary>
+        /// Called by laser
+        /// </summary>
+        public void KilledPlayer()
+        {
+            if (currentState is Hooking)
+            {
+                GrapplingHook.ReturnHook();
+            }
+            Transform = new Transform2D(0, _checkpointPosition);
         }
         #endregion
     }

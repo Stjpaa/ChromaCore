@@ -1046,7 +1046,6 @@ libraries = {
 position = Vector2(-2248, -212)
 physics_material_override = SubResource("PhysicsMaterial_ypp4y")
 max_contacts_reported = 0
-_boxSize = 32.0
 
 [node name="TeleportCooldown" parent="GameObjectsList/Box" index="1"]
 process_callback = 0
@@ -1109,7 +1108,6 @@ scale = Vector2(75, 125)
 
 [node name="Gravityfield_Toggle2" parent="GravityfieldList" instance=ExtResource("8_i08wq")]
 position = Vector2(-376, -856)
-_gravityfieldSize = Vector2(50, 150)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Toggle2/Gravityfield" index="0"]
 shape = SubResource("RectangleShape2D_mcp58")
@@ -1163,10 +1161,8 @@ shape = SubResource("RectangleShape2D_6apcr")
 material = SubResource("ShaderMaterial_gi30v")
 scale = Vector2(48, 144)
 
-[node name="Gravityfield_Toggle3" parent="GravityfieldList" node_paths=PackedStringArray("_audioPlayerOutside", "_audioPlayerInside") instance=ExtResource("8_i08wq")]
+[node name="Gravityfield_Toggle3" parent="GravityfieldList" instance=ExtResource("8_i08wq")]
 position = Vector2(-2064, 13)
-_audioPlayerOutside = NodePath("../Gravityfield_Toggle/AudioStreamPlayer2D")
-_audioPlayerInside = NodePath("../Gravityfield_Toggle/AudioStreamPlayer")
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Toggle3/Gravityfield" index="0"]
 shape = SubResource("RectangleShape2D_1jmof")
@@ -1209,12 +1205,12 @@ position = Vector2(146, 79)
 [node name="Label" parent="Player" index="4"]
 visible = false
 
-[node name="Camera2D" parent="Player" index="8"]
-zoom = Vector2(1.5, 1.5)
-
-[node name="Sprite2D" parent="Player" index="9"]
+[node name="Sprite2D" parent="Player" index="8"]
 scale = Vector2(0.461, 0.461)
 texture = ExtResource("14_kjbvf")
+
+[node name="Camera2D" parent="Player" index="9"]
+zoom = Vector2(1.5, 1.5)
 
 [node name="Miscellaneous" type="Node" parent="."]
 
