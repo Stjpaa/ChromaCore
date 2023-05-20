@@ -1,6 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://rfnsqa1150ea"]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs" id="1_hbaih"]
+[ext_resource type="Texture2D" uid="uid://cp1ogcfgfwqy0" path="res://Assets/Sprites/Game objects/Switch.png" id="2_4k21u"]
+[ext_resource type="AudioStream" uid="uid://byknlivrlw2yu" path="res://Assets/Sounds/ForceField_Take01_Outside.wav" id="3_mgax4"]
+[ext_resource type="AudioStream" uid="uid://b26twq3i0cyse" path="res://Assets/Sounds/ForceField_Take01_Inside.wav" id="4_0ldbw"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38fv1"]
 resource_local_to_scene = true
@@ -121,33 +125,45 @@ shader_parameter/pause = true
 [sub_resource type="CanvasTexture" id="CanvasTexture_t4xum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pxg"]
-size = Vector2(20, 2.1148)
+size = Vector2(16, 2.1148)
 
-[node name="Gravityfield_Toggle" type="Area2D"]
-collision_layer = 512
-collision_mask = 192
+[node name="Gravityfield_Toggle" type="Node2D" node_paths=PackedStringArray("_audioPlayerOutside", "_audioPlayerInside")]
 script = ExtResource("1_hbaih")
+_audioPlayerOutside = NodePath("AudioStreamPlayer2D")
+_audioPlayerInside = NodePath("AudioStreamPlayer")
 
-[node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
+[node name="Gravityfield" type="Area2D" parent="."]
+
+[node name="GravityfieldCollider" type="CollisionShape2D" parent="Gravityfield"]
 shape = SubResource("RectangleShape2D_38fv1")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="GravityDirection" type="Node2D" parent="GravityfieldCollider"]
-position = Vector2(0, -18)
-
-[node name="Sprite" type="Sprite2D" parent="GravityfieldCollider"]
+[node name="Sprite" type="Sprite2D" parent="Gravityfield"]
 material = SubResource("ShaderMaterial_6i3qd")
 scale = Vector2(50, 50)
 texture = SubResource("CanvasTexture_t4xum")
+
+[node name="GravityDirection" type="Node2D" parent="Gravityfield"]
+position = Vector2(0, -18)
 
 [node name="Switch" type="Area2D" parent="."]
 position = Vector2(-44, 0)
 
 [node name="SwitchCollider" type="CollisionShape2D" parent="Switch"]
-position = Vector2(0, -0.0574025)
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_d6pxg")
 
-[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
-[connection signal="body_exited" from="." to="." method="OnBodyExited"]
+[node name="Sprite2D" type="Sprite2D" parent="Switch"]
+texture = ExtResource("2_4k21u")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mgax4")
+panning_strength = 2.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0ldbw")
+
+[connection signal="body_entered" from="Gravityfield" to="." method="OnBodyEntered"]
+[connection signal="body_exited" from="Gravityfield" to="." method="OnBodyExited"]
 [connection signal="body_entered" from="Switch" to="." method="EnableGravityfield"]
 [connection signal="body_exited" from="Switch" to="." method="DisableGravityfield"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://mb5aisolynk5"]
+[gd_scene load_steps=7 format=3 uid="uid://mb5aisolynk5"]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Platforms/JumpPad.cs" id="1_axob7"]
+[ext_resource type="AudioStream" uid="uid://cux78oeamwhug" path="res://Assets/Sounds/JumpPad_01.wav" id="2_w72cn"]
 
 [sub_resource type="Gradient" id="Gradient_g84sw"]
 colors = PackedColorArray(0, 1, 0, 0, 0, 0.670588, 0, 1)
@@ -12,13 +13,14 @@ width = 8
 height = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5niqk"]
-size = Vector2(16, 8)
+size = Vector2(30, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p11qv"]
-size = Vector2(14, 1)
+size = Vector2(28, 1)
 
-[node name="JumpPad" type="StaticBody2D"]
+[node name="JumpPad" type="StaticBody2D" node_paths=PackedStringArray("_audioPlayer")]
 script = ExtResource("1_axob7")
+_audioPlayer = NodePath("AudioStreamPlayer2D")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = -1.5708
@@ -36,5 +38,9 @@ collision_mask = 192
 [node name="JumpCollider" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_p11qv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_w72cn")
+panning_strength = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

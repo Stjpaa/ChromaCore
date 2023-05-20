@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://jlg4pvnpuc7i"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Platforms/MovingPlatform.cs" id="1_te2d8"]
-[ext_resource type="Texture2D" uid="uid://c5lufqv0mcq35" path="res://Assets/Sprites/Platform_Moving.tres" id="2_pjyyp"]
+[ext_resource type="Texture2D" uid="uid://c5lufqv0mcq35" path="res://Assets/Sprites/Game objects/Platform_Moving.tres" id="2_pjyyp"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi558"]
 size = Vector2(16, 8)
