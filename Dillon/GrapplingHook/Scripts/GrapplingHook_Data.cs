@@ -17,5 +17,9 @@ namespace GrapplingHook
         public float MaxDistance = 200f;
         [Export]
         public float StartImpulse = 250f;
+        [Export]
+        public float MoveSpeed = 700f;
+        [Export]
+        public float CounterMoveSpeed = 700f;
     }
 }

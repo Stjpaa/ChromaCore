@@ -8,6 +8,8 @@ namespace GrapplingHook.Physics
     /// </summary>
     public partial class HookStart : RigidBody2D
     {
+        private GrapplingHook_Data grapplingHookData;
+
         private bool _setPosition;
         private bool _controlsActivated;
         private bool _setVelocity;
@@ -16,6 +18,12 @@ namespace GrapplingHook.Physics
         private Vector2 _position;
         private Vector2 _velocity;
         private Vector2 _startImpulse;
+
+        public override void _Ready()
+        {
+            var grapplingHook = (GetParent().GetParent().GetParent()) as GrapplingHook;
+            grapplingHookData = grapplingHook.data;
+        }
 
         public override void _IntegrateForces(PhysicsDirectBodyState2D state)
         {
@@ -42,12 +50,11 @@ namespace GrapplingHook.Physics
                 // Player can cotrol the direction
                 if (angle >= 20 && angle <= 160)
                 {
-                    state.ApplyImpulse(moveDirection * new Vector2(700, 0) * (float)GetPhysicsProcessDeltaTime());
-                    
+                    state.ApplyImpulse(moveDirection * new Vector2(grapplingHookData.MoveSpeed, 0) * (float)GetPhysicsProcessDeltaTime());                   
                 }
                 else
                 {
-                    state.ApplyImpulse(2000 * Vector2.Down * (float)GetPhysicsProcessDeltaTime());
+                    state.ApplyImpulse(grapplingHookData.CounterMoveSpeed * Vector2.Down * (float)GetPhysicsProcessDeltaTime());
                 }
 
                 if(_setStartImpulse)

@@ -1,9 +1,4 @@
-res://Instances/Levels/Level-Prototype.tscn
+res://Dillon/GrapplingHook/GrapplingHook.tscn
 res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Dillon/tile_map.tscn
-res://Dillon/PlayerController/PlayerController2D.tscn
-res://Dillon/GrapplingHook/GrapplingHook.tscn
-res://Dillon/GrapplingHook/HookableArea.tscn
-res://Dillon/Camera/FollowingCamera.tscn

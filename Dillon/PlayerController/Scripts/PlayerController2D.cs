@@ -5,8 +5,8 @@ namespace PlayerController
 {
     public partial class PlayerController2D : CharacterBody2D
     {
-        // GitHub Commit logs Version 0.0.19
-        // Implemented interaction with laser
+        // GitHub Commit logs Version 0.0.20
+        // Implemented balancing for move speed and counter move speed of the grappling hook
         // Problems:
         // - Dash works not correctly inside a gravity field => open
         // - Gravity field is not effecting the player during moving state => open 
