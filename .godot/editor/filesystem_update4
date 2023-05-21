@@ -1,13 +1,6 @@
-res://Instances/Levels/Level-Prototype.tscn
+res://Instances/Levels/world_1_level.tscn
 res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Instances/Gameobjects/Movable Objects/Box.tscn
-res://Instances/Gameobjects/Platforms/JumpPad.tscn
-res://Instances/Gameobjects/Platforms/MovingPlatform.tscn
-res://Instances/Gameobjects/Platforms/NormalPlatform.tscn
-res://Instances/Gameobjects/Portals/Portals.tscn
-res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn
-res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn
-res://Instances/Levels/world_1_level.tscn
-res://Dillon/PlayerController/PlayerController2D.tscn
+res://Dillon/PlayerController/Scripts/PlayerController2D.cs
+res://Instances/Levels/Level-Prototype.tscn
