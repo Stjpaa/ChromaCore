@@ -35,7 +35,7 @@ namespace GrapplingHook
         public Physics.Physics Physics { get; private set; }
 
         // Variables
-        private PlayerController2D _playerController;  
+        private PlayerController2D _playerController;
         
         private State _state;
 
@@ -87,7 +87,7 @@ namespace GrapplingHook
             _state?.Exit();
             _state = newState;
             _state.Enter();
-            GD.Print("Hook changed state to " + newState.Name);
+            //GD.Print("Hook changed state to " + newState.Name);
         }
 
         public void ShootHook(PlayerController2D playerController)
@@ -169,7 +169,7 @@ namespace GrapplingHook
 
             _currentTarget = closestTarget.FirstOrDefault();
 
-            GD.Print(minDistance);
+            //GD.Print(minDistance);
         }
         #endregion
 
@@ -213,17 +213,17 @@ namespace GrapplingHook
         {
             if(_playerController == null)
             {
-                GD.PrintErr("PlayerController is null");
+                GD.PrintErr("PlayerController is null ");
                 return Vector2.Zero;
             }
             return _playerController.HookStartPosition;
         }
 
-        public Vector2 GetHookTargetPosition()
+        public Vector2 GetHookTargetPosition(String from = "")
         {
             if(_currentTarget == null)
             {
-                GD.PrintErr("Target is null");
+                GD.PrintErr("Target is null" + from);
                 return Vector2.Zero;
             }
             return _currentTarget.GlobalPosition;

@@ -22,16 +22,17 @@ namespace GrapplingHook.States
         public Connected(GrapplingHook grapplingHook) : base(grapplingHook) { }
 
         public override void Enter() 
-        {           
+        {
+            
             _grapplingHook.Physics.Initialize(_grapplingHook.GetHookStartPosition(),
                                               _grapplingHook.GetHookTargetPosition());
-
-            _grapplingHook.SetPlayerAsChild();
 
             _grapplingHook.Physics.HookStart.SetControlsActive(true);
             _grapplingHook.Physics.HookStart.SetStartVelocity(_grapplingHook.GetPlayerVelocityOnStart());
 
             SetStartImpulse();
+
+            _grapplingHook.SetPlayerAsChild();
 
             _grapplingHook.ChangePlayerStateToHooking();
         }
@@ -40,10 +41,6 @@ namespace GrapplingHook.States
         {
             _grapplingHook.UpdateChainEndPosition();
             CheckTransitionToReturning();
-
-            var direction = _grapplingHook.GetHookTargetPosition() - _grapplingHook.GetHookStartPosition();
-            var angle = Mathf.RadToDeg(direction.Angle());
-            //GD.Print(angle);
         }
 
         public override void ExecutePhysicsProcess() { }

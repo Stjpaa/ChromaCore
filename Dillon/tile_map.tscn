@@ -1,17 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://rvfeev6xxebh"]
+[gd_scene load_steps=16 format=3 uid="uid://rvfeev6xxebh"]
 
 [ext_resource type="Texture2D" uid="uid://ds2gsq3ng153g" path="res://Dillon/Assets/tilesheet_complete.png" id="1_bg6fh"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="2_nomqj"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="3_f61ha"]
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="4_cqold"]
 [ext_resource type="PackedScene" uid="uid://mb5aisolynk5" path="res://Instances/Gameobjects/Platforms/JumpPad.tscn" id="5_3fsnu"]
-[ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="6_0jlk8"]
+[ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="6_y34qc"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="7_6cak5"]
-[ext_resource type="Resource" uid="uid://cay1arq22pcih" path="res://Dillon/PlayerController/test.tres" id="7_k0j6b"]
+[ext_resource type="Resource" uid="uid://cay1arq22pcih" path="res://Dillon/PlayerController/test.tres" id="7_ldg5n"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="7_lx0ly"]
 [ext_resource type="PackedScene" uid="uid://m3mpklc8drsk" path="res://Dillon/GrapplingHook/GrapplingHook.tscn" id="10_6abn4"]
 [ext_resource type="PackedScene" uid="uid://0vuadphoaeog" path="res://Dillon/GrapplingHook/HookableArea.tscn" id="10_6y4uv"]
-[ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="12_ayfjc"]
 [ext_resource type="PackedScene" uid="uid://d2dmdifx4vsp7" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="13_l42sd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idpbc"]
@@ -865,9 +864,9 @@ _gravityfieldSize = Vector2(50, 180)
 [node name="Box" parent="InstantiateLevel/Gameobject_List" instance=ExtResource("7_6cak5")]
 position = Vector2(-223, -124)
 
-[node name="CharacterBody2D" parent="InstantiateLevel/Gameobject_List" node_paths=PackedStringArray("GrapplingHook") instance=ExtResource("6_0jlk8")]
-position = Vector2(50, -117)
-data = ExtResource("7_k0j6b")
+[node name="CharacterBody2D" parent="InstantiateLevel/Gameobject_List" node_paths=PackedStringArray("GrapplingHook") instance=ExtResource("6_y34qc")]
+position = Vector2(8, -101)
+data = ExtResource("7_ldg5n")
 GrapplingHook = NodePath("../../../GrapplingHook")
 
 [node name="Jumppad_List" type="Node2D" parent="InstantiateLevel"]
@@ -903,16 +902,7 @@ position = Vector2(1540, -138)
 [node name="HookableArea5" parent="." instance=ExtResource("10_6y4uv")]
 position = Vector2(2054, -138)
 
-[node name="HookableArea6" parent="." instance=ExtResource("10_6y4uv")]
-position = Vector2(-88, 203)
-
-[node name="HookableArea7" parent="." instance=ExtResource("10_6y4uv")]
-position = Vector2(190, 200)
-
 [node name="GrapplingHook" parent="." instance=ExtResource("10_6abn4")]
-
-[node name="Spikes" parent="." instance=ExtResource("12_ayfjc")]
-position = Vector2(162, -69)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_l42sd")]
 position = Vector2(6, -450)

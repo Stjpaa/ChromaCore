@@ -24,7 +24,7 @@ namespace PlayerController.States
             _playerController2D.AnimatedSprite2D.Play("Hooking");
             _playerController2D.Velocity = Vector2.Zero;
             _grapplingHook.ReleaseEvent += TransitionToJumping;
-
+            
             DeactivateCollisionDetection();
         }
 
@@ -48,7 +48,7 @@ namespace PlayerController.States
         private void TransitionToJumping()
         {
             _grapplingHook.ReleaseEvent -= TransitionToJumping;
-            _playerController2D.ChangeState(new Jumping(_playerController2D, false, _grapplingHook.GetHookVelocityOnRelease()));
+            _playerController2D.ChangeState(new Jumping(_playerController2D, false, _grapplingHook.GetHookVelocityOnRelease()));          
         }
     }
 }

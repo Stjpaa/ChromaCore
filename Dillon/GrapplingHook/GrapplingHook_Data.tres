@@ -10,3 +10,5 @@ PlayerVelocityMultiplikatorOnStart = 1.0
 MinDistance = 50.0
 MaxDistance = 200.0
 StartImpulse = 250.0
+MoveSpeed = 300.0
+CounterMoveSpeed = 600.0

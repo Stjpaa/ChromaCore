@@ -6,10 +6,10 @@ namespace PlayerController
     public partial class PlayerController2D : CharacterBody2D
     {
         // GitHub Commit logs Version 0.0.20
-        // Implemented balancing for move speed and counter move speed of the grappling hook
+        // Fixed target is null error -> from code that was for testing
         // Problems:
         // - Dash works not correctly inside a gravity field => open
-        // - Gravity field is not effecting the player during moving state => open 
+        // - Gravity field is not effecting the player during moving state => open
 
         [Export]
         public PlayerController2D_Data data;
@@ -106,6 +106,8 @@ namespace PlayerController
             floorAngleText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorAngle_Label");
             dashCooldown = GetNode<Label>("Label");
             ChangeState(new Falling(this));
+
+            HookIsReady = true;
         }
 
         public override void _PhysicsProcess(double delta)

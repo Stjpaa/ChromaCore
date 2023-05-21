@@ -213,8 +213,8 @@ colors = PackedColorArray(0.00784314, 0.219608, 0.94902, 1, 0.00784314, 0.219608
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dkal7"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_5kk12")
-width = 32
-height = 32
+width = 20
+height = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpx1o"]
 resource_local_to_scene = true
@@ -681,7 +681,7 @@ shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcp58"]
 resource_local_to_scene = true
-size = Vector2(50, 150)
+size = Vector2(50, 50)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_esso6"]
 resource_local_to_scene = true
@@ -1114,7 +1114,6 @@ shape = SubResource("RectangleShape2D_mcp58")
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Toggle2/Gravityfield" index="1"]
 material = SubResource("ShaderMaterial_esso6")
-scale = Vector2(50, 150)
 
 [node name="Switch" parent="GravityfieldList/Gravityfield_Toggle2" index="1"]
 position = Vector2(109, 80)
@@ -1208,9 +1207,6 @@ visible = false
 [node name="Sprite2D" parent="Player" index="8"]
 scale = Vector2(0.461, 0.461)
 texture = ExtResource("14_kjbvf")
-
-[node name="Camera2D" parent="Player" index="9"]
-zoom = Vector2(1.5, 1.5)
 
 [node name="Miscellaneous" type="Node" parent="."]
 

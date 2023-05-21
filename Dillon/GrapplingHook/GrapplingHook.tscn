@@ -23,11 +23,13 @@ data = ExtResource("2_48gmm")
 rotation = -1.5708
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals/Hook"]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 texture = ExtResource("2_dgme7")
 
 [node name="Chain" type="Line2D" parent="Visuals/Hook"]
+visible = false
 texture_filter = 1
 texture_repeat = 2
 points = PackedVector2Array(0, 0, -100, -4.37114e-06)
@@ -67,6 +69,7 @@ position = Vector2(4.76837e-07, 0)
 shape = SubResource("RectangleShape2D_jy76t")
 
 [node name="Sprite2D" type="Sprite2D" parent="Physics/DSJ/HookStart"]
+visible = false
 z_index = 5
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_7ndy8")

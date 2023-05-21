@@ -1,20 +1,17 @@
 using Godot;
 using System;
+using PlayerController;
 
 public partial class FollowingCamera : Camera2D
 {
-    [Export]
-    public Node2D target = null;
-    [Export]
-    public float followingSpeed = 1.0f;
-
-    public override void _Process(double delta)
+    public void UpdatePosition(Vector2 targetPosition)
     {
-        System.Numerics.Vector2 cameraVector = new System.Numerics.Vector2(GlobalPosition.X, GlobalPosition.Y);
-        System.Numerics.Vector2 targetVector = new System.Numerics.Vector2(target.GlobalPosition.X, target.GlobalPosition.Y);
+        var target = targetPosition;
 
-        cameraVector = System.Numerics.Vector2.Lerp(cameraVector, targetVector, followingSpeed * (float)delta);
+        var targePosX = (int)(Mathf.Lerp(GlobalPosition.X, target.X, 0.9f * (float)GetProcessDeltaTime() * 100f));
+        var targePosY = (int)(Mathf.Lerp(GlobalPosition.Y, target.Y, 0.9f * (float)GetProcessDeltaTime() * 100f));
 
-        GlobalPosition = new Vector2(cameraVector.X, cameraVector.Y);
+        GlobalPosition = new Vector2(targePosX, targePosY);
+        //GlobalPosition = targetPosition;
     }
 }
