@@ -5,12 +5,15 @@ using System.IO;
 using System.Text.Json;
 using System.Reflection;
 
+using System.Threading.Tasks;
+
 
 public partial class LevelInstantiater : Node2D
 {
     public static string levelToBeInstantiatedPath;      // the Base Scene of what Level should be Loaded, we Load the SaveGame of this Scene if a Savegame exsists.
     
     [Export] public Node2D levelRoot;
+    [Export] private LoadingScreen loadingScreen;
 
     public LevelVariablesSaveData levelSaveData;
 
@@ -32,32 +35,16 @@ public partial class LevelInstantiater : Node2D
             GD.PrintErr("levelRoot was not assigned in the LevelInstantiater Scene");
             return;
         }
-        LoadLevel();
+
+
+
+        _ = InstanciateLevelAsync();    
         
          
         
         
         
-        levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad));   // we need the global path to read/write with File.ReadAllText
-
-        levelSaveData = SaveSystem.LoadLevelVariablesSaveData(sceneToLoad);
-
-        if(levelSaveData == null)
-        {
-            levelSaveData = new LevelVariablesSaveData();
-        }
-
-
-
-        levelManager = (LevelManager)levelRoot.GetChild(0).GetNode("LevelManager");
-
-        if(levelManager == null)
-        {
-            GD.PrintErr("Add LevelManager to Level");
-            return;
-        }
-
-        levelManager.InstantiateValues(levelSaveData);
+        
 
     }
 
@@ -92,7 +79,7 @@ public partial class LevelInstantiater : Node2D
     //    //SaveSystem.SaveLevel(this);
     //}
 
-    private void LoadLevel()
+    private async Task InstanciateLevelAsync()
     {
         if (SaveSystem.DoesFileExistAtPath(levelToBeInstantiatedPath) == false)
         {
@@ -100,32 +87,41 @@ public partial class LevelInstantiater : Node2D
             return;
         }
 
+        await loadingScreen.LoadingScreenAsync();
+
+
         sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
 
+        ResourceLoader.LoadThreadedRequest(levelToBeInstantiatedPath);    // initiate the Background Loading
 
 
-        //string saveGamePath = SaveSystem.GetSaveGamePathOfScene(sceneToLoad);
+
+        var loadedScene = (PackedScene)ResourceLoader.LoadThreadedGet(levelToBeInstantiatedPath);     // Change to the Loaded Scene
+        GetTree().ChangeSceneToPacked(loadedScene);
+
+        levelRoot.AddChild(loadedScene.Instantiate());
 
 
-        //if (SaveSystem.DoesFileExistAtPath(saveGamePath)) // if SaveGame already exist Load that and all of the saved values
-        //{
-        //    // Load Savegame and place it under node
-        //    sceneToLoad = ResourceLoader.Load<PackedScene>(saveGamePath);
-        //    Node TreeToAddUnderLevelRoot = sceneToLoad.Instantiate();   // we dont add this instantly to the scene to first Load every saved varibles
+        levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad));   // we need the global path to read/write with File.ReadAllText
+
+        levelSaveData = SaveSystem.LoadLevelVariablesSaveData(sceneToLoad);
+
+        if (levelSaveData == null)
+        {
+            levelSaveData = new LevelVariablesSaveData();
+        }
 
 
-        //    LoadJsonSaveGame(TreeToAddUnderLevelRoot);
 
-        //    levelRoot.AddChild(TreeToAddUnderLevelRoot);
+        levelManager = (LevelManager)levelRoot.GetChild(0).GetNode("LevelManager");
 
-        //}
-        //else // Load base level. No extra Loading needed because references are preserved this way
-        //{
-        // Load BaseScene and place it under node
+        if (levelManager == null)
+        {
+            GD.PrintErr("Add LevelManager to Level");
+            return;
+        }
 
-        //sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
-        levelRoot.AddChild(sceneToLoad.Instantiate());
-        //}
+        levelManager.InstantiateValues(levelSaveData);
     }
 
     //private void LoadJsonSaveGame(Node rootNodeOfLoadedScene)

@@ -59,6 +59,7 @@ libraries = {
 }
 
 [node name="LoadingScreenBackground" type="Panel" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_alyb8")
 layout_mode = 1
 anchors_preset = 15

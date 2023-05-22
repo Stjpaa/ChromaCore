@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://47rhe5qv4ro4"]
+[gd_scene load_steps=3 format=3 uid="uid://47rhe5qv4ro4"]
 
 [ext_resource type="Script" path="res://Instances/SaveSystem/LevelInstantiater.cs" id="1_bdibs"]
+[ext_resource type="PackedScene" uid="uid://cn1al8qtngpmu" path="res://Instances/Menus/loading_screen.tscn" id="2_o818l"]
 
-[node name="LevelInstantiater" type="Node2D" node_paths=PackedStringArray("levelRoot")]
+[node name="LevelInstantiater" type="Node2D" node_paths=PackedStringArray("levelRoot", "loadingScreen")]
 position = Vector2(0, -1)
 scale = Vector2(0.983101, 1)
 script = ExtResource("1_bdibs")
 levelRoot = NodePath("LevelRoot")
+loadingScreen = NodePath("LoadingScreen")
+
+[node name="LoadingScreen" parent="." instance=ExtResource("2_o818l")]
 
 [node name="LevelRoot" type="Node2D" parent="."]

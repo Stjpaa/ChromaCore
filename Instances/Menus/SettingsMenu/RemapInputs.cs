@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 /// <summary>
 /// Used to change which Keyboard/ Controller Inputs move the player. Fore Example remap from wasd to esdf as movement.
@@ -58,5 +59,21 @@ public partial class RemapInputs : Control
         InputMap.ActionAddEvent(action, eventToAdd);
     }
 
+    public void OnButtonPRessedSignal()
+    {
 
+    }
+
+    /// <summary>
+    /// waits for the player to press a Keyboard or controller Button to remap this action to
+    /// </summary>
+    public async Task WaitForRemapInput()
+    {
+        // stop other interaction / waut for menu to close
+
+        //await;
+
+        // already used Inputs. append this input
+        // remove last item from used inputs/update used inputs list.
+    }
 }
