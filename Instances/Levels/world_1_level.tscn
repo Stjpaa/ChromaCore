@@ -448,7 +448,7 @@ size = Vector2(330, 50)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ahknm"]
 resource_local_to_scene = true
 shader = SubResource("Shader_s4k2c")
-shader_parameter/width = 320.0
+shader_parameter/width = 330.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
@@ -957,7 +957,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.999671, -0.0256326)
 shader_parameter/strength = 4.0
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sjfn"]
 resource_local_to_scene = true
@@ -975,7 +975,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0.999949, 0.0100497)
 shader_parameter/strength = 4.0
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvna7"]
 resource_local_to_scene = true
@@ -1946,6 +1946,7 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Segment 1/GravityFieldsList/Timed/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_678ym")
+disabled = false
 
 [node name="GravityDirection" parent="Segment 1/GravityFieldsList/Timed/Gravityfield_Time2/GravityfieldCollider" index="0"]
 position = Vector2(195, 5)
@@ -1975,6 +1976,7 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Segment 1/GravityFieldsList/Timed/Gravityfield_Time4" index="0"]
 shape = SubResource("RectangleShape2D_1sjfn")
+disabled = false
 
 [node name="GravityDirection" parent="Segment 1/GravityFieldsList/Timed/Gravityfield_Time4/GravityfieldCollider" index="0"]
 position = Vector2(-199, -2)

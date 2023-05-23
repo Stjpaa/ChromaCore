@@ -8,8 +8,8 @@ float rand(vec2 st) {
 }
 
 void fragment() {
-	vec2 big_star_offset = position * 0.13;
-	vec2 small_star_offset = position * 0.1;
+	vec2 big_star_offset = position * 0.06;
+	vec2 small_star_offset = position * 0.05;
 	float size = 100.0;
 	float small_size = 5.0;
 	float prob = 0.9;
