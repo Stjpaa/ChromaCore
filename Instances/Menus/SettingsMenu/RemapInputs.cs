@@ -26,6 +26,14 @@ public partial class RemapInputs : Control
         PrintAllInputs(actionName);
     }
 
+    public override void _Process(double delta)
+    {
+        if(Input.IsAnythingPressed())
+        {
+            //RemapInputs ( pressedKey)
+        }
+    }
+
     private void UpdateCurrentInputevents(string action)
     {
         var currentInputEvents = InputMap.ActionGetEvents(action);
@@ -57,23 +65,26 @@ public partial class RemapInputs : Control
 
         InputMap.ActionEraseEvent(action, eventToRemove);
         InputMap.ActionAddEvent(action, eventToAdd);
+        
     }
 
-    public void OnButtonPRessedSignal()
+    public override void _Input(InputEvent inputEvent)
     {
+        if(inputEvent is InputEventKey inputKey)
+        {
+            GD.Print(inputEvent.AsText());
+        }
 
+            //GD.Print(inputEvent.GetType());
+        
+        //GD.Print(inputEvent.AsText());
     }
 
-    /// <summary>
-    /// waits for the player to press a Keyboard or controller Button to remap this action to
-    /// </summary>
-    public async Task WaitForRemapInput()
+    public void OnButtonPressedSignal()
     {
-        // stop other interaction / waut for menu to close
-
-        //await;
-
-        // already used Inputs. append this input
-        // remove last item from used inputs/update used inputs list.
+        
     }
+
+
+    
 }

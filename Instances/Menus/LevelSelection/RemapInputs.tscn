@@ -83,3 +83,5 @@ text = "D"
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "D"
+
+[connection signal="pressed" from="VBoxContainer/UpHBoxContainer/Button" to="VBoxContainer/UpHBoxContainer/Up" method="OnButtonPressedSignal"]
