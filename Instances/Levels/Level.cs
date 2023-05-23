@@ -7,12 +7,16 @@ public partial class Level : Control
     //[Export] public Node2D nodeWhichToPack;
     private LevelVariablesSaveData levelVariablesSaveData;
 
-    [Export]private LevelSelectVisualisation dataVisualisation;
+    private LevelSelectVisualisation dataVisualisation;
+    private TextureRect planetVisualisation;
 
+    [Export] public Texture2D planetTexture;
 
 
     public override void _Ready()
     {
+        dataVisualisation = (LevelSelectVisualisation)GetNode("LevelSelectVisualisation");
+        planetVisualisation = (TextureRect)GetNode("PlanetVisualisation");
         UpdateValues();
     }
 
@@ -21,6 +25,8 @@ public partial class Level : Control
         LoadSaveData();
 
         DisplayLevelTime();
+
+        DisplayPlanetTexture();
     }
 
     public void LoadSaveData()
@@ -33,6 +39,17 @@ public partial class Level : Control
 
         levelVariablesSaveData = SaveSystem.LoadLevelVariablesSaveData(baseLevelToLoad);
 
+
+        if (planetTexture != null)
+        {
+
+            if (levelVariablesSaveData.planetTexturePath != planetTexture.ResourcePath)       // set The Planet Texture To be referenced for the Loading Screen
+            {
+
+                levelVariablesSaveData.planetTexturePath = planetTexture.ResourcePath;
+                SaveSystem.SaveLevelVariablesToJson(baseLevelToLoad, levelVariablesSaveData);
+            }
+        }
     }
 
 
@@ -47,6 +64,11 @@ public partial class Level : Control
     private void DisplayLevelTime()
     {
         dataVisualisation.VisualizeData(levelVariablesSaveData);
+    }
+
+    private void DisplayPlanetTexture()
+    {
+        planetVisualisation.Texture = planetTexture;
     }
 
     public void DeleteSaveData()

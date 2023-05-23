@@ -1,23 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://butb3javps1yf"]
+[gd_scene load_steps=7 format=3 uid="uid://butb3javps1yf"]
 
+[ext_resource type="Shader" path="res://star-sky.gdshader" id="1_elkqh"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_xdpmu"]
 [ext_resource type="PackedScene" uid="uid://besp4vl5cfm8a" path="res://Instances/Levels/Level-Prototype.tscn" id="2_f42i2"]
 [ext_resource type="PackedScene" uid="uid://c3p3f83ty7noa" path="res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn" id="2_n228b"]
+[ext_resource type="Texture2D" uid="uid://dxl4wb7b8rvul" path="res://Assets/Planets/CompletedPlanets/planet02.png" id="4_drp23"]
 
-[node name="LevelSelectScene" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sy68r"]
+shader = ExtResource("1_elkqh")
+shader_parameter/bg_color = null
 
-[node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("1_xdpmu")]
-focusNodeOnStart = NodePath("../Levels/Level1/VBoxContainer/LoadButton")
-
-[node name="Levels" type="HBoxContainer" parent="."]
+[node name="LevelSelectScene" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Level1" parent="Levels" instance=ExtResource("2_n228b")]
-layout_mode = 2
-baseLevelToLoad = ExtResource("2_f42i2")
+[node name="Background" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_sy68r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[editable path="Levels/Level1"]
+[node name="UINavigationManager" parent="Background" node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("1_xdpmu")]
+layout_mode = 1
+focusNodeOnStart = NodePath("../Levels/Level1/VBoxContainer/LoadButton")
+
+[node name="Levels" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level1" parent="Background/Levels" instance=ExtResource("2_n228b")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 179.0
+offset_top = 195.0
+offset_right = 179.0
+offset_bottom = 195.0
+baseLevelToLoad = ExtResource("2_f42i2")
+planetTexture = ExtResource("4_drp23")
+
+[editable path="Background/Levels/Level1"]

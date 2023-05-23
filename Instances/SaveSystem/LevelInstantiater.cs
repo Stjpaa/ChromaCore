@@ -11,16 +11,17 @@ using System.Threading.Tasks;
 public partial class LevelInstantiater : Node2D
 {
     public string levelToBeInstantiatedPath;      // the Base Scene of what Level should be Loaded, we Load the SaveGame of this Scene if a Savegame exsists.
+    private PackedScene sceneToLoad;    
     
     [Export] public Node2D levelRoot;
     [Export] private LoadingScreen loadingScreen;
 
     public LevelVariablesSaveData levelSaveData;
 
-    private PackedScene sceneToLoad;
     private string levelVariableSaveDataGlobalPath;
 
     private LevelManager levelManager;      // responsible for creating the updated SaveData for the current Level
+
 
     public override void _Ready()
     {
@@ -43,7 +44,10 @@ public partial class LevelInstantiater : Node2D
 
     }
 
-
+    public void SetLoadingScreenTextures(Texture2D startTexture, Texture2D destinationTexture)
+    {
+        loadingScreen.SetPlanetTextures(startTexture, destinationTexture);
+    }
 
     //public LevelVariablesSaveData LoadLevelVariablesSaveData(PackedScene sceneToLoad)
     //{
@@ -88,22 +92,18 @@ public partial class LevelInstantiater : Node2D
 
         ResourceLoader.LoadThreadedRequest(levelToBeInstantiatedPath);    // initiate the Background Loading
 
+
+        SetSaveData();
+
+        loadingScreen.SetPlanetTextures(loadingScreen.homePlaneTexture, (Texture2D)ResourceLoader.Load(levelSaveData.planetTexturePath));
+
         await loadingScreen.LoadingScreenAsync();
-        GD.Print("loadingsscreen finished");
 
         var loadedScene = (PackedScene)ResourceLoader.LoadThreadedGet(levelToBeInstantiatedPath);     // Change to the Loaded Scene
 
         levelRoot.AddChild(loadedScene.Instantiate());
 
 
-        levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad));   // we need the global path to read/write with File.ReadAllText
-
-        levelSaveData = SaveSystem.LoadLevelVariablesSaveData(sceneToLoad);
-
-        if (levelSaveData == null)
-        {
-            levelSaveData = new LevelVariablesSaveData();
-        }
 
 
 
@@ -116,6 +116,18 @@ public partial class LevelInstantiater : Node2D
         }
 
         levelManager.InstantiateValues(levelSaveData);
+    }
+
+    private void SetSaveData()
+    {
+        levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad));   // we need the global path to read/write with File.ReadAllText
+
+        levelSaveData = SaveSystem.LoadLevelVariablesSaveData(sceneToLoad);
+
+        if (levelSaveData == null)
+        {
+            levelSaveData = new LevelVariablesSaveData();
+        }
     }
 
     //private void LoadJsonSaveGame(Node rootNodeOfLoadedScene)

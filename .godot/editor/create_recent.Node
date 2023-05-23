@@ -1,11 +1,11 @@
+Control
+TextureRect
 AnimationPlayer
 PathFollow2D
 Path2D
-TextureRect
 Panel
 PanelContainer
 HBoxContainer
-Control
 Button
 VBoxContainer
 Label

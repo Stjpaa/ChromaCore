@@ -6,3 +6,5 @@ res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn
 res://Instances/Menus/LevelSelection/RemapInputs.tscn
 res://Instances/SaveSystem/LevelInstantiater.tscn
 res://Instances/Menus/loading_screen.tscn
+res://Instances/Levels/Level-Prototype.tscn
+res://Instances/Menus/PauseMenu/pause_menu.tscn

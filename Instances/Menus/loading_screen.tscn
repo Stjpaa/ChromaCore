@@ -1,9 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cn1al8qtngpmu"]
+[gd_scene load_steps=9 format=3 uid="uid://cn1al8qtngpmu"]
 
 [ext_resource type="Script" path="res://Instances/Menus/LoadingScreen.cs" id="1_ckfbm"]
 [ext_resource type="Texture2D" uid="uid://c8wba4tymv8ji" path="res://Assets/spaceRockets_001.png" id="3_hxonf"]
-[ext_resource type="Texture2D" uid="uid://dr7ridf1uhbc4" path="res://Assets/Planets/CompletedPlanets/planet09.png" id="3_my1sh"]
-[ext_resource type="Texture2D" uid="uid://dxl4wb7b8rvul" path="res://Assets/Planets/CompletedPlanets/planet02.png" id="4_d1vld"]
 [ext_resource type="Texture2D" uid="uid://cto7aik31qnlh" path="res://Assets/Planets/CompletedPlanets/planet00.png" id="4_wmgmc"]
 [ext_resource type="Shader" path="res://star-sky.gdshader" id="5_6oipt"]
 
@@ -47,8 +45,7 @@ grow_vertical = 2
 script = ExtResource("1_ckfbm")
 startPlanet = NodePath("LoadingScreenBackground/StartPlanet")
 destinationPlanet = NodePath("LoadingScreenBackground/DestinationPlanet")
-testPlanetOne = ExtResource("3_my1sh")
-testPlanetTwo = ExtResource("4_d1vld")
+homePlaneTexture = ExtResource("4_wmgmc")
 
 [node name="LoadingScreenAP" type="AnimationPlayer" parent="."]
 root_node = NodePath("../LoadingScreenBackground")

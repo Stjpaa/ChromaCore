@@ -32,13 +32,13 @@ public static class SaveSystem
 
     public static void LoadLevelWithLevelInstantiator(Level levelToBeLoaded)
     {
-        if(levelToBeLoaded == null)
+        if (levelToBeLoaded == null)
         {
             GD.PrintErr("no Level was assigned to give to LoadLevelWithLevelInstantiator");
             return;
         }
 
-        if(levelToBeLoaded.baseLevelToLoad == null)
+        if (levelToBeLoaded.baseLevelToLoad == null)
         {
             GD.PrintErr("No PackedScene was assigned to the Level which was tried to be loaded");
             return;
@@ -61,7 +61,7 @@ public static class SaveSystem
         }
 
         sceneRoot.AddChild(levelInstanciaterScene);
-        
+
 
 
     }
@@ -128,7 +128,7 @@ public static class SaveSystem
         }
         string baseLevelFileName = System.IO.Path.GetFileNameWithoutExtension(scene.ResourcePath);  // removes the path and the datatype
         string savegamePath = savePathBegining + baseLevelFileName + ".tscn";
-;
+        ;
 
         return savegamePath;
     }
@@ -148,9 +148,9 @@ public static class SaveSystem
 
     public static LevelVariablesSaveData LoadLevelVariablesSaveData(PackedScene sceneToLoad)
     {
-        string levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad));
+        string levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(GetLevelVariablesSaveDataPath(sceneToLoad));
 
-        if (SaveSystem.DoesFileExistAtPath(SaveSystem.GetLevelVariablesSaveDataPath(sceneToLoad)))
+        if (DoesFileExistAtPath(GetLevelVariablesSaveDataPath(sceneToLoad)))
         {
             string text = File.ReadAllText(levelVariableSaveDataGlobalPath);
 

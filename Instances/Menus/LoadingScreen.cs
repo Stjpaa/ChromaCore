@@ -10,10 +10,8 @@ public partial class LoadingScreen : Control
     [Export] private TextureRect startPlanet;
     [Export] private TextureRect destinationPlanet;
 
-    [Export] private Texture2D testPlanetOne;
-    [Export] private Texture2D testPlanetTwo;
 
-    //[Export]
+    [Export] public Texture2D homePlaneTexture;
 
     public override void _Ready()
     {
@@ -23,11 +21,15 @@ public partial class LoadingScreen : Control
         HideLoadingScreen();
     }
 
+    public void SetPlanetTextures(Texture2D startTexture,Texture2D destinationTexture)
+    {
+        startPlanet.Texture = startTexture; 
+        destinationPlanet.Texture = destinationTexture;
+    }
+
     public async Task LoadingScreenAsync()
     {
         ShowLoadingScreen();
-        //startPlanet.Texture = startLocation;
-        //destinationPlanet.Texture = destination;    
 
         loadingscreenAnimationPlayer.Play("RocketFlight");
 
@@ -36,7 +38,6 @@ public partial class LoadingScreen : Control
             // Wait for a short time before checking again
             await Task.Delay(50);
         }
-
 
         HideLoadingScreen();
 
