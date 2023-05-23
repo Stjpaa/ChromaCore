@@ -92,7 +92,6 @@ public partial class LevelInstantiater : Node2D
         GD.Print("loadingsscreen finished");
 
         var loadedScene = (PackedScene)ResourceLoader.LoadThreadedGet(levelToBeInstantiatedPath);     // Change to the Loaded Scene
-        GetTree().ChangeSceneToPacked(loadedScene);
 
         levelRoot.AddChild(loadedScene.Instantiate());
 

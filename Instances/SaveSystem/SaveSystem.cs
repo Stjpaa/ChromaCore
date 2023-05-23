@@ -63,7 +63,6 @@ public static class SaveSystem
         sceneRoot.AddChild(levelInstanciaterScene);
         
 
-        //levelToBeLoaded.GetTree().ChangeSceneToFile(pathOfLevelInstantiater);
 
     }
     //public static void LoadLevelWithLevelInstantiator(Level levelToBeLoaded)
