@@ -44,12 +44,46 @@ public static class SaveSystem
             return;
         }
 
-        GD.PrintErr("possible bug if LevelInstanciaterPath gets changed");
+        var levelInstanciaterScene = ResourceLoader.Load<PackedScene>(pathOfLevelInstantiater).Instantiate();
 
-        levelToBeLoaded.GetTree().ChangeSceneToFile(pathOfLevelInstantiater);
+        LevelInstantiater levelInstantiaterOfScene = (LevelInstantiater)levelInstanciaterScene;
+        levelInstantiaterOfScene.levelToBeInstantiatedPath = levelToBeLoaded.baseLevelToLoad.ResourcePath;
 
-        LevelInstantiater.levelToBeInstantiatedPath = levelToBeLoaded.baseLevelToLoad.ResourcePath;
+
+
+
+
+        var sceneRoot = levelToBeLoaded.GetTree().Root;
+
+        foreach (var child in sceneRoot.GetChildren())  // Remove all current Nodes in the Scene
+        {
+            child.QueueFree();
+        }
+
+        sceneRoot.AddChild(levelInstanciaterScene);
+        
+
+        //levelToBeLoaded.GetTree().ChangeSceneToFile(pathOfLevelInstantiater);
+
     }
+    //public static void LoadLevelWithLevelInstantiator(Level levelToBeLoaded)
+    //{
+    //    if(levelToBeLoaded == null)
+    //    {
+    //        GD.PrintErr("no Level was assigned to give to LoadLevelWithLevelInstantiator");
+    //        return;
+    //    }
+
+    //    if(levelToBeLoaded.baseLevelToLoad == null)
+    //    {
+    //        GD.PrintErr("No PackedScene was assigned to the Level which was tried to be loaded");
+    //        return;
+    //    }
+
+    //    levelToBeLoaded.GetTree().ChangeSceneToFile(pathOfLevelInstantiater);
+
+    //    LevelInstantiater.levelToBeInstantiatedPath = levelToBeLoaded.baseLevelToLoad.ResourcePath;
+    //}
 
 
     //public static void LoadLevel(Level levelToBeLoaded)

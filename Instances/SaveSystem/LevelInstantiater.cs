@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 public partial class LevelInstantiater : Node2D
 {
-    public static string levelToBeInstantiatedPath;      // the Base Scene of what Level should be Loaded, we Load the SaveGame of this Scene if a Savegame exsists.
+    public string levelToBeInstantiatedPath;      // the Base Scene of what Level should be Loaded, we Load the SaveGame of this Scene if a Savegame exsists.
     
     [Export] public Node2D levelRoot;
     [Export] private LoadingScreen loadingScreen;
@@ -24,6 +24,7 @@ public partial class LevelInstantiater : Node2D
 
     public override void _Ready()
     {
+
         //if (!SaveSystem.DoesFileExistAtPath(levelToBeInstantiatedPath))
         //{
         //    GD.PrintErr("no Level exsists at levelToBeInstantiatedPath in LevelInstantiater");
@@ -39,12 +40,6 @@ public partial class LevelInstantiater : Node2D
 
 
         _ = InstanciateLevelAsync();    
-        
-         
-        
-        
-        
-        
 
     }
 
@@ -87,14 +82,14 @@ public partial class LevelInstantiater : Node2D
             return;
         }
 
-        await loadingScreen.LoadingScreenAsync();
 
 
         sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
 
         ResourceLoader.LoadThreadedRequest(levelToBeInstantiatedPath);    // initiate the Background Loading
 
-
+        await loadingScreen.LoadingScreenAsync();
+        GD.Print("loadingsscreen finished");
 
         var loadedScene = (PackedScene)ResourceLoader.LoadThreadedGet(levelToBeInstantiatedPath);     // Change to the Loaded Scene
         GetTree().ChangeSceneToPacked(loadedScene);
