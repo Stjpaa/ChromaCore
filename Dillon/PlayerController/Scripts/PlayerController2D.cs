@@ -70,6 +70,11 @@ namespace PlayerController
 		public float ApexModifierMovementBoost { get { return data.apexModifierMovementBoost; } }
 		#endregion
 
+		#region Shader Variables
+		private ShaderMaterial shader_material;
+		private Vector2 start_position;
+		#endregion
+
 		public State currentState;
 		public State previousState;
 
@@ -86,6 +91,7 @@ namespace PlayerController
 		private Label floorAngleText;
 		private Label dashCooldown;
 
+
 		public override void _Ready()
 		{
 			AnimatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -100,6 +106,9 @@ namespace PlayerController
 			floorAngleText = GetNode<HFlowContainer>("HFlowContainer").GetNode<Label>("FloorAngle_Label");
 			dashCooldown = GetNode<Label>("Label");
 			ChangeState(new Falling(this));
+
+			shader_material = GetNode<Camera2D>("Camera2D").GetNode<CanvasLayer>("CanvasLayer").GetNode<ColorRect>("ColorRect").Material as ShaderMaterial;
+			start_position = Transform.Origin;
 		}
 
 		public override void _PhysicsProcess(double delta)
@@ -114,6 +123,8 @@ namespace PlayerController
 			dashCooldown.Text = string.Format("{0:N0}", DashCooldownTimer.TimeLeft);
 			MoveAndSlide();
 			CheckCollisionWithBox();
+
+			shader_material.SetShaderParameter("position", Transform.Origin - start_position);
 		}
 
 		public void ChangeState(State newState)

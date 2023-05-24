@@ -1,6 +1,5 @@
 res://Instances/Levels/world_1_level.tscn
-res://Assets/Sprites/Game objects/Platform_Normal.tres
-res://Assets/Sprites/Game objects/Platform_Moving.tres
+res://Assets/Sprites/Platform_Normal.tres
+res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Dillon/PlayerController/Scripts/PlayerController2D.cs
-res://Instances/Levels/Level-Prototype.tscn
+res://Shaders/star-sky.gdshader
