@@ -1,5 +1,4 @@
 res://Instances/Levels/world_1_level.tscn
-res://Assets/Sprites/Platform_Normal.tres
-res://Assets/Sprites/Platform_Moving.tres
+res://Assets/Sprites/Game objects/Platform_Normal.tres
+res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Shaders/star-sky.gdshader
