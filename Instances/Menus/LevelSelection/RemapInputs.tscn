@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dspjk1jvxfikp"]
+[gd_scene load_steps=3 format=3 uid="uid://dspjk1jvxfikp"]
 
 [ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/RemapInputs.cs" id="1_8fwxh"]
+[ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="2_aimub"]
 
 [node name="RemapInputs" type="Control"]
 layout_mode = 3
@@ -24,6 +25,8 @@ script = ExtResource("1_8fwxh")
 [node name="Button" type="Button" parent="VBoxContainer/UpHBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+focus_neighbor_right = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../../DownHBoxContainer/Button")
 text = "w"
 
 [node name="Button2" type="Button" parent="VBoxContainer/UpHBoxContainer"]
@@ -41,6 +44,7 @@ text = "Down"
 [node name="Button" type="Button" parent="VBoxContainer/DownHBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "s"
 
 [node name="Button2" type="Button" parent="VBoxContainer/DownHBoxContainer"]
@@ -83,5 +87,9 @@ text = "D"
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "D"
+
+[node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("2_aimub")]
+layout_mode = 1
+focusNodeOnStart = NodePath("../VBoxContainer/UpHBoxContainer/Button")
 
 [connection signal="pressed" from="VBoxContainer/UpHBoxContainer/Button" to="VBoxContainer/UpHBoxContainer/Up" method="OnButtonPressedSignal"]

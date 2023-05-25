@@ -2,5 +2,4 @@ res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
 res://Assets/Sprites/Platform_Normal.tres
 res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn
 res://Instances/Menus/LevelSelection/RemapInputs.tscn

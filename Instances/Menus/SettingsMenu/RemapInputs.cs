@@ -13,6 +13,8 @@ public partial class RemapInputs : Control
     private InputEvent keyboardTwo;
     private InputEvent controllerOne;
 
+    private bool replaceInput = true;
+
     public override void _Ready()
     {
         GD.PrintErr("could cause Problems ith the order, because new actions would cause controllerOne to move up to [1] in the InputList should probalby safe new Button");
@@ -70,13 +72,21 @@ public partial class RemapInputs : Control
 
     public override void _Input(InputEvent inputEvent)
     {
+        if(replaceInput == false)
+        {
+            return;
+        }
+
         if(inputEvent is InputEventKey inputKey)
         {
             GD.Print(inputEvent.AsText());
-        }
 
-            //GD.Print(inputEvent.GetType());
-        
+            ReplaceInputEvent(actionName, controllerOne, inputEvent);
+            PrintAllInputs(actionName);
+            replaceInput = false;
+        }
+        //GD.Print(inputEvent.GetType());
+
         //GD.Print(inputEvent.AsText());
     }
 
