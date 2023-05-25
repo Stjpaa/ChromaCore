@@ -52,5 +52,7 @@ texture = ExtResource("2_fcpub")
 position = Vector2(0, -19.2)
 shape = SubResource("RectangleShape2D_eluch")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Pressure_Plate"]
+
 [node name="Laser_Target" type="Node2D" parent="."]
 position = Vector2(69, 0)
