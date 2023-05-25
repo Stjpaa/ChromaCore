@@ -16,6 +16,10 @@ public partial class Laser_Pressure_Plate : Node2D
 	private ShaderMaterial shader_material;
 	private Area2D collider;
 
+	private AudioStreamPlayer2D player_button;
+	private Random rnd = new Random();
+	private SoundManager sound_manager;
+
 	private void RecalculateLaser()
 	{
 		Vector2 target_vector = target.GetGlobalTransform().Origin - this.GetGlobalTransform().Origin;
@@ -59,6 +63,10 @@ public partial class Laser_Pressure_Plate : Node2D
 		target = GetNode<Node2D>("Laser_Target");
 		collider = GetNode<Node2D>("Pressure_Plate").GetNode<Area2D>("Pressure_Plate_Collision");
 		laser_rect = GetNode<ColorRect>("Laser_Rect");
+
+		player_button = GetNode<AudioStreamPlayer2D>("Pressure_Plate/AudioStreamPlayer2D");
+		sound_manager = GetNode<SoundManager>("/root/SoundManager");
+
 		shader_material = laser_rect.Material as ShaderMaterial;
 		RecalculateLaser();
 
@@ -85,11 +93,30 @@ public partial class Laser_Pressure_Plate : Node2D
 	{
 		timer = _switchTime;
 		on = true;
+
+		player_button.Stream = GetSound();
+		player_button.Play();
 	}
 
 	private void TurnOff(Node2D _body)
 	{
 		timer = _switchTime;
 		on = false;
+
+		player_button.Stream = GetSound();
+		player_button.Play();
+	}
+
+
+	private AudioStreamWav GetSound()
+	{
+		
+		Godot.Collections.Array<AudioStreamWav> _buttonSounds = sound_manager._buttonSounds;
+		if(_buttonSounds.Count == 0) {
+			return null;
+		}
+		int index = rnd.Next(_buttonSounds.Count);
+
+		return _buttonSounds[index];
 	}
 }
