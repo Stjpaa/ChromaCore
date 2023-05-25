@@ -12,6 +12,10 @@ public partial class SoundManager : Node
 	private Godot.Collections.Dictionary<String, AudioStreamOggVorbis> _soundFiles = new Godot.Collections.Dictionary<String, AudioStreamOggVorbis>();
 	[Export]
 	private Godot.Collections.Dictionary<String, AudioStreamOggVorbis> _musicFiles = new Godot.Collections.Dictionary<String, AudioStreamOggVorbis>();
+	[Export]
+	public Godot.Collections.Array<AudioStreamWav> _teleporterSounds;
+	[Export]
+	public Godot.Collections.Array<AudioStreamWav> _buttonSounds;
 
 	private AudioStreamPlayer2D music_player;
 	private AudioStreamPlayer2D[] sound_players;

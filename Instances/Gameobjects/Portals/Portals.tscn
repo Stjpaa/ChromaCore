@@ -10,7 +10,6 @@ height = 60.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_orddo"]
 shader = ExtResource("2_3dgbs")
 shader_parameter/color = Color(0.305882, 0, 0.87451, 1)
-shader_parameter/background_color = Color(0.721569, 0.137255, 0.929412, 1)
 shader_parameter/strength = 15.605
 shader_parameter/scale = 4.422
 shader_parameter/speed = 0.6
@@ -35,6 +34,8 @@ material = SubResource("ShaderMaterial_orddo")
 scale = Vector2(35, 60)
 texture = SubResource("CanvasTexture_ww3xn")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Portal1"]
+
 [node name="Portal2" type="Area2D" parent="."]
 position = Vector2(30, 0)
 
@@ -48,6 +49,8 @@ position = Vector2(0, -30)
 material = SubResource("ShaderMaterial_orddo")
 scale = Vector2(35, 60)
 texture = SubResource("CanvasTexture_ww3xn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Portal2"]
 
 [connection signal="body_entered" from="Portal1" to="." method="TeleportToPortal2"]
 [connection signal="body_entered" from="Portal2" to="." method="TeleportToPortal1"]
