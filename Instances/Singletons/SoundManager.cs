@@ -37,10 +37,8 @@ public partial class SoundManager : Node
 	{
 		for (int i = 1; i <= _soundVoicesCount; i++)
 		{
-			// GD.Print($"testing {(last_voice + i) % _soundVoicesCount}");
 			if (!sound_players[(last_voice + i) % _soundVoicesCount].Playing)
 			{
-				// GD.Print($"playing {sound_name} with voice {(last_voice + i) % _soundVoicesCount}; last voice {last_voice}");
 				sound_players[(last_voice + i) % _soundVoicesCount].Stream = _soundFiles[sound_name];
 				sound_players[(last_voice + i) % _soundVoicesCount].Play();
 				last_voice = (last_voice + i) % _soundVoicesCount;
@@ -50,7 +48,6 @@ public partial class SoundManager : Node
 			// if all voices are playing, replace voice after last voice
 			if (i == _soundVoicesCount)
 			{
-				// GD.Print($"replacing and playing {sound_name} with voice {(last_voice + 1) % _soundVoicesCount}; last voice {last_voice}");
 				sound_players[(last_voice + 1) % _soundVoicesCount].Stream = _soundFiles[sound_name];
 				sound_players[(last_voice + 1) % _soundVoicesCount].Play();
 				last_voice = (last_voice + 1) % _soundVoicesCount;
@@ -61,8 +58,11 @@ public partial class SoundManager : Node
 
 	public void PlayMusic(String music_name)
 	{
-		// GD.Print($"playing {music_name}");
 		music_player.Stream = _musicFiles[music_name];
 		music_player.Play();
+	}
+	public void StopMusic()
+	{
+		music_player.Stop();
 	}
 }
