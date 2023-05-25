@@ -15,6 +15,10 @@ run/main_scene="res://Dillon/tile_map.tscn"
 config/features=PackedStringArray("4.0", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SoundManager="*res://Instances/Singletons/SoundManager.tscn"
+
 [dotnet]
 
 project/assembly_name="Sem6Projekt"
