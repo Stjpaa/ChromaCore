@@ -18,7 +18,7 @@ shader_parameter/glow = 0.116
 shader_parameter/outline_glow = 0.0
 shader_parameter/color = Color(1, 0, 0, 1)
 shader_parameter/outline_color = Color(0.717647, 0, 0.235294, 1)
-shader_parameter/progress = 1.0
+shader_parameter/progress = 0.0
 shader_parameter/y_offset = 0.0
 shader_parameter/fixed_edge_size = 0.05
 shader_parameter/noise_scale = Vector2(1, 1)
@@ -51,6 +51,8 @@ texture = ExtResource("2_fcpub")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pressure_Plate/Pressure_Plate_Collision"]
 position = Vector2(0, -19.2)
 shape = SubResource("RectangleShape2D_eluch")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Pressure_Plate"]
 
 [node name="Laser_Target" type="Node2D" parent="."]
 position = Vector2(69, 0)
