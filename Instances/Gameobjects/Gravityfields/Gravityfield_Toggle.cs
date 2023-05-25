@@ -29,6 +29,10 @@ public partial class Gravityfield_Toggle : Node2D
 
 	private Area2D _switch;
 
+	private AudioStreamPlayer2D player_button;
+	private Random rnd = new Random();
+	private SoundManager sound_manager;
+
 	public override void _Ready()
 	{
 		// Get dependencies
@@ -53,6 +57,9 @@ public partial class Gravityfield_Toggle : Node2D
 		_audioPlayerOutside.Play();
 		_audioPlayerInside.Play();
 		_audioPlayerInside.VolumeDb = -100;
+
+		player_button = GetNode<AudioStreamPlayer2D>("Switch/AudioStreamPlayer2D");
+		sound_manager = GetNode<SoundManager>("/root/SoundManager");
 	}
 
 	public override void _Process(double delta)
@@ -119,11 +126,29 @@ public partial class Gravityfield_Toggle : Node2D
 		// Does not work with SetDeffered => probably bugged
 		this._gravityfieldDisabled = false;
 		this._spriteMat.SetShaderParameter("pause", false);
+
+		player_button.Stream = GetSound();
+		player_button.Play();
 	}
 
 	public void DisableGravityfield(Node2D body)
 	{
 		this._gravityfieldDisabled = true;
 		this._spriteMat.SetShaderParameter("pause", true);
+
+		player_button.Stream = GetSound();
+		player_button.Play();
+	}
+
+	private AudioStreamWav GetSound()
+	{
+		
+		Godot.Collections.Array<AudioStreamWav> _buttonSounds = sound_manager._buttonSounds;
+		if(_buttonSounds.Count == 0) {
+			return null;
+		}
+		int index = rnd.Next(_buttonSounds.Count);
+
+		return _buttonSounds[index];
 	}
 }
