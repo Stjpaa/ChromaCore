@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c5lufqv0mcq35" path="res://Assets/Sprites/Game objects/Platform_Moving.tres" id="2_pjyyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi558"]
+resource_local_to_scene = true
 size = Vector2(16, 8)
 
 [node name="MovingPlatform" type="AnimatableBody2D"]

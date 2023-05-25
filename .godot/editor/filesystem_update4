@@ -1,4 +1,10 @@
-res://Instances/Levels/world_1_level.tscn
+res://Instances/Gameobjects/Platforms/JumpPad.tscn
 res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
+res://Instances/Levels/world_1_level.tscn
+res://Instances/Gameobjects/Movable Objects/ObjectResetter.cs
+res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn
+res://Instances/Gameobjects/Platforms/NormalPlatform.tscn
+res://Instances/Gameobjects/Platforms/MovingPlatform.tscn
+res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn

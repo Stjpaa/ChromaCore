@@ -13,10 +13,12 @@ width = 8
 height = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5niqk"]
-size = Vector2(30, 8)
+resource_local_to_scene = true
+size = Vector2(16, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p11qv"]
-size = Vector2(28, 1)
+resource_local_to_scene = true
+size = Vector2(14, 1)
 
 [node name="JumpPad" type="StaticBody2D" node_paths=PackedStringArray("_audioPlayer")]
 collision_layer = 1024

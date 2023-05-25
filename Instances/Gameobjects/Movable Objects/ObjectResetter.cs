@@ -8,9 +8,10 @@ public partial class ObjectResetter : Area2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		if (body.Name == "Player")
+		if (body is Box)
 		{
-			this._gameObject.Call("ResetPosition");
+			GD.Print("Trigger");
+			body.Call("ResetPosition");
 		}
 	}
 }
