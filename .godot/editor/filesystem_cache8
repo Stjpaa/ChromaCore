@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1685280504
+::res://::1685303013
 characters.png::CompressedTexture2D::5074265719891268926::1682243510::1682243643::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1681926387::1681926387::1::::<><>::
 icon.svg::CompressedTexture2D::1834291139676260366::1681572821::1681573162::1::::<><>::
@@ -9,7 +9,7 @@ Rise01.ogg::AudioStreamOggVorbis::644264058876615546::1682243510::1682243642::1:
 Test.cs::CSharpScript::-1::1682243510::0::1::::<><>::
 ::res://Assets/::1684678718
 Godot Char_Placeholder-1.png::CompressedTexture2D::3587011470912294664::1681926322::1681926512::1::::<><>::
-::res://Assets/Sounds/::1685016030
+::res://Assets/Sounds/::1685280505
 Button_1.wav::AudioStreamWAV::2102990004530387803::1685016030::1685280505::1::::<><>::
 ForceField_Take01_Inside.wav::AudioStreamWAV::4346708966649423720::1684407520::1684678677::1::::<><>::
 ForceField_Take01_Outside.wav::AudioStreamWAV::4092406126601086448::1684407520::1684678677::1::::<><>::
@@ -24,14 +24,14 @@ Artifact1_full.png::CompressedTexture2D::6571697586843854300::1684678718::168467
 Artifact1_part1.png::CompressedTexture2D::1000293385026268987::1684678718::1684678718::1::::<><>::
 Artifact_part2.png::CompressedTexture2D::5712685498870293134::1684678718::1684678718::1::::<><>::
 Artifact_part3.png::CompressedTexture2D::214475271712598551::1684678718::1684678718::1::::<><>::
-::res://Assets/Sprites/Game objects/::1685279976
+::res://Assets/Sprites/Game objects/::1685295474
 Ball.png::CompressedTexture2D::2812879286531544329::1684678718::1684678718::1::::<><>::
 Box.png::CompressedTexture2D::6239817549971699470::1684678718::1684678718::1::::<><>::
 flag1_min.png::CompressedTexture2D::5916822888199666756::1684678718::1684678718::1::::<><>::
 flag2_min.png::CompressedTexture2D::7857092361988699079::1684678718::1684678718::1::::<><>::
 flag3_min.png::CompressedTexture2D::370520846933194618::1684678718::1684678718::1::::<><>::
-Platform_Moving.tres::GradientTexture2D::6902438974613199686::1685014230::0::1::::<><>::
-Platform_Normal.tres::GradientTexture2D::5186750078832371388::1685279976::0::1::::<><>::
+Platform_Moving.tres::GradientTexture2D::6902438974613199686::1685280695::0::1::::<><>::
+Platform_Normal.tres::GradientTexture2D::5186750078832371388::1685295474::0::1::::<><>::
 Spikes.png::CompressedTexture2D::8537367750236661456::1684678718::1684678718::1::::<><>::
 Switch.png::CompressedTexture2D::5880208709275302537::1684678718::1684678718::1::::<><>::
 ::res://Assets/Sprites/Tilesets/::1684926394
@@ -97,18 +97,18 @@ Artifact1_2.tscn::PackedScene::4823142866358334599::1684678718::0::1::::<><>::ui
 Artifact1_3.tscn::PackedScene::8460560323182318923::1684678718::0::1::::<><>::uid://db5m2dvlwlx4
 ::res://Instances/Gameobjects/::1685016030
 SoundExample.cs::CSharpScript::-1::1685016030::0::1::::<><>::
-::res://Instances/Gameobjects/Gravityfields/::1685279976
-Gravityfield_Normal.cs::CSharpScript::-1::1685009740::0::1::::<><>::
+::res://Instances/Gameobjects/Gravityfields/::1685280695
+Gravityfield_Normal.cs::CSharpScript::-1::1685280695::0::1::::<><>::
 Gravityfield_Normal.tscn::PackedScene::8203964619402760068::1685279976::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
 Gravityfield_Time.cs::CSharpScript::-1::1684678718::0::1::::<><>::
 Gravityfield_Time.tscn::PackedScene::4266977411605829208::1685279976::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
 Gravityfield_Toggle.cs::CSharpScript::-1::1685016030::0::1::::<><>::
 Gravityfield_Toggle.tscn::PackedScene::6653528997500859392::1685279976::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs<>uid://cp1ogcfgfwqy0<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
-::res://Instances/Gameobjects/Laser/::1685016030
+::res://Instances/Gameobjects/Laser/::1685294274
 Laser_Pressure_Plate.cs::CSharpScript::-1::1685016030::0::1::::<><>::
 Laser_Pressure_Plate.tscn::PackedScene::4661940788271807733::1685016030::0::1::::<><>::res://Instances/Gameobjects/Laser/Laser_Pressure_Plate.cs<>uid://cekaod2annpte<>res://Shaders/laser_beam.gdshader
-Laser_Timed.cs::CSharpScript::-1::1684407520::0::1::::<><>::
-Laser_Timed.tscn::PackedScene::6698425991656575786::1684407520::0::1::::<><>::res://Instances/Gameobjects/Laser/Laser_Timed.cs<>uid://cekaod2annpte<>res://Shaders/laser_beam.gdshader
+Laser_Timed.cs::CSharpScript::-1::1685294274::0::1::::<><>::
+Laser_Timed.tscn::PackedScene::6698425991656575786::1685294063::0::1::::<><>::res://Instances/Gameobjects/Laser/Laser_Timed.cs<>uid://cekaod2annpte<>res://Shaders/laser_beam.gdshader
 ::res://Instances/Gameobjects/LevelRotator/::1684407520
 LevelRotator.cs::CSharpScript::-1::1684407520::0::1::::<><>::
 LevelRotatorTrigger.cs::CSharpScript::-1::1684407520::0::1::::<><>::
@@ -133,12 +133,12 @@ Checkpoint.cs::CSharpScript::-1::1684678719::0::1::::<><>::
 Checkpoint.tscn::PackedScene::9061288352858707582::1684678719::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.cs<>uid://cqkfhdbjor2l1<>uid://dj7bfs0a02pv0
 Spikes.tscn::PackedScene::4249880713655740377::1685279976::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs
 Traps.cs::CSharpScript::-1::1683905297::0::1::::<><>::
-::res://Instances/Levels/::1685279976
+::res://Instances/Levels/::1685295725
 InstantiateLevel.cs::CSharpScript::-1::1681573163::0::1::::<><>::
 Level-Prototype.tscn::PackedScene::2705298522082194010::1685279976::0::1::::<><>::res://Shaders/color-palette.gdshader<>uid://d3s6elkjprg46<>uid://ehww7w412i1<>uid://bbecw7j0dluj5<>uid://chb1cn1avyu4c<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://d2dmdifx4vsp7<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>uid://bsu6aquff70be<>uid://b1sw6dddgaq2d
 Level.cs::CSharpScript::-1::1681572821::0::1::::<><>::
 world_1_level.gdshader::Shader::-1::1683845805::0::1::::<><>::
-world_1_level.tscn::PackedScene::8769229647954890991::1685279976::0::1::::<><>::uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://bxrinvpxhsiqc<>uid://ehww7w412i1<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://c7s6ybr43gk6l<>uid://d2dmdifx4vsp7<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://dt56jo4o7i0hw<>uid://nv4s53vmoxpl<>uid://c7d5koa6uqj0r<>uid://caympt3s2vfr0<>uid://dssmgso4cwa0j
+world_1_level.tscn::PackedScene::8769229647954890991::1685295725::0::1::::<><>::uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://bxrinvpxhsiqc<>uid://ehww7w412i1<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://c7s6ybr43gk6l<>uid://d2dmdifx4vsp7<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://dt56jo4o7i0hw<>uid://nv4s53vmoxpl<>uid://c7d5koa6uqj0r<>uid://caympt3s2vfr0<>uid://dssmgso4cwa0j<>uid://c2o1dkvnu6rgc<>uid://b7ojqpd7vuhx2
 ::res://Instances/Save System/::1681572821
 ButtonDeleteScene.cs::CSharpScript::-1::1681572821::0::1::::<><>::
 ButtonLevelLoader.cs::CSharpScript::-1::1681572821::0::1::::<><>::
