@@ -118,18 +118,19 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ulhn2"]
 
 [node name="Gravityfield_Time" type="Area2D" node_paths=PackedStringArray("_audioPlayerOutside", "_audioPlayerInside")]
+collision_layer = 512
+collision_mask = 192
 script = ExtResource("1_pp184")
 _audioPlayerOutside = NodePath("AudioStreamPlayer2D")
 _audioPlayerInside = NodePath("AudioStreamPlayer")
 
 [node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fdb21")
-disabled = true
 
 [node name="GravityDirection" type="Node2D" parent="GravityfieldCollider"]
 position = Vector2(0, -14)

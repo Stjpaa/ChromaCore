@@ -21,8 +21,6 @@ public partial class Gravityfield_Toggle : Node2D
 
 	private CollisionShape2D _gravityfieldCollider;
 
-	private bool _gravityfieldDisabled = true;
-
 	private Node2D _gravityDirectionNode;
 
 	private Vector2 _gravityDirection;
@@ -84,8 +82,7 @@ public partial class Gravityfield_Toggle : Node2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		GD.Print("Entered");
-		if (!this._gravityfieldDisabled)
+		if (!this._gravityfieldCollider.Disabled)
 		{
 			body.Call("ChangeGravityProperties", this._gravityDirection.Normalized() * this._gravityStrength);
 			try
@@ -104,27 +101,22 @@ public partial class Gravityfield_Toggle : Node2D
 
 	public void OnBodyExited(Node2D body)
 	{
-		if (!this._gravityfieldDisabled)
+		body.Call("ResetGravityProperties");	
+		try
 		{
-			body.Call("ResetGravityProperties");	
-			try
+			if (body is PlayerController.PlayerController2D)
 			{
-				PlayerController.PlayerController2D player_body = (PlayerController.PlayerController2D)body;
-				if(player_body != null)
-				{
-					_audioPlayerOutside.VolumeDb = 0;
-					_audioPlayerInside.VolumeDb = -100;
-				}
+				_audioPlayerOutside.VolumeDb = 0;
+				_audioPlayerInside.VolumeDb = -100;
 			}
-			catch(InvalidCastException)
-			{ /* do nothing */ }		
 		}
+		catch(InvalidCastException)
+		{ /* do nothing */ }		
 	}
 
 	public void EnableGravityfield(Node2D body)
 	{
-		// Does not work with SetDeffered => probably bugged
-		this._gravityfieldDisabled = false;
+		this._gravityfieldCollider.SetDeferred("disabled", false);
 		this._spriteMat.SetShaderParameter("pause", false);
 
 		player_button.Stream = GetSound();
@@ -133,7 +125,7 @@ public partial class Gravityfield_Toggle : Node2D
 
 	public void DisableGravityfield(Node2D body)
 	{
-		this._gravityfieldDisabled = true;
+		this._gravityfieldCollider.SetDeferred("disabled", true);
 		this._spriteMat.SetShaderParameter("pause", true);
 
 		player_button.Stream = GetSound();

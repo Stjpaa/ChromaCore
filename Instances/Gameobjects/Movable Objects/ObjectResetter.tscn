@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Instances/Gameobjects/Movable Objects/ObjectResetter.cs" id="1_4661k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2rcc"]
+resource_local_to_scene = true
 size = Vector2(20, 5)
 
 [node name="ObjectResetter" type="Area2D"]

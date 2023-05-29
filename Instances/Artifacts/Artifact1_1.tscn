@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7d5koa6uqj0r"]
+
+[ext_resource type="Texture2D" uid="uid://oisxk542j3br" path="res://Assets/Sprites/Artifacts/Artifact1_part1.png" id="1_cis4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5755k"]
+size = Vector2(70, 27)
+
+[node name="Artifact_part1" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_5755k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cis4h")

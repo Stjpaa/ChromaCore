@@ -13,9 +13,6 @@ public partial class JumpPad : StaticBody2D
 	[Export]
 	private AudioStreamPlayer2D _audioPlayer;
 
-	[Signal]
-	public delegate void OnJumpPadEnteredEventHandler(Vector2 strength);
-
 	private CollisionShape2D _objectCollider;
 
 	private CollisionShape2D _jumpCollider;

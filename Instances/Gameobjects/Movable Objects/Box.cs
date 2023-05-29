@@ -80,8 +80,8 @@ public partial class Box : RigidBody2D, IMechanicMethods
 		if (Engine.IsEditorHint())
 		{
 			this._boxCollider.Shape.Set("size", new Vector2(this._boxSize, this._boxSize));
-			this._sprite.Set("width", this._boxSize);
-			this._sprite.Set("height", this._boxSize);
+			this._sprite.Set("width", this._boxCollider.Shape.GetRect().Size.X);
+			this._sprite.Set("height", this._boxCollider.Shape.GetRect().Size.Y);
 		}
 	}
 

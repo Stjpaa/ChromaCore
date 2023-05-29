@@ -1,17 +1,17 @@
-[gd_scene load_steps=61 format=3 uid="uid://besp4vl5cfm8a"]
+[gd_scene load_steps=65 format=3 uid="uid://besp4vl5cfm8a"]
 
-[ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/atlas.png" id="1_dxho2"]
-[ext_resource type="Texture2D" uid="uid://chb1cn1avyu4c" path="res://Assets/Tileset.png" id="1_jj2hn"]
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_rm56s"]
-[ext_resource type="PackedScene" uid="uid://b3t2mpsrlclj1" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
-[ext_resource type="PackedScene" uid="uid://jlg4pvnpuc7i" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
+[ext_resource type="PackedScene" uid="uid://d3s6elkjprg46" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
+[ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/Sprites/Tilesets/atlas.png" id="2_bqfnn"]
+[ext_resource type="PackedScene" uid="uid://bbecw7j0dluj5" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="3_sj8q7"]
+[ext_resource type="Texture2D" uid="uid://chb1cn1avyu4c" path="res://Assets/Sprites/Tilesets/Tileset.png" id="3_u6onl"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_wi1df"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="6_ot4hf"]
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="7_vr5mk"]
-[ext_resource type="PackedScene" uid="uid://rfnsqa1150ea" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="8_i08wq"]
+[ext_resource type="PackedScene" uid="uid://c12awd8dlrugm" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="8_i08wq"]
 [ext_resource type="PackedScene" uid="uid://mb5aisolynk5" path="res://Instances/Gameobjects/Platforms/JumpPad.tscn" id="9_3ixdi"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="10_xwke7"]
-[ext_resource type="PackedScene" uid="uid://oj3xa6mp45cx" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
+[ext_resource type="PackedScene" uid="uid://d2dmdifx4vsp7" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
 [ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="11_xf5fx"]
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="13_3inke"]
 [ext_resource type="Texture2D" uid="uid://bsu6aquff70be" path="res://Assets/Sprites/p1_stand.png" id="14_kjbvf"]
@@ -29,7 +29,7 @@ shader_parameter/brightness = 1.0
 shader_parameter/gradient = SubResource("GradientTexture1D_hh2lp")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iwd18"]
-texture = ExtResource("1_dxho2")
+texture = ExtResource("2_bqfnn")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -107,7 +107,7 @@ texture = ExtResource("1_dxho2")
 4:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2e4j6"]
-texture = ExtResource("1_jj2hn")
+texture = ExtResource("3_u6onl")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -138,7 +138,8 @@ texture = ExtResource("1_jj2hn")
 2:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_32w8q"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 32
+physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_2e4j6")
 sources/0 = SubResource("TileSetAtlasSource_iwd18")
 
@@ -207,14 +208,18 @@ _data = {
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ypp4y"]
 friction = 0.6
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34i06"]
+resource_local_to_scene = true
+size = Vector2(32, 32)
+
 [sub_resource type="Gradient" id="Gradient_5kk12"]
 colors = PackedColorArray(0.00784314, 0.219608, 0.94902, 1, 0.00784314, 0.219608, 0.94902, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dkal7"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_5kk12")
-width = 20
-height = 20
+width = 32
+height = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpx1o"]
 resource_local_to_scene = true
@@ -445,7 +450,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfdn"]
 resource_local_to_scene = true
@@ -847,6 +852,122 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
+shader_parameter/pause = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jmof"]
+resource_local_to_scene = true
+size = Vector2(50, 50)
+
+[sub_resource type="Shader" id="Shader_allbu"]
+code = "shader_type canvas_item;
+
+uniform float width : hint_range(10, 1000) = 30;
+uniform float height : hint_range(10, 1000) = 30;
+uniform vec3 particle_color : source_color;
+uniform vec4 background_color : source_color;
+uniform float particle_size : hint_range(0.0, 1.0) = 0.2;
+uniform float particle_rotation_speed : hint_range(0.0, 10.0) = 5;
+
+uniform vec2 direction;
+uniform float strength : hint_range(0.0, 10.0) = 0.5;
+uniform int quality = 2;
+uniform bool pause = false;
+
+void vertex(){
+	vec2 blurSize = abs(direction) * 2.0;
+	VERTEX *= blurSize + 1.0;
+	UV = (UV - 0.5) * (blurSize + 1.0) + 0.5;
+}
+
+float insideUnitSquare(vec2 v) {
+    vec2 s = step(vec2(0.0), v) - step(vec2(1.0), v);
+    return s.x * s.y;   
+}
+
+vec2 random(vec2 uv) {
+	return vec2(fract(sin(dot(uv.xy,
+		vec2(12.9898,78.233))) * 43758.5453123));
+}
+
+float worley(vec2 uv, float columns, float rows, float time) {
+	
+	vec2 index_uv = floor(vec2(uv.x * columns, uv.y * rows));
+	vec2 fract_uv = fract(vec2(uv.x * columns, uv.y * rows));
+	
+	float minimum_dist = 1.0;  
+	
+	for (int y= -1; y <= 1; y++) {
+		for (int x= -1; x <= 1; x++) {
+			vec2 neighbor = vec2(float(x),float(y));
+			vec2 point = random(index_uv + neighbor);
+			if (!pause) {
+				float random = fract(sin(point.x + 78.233) * 43758.5453123) - 0.5;
+				float rot_direction = random / abs(random);
+				// sin(x * 𝜋 / 3) + sin(x * 𝜋)
+				point = vec2(
+					cos(rot_direction * time * point.x * particle_rotation_speed / 3.0) + cos(rot_direction * time * point.x * particle_rotation_speed),
+					sin(rot_direction * time * point.y * particle_rotation_speed / 3.0) + sin(rot_direction * time * point.y * particle_rotation_speed)
+				) * 0.5 + 0.5;
+			}
+			vec2 diff = neighbor + point - fract_uv;
+			float dist = length(diff);
+			minimum_dist = min(minimum_dist, dist);
+		}
+	}
+	
+	return minimum_dist;
+}
+
+vec4 run_worley(vec2 uv) {
+	float worley = worley(uv + direction * TIME * (pause ? 0.0 : strength), width, height, TIME);
+	return vec4(particle_color, step(1.0 - particle_size, 1.0-worley) * (1.0-worley));
+}
+
+void fragment() {
+	float inSquare = insideUnitSquare(UV);
+	float numSamples = inSquare;
+	COLOR = run_worley(UV) * inSquare;
+	if (!pause) {
+		vec2 stepSize = direction/(float(quality)) / 50.0 * strength;
+		vec2 uv;
+		for(int i = 1; i <= quality; i++){
+			uv = UV + stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+			
+			uv = UV - stepSize * float(i);
+			inSquare = insideUnitSquare(uv);
+			numSamples += inSquare;
+			COLOR += run_worley(uv) * inSquare;
+		}
+		COLOR.rgb /= numSamples;
+		COLOR.a /= float(quality)*2.0 + 1.0;
+	}
+	if (
+		COLOR.a == 0.0 &&
+		UV.x >= 0.0 &&
+		UV.x <= 1.0 &&
+		UV.y >= 0.0 &&
+		UV.y <= 1.0
+	) {
+		COLOR = background_color;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqdwd"]
+resource_local_to_scene = true
+shader = SubResource("Shader_allbu")
+shader_parameter/width = 50.0
+shader_parameter/height = 30.0
+shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
+shader_parameter/background_color = Color(0, 0, 1, 0.168627)
+shader_parameter/particle_size = 0.2
+shader_parameter/particle_rotation_speed = 5.0
+shader_parameter/direction = Vector2(0, 1)
+shader_parameter/strength = 1.33333
+shader_parameter/quality = 2
 shader_parameter/pause = true
 
 [sub_resource type="Gradient" id="Gradient_g84sw"]
@@ -927,11 +1048,12 @@ libraries = {
 [node name="GameObjectsList" type="Node" parent="."]
 
 [node name="Box" parent="GameObjectsList" instance=ExtResource("5_wi1df")]
-position = Vector2(-349, -788)
+position = Vector2(-2248, -212)
 physics_material_override = SubResource("PhysicsMaterial_ypp4y")
-continuous_cd = 2
 max_contacts_reported = 0
-_boxSize = 32.0
+
+[node name="BoxCollider" parent="GameObjectsList/Box" index="0"]
+shape = SubResource("RectangleShape2D_34i06")
 
 [node name="TeleportCooldown" parent="GameObjectsList/Box" index="1"]
 process_callback = 0
@@ -954,7 +1076,7 @@ position = Vector2(0, -47)
 material = SubResource("ShaderMaterial_w4st0")
 
 [node name="Gravityfield_Time" parent="GravityfieldList" instance=ExtResource("7_vr5mk")]
-position = Vector2(-153, -147)
+position = Vector2(-2251, 7)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
@@ -1048,6 +1170,20 @@ shape = SubResource("RectangleShape2D_6apcr")
 material = SubResource("ShaderMaterial_gi30v")
 scale = Vector2(48, 144)
 
+[node name="Gravityfield_Toggle3" parent="GravityfieldList" node_paths=PackedStringArray("_audioPlayerOutside", "_audioPlayerInside") instance=ExtResource("8_i08wq")]
+position = Vector2(-2064, 13)
+_audioPlayerOutside = NodePath("../Gravityfield_Toggle/AudioStreamPlayer2D")
+_audioPlayerInside = NodePath("../Gravityfield_Toggle/AudioStreamPlayer")
+
+[node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Toggle3/Gravityfield" index="0"]
+shape = SubResource("RectangleShape2D_1jmof")
+
+[node name="Sprite" parent="GravityfieldList/Gravityfield_Toggle3/Gravityfield" index="1"]
+material = SubResource("ShaderMaterial_iqdwd")
+
+[node name="Switch" parent="GravityfieldList/Gravityfield_Toggle3" index="1"]
+position = Vector2(-66, 18)
+
 [node name="JumpPadsList" type="Node" parent="."]
 
 [node name="JumpPad" parent="JumpPadsList" instance=ExtResource("9_3ixdi")]
@@ -1075,7 +1211,7 @@ position = Vector2(37, 112)
 position = Vector2(-667, -640)
 
 [node name="Player" parent="." instance=ExtResource("11_xf5fx")]
-position = Vector2(-477, -798)
+position = Vector2(-567, 4)
 
 [node name="Label" parent="Player" index="4"]
 visible = false
@@ -1117,6 +1253,7 @@ position = Vector2(-814, -644)
 [editable path="GravityfieldList/Gravityfield_Normal3"]
 [editable path="GravityfieldList/Gravityfield_Normal4"]
 [editable path="GravityfieldList/Gravityfield_Time2"]
+[editable path="GravityfieldList/Gravityfield_Toggle3"]
 [editable path="JumpPadsList/JumpPad"]
 [editable path="PortalsList/Portals"]
 [editable path="Player"]

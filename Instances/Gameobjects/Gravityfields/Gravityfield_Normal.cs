@@ -14,12 +14,6 @@ public partial class Gravityfield_Normal : Area2D
 	private AudioStreamPlayer2D _audioPlayerOutside;
 	[Export]
 	private AudioStreamPlayer _audioPlayerInside;
-	
-	[Signal]
-	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction);
-
-	[Signal]
-	public delegate void OnGravityfieldExitedEventHandler();
 
 	private Sprite2D _sprite;
 
@@ -97,8 +91,7 @@ public partial class Gravityfield_Normal : Area2D
 		body.Call("ResetGravityProperties");
 		try
 		{
-			PlayerController.PlayerController2D player_body = (PlayerController.PlayerController2D)body;
-			if(player_body != null)
+			if (body is PlayerController.PlayerController2D)
 			{
 				_audioPlayerOutside.VolumeDb = 0;
 				_audioPlayerInside.VolumeDb = -100;

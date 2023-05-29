@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7s6ybr43gk6l"]
+[gd_scene load_steps=7 format=3 uid="uid://c7s6ybr43gk6l"]
 
 [ext_resource type="Shader" path="res://Shaders/radar-outline.gdshader" id="1_3lsjp"]
 [ext_resource type="Script" path="res://Instances/Gameobjects/Movable Objects/Box.cs" id="1_61n4i"]
+[ext_resource type="Texture2D" uid="uid://cu5u5bhei4xlu" path="res://Assets/Sprites/Game objects/Box.png" id="3_ghhho"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cvvj3"]
 shader = ExtResource("1_3lsjp")
@@ -17,28 +18,23 @@ shader_parameter/trail_width = 0.5
 friction = 0.6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5g7"]
-size = Vector2(40, 40)
-
-[sub_resource type="Gradient" id="Gradient_5kk12"]
-colors = PackedColorArray(0.00784314, 0.219608, 0.94902, 1, 0.00784314, 0.219608, 0.94902, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hi7iq"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_5kk12")
-width = 20
-height = 20
+size = Vector2(32, 32)
 
 [node name="Box" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_cvvj3")
+collision_layer = 128
+collision_mask = 96
 mass = 0.5
 inertia = 100.0
 physics_material_override = SubResource("PhysicsMaterial_0dgtd")
+custom_integrator = true
+continuous_cd = 1
 max_contacts_reported = 2
 contact_monitor = true
 can_sleep = false
 linear_velocity = Vector2(0, 980)
 script = ExtResource("1_61n4i")
-_boxSize = 20.0
 
 [node name="BoxCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ns5g7")
@@ -47,6 +43,6 @@ shape = SubResource("RectangleShape2D_ns5g7")
 one_shot = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_hi7iq")
+texture = ExtResource("3_ghhho")
 
 [connection signal="property_list_changed" from="." to="." method="OnPropertyChanged"]

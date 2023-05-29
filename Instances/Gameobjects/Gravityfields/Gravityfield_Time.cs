@@ -21,12 +21,6 @@ public partial class Gravityfield_Time : Area2D
 	[Export]
 	private AudioStreamPlayer _audioPlayerInside;
 
-	[Signal]
-	public delegate void OnGravityfieldEnteredEventHandler(Vector2 direction);
-
-	[Signal]
-	public delegate void OnGravityfieldExitedEventHandler();
-
 	private Timer _intervalTimer;
 	private Timer _enabledForTimer;
 
@@ -125,8 +119,7 @@ public partial class Gravityfield_Time : Area2D
 		body.Call("ResetGravityProperties");
 		try
 		{
-			PlayerController.PlayerController2D player_body = (PlayerController.PlayerController2D)body;
-			if(player_body != null)
+			if (body is PlayerController.PlayerController2D)
 			{
 				_audioPlayerOutside.VolumeDb = 0;
 				_audioPlayerInside.VolumeDb = -100;
