@@ -7,17 +7,20 @@ using System.Threading.Tasks;
 /// </summary>
 public partial class RemapInputs : Control
 {
+    [Export] private Panel inputPanel;
     private string actionName = "ui_up";
+    private RemapInputsButton currentRemapInputsButton;
 
     private InputEvent keyboardOne;
     private InputEvent keyboardTwo;
     private InputEvent controllerOne;
 
-    private bool replaceInput = true;
+    private bool replaceInput = false;
 
     public override void _Ready()
     {
-        GD.PrintErr("could cause Problems ith the order, because new actions would cause controllerOne to move up to [1] in the InputList should probalby safe new Button");
+        inputPanel = (Panel)GetNode("SetInputPanel");
+        //GD.PrintErr("could cause Problems ith the order, because new actions would cause controllerOne to move up to [1] in the InputList should probalby safe new Button");
 
         UpdateCurrentInputevents(actionName);
 
@@ -82,7 +85,9 @@ public partial class RemapInputs : Control
             GD.Print(inputEvent.AsText());
 
             ReplaceInputEvent(actionName, controllerOne, inputEvent);
-            PrintAllInputs(actionName);
+            //PrintAllInputs(actionName);
+            currentRemapInputsButton.Text = inputEvent.AsText();
+            setBlockPanelVisibility(false);
             replaceInput = false;
         }
         //GD.Print(inputEvent.GetType());
@@ -90,11 +95,18 @@ public partial class RemapInputs : Control
         //GD.Print(inputEvent.AsText());
     }
 
-    public void OnButtonPressedSignal()
+    public void OnButtonPressed(RemapInputsButton clickedButton)
     {
+        setBlockPanelVisibility(true);
+        replaceInput = true;
+        currentRemapInputsButton = clickedButton;
         
     }
 
-
+    private void setBlockPanelVisibility(bool visibleBool)
+    {
+        inputPanel.Visible = visibleBool;
+    }
     
+
 }

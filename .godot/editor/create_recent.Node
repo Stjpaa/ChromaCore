@@ -1,14 +1,14 @@
+Label
+Panel
 Control
 TextureRect
 AnimationPlayer
 PathFollow2D
 Path2D
-Panel
 PanelContainer
 HBoxContainer
 Button
 VBoxContainer
-Label
 ItemList
 Node2D
 CheckBox
