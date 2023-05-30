@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://csvqe8kqn7jfh"]
+
+[ext_resource type="PackedScene" uid="uid://b3clekngejd46" path="res://Instances/UIobjects/LevelTimer/timer.tscn" id="1_obwtd"]
+[ext_resource type="PackedScene" uid="uid://cf5e8m8gqmt4m" path="res://Instances/Menus/PauseMenu/pause_menu.tscn" id="2_s43j7"]
+
+[node name="IngameUI" type="CanvasLayer"]
+
+[node name="LevelTimer" parent="." instance=ExtResource("1_obwtd")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_s43j7")]

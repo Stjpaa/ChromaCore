@@ -4,3 +4,6 @@ res://Assets/Sprites/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
 res://Instances/Menus/ui_navigation_manager.tscn
+res://Instances/Menus/PauseMenu/pause_menu.tscn
+res://Instances/Levels/Level-Prototype.tscn
+res://Instances/Menus/IngameUI/IngameUI.tscn
