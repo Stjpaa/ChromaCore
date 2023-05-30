@@ -41,7 +41,7 @@ public partial class Gravityfield_Toggle : Node2D
 		// Set collider- and spritesize
 		this._gravityfieldCollider.Shape.Set("size", this._gravityfieldSize);
 		this._sprite.Scale = this._gravityfieldCollider.Shape.GetRect().Size;
-
+		this._gravityfieldCollider.SetDeferred("disabled", true);
 		// Set direction of gravityfield
 		this._gravityDirection = this._gravityDirectionNode.Position;
 

@@ -3,3 +3,6 @@ res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs
+res://Instances/Gameobjects/Movable Objects/Box.tscn
+res://Instances/Gameobjects/Platforms/NormalPlatform.tscn
