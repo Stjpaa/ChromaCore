@@ -1,0 +1,128 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddm6gbeewi6js"]
+
+[ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs" id="1_y178v"]
+[ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs" id="2_4ukqj"]
+[ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="3_r4a1n"]
+
+[node name="RemapInputs" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y178v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 1.0
+offset_right = 78.0
+offset_bottom = 212.0
+
+[node name="UpHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Up" type="Label" parent="VBoxContainer/UpHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Up / Jump"
+
+[node name="Button" type="Button" parent="VBoxContainer/UpHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+focus_neighbor_right = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../../DownHBoxContainer/Button")
+text = "w"
+script = ExtResource("2_4ukqj")
+
+[node name="Button2" type="Button" parent="VBoxContainer/UpHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="DownHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Down" type="Label" parent="VBoxContainer/DownHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Down"
+
+[node name="Button" type="Button" parent="VBoxContainer/DownHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
+text = "s"
+script = ExtResource("2_4ukqj")
+inputToRemap = 1
+actionName = "ui_down"
+
+[node name="Button2" type="Button" parent="VBoxContainer/DownHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "s"
+
+[node name="LeftHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Left" type="Label" parent="VBoxContainer/LeftHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Left"
+
+[node name="Button" type="Button" parent="VBoxContainer/LeftHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "A"
+
+[node name="Button2" type="Button" parent="VBoxContainer/LeftHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "A"
+
+[node name="RightHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Right" type="Label" parent="VBoxContainer/RightHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Right"
+
+[node name="Button" type="Button" parent="VBoxContainer/RightHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "D"
+
+[node name="Button2" type="Button" parent="VBoxContainer/RightHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "D"
+
+[node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("3_r4a1n")]
+layout_mode = 1
+focusNodeOnStart = NodePath("../VBoxContainer/UpHBoxContainer/Button")
+
+[node name="SetInputPanel" type="Panel" parent="."]
+visible = false
+modulate = Color(1, 1, 0.996078, 0.74902)
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SetInputPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -13.0
+offset_right = 65.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Waiting for Input"

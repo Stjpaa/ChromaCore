@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://mobt10g1plur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipcgd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3h1hp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_joe51"]
+
+[sub_resource type="Theme" id="Theme_ctcik"]
+HSlider/icons/grabber = null
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_ipcgd")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_3h1hp")
+HSlider/styles/slider = SubResource("StyleBoxEmpty_joe51")
+
+[node name="DashCooldown" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSlider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 8.0
+grow_vertical = 0
+theme = SubResource("Theme_ctcik")
+editable = false
+scrollable = false

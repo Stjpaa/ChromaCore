@@ -1,7 +1,9 @@
+ProgressBar
+HSlider
+Control
 CanvasLayer
 Label
 Panel
-Control
 TextureRect
 AnimationPlayer
 PathFollow2D
@@ -16,7 +18,6 @@ CheckBox
 ColorRect
 Node
 Container
-HSlider
 CollisionShape2D
 Area2D
 Sprite2D

@@ -447,7 +447,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfdn"]
 resource_local_to_scene = true
@@ -849,7 +849,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="Gradient" id="Gradient_g84sw"]
 colors = PackedColorArray(0, 1, 0, 0, 0, 0.670588, 0, 1)
@@ -959,7 +959,6 @@ position = Vector2(-153, -147)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
-disabled = false
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
@@ -1045,7 +1044,6 @@ _gravityfieldSize = Vector2(48, 144)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_6apcr")
-disabled = false
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Time2/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_gi30v")
@@ -1090,9 +1088,6 @@ zoom = Vector2(1.5, 1.5)
 scale = Vector2(0.461, 0.461)
 texture = ExtResource("14_kjbvf")
 
-[node name="IngameUI" parent="Player" instance=ExtResource("15_limdq")]
-metadata/_edit_use_anchors_ = true
-
 [node name="Miscellaneous" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1112,8 +1107,11 @@ texture = SubResource("CanvasTexture_ry0wi")
 [node name="Spikes" parent="SpikesList" instance=ExtResource("16_b88yk")]
 position = Vector2(-814, -644)
 
+[node name="IngameUI" parent="." instance=ExtResource("15_limdq")]
+metadata/_edit_use_anchors_ = true
+
 [node name="LevelManager" parent="." node_paths=PackedStringArray("levelTimer") instance=ExtResource("1_ivd61")]
-levelTimer = NodePath("../Player/IngameUI/LevelTimer")
+levelTimer = NodePath("../IngameUI/LevelTimer")
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]
@@ -1129,5 +1127,5 @@ levelTimer = NodePath("../Player/IngameUI/LevelTimer")
 [editable path="JumpPadsList/JumpPad"]
 [editable path="PortalsList/Portals"]
 [editable path="Player"]
-[editable path="Player/IngameUI"]
 [editable path="SpikesList/Spikes"]
+[editable path="IngameUI"]
