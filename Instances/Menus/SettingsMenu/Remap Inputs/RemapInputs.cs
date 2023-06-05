@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.ComponentModel.Design;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -9,51 +10,50 @@ public partial class RemapInputs : Control
 {
     public enum RemapedInputs   // the different inputs that can be remapped, used in _Input to to see what should be replaced
     {
-        up, down, left, right, dash, jump, interact
+        none,up, down, left, right, dash, jump, interact
     }
 
-
-
     [Export] private Panel inputPanel;
-    private string actionName = "ui_up";
     private RemapInputsButton currentRemapInputsButton;
+    private bool replaceInput = false;
+
+    private InputEvent[] currenControls;
+    private const string pathOfRemapData = "user://RemapedInputs.json";
+
+
+
+
 
     private InputEvent keyboardOne;
     private InputEvent keyboardTwo;
     private InputEvent controllerOne;
 
-    private bool replaceInput = false;
+    private string actionName = "ui_up";
 
     public override void _Ready()
     {
         inputPanel = (Panel)GetNode("SetInputPanel");
+
+
         //GD.PrintErr("could cause Problems ith the order, because new actions would cause controllerOne to move up to [1] in the InputList should probalby safe new Button");
 
-        UpdateCurrentInputevents(actionName);
+        //UpdateCurrentInputevents(actionName);
 
-        PrintAllInputs(actionName);
+        //PrintAllInputs(actionName);
 
-        InputEvent replacementEvent = controllerOne;
-        ReplaceInputEvent(actionName, keyboardOne, replacementEvent);
-        PrintAllInputs(actionName);
+        //InputEvent replacementEvent = controllerOne;
+        //ReplaceInputEvent(actionName, keyboardOne, replacementEvent);
+        //PrintAllInputs(actionName);
     }
 
-    public override void _Process(double delta)
-    {
-        if (Input.IsAnythingPressed())
-        {
-            //RemapInputs ( pressedKey)
-        }
-    }
+    //private void UpdateCurrentInputevents(string action)
+    //{
+    //    var currentInputEvents = InputMap.ActionGetEvents(action);
 
-    private void UpdateCurrentInputevents(string action)
-    {
-        var currentInputEvents = InputMap.ActionGetEvents(action);
-
-        keyboardOne = currentInputEvents[0];
-        keyboardTwo = currentInputEvents[1];
-        controllerOne = currentInputEvents[2];
-    }
+    //    keyboardOne = currentInputEvents[0];
+    //    keyboardTwo = currentInputEvents[1];
+    //    controllerOne = currentInputEvents[2];
+    //}
 
     private void PrintAllInputs(string action)
     {
@@ -72,12 +72,8 @@ public partial class RemapInputs : Control
         //causes Problems if the same Input is assigned twice to the same action,
         //or if it is part of a different action (for example up and rigth are both assigned d -> causes Problem)
 
-
-
-
         InputMap.ActionEraseEvent(action, eventToRemove);
         InputMap.ActionAddEvent(action, eventToAdd);
-
     }
 
     public override void _Input(InputEvent inputEvent)
@@ -91,8 +87,10 @@ public partial class RemapInputs : Control
         {
             GD.Print(inputEvent.AsText());
 
-            ReplaceInputEvent(currentRemapInputsButton.actionName, controllerOne, inputEvent);
-            //PrintAllInputs(actionName);
+            //ReplaceInputEvent(currentRemapInputsButton.actionName, controllerOne, inputEvent);
+
+            HandleInputType(currentRemapInputsButton, inputKey);
+            
             currentRemapInputsButton.Text = inputEvent.AsText();
             setBlockPanelVisibility(false);
             replaceInput = false;
@@ -102,13 +100,22 @@ public partial class RemapInputs : Control
         //GD.Print(inputEvent.AsText());
     }
 
-    private void HandleInputType(RemapInputsButton pressedButton)
+    private void HandleInputType(RemapInputsButton pressedButton, InputEventKey newInput)
     {
         switch (pressedButton.inputToRemapType)
         {
+            case RemapedInputs.none:
+                {
+                    GD.Print("no type was assigned on remap button");
+                }
+                break;
+
             case RemapedInputs.up:
                 {
-
+                    //jump
+                    //ui_up
+                    ReplaceInputEvent("ui_up", currenControls[pressedButton.positionInRemapArray], newInput);
+                    ReplaceInputEvent("ui_up", currenControls[pressedButton.positionInRemapArray], newInput);
 
                 }
                 break;
@@ -154,6 +161,7 @@ public partial class RemapInputs : Control
 
                 }
                 break;
+
         }
     }
 
@@ -170,5 +178,26 @@ public partial class RemapInputs : Control
         inputPanel.Visible = visibleBool;
     }
 
+    public string GetTextForButton(RemapInputsButton button)
+    {
+        if(currenControls == null)
+        {
+            GD.Print("controls where not yet assigned");
+            LoadSaveData();
+        }
 
+        return "Test";
+    }
+
+    private void LoadSaveData()
+    {
+        string pathToSavedata = ProjectSettings.GlobalizePath(pathOfRemapData);
+        //if(SaveSystem.DoesFileExistAtPath(savepath))
+        //{
+        //    //Load
+        //}
+        //else {
+        //    //Use base values
+        //}
+    }
 }

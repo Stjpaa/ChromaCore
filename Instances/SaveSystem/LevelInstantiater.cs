@@ -101,10 +101,11 @@ public partial class LevelInstantiater : Node2D
 
         var loadedScene = (PackedScene)ResourceLoader.LoadThreadedGet(levelToBeInstantiatedPath);     // Change to the Loaded Scene
 
-        levelRoot.AddChild(loadedScene.Instantiate());
+        Node loadedSceneNode = loadedScene.Instantiate();
 
+        levelRoot.AddChild(loadedSceneNode);    // does only work partialy, for some reason the loadedScene doesnt get deleted properly in some cases, but i have no idea how to fix this
 
-
+        loadedSceneNode.Owner = levelRoot;      // doesnt get set automatically, probably because its an Instantiated Scene... I dont know what Godots problem is
 
 
         levelManager = (LevelManager)levelRoot.GetChild(0).GetNode("LevelManager");

@@ -27,7 +27,17 @@ public static class SaveSystem
 
     public static void BackToLevelSelectScreen(SceneTree currentScene)
     {
-        currentScene.ChangeSceneToFile(pathToLevelSelectScreen);
+        //currentScene.ChangeSceneToFile(pathToLevelSelectScreen);  // this would not be enough, because the Level doesnt get deleted properly (i dont know the exact reason but i belive its because its not considered a child of the levelRoot)
+        var levelSelectScene = ResourceLoader.Load<PackedScene>(pathToLevelSelectScreen).Instantiate();
+
+        var sceneRoot = currentScene.Root;
+
+        foreach (var child in sceneRoot.GetChildren())  // Remove all current Nodes in the Scene
+        {
+            child.QueueFree();
+        }
+
+        sceneRoot.AddChild(levelSelectScene);
     }
 
     public static void LoadLevelWithLevelInstantiator(Level levelToBeLoaded)
@@ -114,6 +124,7 @@ public static class SaveSystem
             return false;
         }
 
+        //bool doesFileExist = File.Exists(pathToCheck);  // GlobalizePath is needed because File.Exists() checks from the OS Path and not the Godot path
         bool doesFileExist = File.Exists(ProjectSettings.GlobalizePath(pathToCheck));  // GlobalizePath is needed because File.Exists() checks from the OS Path and not the Godot path
 
         return doesFileExist;

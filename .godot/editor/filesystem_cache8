@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1685916846
+::res://::1685957432
 characters.png::CompressedTexture2D::5074265719891268926::1682282112::1682282152::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::6781716155928282535::1684411387::0::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1682788980::1682788980::1::::<><>::
@@ -114,9 +114,9 @@ Idle.cs::CSharpScript::-1::1682788980::0::1::::<><>::
 Returning.cs::CSharpScript::-1::1682788980::0::1::::<><>::
 Shooting.cs::CSharpScript::-1::1682788980::0::1::::<><>::
 State.cs::CSharpScript::-1::1682788980::0::1::::<><>::
-::res://Dillon/PlayerController/::1684411387
+::res://Dillon/PlayerController/::1685923530
 PlayerController2D.tscn::PackedScene::4036368587667263074::1684411387::0::1::::<><>::res://Dillon/PlayerController/Scripts/PlayerController2D.cs<>uid://d1vr7kylk8xma<>uid://cxxsdcybhyisc<>uid://cwyo5igh1of5c
-PlayerController2D_Data.tres::Resource::9028613815608671484::1684411387::0::1::::<><>::res://Dillon/PlayerController/Scripts/PlayerController2D_Data.cs
+PlayerController2D_Data.tres::Resource::9028613815608671484::1685923530::0::1::::<><>::res://Dillon/PlayerController/Scripts/PlayerController2D_Data.cs
 test.tres::Resource::4823965994172817575::1682788980::0::1::::<><>::res://Dillon/PlayerController/Scripts/PlayerController2D_Data.cs
 ::res://Dillon/PlayerController/Scripts/::1684411387
 PlayerController2D.cs::CSharpScript::-1::1684411387::0::1::::<><>::
@@ -168,9 +168,9 @@ Checkpoint.cs::CSharpScript::-1::1682282112::0::1::::<><>::
 Checkpoint.tscn::PackedScene::1002964408231646571::1682282112::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.cs
 Spikes.tscn::PackedScene::4249880713655740377::1684065886::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs
 Traps.cs::CSharpScript::-1::1684065886::0::1::::<><>::
-::res://Instances/Levels/::1685448268
+::res://Instances/Levels/::1685922334
 InstantiateLevel.cs::CSharpScript::-1::1682282112::0::1::::<><>::
-Level-Prototype.tscn::PackedScene::2705298522082194010::1685448268::0::1::::<><>::uid://ehww7w412i1<>uid://cs253h11xbsa5<>uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>uid://bsu6aquff70be<>uid://csvqe8kqn7jfh<>uid://b1sw6dddgaq2d
+Level-Prototype.tscn::PackedScene::2705298522082194010::1685922334::0::1::::<><>::uid://ehww7w412i1<>uid://cs253h11xbsa5<>uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://oj3xa6mp45cx<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>uid://bsu6aquff70be<>uid://csvqe8kqn7jfh<>uid://b1sw6dddgaq2d
 Level.cs::CSharpScript::-1::1684807657::0::1::::<><>::
 LevelManager.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 LevelManager.tscn::PackedScene::6093850673283212702::1684411387::0::1::::<><>::res://Instances/Levels/LevelManager.cs
@@ -183,9 +183,9 @@ UINavigationManager.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 ui_navigation_manager.tscn::PackedScene::398571667513817080::1685446188::0::1::::<><>::res://Instances/Menus/UINavigationManager.cs
 ::res://Instances/Menus/IngameUI/::1685448173
 IngameUI.tscn::PackedScene::6080572850230129701::1685448173::0::1::::<><>::uid://b3clekngejd46<>uid://cf5e8m8gqmt4m<>uid://mobt10g1plur
-::res://Instances/Menus/LevelSelection/::1685916846
+::res://Instances/Menus/LevelSelection/::1685922277
 LevelSelectLevel.tscn::PackedScene::6770805437750687728::1684833631::0::1::::<><>::res://Instances/Levels/Level.cs<>uid://cto7aik31qnlh<>res://Instances/Menus/LevelSelection/LevelSelectVisualisation.cs<>uid://chimxdejc5p4p
-LevelSelectScene.tscn::PackedScene::3829531926688066621::1685448569::0::1::::<><>::res://star-sky.gdshader<>uid://fxcogg7m5cng<>uid://besp4vl5cfm8a<>uid://c3p3f83ty7noa<>uid://dxl4wb7b8rvul
+LevelSelectScene.tscn::PackedScene::3829531926688066621::1685922277::0::1::::<><>::res://star-sky.gdshader<>uid://fxcogg7m5cng<>uid://besp4vl5cfm8a<>uid://c3p3f83ty7noa<>uid://dxl4wb7b8rvul
 LevelSelectVisualisation.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 ::res://Instances/Menus/MainMenu/::1684412639
 ExitButton.cs::CSharpScript::-1::1684411387::0::1::::<><>::
@@ -197,19 +197,19 @@ SettingsButton.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 ::res://Instances/Menus/PauseMenu/::1685448007
 PauseMenu.cs::CSharpScript::-1::1684806213::0::1::::<><>::
 pause_menu.tscn::PackedScene::5186019398921320722::1685448007::0::1::::<><>::res://Instances/Menus/PauseMenu/PauseMenu.cs<>uid://fxcogg7m5cng
-::res://Instances/Menus/SettingsMenu/::1685916867
-RemapInputs.cs::CSharpScript::-1::1685448705::0::1::::<><>::
-RemapInputs.tscn::PackedScene::3212196847797978031::1685916846::0::1::::<><>::res://Instances/Menus/SettingsMenu/RemapInputs.cs<>res://Instances/Menus/LevelSelection/RemapInputsButton.cs<>uid://fxcogg7m5cng
-RemapInputsButton.cs::CSharpScript::-1::1685448420::0::1::::<><>::
+::res://Instances/Menus/SettingsMenu/::1685916872
 SettingsMenu.cs::CSharpScript::-1::1684411387::0::1::::<><>::
-settings_menu.tscn::PackedScene::5748143870359726617::1684411387::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>res://Instances/Menus/SettingsMenu/RemapInputs.cs<>uid://fxcogg7m5cng
-::res://Instances/Menus/SettingsMenu/Remap Inputs/::1685916867
-RemapInputs.tscn::PackedScene::4764705388451096273::1685916872::0::1::::<><>::res://Instances/Menus/SettingsMenu/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/RemapInputsButton.cs<>uid://fxcogg7m5cng
-::res://Instances/SaveSystem/::1684812398
+settings_menu.tscn::PackedScene::-1::1685916872::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>uid://fxcogg7m5cng
+::res://Instances/Menus/SettingsMenu/Remap Inputs/::1685923530
+RemapInputs.cs::CSharpScript::-1::1685923477::0::1::::<><>::
+RemapInputs.tscn::PackedScene::7396494115495366880::1685923530::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs<>uid://fxcogg7m5cng
+RemapInputsButton.cs::CSharpScript::-1::1685922687::0::1::::<><>::
+RemapInputsSavedata.cs::CSharpScript::-1::1685919548::0::1::::<><>::
+::res://Instances/SaveSystem/::1685923515
 LevelInstantiater.cs::CSharpScript::-1::1684806454::0::1::::<><>::
 LevelInstantiater.tscn::PackedScene::2102581500260938997::1684812398::0::1::::<><>::res://Instances/SaveSystem/LevelInstantiater.cs<>uid://cn1al8qtngpmu
 LevelVariablesSaveData.cs::CSharpScript::-1::1684805653::0::1::::<><>::
-SaveSystem.cs::CSharpScript::-1::1684804239::0::1::::<><>::
+SaveSystem.cs::CSharpScript::-1::1685923515::0::1::::<><>::
 ScenePacker.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 ::res://Instances/SaveSystem/LoadingScreen/::1684231715
 ::res://Instances/Singletons/::1684411387

@@ -53,7 +53,7 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "s"
 script = ExtResource("2_4ukqj")
-inputToRemap = 1
+inputToRemapType = 2
 actionName = "ui_down"
 
 [node name="Button2" type="Button" parent="VBoxContainer/DownHBoxContainer"]

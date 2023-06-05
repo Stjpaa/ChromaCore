@@ -12,4 +12,12 @@ public partial class RemapInputsButton : Button
     {
         remapInputs.OnButtonPressed(this);
     }
+
+    //public void UpdateText()
+    //{
+    //    string v = RemapInputs.GetTextForButton(this);
+    //    Text = v;
+    //}
+
+
 }
