@@ -10,7 +10,7 @@ public static class SaveSystem
 {
     private const string pathOfLevelInstantiater = "res://Instances/SaveSystem/LevelInstantiater.tscn";
 
-    private const string pathToLevelSelectScreen = "res://Instances/Menus/LevelSelection/LevelSelectScene.tscn";
+    public const string pathToLevelSelectScreen = "res://Instances/Menus/LevelSelection/LevelSelectScene.tscn";
     private const string savePathBegining = "user://";
 
     //public static void SaveLevel(LevelInstantiater currentlyPlayedLevel)

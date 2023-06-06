@@ -45,7 +45,7 @@ grow_vertical = 2
 script = ExtResource("1_ckfbm")
 startPlanet = NodePath("LoadingScreenBackground/StartPlanet")
 destinationPlanet = NodePath("LoadingScreenBackground/DestinationPlanet")
-homePlaneTexture = ExtResource("4_wmgmc")
+homePlanetTexture = ExtResource("4_wmgmc")
 
 [node name="LoadingScreenAP" type="AnimationPlayer" parent="."]
 root_node = NodePath("../LoadingScreenBackground")

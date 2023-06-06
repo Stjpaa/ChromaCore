@@ -11,7 +11,7 @@ public partial class LoadingScreen : Control
     [Export] private TextureRect destinationPlanet;
 
 
-    [Export] public Texture2D homePlaneTexture;
+    [Export] public Texture2D homePlanetTexture;
 
     public override void _Ready()
     {

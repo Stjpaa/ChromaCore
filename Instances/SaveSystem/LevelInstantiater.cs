@@ -44,10 +44,7 @@ public partial class LevelInstantiater : Node2D
 
     }
 
-    public void SetLoadingScreenTextures(Texture2D startTexture, Texture2D destinationTexture)
-    {
-        loadingScreen.SetPlanetTextures(startTexture, destinationTexture);
-    }
+ 
 
     //public LevelVariablesSaveData LoadLevelVariablesSaveData(PackedScene sceneToLoad)
     //{
@@ -95,7 +92,7 @@ public partial class LevelInstantiater : Node2D
 
         SetSaveData();
 
-        loadingScreen.SetPlanetTextures(loadingScreen.homePlaneTexture, (Texture2D)ResourceLoader.Load(levelSaveData.planetTexturePath));
+        loadingScreen.SetPlanetTextures(loadingScreen.homePlanetTexture, (Texture2D)ResourceLoader.Load(levelSaveData.planetTexturePath));
 
         await loadingScreen.LoadingScreenAsync();
 
@@ -118,6 +115,20 @@ public partial class LevelInstantiater : Node2D
 
         levelManager.InstantiateValues(levelSaveData);
     }
+
+    public async Task QuitLevelAsync()
+    {
+        loadingScreen.SetPlanetTextures((Texture2D)ResourceLoader.Load(levelSaveData.planetTexturePath), loadingScreen.homePlanetTexture);
+        foreach (Node child in levelRoot.GetChildren()) // remove the Level from the scene
+        {
+            child.QueueFree();
+        }
+
+        await loadingScreen.LoadingScreenAsync();
+
+        SaveSystem.BackToLevelSelectScreen(GetTree());
+    }
+
 
     private void SetSaveData()
     {

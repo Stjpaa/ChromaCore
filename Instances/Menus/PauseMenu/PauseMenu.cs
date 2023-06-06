@@ -57,9 +57,15 @@ public partial class PauseMenu : Control
 
     public void QuitGame()
     {
-        // return to main menu, or quit?
+        LevelInstantiater instantiaterOfScene = (LevelInstantiater)GetTree().Root.GetNode("LevelInstantiater");
 
-        SaveSystem.BackToLevelSelectScreen(GetTree());
+        if (instantiaterOfScene == null)
+        {
+            GD.PrintErr("No LevelInstanciater in Scene");
+            return;
+        }
+
+        _ = instantiaterOfScene.QuitLevelAsync();
     }
 
     public void TestSave()
