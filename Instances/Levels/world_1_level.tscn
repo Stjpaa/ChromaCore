@@ -2009,6 +2009,7 @@ _collisionWidth = 50.0
 
 [node name="Checkpoint5" parent="Tutorial/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(4425, 16)
+_collisionWidth = 50.0
 
 [node name="Spikes" type="Node" parent="Tutorial"]
 
@@ -2196,6 +2197,7 @@ position = Vector2(6488, -3574)
 
 [node name="Checkpoint5" parent="Gravityfields/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(4417, -1685)
+_collisionWidth = 50.0
 
 [node name="Checkpoint" parent="Gravityfields/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(4166, -1184)
@@ -3534,15 +3536,19 @@ _collisionWidth = 50.0
 
 [node name="Checkpoint4" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(9361, -1505)
+_collisionWidth = 50.0
 
 [node name="Checkpoint5" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(9760, -1505)
+_collisionWidth = 50.0
 
 [node name="Checkpoint6" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(8387, -641)
+_collisionWidth = 50.0
 
 [node name="Checkpoint7" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(8971, -640)
+_collisionWidth = 50.0
 
 [node name="Checkpoint8" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(15122, -4079)
@@ -3554,42 +3560,55 @@ _collisionWidth = 50.0
 
 [node name="Checkpoint10" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(12194, -2498)
+_collisionWidth = 50.0
 
 [node name="Checkpoint11" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(12547, -3425)
+_collisionWidth = 50.0
 
 [node name="Checkpoint12" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(14868, -3681)
+_collisionWidth = 50.0
 
 [node name="Checkpoint13" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(15112, -4969)
+_collisionWidth = 50.0
 
 [node name="Checkpoint14" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(10466, -643)
+_collisionWidth = 50.0
 
 [node name="Checkpoint15" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(11272, -1170)
+_collisionWidth = 50.0
 
 [node name="Checkpoint16" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(12042, -499)
+_collisionWidth = 50.0
 
 [node name="Checkpoint17" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(13263, -402)
+_collisionWidth = 50.0
 
 [node name="Checkpoint18" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(14768, 17)
+_collisionWidth = 50.0
 
 [node name="Checkpoint19" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(13195, 14)
+_collisionWidth = 50.0
 
 [node name="Checkpoint20" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(11793, 14)
+_collisionWidth = 50.0
 
 [node name="Checkpoint21" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(11617, -2001)
+_collisionWidth = 50.0
 
 [node name="Checkpoint22" parent="Jumppads/CheckpointList" instance=ExtResource("6_eq68p")]
 position = Vector2(7158, -658)
+_collisionWidth = 50.0
 
 [node name="GravityFieldsList" type="Node" parent="Jumppads"]
 
