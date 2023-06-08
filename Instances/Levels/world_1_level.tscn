@@ -3982,7 +3982,6 @@ visible = false
 [node name="FollowingCamera" parent="." node_paths=PackedStringArray("playerNode") instance=ExtResource("20_2g5ep")]
 position = Vector2(-224, -511)
 playerNode = NodePath("../Player")
-followingSpeedNormal = 10.0
 
 [node name="GrapplingHook" parent="." instance=ExtResource("21_jtegx")]
 
