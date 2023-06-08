@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://dw646wmah1jh4"]
+[gd_scene load_steps=160 format=3 uid="uid://dw646wmah1jh4"]
 
 [ext_resource type="Texture2D" uid="uid://chb1cn1avyu4c" path="res://Assets/Sprites/Tilesets/Tileset.png" id="1_q84ur"]
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_yidfl"]
@@ -17,7 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://c7d5koa6uqj0r" path="res://Instances/Artifacts/Artifact1_1.tscn" id="16_a3vqo"]
 [ext_resource type="PackedScene" uid="uid://caympt3s2vfr0" path="res://Instances/Artifacts/Artifact1_2.tscn" id="17_ni1op"]
 [ext_resource type="PackedScene" uid="uid://dssmgso4cwa0j" path="res://Instances/Artifacts/Artifact1_3.tscn" id="18_tidhh"]
+[ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="19_668wq"]
 [ext_resource type="PackedScene" uid="uid://c2o1dkvnu6rgc" path="res://Instances/Gameobjects/Laser/Laser_Timed.tscn" id="19_hjipx"]
+[ext_resource type="PackedScene" uid="uid://d18yrrxq7o6sa" path="res://Dillon/Camera/FollowingCamera.tscn" id="20_2g5ep"]
+[ext_resource type="PackedScene" uid="uid://m3mpklc8drsk" path="res://Dillon/GrapplingHook/GrapplingHook.tscn" id="21_jtegx"]
+[ext_resource type="PackedScene" uid="uid://b3clekngejd46" path="res://Instances/UIobjects/LevelTimer/timer.tscn" id="22_mm6fn"]
 
 [sub_resource type="Gradient" id="Gradient_ws3ps"]
 offsets = PackedFloat32Array(0, 0.0852941, 0.844118)
@@ -1001,7 +1005,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.992661, 0.120933)
 shader_parameter/strength = 6.66667
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sjfn"]
 resource_local_to_scene = true
@@ -1019,7 +1023,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0.987964, 0.154681)
 shader_parameter/strength = 6.66667
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvna7"]
 resource_local_to_scene = true
@@ -1988,17 +1992,14 @@ _boxSize = 40.0
 [node name="CheckpointList" type="Node" parent="Tutorial"]
 
 [node name="Invis CP" parent="Tutorial/CheckpointList" instance=ExtResource("6_eq68p")]
-visible = false
-position = Vector2(1899, 219)
+position = Vector2(1641, -128)
 _collisionWidth = 50.0
 
 [node name="Invis CP 2" parent="Tutorial/CheckpointList" instance=ExtResource("6_eq68p")]
-visible = false
 position = Vector2(2122, 399)
 _collisionWidth = 50.0
 
 [node name="Invis CP 3" parent="Tutorial/CheckpointList" instance=ExtResource("6_eq68p")]
-visible = false
 position = Vector2(3086, 334)
 _collisionWidth = 50.0
 
@@ -2484,6 +2485,7 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_678ym")
+disabled = true
 
 [node name="GravityDirection" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time2/GravityfieldCollider" index="0"]
 position = Vector2(197, -24)
@@ -2513,6 +2515,7 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time4" index="0"]
 shape = SubResource("RectangleShape2D_1sjfn")
+disabled = true
 
 [node name="GravityDirection" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time4/GravityfieldCollider" index="0"]
 position = Vector2(-198, -31)
@@ -3959,6 +3962,25 @@ rotation = -1.5708
 scale = Vector2(5.60002, 1)
 _gameObject = NodePath("../Gravityfields/GameobjectList/Box5")
 
+[node name="Player" parent="." node_paths=PackedStringArray("FollowingCamera", "GrapplingHook") instance=ExtResource("19_668wq")]
+position = Vector2(-893, -6)
+FollowingCamera = NodePath("../FollowingCamera")
+GrapplingHook = NodePath("../GrapplingHook")
+
+[node name="AnimatedSprite2D" parent="Player" index="3"]
+visible = false
+
+[node name="RichTextLabel" parent="Player/CanvasLayer" index="1"]
+visible = false
+
+[node name="LevelTimer" parent="Player/CanvasLayer" index="2" instance=ExtResource("22_mm6fn")]
+
+[node name="FollowingCamera" parent="." instance=ExtResource("20_2g5ep")]
+position = Vector2(18, 142)
+followingSpeedNormal = 125.0
+
+[node name="GrapplingHook" parent="." instance=ExtResource("21_jtegx")]
+
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform"]
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform2"]
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform3"]
@@ -4016,3 +4038,5 @@ _gameObject = NodePath("../Gravityfields/GameobjectList/Box5")
 [editable path="Jumppads/TrapsList/Laser/Laser_Timed10"]
 [editable path="Jumppads/TrapsList/Laser/Laser_Timed14"]
 [editable path="Jumppads/PortalsList/Portals"]
+[editable path="Player"]
+[editable path="FollowingCamera"]

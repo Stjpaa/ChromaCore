@@ -1,3 +1,4 @@
+ColorRect
 CanvasLayer
 HSlider
 ProgressBar
@@ -15,7 +16,6 @@ VBoxContainer
 ItemList
 Node2D
 CheckBox
-ColorRect
 Node
 Container
 CollisionShape2D

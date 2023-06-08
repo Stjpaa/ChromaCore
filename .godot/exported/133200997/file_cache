@@ -1,0 +1,58 @@
+res://Assets/Sprites/Game objects/Platform_Moving.tres::1fd48e8ec140dad7481f3158d83d3d32::1686223678::res://.godot/exported/133200997/export-dd4622b0ace8dabacca342f9e64ee389-Platform_Moving.res
+res://Assets/Sprites/Game objects/Platform_Normal.tres::09e5f3a7cdee468e2aacf6bf2d09531b::1686223562::res://.godot/exported/133200997/export-b37d39463048b0a523bba5f99ae927b7-Platform_Normal.res
+res://Dillon/Camera/FollowingCamera.tscn::6b8e8c4e3a425222ea97aec8f2fbf87d::1686225769::res://.godot/exported/133200997/export-66f306cb140b0682700561b6b769748e-FollowingCamera.scn
+res://Dillon/GrapplingHook/GrapplingHook.tscn::d2bb5f1947ff62576b6a0b24346c2128::1686223645::res://.godot/exported/133200997/export-84a7bb30b90017bf53a51f2b6e505209-GrapplingHook.scn
+res://Dillon/GrapplingHook/GrapplingHook_Data.tres::3e47b1c9acd792a8c51f95ec03637682::1686223645::res://.godot/exported/133200997/export-408a03b10c93e1df648e0648fc825833-GrapplingHook_Data.res
+res://Dillon/GrapplingHook/HookableArea.tscn::f14c9adf546fb9065a97e56da1881efb::1686223645::res://.godot/exported/133200997/export-065f11279cdcc9f8e9dc72b6ab593987-HookableArea.scn
+res://Dillon/PlayerController/PlayerController2D.tscn::8926901cbc5991fa2caad9e5d329a439::1686225769::res://.godot/exported/133200997/export-0548c5a20530301f9ebc07bd243e2360-PlayerController2D.scn
+res://Dillon/PlayerController/PlayerController2D_Data.tres::eff2e055e0d1ef0c62d61652163caa64::1686225364::res://.godot/exported/133200997/export-3abc47e9dad17ff4a151253fe7f80925-PlayerController2D_Data.res
+res://Dillon/PlayerController/test.tres::522eb653b10ef40dd18ab46834c07a84::1686223645::res://.godot/exported/133200997/export-571963789c1f680d0422743323e574f2-test.res
+res://Dillon/Prototyps/Rope/Scenes/Rope.tscn::b134772250bc1d8542edbae9b0172de4::1686223645::res://.godot/exported/133200997/export-809782f0510fb93718b99dfd21016fa1-Rope.scn
+res://Dillon/Prototyps/Rope/Scenes/RopeEndPiece.tscn::38ced316096dd89f1c286c0da0be39ab::1686223645::res://.godot/exported/133200997/export-96aefa3d2f8fe2db80017311e6821514-RopeEndPiece.scn
+res://Dillon/Prototyps/Rope/Scenes/RopePiece.tscn::71436e93ec5bd2dbaadb8e2f1afebbc3::1686223645::res://.godot/exported/133200997/export-a540de9456b47eec70f3ed3ded5afc0b-RopePiece.scn
+res://Dillon/Prototyps/Rope/Scenes/Teststage.tscn::576847ce9915013411d4baff172b6dc5::1686223645::res://.godot/exported/133200997/export-cb9366c429d34bc59afd27c5fbad9979-Teststage.scn
+res://Dillon/Prototyps/Chain.tscn::4e8fd9669e3fc2c546a7678ebe6f36c7::1686223645::res://.godot/exported/133200997/export-19d29d389ec72cf1646c5fb2793d732b-Chain.scn
+res://Dillon/Prototyps/GrapplingHook.tscn::a1ea08d16d9644310085b4d338c5fe28::1686223645::res://.godot/exported/133200997/export-f62d5cbd6844de94caaee85ff3ba43cd-GrapplingHook.scn
+res://Dillon/Prototyps/GrapplingHook_JointBased.tscn::ec83cfe6f897c7c434f9f898333eaa56::1686223645::res://.godot/exported/133200997/export-e7bcd4b782cd251740847dc92eb98c76-GrapplingHook_JointBased.scn
+res://Dillon/Prototyps/Player.tscn::508870e8aa559a314236c6c68c39dfe3::1686223645::res://.godot/exported/133200997/export-dadf6069ecb650f56fb61bac73ef4771-Player.scn
+res://Dillon/UI/DashIcon.tscn::262a5cc01095d084fd0ba4754b803d05::1686223645::res://.godot/exported/133200997/export-d223fbcd292e7989699ac923175d83d9-DashIcon.scn
+res://Dillon/tile_map.tscn::bc5599c45dc0d6a0172b173ce7444b57::1686223645::res://.godot/exported/133200997/export-7f134c83b1cd7f76106bf6c4ec7a9199-tile_map.scn
+res://Instances/Artifacts/Artifact1.tscn::c3c83a32945caf6e60b2aa791a0313f4::1685390649::res://.godot/exported/133200997/export-64b32dfb7b04384236c2bfb6cb17f028-Artifact1.scn
+res://Instances/Artifacts/Artifact1_1.tscn::10f1ea5e6286464fead5a10f9ee7ed7d::1685390649::res://.godot/exported/133200997/export-de33b521ce60b973514e6df804178770-Artifact1_1.scn
+res://Instances/Artifacts/Artifact1_2.tscn::12ea682fddcf9d29571c7a3d9f668642::1685390649::res://.godot/exported/133200997/export-38b84f85c373d605f077c5f72072cc72-Artifact1_2.scn
+res://Instances/Artifacts/Artifact1_3.tscn::486c5dc2ab39622dcd925c396b8da2d3::1685390649::res://.godot/exported/133200997/export-bd86ec138da52b939b79551d662644ae-Artifact1_3.scn
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn::282a424f6a4d4dc2476e09c25ab2e6da::1685390649::res://.godot/exported/133200997/export-9269e44bcd724efae3cdc3c99a571b13-Gravityfield_Normal.scn
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn::ecdb38ceffb272b3ca53fc0e5f0d10a9::1685390649::res://.godot/exported/133200997/export-789eb2975f4f77a3ccf75e107f97d9ac-Gravityfield_Time.scn
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn::ed8c855b3c8ab63e4a9be67f5fe198a0::1686217251::res://.godot/exported/133200997/export-31505d06bb24d9d48701e909e2e9a8fe-Gravityfield_Toggle.scn
+res://Instances/Gameobjects/Laser/Laser_Pressure_Plate.tscn::aa2e33d59a26b136668eb3fe6965571b::1685015148::res://.godot/exported/133200997/export-7a3011ae1b804a56031332f7180f4fd5-Laser_Pressure_Plate.scn
+res://Instances/Gameobjects/Laser/Laser_Timed.tscn::0b8878a3635c5677a726129a2300bfc4::1684846690::res://.godot/exported/133200997/export-0ff57d63f2d951abf461c5d13574de42-Laser_Timed.scn
+res://Instances/Gameobjects/LevelRotator/LevelRotatorTrigger.tscn::664c1187777bcccb4e167e35c63ba5df::1684846690::res://.godot/exported/133200997/export-9cc2edf30c5486ec5ba8883ebefc10df-LevelRotatorTrigger.scn
+res://Instances/Gameobjects/Movable Objects/Box.tscn::095fb7ead4d81a708c8d394220b8728d::1685390649::res://.godot/exported/133200997/export-40bdb2678f658dd3d94f6d22b18f24ee-Box.scn
+res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn::a5e8b1d52c4ba147465353317564ecf3::1685390649::res://.godot/exported/133200997/export-90ec42243111b4e9b884e8e78967c67c-ObjectResetter.scn
+res://Instances/Gameobjects/Platforms/JumpPad.tscn::2059207ddaa7c9f8e0fcc2b6067a6a6f::1685390649::res://.godot/exported/133200997/export-23a0873a7fb11f31c0f77b4268777b16-JumpPad.scn
+res://Instances/Gameobjects/Platforms/MovingPlatform.tscn::17648d3290be5913f68e99d21b3e07a2::1685390649::res://.godot/exported/133200997/export-376e499f0fc048d0e90eec2d1908adec-MovingPlatform.scn
+res://Instances/Gameobjects/Platforms/NormalPlatform.tscn::8d928d52a5e132eb87443c93d7ecdd17::1685390649::res://.godot/exported/133200997/export-6c3ff1570d852e1412e2fb50751793c9-NormalPlatform.scn
+res://Instances/Gameobjects/Portals/Portals.tscn::782d8186ed9888083ee39a0a604196cb::1685390649::res://.godot/exported/133200997/export-fb3640f90c81ff11be20309186de8d75-Portals.scn
+res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn::8c0b3e06cd07801d3eb055b2555b1bc7::1685390649::res://.godot/exported/133200997/export-0d4f19113284ec99c588878dcb0f6028-Checkpoint.scn
+res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn::23e52be30b3e69c18ef4ff25feb2e1d4::1686225769::res://.godot/exported/133200997/export-712b174fb0938a41936a8f8735a622f5-Spikes.scn
+res://Instances/Levels/Level-Prototype.tscn::07ce19d42f25f606053e9cda28eb412b::1686217251::res://.godot/exported/133200997/export-c2dc0a386775b4dc7022f619cbabbbef-Level-Prototype.scn
+res://Instances/Levels/LevelManager.tscn::9f0d2c25a8612c922152acb43c33d30c::1686222857::res://.godot/exported/133200997/export-88fb238b31d4fd7d3ca0caced20f2968-LevelManager.scn
+res://Instances/Levels/world_1_level.tscn::f652fb4bc5d3b8ec7848da0ef1329877::1686225769::res://.godot/exported/133200997/export-065815b8f686ad5f363e99615203f784-world_1_level.scn
+res://Instances/Levels/world_2_level.tscn::2061e60335cafc339a171d47ac378cb8::1686221768::res://.godot/exported/133200997/export-92f0447913b70e4ee915e046ed2906f6-world_2_level.scn
+res://Instances/Menus/IngameUI/IngameUI.tscn::f06a4f99a30717cd0ed5e5cf736e9f0e::1686222857::res://.godot/exported/133200997/export-9beab7ec757134380e457c0371b26787-IngameUI.scn
+res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn::526686863c7e02882d3b712f58e1bfe9::1686222857::res://.godot/exported/133200997/export-65da213c31ccc05cfdd1abf0a82a20c4-LevelSelectLevel.scn
+res://Instances/Menus/LevelSelection/LevelSelectScene.tscn::4ba05cdcef4e3c66a0b152cb8d0615dc::1686222857::res://.godot/exported/133200997/export-19a23dba504d32b636847cf9360c7d97-LevelSelectScene.scn
+res://Instances/Menus/MainMenu/MainMenuTheme.tres::a1d006b92a69c6da64c120d37ae68897::1686222857::res://.godot/exported/133200997/export-9e1f803e9f21f6345383d796d46d0b88-MainMenuTheme.res
+res://Instances/Menus/MainMenu/main_menu.tscn::f674cb2a982bb41b270c841bb3427079::1686222857::res://.godot/exported/133200997/export-f52f797b3601b3a9b51fac59aefcf8fd-main_menu.scn
+res://Instances/Menus/PauseMenu/pause_menu.tscn::bc293d82c484778ef3932b34b2e6b865::1686222857::res://.godot/exported/133200997/export-6aede686999dded0c72828018055e853-pause_menu.scn
+res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn::ce9a6d6d6d2e231d628bbb752e474759::1686225768::res://.godot/exported/133200997/export-f32967f91569bd8b42f2d748643ff052-RemapInputs.scn
+res://Instances/Menus/SettingsMenu/settings_menu.tscn::2c8b78ca1adf1dee2712aea3c4f597c8::1686222857::res://.godot/exported/133200997/export-afa229c5806407ca96d6bf519bc686a6-settings_menu.scn
+res://Instances/Menus/loading_screen.tscn::4591690a37df13f3d3662cae89980923::1686222857::res://.godot/exported/133200997/export-7cf2689b7bbf490c1173f49e50cb4d6f-loading_screen.scn
+res://Instances/Menus/ui_navigation_manager.tscn::7508e8c9880a3ce87d3f9914b27745b1::1686222857::res://.godot/exported/133200997/export-d8d6f0910b2e6dde6d73ca3491de68cb-ui_navigation_manager.scn
+res://Instances/SaveSystem/LevelInstantiater.tscn::fee801d4a8801692e8aeffa6dc79d7ef::1686222857::res://.godot/exported/133200997/export-a394497f5a5f5e0fc2de33761f171dac-LevelInstantiater.scn
+res://Instances/Singletons/SoundManager.tscn::86560a17e03c7906816a737b582e5dff::1685015148::res://.godot/exported/133200997/export-2412e3613145d6f863d67071ddfb0346-SoundManager.scn
+res://Instances/Singletons/SoundPlayer.tscn::71c1e9b9bdbbeffd0ad15432abef0717::1684846690::res://.godot/exported/133200997/export-a8d78112295c8d72d09eab40f4d6530d-SoundPlayer.scn
+res://Instances/UIobjects/LevelTimer/timer.tscn::3d88f92e2047a9c767b284b89c56b08f::1686222857::res://.godot/exported/133200997/export-aa737fcffb25d03954d03aa9c4a69859-timer.scn
+res://Shaders/dustcloud_landing_particle_process_material.tres::758a2ca088e1bd78c676b06fbb9f2d93::1684846690::res://.godot/exported/133200997/export-dba1a25f0ed07f8fc999a239c9bc48d6-dustcloud_landing_particle_process_material.res
+res://default_bus_layout.tres::44b262fc4ecbc978f080b4c8b77875f2::1686222857::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
+res://test_input.tscn::fa4ad3fc0adaf0604f0e15d2ed582ef1::1686225768::res://.godot/exported/133200997/export-7c7cf6cfd0fb242812ff1d8022270e68-test_input.scn

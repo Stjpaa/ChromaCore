@@ -45,6 +45,11 @@ namespace PlayerController
 
         private Node _parent;
 
+        #region Shader Variables
+        private ShaderMaterial shader_material;
+        private Vector2 start_position;
+        #endregion
+
         #region Balancing
         // Moving state
         public float MaxMoveSpeed { get { return data.maxMoveSpeed; } }
@@ -89,6 +94,9 @@ namespace PlayerController
             ChangeState(new Falling(this));
 
             HookIsReady = true;
+
+            shader_material = GetNode<CanvasLayer>("CanvasLayer2").GetNode<ColorRect>("ColorRect").Material as ShaderMaterial;
+            start_position = Transform.Origin;
         }
 
         public override void _Process(double delta)
@@ -103,7 +111,8 @@ namespace PlayerController
             MoveAndSlide();
             CheckCollisionWithBox();
 
-            FollowingCamera.UpdatePosition(GlobalPosition);           
+            FollowingCamera.UpdatePosition(GlobalPosition);    
+            shader_material.SetShaderParameter("position", Transform.Origin - start_position);       
         }
 
         public void ChangeState(State newState)
@@ -204,7 +213,7 @@ namespace PlayerController
         /// <summary>
         /// Called by traps
         /// </summary>
-        private void TeleportToLastCheckPoint()
+        private void Respawn()
         {
             if (_currentState is Hooking)
             {
