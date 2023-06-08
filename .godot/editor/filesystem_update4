@@ -1,6 +1,1 @@
 res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn
-res://Assets/Sprites/Platform_Normal.tres
-res://Assets/Sprites/Platform_Moving.tres
-res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Instances/UIobjects/DashCooldown/dash_cooldown.tscn
-res://test_input.tscn

@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1686186569
+::res://::1686220587
 characters.png::CompressedTexture2D::5074265719891268926::1682282112::1682282152::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::6781716155928282535::1684411387::0::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1682788980::1682788980::1::::<><>::
@@ -9,8 +9,8 @@ README.md::TextFile::-1::1682357161::0::1::::<><>::
 Rise01.ogg::AudioStreamOggVorbis::644264058876615546::1682282112::1682282152::1::::<><>::
 star-sky.gdshader::Shader::-1::1684242275::0::1::::<><>::
 Test.cs::CSharpScript::-1::1682282112::0::1::::<><>::
-TestBullshit.cs::CSharpScript::-1::1686186546::0::1::::<><>::
-testBullshit.tscn::PackedScene::5342011518593318256::1686186553::0::1::::<><>::res://TestBullshit.cs
+TestInput.cs::CSharpScript::-1::1686191298::0::1::::<><>::
+test_input.tscn::PackedScene::4945769069332899793::1686190441::0::1::::<><>::res://TestInput.cs
 ::res://Assets/::1684411387
 atlas.png::CompressedTexture2D::8723023418343030::1684411387::1684411382::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::3587011470912294664::1682788980::1682788980::1::::<><>::
@@ -71,15 +71,15 @@ noise27.png::CompressedTexture2D::8763883246911430423::1684411387::1684411387::1
 sphere0.png::CompressedTexture2D::727390583509591537::1684411387::1684411387::1::::<><>::
 sphere1.png::CompressedTexture2D::6954635057862062653::1684411387::1684411387::1::::<><>::
 sphere2.png::CompressedTexture2D::6318525264494134642::1684411387::1684411387::1::::<><>::
-::res://Assets/Sprites/::1686186553
+::res://Assets/Sprites/::1686186623
 Ball.png::CompressedTexture2D::2812879286531544329::1679057536::1682787201::1::::<><>::
 Box.png::CompressedTexture2D::6239817549971699470::1684065886::1684065886::1::::<><>::
 Gravityfield_Normal.png::CompressedTexture2D::462385158180725172::1679443981::1682787201::1::::<><>::
 Jumppad.png::CompressedTexture2D::7163371651490017967::1684065886::1684065886::1::::<><>::
 MovingPlatform.png::CompressedTexture2D::8402143123705161151::1679057536::1682787201::1::::<><>::
 p1_stand.png::CompressedTexture2D::3692990522539475962::1684065886::1684065886::1::::<><>::
-Platform_Moving.tres::GradientTexture2D::6902438974613199686::1686186553::0::1::::<><>::
-Platform_Normal.tres::GradientTexture2D::5186750078832371388::1686186553::0::1::::<><>::
+Platform_Moving.tres::GradientTexture2D::6902438974613199686::1686186623::0::1::::<><>::
+Platform_Normal.tres::GradientTexture2D::5186750078832371388::1686186623::0::1::::<><>::
 Spikes.png::CompressedTexture2D::8537367750236661456::1684065886::1684065886::1::::<><>::
 Switch.png::CompressedTexture2D::5880208709275302537::1684065886::1684065886::1::::<><>::
 ::res://Assets/Sprites/Tileset Sprites/::1682787201
@@ -143,8 +143,8 @@ RopePiece.cs::CSharpScript::-1::1682788980::0::1::::<><>::
 Teststage.cs::CSharpScript::-1::1682788980::0::1::::<><>::
 ::res://Instances/::1684411387
 ::res://Instances/Gameobjects/::1684411385
-::res://Instances/Gameobjects/Gravityfields/::1686186553
-Gravityfield_Normal.cs::CSharpScript::-1::1686186553::0::1::::<><>::
+::res://Instances/Gameobjects/Gravityfields/::1686186623
+Gravityfield_Normal.cs::CSharpScript::-1::1686186623::0::1::::<><>::
 Gravityfield_Normal.tscn::PackedScene::8203964619402760068::1684411387::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 Gravityfield_Time.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 Gravityfield_Time.tscn::PackedScene::4266977411605829208::1684411387::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs
@@ -202,9 +202,9 @@ pause_menu.tscn::PackedScene::5186019398921320722::1685960055::0::1::::<><>::res
 ::res://Instances/Menus/SettingsMenu/::1685916872
 SettingsMenu.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 settings_menu.tscn::PackedScene::-1::1685916872::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>uid://fxcogg7m5cng
-::res://Instances/Menus/SettingsMenu/Remap Inputs/::1686186380
-RemapInputs.cs::CSharpScript::-1::1686185972::0::1::::<><>::
-RemapInputs.tscn::PackedScene::7396494115495366880::1686186380::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs<>uid://fxcogg7m5cng
+::res://Instances/Menus/SettingsMenu/Remap Inputs/::1686190441
+RemapInputs.cs::CSharpScript::-1::1686186749::0::1::::<><>::
+RemapInputs.tscn::PackedScene::7396494115495366880::1686190441::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs<>uid://fxcogg7m5cng
 RemapInputsButton.cs::CSharpScript::-1::1686183225::0::1::::<><>::
 RemapInputsSavedata.cs::CSharpScript::-1::1686186307::0::1::::<><>::
 ::res://Instances/SaveSystem/::1686185406
@@ -220,9 +220,9 @@ SoundManager.tscn::PackedScene::2942874770417426418::1684411387::0::1::::<><>::r
 SoundPlayer.cs::CSharpScript::-1::1679443981::0::1::::<><>::
 SoundPlayer.tscn::PackedScene::7194324852583401091::1682975579::0::1::::<><>::res://Instances/Singletons/SoundPlayer.cs
 ::res://Instances/UIobjects/::1685447710
-::res://Instances/UIobjects/DashCooldown/::1686186380
-DashCooldown.cs::CSharpScript::-1::1686010959::0::1::::<><>::
-dash_cooldown.tscn::PackedScene::871263463825359357::1686186380::0::1::::<><>::res://Instances/UIobjects/DashCooldown/DashCooldown.cs
+::res://Instances/UIobjects/DashCooldown/::1686190441
+DashCooldown.cs::CSharpScript::-1::1686190429::0::1::::<><>::
+dash_cooldown.tscn::PackedScene::871263463825359357::1686190441::0::1::::<><>::res://Instances/UIobjects/DashCooldown/DashCooldown.cs
 ::res://Instances/UIobjects/LevelTimer/::1684411387
 LevelTimer.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 timer.tscn::PackedScene::4356512636756453005::1684411387::0::1::::<><>::res://Instances/UIobjects/LevelTimer/LevelTimer.cs<>res://Instances/UIobjects/LevelTimer/TimerUIVisualisation.cs
