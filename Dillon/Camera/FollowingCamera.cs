@@ -48,8 +48,17 @@ namespace PlayerController.FollowingCamera
         {
             var target = targetPosition;
 
-            var targePosX = (Mathf.Lerp(GlobalPosition.X, target.X, 0.9f * (float)GetProcessDeltaTime() * followingSpeed));
-            var targePosY = (Mathf.Lerp(GlobalPosition.Y, target.Y, 0.9f * (float)GetProcessDeltaTime() * followingSpeed));
+            var targetWeight = 0.9f * (float)GetProcessDeltaTime() * followingSpeed;
+            if(targetWeight > 1)        // Lerp causes Problems when a weigth is >1 -->  Mathf.Lerp(0, 10, 1.5) = Mathf.Lerp(0, 10, 1) + Mathf.Lerp(0, 10, 0.5)
+            {
+                targetWeight = 1;
+            }
+
+
+            var targePosX = (Mathf.Lerp(GlobalPosition.X, target.X, targetWeight));
+            var targePosY = (Mathf.Lerp(GlobalPosition.Y, target.Y, targetWeight));
+
+            
 
             GlobalPosition = new Vector2(targePosX, targePosY);
         }

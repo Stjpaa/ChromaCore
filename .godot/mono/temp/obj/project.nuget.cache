@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TaGq9Pr3ydymxoqCvGHkGp+eJdc/BDlm4n5r4/WgvbaZqLJPvd7hWHyy3ilI+FsIxAzN11TO5jfnFDja+jrqUA==",
+  "dgSpecHash": "nNtHMN6AcCbQdTeeL3m5CZ0lGlKFyM3IA4K+LDGIVVNGsqZF7RuHpGNTwZk3HUQEW0PF9fpw347tgmjl6Ub3KQ==",
   "success": true,
-  "projectFilePath": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
+  "projectFilePath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Martin\\.nuget\\packages\\godot.sourcegenerators\\4.0.2\\godot.sourcegenerators.4.0.2.nupkg.sha512",
     "C:\\Users\\Martin\\.nuget\\packages\\godotsharp\\4.0.2\\godotsharp.4.0.2.nupkg.sha512",
