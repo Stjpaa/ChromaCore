@@ -97,6 +97,7 @@ namespace PlayerController
 
             shader_material = GetNode<CanvasLayer>("CanvasLayer2").GetNode<ColorRect>("ColorRect").Material as ShaderMaterial;
             start_position = Transform.Origin;
+            FollowingCamera.GlobalPosition = this.GlobalPosition;
         }
 
         public override void _Process(double delta)

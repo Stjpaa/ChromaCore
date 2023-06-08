@@ -3,10 +3,3 @@ res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
-res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn
-res://test_input.tscn
-res://Dillon/Camera/FollowingCamera.tscn
-res://Dillon/PlayerController/PlayerController2D.tscn
-res://Shaders/star-sky.gdshader
-res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn
-res://Dillon/PlayerController/PlayerController2D_Data.tres
