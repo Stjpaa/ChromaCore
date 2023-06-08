@@ -1,8 +1,7 @@
-[gd_scene load_steps=157 format=3 uid="uid://dw646wmah1jh4"]
+[gd_scene load_steps=156 format=3 uid="uid://dw646wmah1jh4"]
 
 [ext_resource type="Texture2D" uid="uid://chb1cn1avyu4c" path="res://Assets/Sprites/Tilesets/Tileset.png" id="1_q84ur"]
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_yidfl"]
-[ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="2_4irft"]
 [ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/Sprites/Tilesets/atlas.png" id="2_cbc05"]
 [ext_resource type="PackedScene" uid="uid://d3s6elkjprg46" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="3_0pbfm"]
 [ext_resource type="PackedScene" uid="uid://bbecw7j0dluj5" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="4_halr4"]
@@ -2029,6 +2028,22 @@ _collisionWidth = 531.0
 position = Vector2(4049, 519)
 _collisionWidth = 256.0
 
+[node name="Player@RichTextLabel@108072" type="VScrollBar" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="Player@RichTextLabel@84462" type="VScrollBar" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+max_value = 115.0
+step = 1.0
+page = 115.0
+
 [node name="Gravityfields" type="Node" parent="."]
 
 [node name="PlatformList" type="Node" parent="Gravityfields"]
@@ -3910,31 +3925,6 @@ position = Vector2(5823, -3763)
 [node name="Artifact_part4" parent="Test" instance=ExtResource("18_tidhh")]
 position = Vector2(10321, -21)
 
-[node name="Player" parent="." instance=ExtResource("2_4irft")]
-position = Vector2(12620, -3460)
-
-[node name="108072" type="VScrollBar" parent="Player/RichTextLabel" index="1"]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-step = 1.0
-
-[node name="84462" type="VScrollBar" parent="Player/RichTextLabel" index="2"]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-max_value = 115.0
-step = 1.0
-page = 115.0
-
-[node name="Label" parent="Player" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="DashCooldown_Timer" parent="Player" index="5"]
-wait_time = 1.0
-
 [node name="LevelSegment" type="Node" parent="."]
 
 [node name="PlatformList" type="Node" parent="LevelSegment"]
@@ -4026,4 +4016,3 @@ _gameObject = NodePath("../Gravityfields/GameobjectList/Box5")
 [editable path="Jumppads/TrapsList/Laser/Laser_Timed10"]
 [editable path="Jumppads/TrapsList/Laser/Laser_Timed14"]
 [editable path="Jumppads/PortalsList/Portals"]
-[editable path="Player"]
