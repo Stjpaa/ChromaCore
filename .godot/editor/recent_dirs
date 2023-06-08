@@ -1,10 +1,9 @@
-res://Instances/Levels
-D:/Godot/Build
-res://Assets/Sprites/Game objects
-res://Assets/Sprites
-res://Instances/Artifacts
 res://
-res://Assets
+res://Instances/Menus/LevelSelection
+res://Instances/UIobjects/DashCooldown
+res://Instances/Menus/IngameUI
+res://Instances/Menus
+res://Instances/Levels
 res://Dillon/PlayerController/Scripts
 res://Dillon/PlayerController
 res://Dillon/Assets
