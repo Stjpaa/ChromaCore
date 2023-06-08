@@ -11,6 +11,8 @@ namespace PlayerController.FollowingCamera
     public partial class FollowingCamera : Camera2D
     {
         [Export]
+        private PlayerController2D playerNode;
+        [Export]
         public float followingSpeedNormal = 30f;
         [Export]
         public float followingSpeedHooking = 150f;
