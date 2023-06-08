@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3t2mpsrlclj1"]
+[gd_scene load_steps=4 format=3 uid="uid://d3s6elkjprg46"]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Platforms/NormalPlatform.cs" id="1_bmktm"]
-[ext_resource type="Texture2D" uid="uid://cf5rasrbwjpsu" path="res://Assets/Sprites/Platform_Normal.tres" id="1_gxhil"]
+[ext_resource type="Texture2D" uid="uid://cf5rasrbwjpsu" path="res://Assets/Sprites/Game objects/Platform_Normal.tres" id="1_gxhil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5niqk"]
-size = Vector2(60, 8)
+resource_local_to_scene = true
+size = Vector2(16, 8)
 
 [node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 192
 script = ExtResource("1_bmktm")
 
 [node name="Sprite" type="Sprite2D" parent="."]

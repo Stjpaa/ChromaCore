@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://bxrinvpxhsiqc"]
+[gd_scene load_steps=32 format=3 uid="uid://bxrinvpxhsiqc"]
 
 [ext_resource type="Script" path="res://Dillon/PlayerController/Scripts/PlayerController2D.cs" id="1_pl4lx"]
 [ext_resource type="Resource" uid="uid://d1vr7kylk8xma" path="res://Dillon/PlayerController/PlayerController2D_Data.tres" id="2_1wb36"]
 [ext_resource type="Texture2D" uid="uid://cxxsdcybhyisc" path="res://Dillon/Assets/character_robot_sheet.png" id="2_xv8au"]
 [ext_resource type="Texture2D" uid="uid://cwyo5igh1of5c" path="res://Godot Char_Placeholder-1.png" id="3_pdse6"]
+[ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="4_io7vd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3q5q"]
 atlas = ExtResource("2_xv8au")
@@ -213,8 +214,15 @@ size = Vector2(23, 43)
 [sub_resource type="LabelSettings" id="LabelSettings_ub400"]
 font_size = 25
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkady"]
+shader = ExtResource("4_io7vd")
+shader_parameter/bg_color = null
+shader_parameter/position = Vector2(0, 0)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 64
+collision_mask = 8352
 script = ExtResource("1_pl4lx")
 data = ExtResource("2_1wb36")
 
@@ -285,6 +293,17 @@ one_shot = true
 position = Vector2(0, -32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_lkady")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_pdse6")

@@ -10,19 +10,26 @@ public partial class Gravityfield_Toggle : Node2D
 	[Export]
 	private float _gravityStrength = 200;
 
+	[Export]
+	private AudioStreamPlayer2D _audioPlayerOutside;
+	[Export]
+	private AudioStreamPlayer _audioPlayerInside;
+
 	private Sprite2D _sprite;
 
 	private ShaderMaterial _spriteMat;
 
 	private CollisionShape2D _gravityfieldCollider;
 
-	private bool _gravityfieldDisabled = true;
-
 	private Node2D _gravityDirectionNode;
 
 	private Vector2 _gravityDirection;
 
 	private Area2D _switch;
+
+	private AudioStreamPlayer2D player_button;
+	private Random rnd = new Random();
+	private SoundManager sound_manager;
 
 	public override void _Ready()
 	{
@@ -34,7 +41,7 @@ public partial class Gravityfield_Toggle : Node2D
 		// Set collider- and spritesize
 		this._gravityfieldCollider.Shape.Set("size", this._gravityfieldSize);
 		this._sprite.Scale = this._gravityfieldCollider.Shape.GetRect().Size;
-
+		this._gravityfieldCollider.SetDeferred("disabled", true);
 		// Set direction of gravityfield
 		this._gravityDirection = this._gravityDirectionNode.Position;
 
@@ -45,6 +52,12 @@ public partial class Gravityfield_Toggle : Node2D
 		this._spriteMat.SetShaderParameter("width", this._gravityfieldCollider.Shape.GetRect().Size.X);
 		this._spriteMat.SetShaderParameter("heigth", this._gravityfieldCollider.Shape.GetRect().Size.Y);
 		this._sprite.Material = this._spriteMat;
+		_audioPlayerOutside.Play();
+		_audioPlayerInside.Play();
+		_audioPlayerInside.VolumeDb = -100;
+
+		player_button = GetNode<AudioStreamPlayer2D>("Switch/AudioStreamPlayer2D");
+		sound_manager = GetNode<SoundManager>("/root/SoundManager");
 	}
 
 	public override void _Process(double delta)
@@ -60,40 +73,74 @@ public partial class Gravityfield_Toggle : Node2D
 	}
 
 	public override void _Draw()
-    {
+	{
 		if (Engine.IsEditorHint())
 		{
 			DrawLine(new Vector2(0,0), this._gravityDirection, Colors.Blue, 0.5f);
 		}
-    }
+	}
 
 	public void OnBodyEntered(Node2D body)
 	{
-		GD.Print("Entered");
-		if (!this._gravityfieldDisabled)
+		if (!this._gravityfieldCollider.Disabled)
 		{
 			body.Call("ChangeGravityProperties", this._gravityDirection.Normalized() * this._gravityStrength);
+			try
+			{
+				PlayerController.PlayerController2D player_body = (PlayerController.PlayerController2D)body;
+				if(player_body != null)
+				{
+					_audioPlayerInside.VolumeDb = 0;
+					_audioPlayerOutside.VolumeDb = -100;
+				}
+			}
+			catch(InvalidCastException)
+			{ /* do nothing */ }
 		}
 	}	
 
 	public void OnBodyExited(Node2D body)
 	{
-		if (!this._gravityfieldDisabled)
+		body.Call("ResetGravityProperties");	
+		try
 		{
-			body.Call("ResetGravityProperties");			
+			if (body is PlayerController.PlayerController2D)
+			{
+				_audioPlayerOutside.VolumeDb = 0;
+				_audioPlayerInside.VolumeDb = -100;
+			}
 		}
+		catch(InvalidCastException)
+		{ /* do nothing */ }		
 	}
 
 	public void EnableGravityfield(Node2D body)
 	{
-		// Does not work with SetDeffered => probably bugged
-		this._gravityfieldDisabled = false;
+		this._gravityfieldCollider.SetDeferred("disabled", false);
 		this._spriteMat.SetShaderParameter("pause", false);
+
+		player_button.Stream = GetSound();
+		player_button.Play();
 	}
 
 	public void DisableGravityfield(Node2D body)
 	{
-		this._gravityfieldDisabled = true;
+		this._gravityfieldCollider.SetDeferred("disabled", true);
 		this._spriteMat.SetShaderParameter("pause", true);
+
+		player_button.Stream = GetSound();
+		player_button.Play();
+	}
+
+	private AudioStreamWav GetSound()
+	{
+		
+		Godot.Collections.Array<AudioStreamWav> _buttonSounds = sound_manager._buttonSounds;
+		if(_buttonSounds.Count == 0) {
+			return null;
+		}
+		int index = rnd.Next(_buttonSounds.Count);
+
+		return _buttonSounds[index];
 	}
 }
