@@ -1,13 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JAzUsT8rZQ7CgZI8rdpeNO9Z2wBcxtWw36ObNrtGCc73Fwu/I23Toz8i6XmlNnsy89aAteGsoaBZdrIvASYizA==",
+  "dgSpecHash": "nNtHMN6AcCbQdTeeL3m5CZ0lGlKFyM3IA4K+LDGIVVNGsqZF7RuHpGNTwZk3HUQEW0PF9fpw347tgmjl6Ub3KQ==",
   "success": true,
-  "projectFilePath": "E:\\Semester6Projekt\\Sem6Projekt.csproj",
+  "projectFilePath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godot.sourcegenerators\\4.0.2\\godot.sourcegenerators.4.0.2.nupkg.sha512",
-    "C:\\Users\\Stefan\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godotsharp\\4.0.2\\godotsharp.4.0.2.nupkg.sha512",
-    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\6.0.8\\microsoft.netcore.app.runtime.linux-x64.6.0.8.nupkg.sha512",
-    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\6.0.8\\microsoft.aspnetcore.app.runtime.linux-x64.6.0.8.nupkg.sha512"
+    "C:\\Users\\Martin\\.nuget\\packages\\godot.sourcegenerators\\4.0.2\\godot.sourcegenerators.4.0.2.nupkg.sha512",
+    "C:\\Users\\Martin\\.nuget\\packages\\godotsharp\\4.0.2\\godotsharp.4.0.2.nupkg.sha512",
+    "C:\\Users\\Martin\\.nuget\\packages\\godotsharpeditor\\4.0.2\\godotsharpeditor.4.0.2.nupkg.sha512"
   ],
   "logs": []
 }
