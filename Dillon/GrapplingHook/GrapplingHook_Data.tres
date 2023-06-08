@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://wspkhwy41qcp"]
+
+[ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/GrapplingHook_Data.cs" id="1_hghy4"]
+
+[resource]
+script = ExtResource("1_hghy4")
+HookVelocityMultiplikatorOnRelease = 1.0
+MaxHookUpwardsVelocityOnRelease = 800.0
+PlayerVelocityMultiplikatorOnStart = 1.0
+MinDistance = 50.0
+MaxDistance = 200.0
+StartImpulse = 250.0
+MoveSpeed = 300.0
+CounterMoveSpeed = 600.0

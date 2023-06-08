@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv5ygxak18xmj"]
+
+[ext_resource type="Script" path="res://Dillon/Prototyps/Rope/Scripts/Teststage.cs" id="1_ja7mj"]
+[ext_resource type="PackedScene" path="res://Dillon/Prototyps/Rope/Scenes/Rope.tscn" id="2_svwx6"]
+[ext_resource type="PackedScene" uid="uid://b4418djrv62u2" path="res://Dillon/Prototyps/GrapplingHook_JointBased.tscn" id="4_xh5xa"]
+
+[node name="Teststage" type="Node2D"]
+script = ExtResource("1_ja7mj")
+newRope = ExtResource("2_svwx6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.961, 1.961)
+
+[node name="GrapplingHook_JointBased" parent="." instance=ExtResource("4_xh5xa")]
+
+[node name="DSJ" parent="GrapplingHook_JointBased" index="0"]
+position = Vector2(-96, 41)
+rotation = -1.06204
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Node2D"]
+position = Vector2(0, 50)
+
+[editable path="GrapplingHook_JointBased"]
