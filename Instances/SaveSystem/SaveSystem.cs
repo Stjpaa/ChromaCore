@@ -8,6 +8,7 @@ using static System.Formats.Asn1.AsnWriter;
 
 public static class SaveSystem
 {
+    public const string pathOfRemapInputsData = "user://RemapedInputs.json";
     private const string pathOfLevelInstantiater = "res://Instances/SaveSystem/LevelInstantiater.tscn";
 
     public const string pathToLevelSelectScreen = "res://Instances/Menus/LevelSelection/LevelSelectScene.tscn";
@@ -182,6 +183,38 @@ public static class SaveSystem
         };
 
         string sceneSaveDataPath = ProjectSettings.GlobalizePath(SaveSystem.GetLevelVariablesSaveDataPath(scene));
+
+        string json_str = JsonSerializer.Serialize(data, options);
+
+        // Write the JSON string to file
+        File.WriteAllText(sceneSaveDataPath, json_str);
+    }
+
+    public static RemapInputsSavedata LoadRemapInputsSavedata()
+    {
+        string levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(pathOfRemapInputsData);
+
+        if (DoesFileExistAtPath(pathOfRemapInputsData))
+        {
+            string text = File.ReadAllText(levelVariableSaveDataGlobalPath);
+
+            return JsonSerializer.Deserialize<RemapInputsSavedata>(text);
+
+        }
+        else
+        {
+            return new RemapInputsSavedata();
+        }
+    }
+
+    public static void SaveRemapInputsSavedata(RemapInputsSavedata data)
+    {
+        var options = new JsonSerializerOptions // just makes the Json File better Readable
+        {
+            WriteIndented = true
+        };
+
+        string sceneSaveDataPath = ProjectSettings.GlobalizePath(pathOfRemapInputsData);
 
         string json_str = JsonSerializer.Serialize(data, options);
 

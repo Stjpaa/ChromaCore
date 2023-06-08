@@ -7,7 +7,12 @@ public partial class RemapInputsSavedata
 
 
     // either save the InputEvent itself, or cast it to and form string?
-    InputEvent upTest;
-    string upCast;
+    public InputEvent upKeyboard1 { get; set; }
+    
 
+    public void LoadBaseInputMap()
+    {
+        upKeyboard1 = InputMap.ActionGetEvents("ui_up")[0];
+        GD.Print("test + " + upKeyboard1.AsText());
+    }
 }

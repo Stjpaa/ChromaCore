@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1686044498
+::res://::1686186569
 characters.png::CompressedTexture2D::5074265719891268926::1682282112::1682282152::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::6781716155928282535::1684411387::0::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1682788980::1682788980::1::::<><>::
@@ -9,6 +9,8 @@ README.md::TextFile::-1::1682357161::0::1::::<><>::
 Rise01.ogg::AudioStreamOggVorbis::644264058876615546::1682282112::1682282152::1::::<><>::
 star-sky.gdshader::Shader::-1::1684242275::0::1::::<><>::
 Test.cs::CSharpScript::-1::1682282112::0::1::::<><>::
+TestBullshit.cs::CSharpScript::-1::1686186546::0::1::::<><>::
+testBullshit.tscn::PackedScene::5342011518593318256::1686186553::0::1::::<><>::res://TestBullshit.cs
 ::res://Assets/::1684411387
 atlas.png::CompressedTexture2D::8723023418343030::1684411387::1684411382::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::3587011470912294664::1682788980::1682788980::1::::<><>::
@@ -69,15 +71,15 @@ noise27.png::CompressedTexture2D::8763883246911430423::1684411387::1684411387::1
 sphere0.png::CompressedTexture2D::727390583509591537::1684411387::1684411387::1::::<><>::
 sphere1.png::CompressedTexture2D::6954635057862062653::1684411387::1684411387::1::::<><>::
 sphere2.png::CompressedTexture2D::6318525264494134642::1684411387::1684411387::1::::<><>::
-::res://Assets/Sprites/::1686012222
+::res://Assets/Sprites/::1686186553
 Ball.png::CompressedTexture2D::2812879286531544329::1679057536::1682787201::1::::<><>::
 Box.png::CompressedTexture2D::6239817549971699470::1684065886::1684065886::1::::<><>::
 Gravityfield_Normal.png::CompressedTexture2D::462385158180725172::1679443981::1682787201::1::::<><>::
 Jumppad.png::CompressedTexture2D::7163371651490017967::1684065886::1684065886::1::::<><>::
 MovingPlatform.png::CompressedTexture2D::8402143123705161151::1679057536::1682787201::1::::<><>::
 p1_stand.png::CompressedTexture2D::3692990522539475962::1684065886::1684065886::1::::<><>::
-Platform_Moving.tres::GradientTexture2D::6902438974613199686::1686012222::0::1::::<><>::
-Platform_Normal.tres::GradientTexture2D::5186750078832371388::1686010965::0::1::::<><>::
+Platform_Moving.tres::GradientTexture2D::6902438974613199686::1686186553::0::1::::<><>::
+Platform_Normal.tres::GradientTexture2D::5186750078832371388::1686186553::0::1::::<><>::
 Spikes.png::CompressedTexture2D::8537367750236661456::1684065886::1684065886::1::::<><>::
 Switch.png::CompressedTexture2D::5880208709275302537::1684065886::1684065886::1::::<><>::
 ::res://Assets/Sprites/Tileset Sprites/::1682787201
@@ -121,9 +123,9 @@ test.tres::Resource::4823965994172817575::1682788980::0::1::::<><>::res://Dillon
 ::res://Dillon/PlayerController/Scripts/::1684411387
 PlayerController2D.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 PlayerController2D_Data.cs::CSharpScript::-1::1684065886::0::1::::<><>::
-::res://Dillon/PlayerController/Scripts/States/::1682788980
-Dashing.cs::CSharpScript::-1::1682788980::0::1::::<><>::
-Falling.cs::CSharpScript::-1::1682788980::0::1::::<><>::
+::res://Dillon/PlayerController/Scripts/States/::1686184312
+Dashing.cs::CSharpScript::-1::1686049361::0::1::::<><>::
+Falling.cs::CSharpScript::-1::1686184312::0::1::::<><>::
 Hooking.cs::CSharpScript::-1::1682788980::0::1::::<><>::
 Idle.cs::CSharpScript::-1::1682788980::0::1::::<><>::
 Jumping.cs::CSharpScript::-1::1682788980::0::1::::<><>::
@@ -141,8 +143,8 @@ RopePiece.cs::CSharpScript::-1::1682788980::0::1::::<><>::
 Teststage.cs::CSharpScript::-1::1682788980::0::1::::<><>::
 ::res://Instances/::1684411387
 ::res://Instances/Gameobjects/::1684411385
-::res://Instances/Gameobjects/Gravityfields/::1686012222
-Gravityfield_Normal.cs::CSharpScript::-1::1686012222::0::1::::<><>::
+::res://Instances/Gameobjects/Gravityfields/::1686186553
+Gravityfield_Normal.cs::CSharpScript::-1::1686186553::0::1::::<><>::
 Gravityfield_Normal.tscn::PackedScene::8203964619402760068::1684411387::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 Gravityfield_Time.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 Gravityfield_Time.tscn::PackedScene::4266977411605829208::1684411387::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs
@@ -176,16 +178,16 @@ LevelManager.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 LevelManager.tscn::PackedScene::6093850673283212702::1684411387::0::1::::<><>::res://Instances/Levels/LevelManager.cs
 world_1_level.gdshader::Shader::-1::1684065886::0::1::::<><>::
 world_1_level.tscn::PackedScene::1176266911922254984::1684411387::0::1::::<><>::uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://bxrinvpxhsiqc<>uid://ehww7w412i1<>uid://b3t2mpsrlclj1<>uid://jlg4pvnpuc7i<>uid://c7s6ybr43gk6l<>uid://oj3xa6mp45cx<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://rfnsqa1150ea<>uid://dt56jo4o7i0hw
-::res://Instances/Menus/::1686012222
+::res://Instances/Menus/::1686049188
 LoadingScreen.cs::CSharpScript::-1::1686011482::0::1::::<><>::
-loading_screen.tscn::PackedScene::5738991558887455560::1686012222::0::1::::<><>::res://Instances/Menus/LoadingScreen.cs<>uid://c8wba4tymv8ji<>uid://cto7aik31qnlh<>res://star-sky.gdshader
+loading_screen.tscn::PackedScene::5738991558887455560::1686049188::0::1::::<><>::res://Instances/Menus/LoadingScreen.cs<>uid://c8wba4tymv8ji<>uid://cto7aik31qnlh<>res://star-sky.gdshader
 UINavigationManager.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 ui_navigation_manager.tscn::PackedScene::398571667513817080::1685446188::0::1::::<><>::res://Instances/Menus/UINavigationManager.cs
 ::res://Instances/Menus/IngameUI/::1685448173
 IngameUI.tscn::PackedScene::6080572850230129701::1685448173::0::1::::<><>::uid://b3clekngejd46<>uid://cf5e8m8gqmt4m<>uid://mobt10g1plur
-::res://Instances/Menus/LevelSelection/::1686012223
+::res://Instances/Menus/LevelSelection/::1686186380
 LevelSelectLevel.tscn::PackedScene::6770805437750687728::1684833631::0::1::::<><>::res://Instances/Levels/Level.cs<>uid://cto7aik31qnlh<>res://Instances/Menus/LevelSelection/LevelSelectVisualisation.cs<>uid://chimxdejc5p4p
-LevelSelectScene.tscn::PackedScene::3829531926688066621::1686012223::0::1::::<><>::res://star-sky.gdshader<>uid://fxcogg7m5cng<>uid://besp4vl5cfm8a<>uid://c3p3f83ty7noa<>uid://dxl4wb7b8rvul
+LevelSelectScene.tscn::PackedScene::3829531926688066621::1686186380::0::1::::<><>::res://star-sky.gdshader<>uid://fxcogg7m5cng<>uid://besp4vl5cfm8a<>uid://c3p3f83ty7noa<>uid://dxl4wb7b8rvul
 LevelSelectVisualisation.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 ::res://Instances/Menus/MainMenu/::1684412639
 ExitButton.cs::CSharpScript::-1::1684411387::0::1::::<><>::
@@ -194,22 +196,22 @@ main_menu.tscn::PackedScene::2338109001545350113::1684412639::0::1::::<><>::uid:
 MenuReadyDisabler.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 PlayButton.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 SettingsButton.cs::CSharpScript::-1::1684411387::0::1::::<><>::
-::res://Instances/Menus/PauseMenu/::1686012204
-PauseMenu.cs::CSharpScript::-1::1686012204::0::1::::<><>::
+::res://Instances/Menus/PauseMenu/::1686049122
+PauseMenu.cs::CSharpScript::-1::1686049122::0::1::::<><>::
 pause_menu.tscn::PackedScene::5186019398921320722::1685960055::0::1::::<><>::res://Instances/Menus/PauseMenu/PauseMenu.cs<>uid://fxcogg7m5cng
 ::res://Instances/Menus/SettingsMenu/::1685916872
 SettingsMenu.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 settings_menu.tscn::PackedScene::-1::1685916872::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>uid://fxcogg7m5cng
-::res://Instances/Menus/SettingsMenu/Remap Inputs/::1685960055
-RemapInputs.cs::CSharpScript::-1::1685923477::0::1::::<><>::
-RemapInputs.tscn::PackedScene::7396494115495366880::1685960055::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs<>uid://fxcogg7m5cng
-RemapInputsButton.cs::CSharpScript::-1::1685959781::0::1::::<><>::
-RemapInputsSavedata.cs::CSharpScript::-1::1685919548::0::1::::<><>::
-::res://Instances/SaveSystem/::1686012209
-LevelInstantiater.cs::CSharpScript::-1::1686012205::0::1::::<><>::
+::res://Instances/Menus/SettingsMenu/Remap Inputs/::1686186380
+RemapInputs.cs::CSharpScript::-1::1686185972::0::1::::<><>::
+RemapInputs.tscn::PackedScene::7396494115495366880::1686186380::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs<>uid://fxcogg7m5cng
+RemapInputsButton.cs::CSharpScript::-1::1686183225::0::1::::<><>::
+RemapInputsSavedata.cs::CSharpScript::-1::1686186307::0::1::::<><>::
+::res://Instances/SaveSystem/::1686185406
+LevelInstantiater.cs::CSharpScript::-1::1686049086::0::1::::<><>::
 LevelInstantiater.tscn::PackedScene::2102581500260938997::1686012209::0::1::::<><>::res://Instances/SaveSystem/LevelInstantiater.cs<>uid://cn1al8qtngpmu
 LevelVariablesSaveData.cs::CSharpScript::-1::1684805653::0::1::::<><>::
-SaveSystem.cs::CSharpScript::-1::1686011441::0::1::::<><>::
+SaveSystem.cs::CSharpScript::-1::1686185406::0::1::::<><>::
 ScenePacker.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 ::res://Instances/SaveSystem/LoadingScreen/::1684231715
 ::res://Instances/Singletons/::1684411387
@@ -218,9 +220,9 @@ SoundManager.tscn::PackedScene::2942874770417426418::1684411387::0::1::::<><>::r
 SoundPlayer.cs::CSharpScript::-1::1679443981::0::1::::<><>::
 SoundPlayer.tscn::PackedScene::7194324852583401091::1682975579::0::1::::<><>::res://Instances/Singletons/SoundPlayer.cs
 ::res://Instances/UIobjects/::1685447710
-::res://Instances/UIobjects/DashCooldown/::1686010966
+::res://Instances/UIobjects/DashCooldown/::1686186380
 DashCooldown.cs::CSharpScript::-1::1686010959::0::1::::<><>::
-dash_cooldown.tscn::PackedScene::871263463825359357::1686010966::0::1::::<><>::res://Instances/UIobjects/DashCooldown/DashCooldown.cs
+dash_cooldown.tscn::PackedScene::871263463825359357::1686186380::0::1::::<><>::res://Instances/UIobjects/DashCooldown/DashCooldown.cs
 ::res://Instances/UIobjects/LevelTimer/::1684411387
 LevelTimer.cs::CSharpScript::-1::1684411387::0::1::::<><>::
 timer.tscn::PackedScene::4356512636756453005::1684411387::0::1::::<><>::res://Instances/UIobjects/LevelTimer/LevelTimer.cs<>res://Instances/UIobjects/LevelTimer/TimerUIVisualisation.cs

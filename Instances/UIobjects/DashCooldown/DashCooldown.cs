@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class DashCooldown : Control
+public partial class DashCooldown : CanvasLayer
 {
     private Slider cooldownVisualisation;
     float cooldowtest = 10;

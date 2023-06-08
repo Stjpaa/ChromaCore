@@ -54,7 +54,6 @@ focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "s"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 2
-actionName = "ui_down"
 
 [node name="Button2" type="Button" parent="VBoxContainer/DownHBoxContainer"]
 custom_minimum_size = Vector2(50, 50)

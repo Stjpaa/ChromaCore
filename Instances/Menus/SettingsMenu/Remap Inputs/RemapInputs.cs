@@ -18,8 +18,7 @@ public partial class RemapInputs : Control
     private bool replaceInput = false;
 
     private InputEvent[] currenControls;
-    private const string pathOfRemapData = "user://RemapedInputs.json";
-
+    private RemapInputsSavedata remapInputsSavedata = new RemapInputsSavedata();
 
 
 
@@ -34,6 +33,10 @@ public partial class RemapInputs : Control
     {
         inputPanel = (Panel)GetNode("SetInputPanel");
 
+        if(currentRemapInputsButton == null)
+        {
+            LoadSaveData();
+        }
 
         //GD.PrintErr("could cause Problems ith the order, because new actions would cause controllerOne to move up to [1] in the InputList should probalby safe new Button");
 
@@ -191,13 +194,19 @@ public partial class RemapInputs : Control
 
     private void LoadSaveData()
     {
-        string pathToSavedata = ProjectSettings.GlobalizePath(pathOfRemapData);
-        //if(SaveSystem.DoesFileExistAtPath(savepath))
-        //{
-        //    //Load
-        //}
-        //else {
-        //    //Use base values
-        //}
+        string pathToSavedata = ProjectSettings.GlobalizePath(SaveSystem.pathOfRemapInputsData);
+        if (SaveSystem.DoesFileExistAtPath(pathToSavedata))
+        {
+            //remapInputsSavedata = Loaded;
+            //remapInputsSavedata = SaveSystem.LoadRemapInputsSavedata();
+
+            //GD.Print("Load + " +remapInputsSavedata.upKeyboard1.AsText());//Load existing Savedata
+            
+        }
+        else
+        {
+            remapInputsSavedata.LoadBaseInputMap();//Use base values
+            SaveSystem.SaveRemapInputsSavedata(remapInputsSavedata);
+        }
     }
 }
