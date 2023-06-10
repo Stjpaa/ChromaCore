@@ -11,6 +11,8 @@ namespace PlayerController.FollowingCamera
     public partial class FollowingCamera : Camera2D
     {
         [Export]
+        private PlayerController2D playerNode;
+        [Export]
         public float followingSpeedNormal = 30f;
         [Export]
         public float followingSpeedHooking = 150f;
@@ -46,8 +48,16 @@ namespace PlayerController.FollowingCamera
         {
             var target = targetPosition;
 
-            var targePosX = (Mathf.Lerp(GlobalPosition.X, target.X, 0.9f * (float)GetProcessDeltaTime() * followingSpeed));
-            var targePosY = (Mathf.Lerp(GlobalPosition.Y, target.Y, 0.9f * (float)GetProcessDeltaTime() * followingSpeed));
+            var targetWeightWithoutClamp = 0.9f * (float)GetProcessDeltaTime() * followingSpeed;
+
+            var targetWeight = Mathf.Clamp(targetWeightWithoutClamp, 0, 1);        // Lerp causes Problems when a weigth is >1 -->  Mathf.Lerp(0, 10, 1.5) = Mathf.Lerp(0, 10, 1) + Mathf.Lerp(0, 10, 0.5)
+            
+
+
+            var targePosX = (Mathf.Lerp(GlobalPosition.X, target.X, targetWeight));
+            var targePosY = (Mathf.Lerp(GlobalPosition.Y, target.Y, targetWeight));
+
+            
 
             GlobalPosition = new Vector2(targePosX, targePosY);
         }

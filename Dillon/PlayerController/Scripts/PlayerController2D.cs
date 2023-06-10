@@ -8,7 +8,7 @@ namespace PlayerController
     public partial class PlayerController2D : CharacterBody2D
     {
         // GitHub Commit logs Version 0.0.22
-        // Implemented player animation for idle, falling, moving, pushing, dying, dashing, hooking, JumpEnd
+        // Added player sprite atlas
 
         [Export]
         public PlayerController2D_Data data;
@@ -46,8 +46,8 @@ namespace PlayerController
         private Node _parent;
 
         #region Shader Variables
-        private ShaderMaterial _shaderMaterial;
-        private Vector2 _startPosition;
+        private ShaderMaterial shader_material;
+        private Vector2 start_position;
         #endregion
 
         #region Balancing
@@ -95,26 +95,25 @@ namespace PlayerController
 
             HookIsReady = true;
 
-            _shaderMaterial = GetNode<CanvasLayer>("CanvasLayer2").GetNode<ColorRect>("ColorRect").Material as ShaderMaterial;
-            _startPosition = Transform.Origin;
-
-            _checkpointPosition = Transform.Origin;
+            shader_material = GetNode<CanvasLayer>("CanvasLayer2").GetNode<ColorRect>("ColorRect").Material as ShaderMaterial;
+            start_position = Transform.Origin;
+            FollowingCamera.GlobalPosition = this.GlobalPosition;
         }
 
         public override void _Process(double delta)
         {
-            _currentState?.ExecuteProcess();
+            _currentState.ExecuteProcess();
         }
 
         public override void _PhysicsProcess(double delta)
         {
-            _currentState?.ExecutePhysicsProcess();
+            _currentState.ExecutePhysicsProcess();
 
             MoveAndSlide();
             CheckCollisionWithBox();
 
             FollowingCamera.UpdatePosition(GlobalPosition);    
-            _shaderMaterial.SetShaderParameter("position", Transform.Origin - _startPosition);       
+            shader_material.SetShaderParameter("position", Transform.Origin - start_position);       
         }
 
         public void ChangeState(State newState)
@@ -123,9 +122,9 @@ namespace PlayerController
             _currentState = newState;
 
             _previousState?.Exit();
-            _currentState?.Enter();
+            _currentState.Enter();
 
-            GD.Print("Entered state: " + _currentState?.Name);
+            GD.Print("Entered state: " + _currentState.Name);
         }
 
         #region Communication with other game objects
@@ -222,9 +221,9 @@ namespace PlayerController
                 GrapplingHook.ReturnHook();
             }
 
-            ChangeState(new Dying(this));          
+            Transform = new Transform2D(0, _checkpointPosition);
         }
-      
+
         private void CheckCollisionWithBox()
         {
             if (GetSlideCollisionCount() > 0)
@@ -244,22 +243,7 @@ namespace PlayerController
         {
             GD.Print("Checkpoint entered");
             _checkpointPosition = checkpointPosition;
-        }
-
-        // Called in the dying state when the animation is finished
-        private void RespawnAtLastCheckpoint()
-        {
-            var callable = new Callable(this, "RespawnAtLastCheckpoint");
-
-            if(AnimatedSprite2D.IsConnected(AnimatedSprite2D.SignalName.AnimationFinished, callable))
-            {
-                AnimatedSprite2D.Disconnect(AnimatedSprite2D.SignalName.AnimationFinished, callable);
-            }
-
-            var offset = new Vector2(0, -22);
-            Transform = new Transform2D(0, CheckpointPosition + offset);
-            ChangeState(new Idle(this));
-        }
+        }   
         #endregion
 
         public Vector2 GetHookStartPosition()
