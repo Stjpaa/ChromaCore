@@ -748,8 +748,7 @@ metadata/_edit_lock_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_p68cg")
-animation = &"Hooking"
-frame_progress = 0.704372
+animation = &"Idle"
 metadata/_edit_lock_ = true
 
 [node name="DashCooldown_Timer" type="Timer" parent="."]

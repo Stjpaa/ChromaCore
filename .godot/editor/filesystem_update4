@@ -1,13 +1,8 @@
-res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn
+res://Instances/Levels/world_1_level.tscn
 res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
-res://test_input.tscn
-res://Instances/Levels/world_1_level.tscn
 res://Dillon/PlayerController/PlayerController2D.tscn
-res://Dillon/Camera/FollowingCamera.tscn
-res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn
-res://Instances/Gameobjects/Movable Objects/Box.tscn
 res://Dillon/tile_map.tscn
 res://Instances/Levels/world_2_level.tscn
