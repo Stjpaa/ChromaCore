@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rvfeev6xxebh"]
+[gd_scene load_steps=18 format=3 uid="uid://rvfeev6xxebh"]
 
 [ext_resource type="Texture2D" uid="uid://ds2gsq3ng153g" path="res://Dillon/Assets/tilesheet_complete.png" id="1_bg6fh"]
 [ext_resource type="Script" path="res://Instances/Levels/InstantiateLevel.cs" id="2_nomqj"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://0vuadphoaeog" path="res://Dillon/GrapplingHook/HookableArea.tscn" id="10_6y4uv"]
 [ext_resource type="PackedScene" uid="uid://d2dmdifx4vsp7" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="13_l42sd"]
 [ext_resource type="PackedScene" uid="uid://d18yrrxq7o6sa" path="res://Dillon/Camera/FollowingCamera.tscn" id="13_s6dbw"]
+[ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="14_ra2fc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idpbc"]
 
@@ -906,9 +907,12 @@ position = Vector2(2054, -138)
 
 [node name="GrapplingHook" parent="." instance=ExtResource("10_6abn4")]
 
-[node name="Checkpoint" parent="." instance=ExtResource("13_l42sd")]
-position = Vector2(6, -450)
-
 [node name="FollowingCamera" parent="." instance=ExtResource("13_s6dbw")]
+
+[node name="Spikes" parent="." instance=ExtResource("14_ra2fc")]
+position = Vector2(160, -67)
+
+[node name="Checkpoint" parent="." instance=ExtResource("13_l42sd")]
+position = Vector2(-2, -448)
 
 [editable path="InstantiateLevel/Portals_List/Portals"]

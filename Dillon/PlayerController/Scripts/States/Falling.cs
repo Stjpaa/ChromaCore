@@ -72,7 +72,7 @@ namespace PlayerController.States
 
         public override void Enter()
         {
-            _playerController2D.AnimatedSprite2D.Play("InAir");
+            _playerController2D.AnimatedSprite2D.Play("Falling");
             _apexGravityModifier = 1f;
             _apexMovementModifier = 1f;
             _state = ApexModifierState.CanBeApplied;
@@ -121,7 +121,9 @@ namespace PlayerController.States
 
             if (_moveDirection != 0)
             {
-                velocity.X += _playerController2D.FallingMoveSpeedAcceleration * _apexMovementModifier * _moveDirection;                
+                velocity.X += _playerController2D.FallingMoveSpeedAcceleration * _apexMovementModifier * _moveDirection; 
+                if(_moveDirection < 0) { _playerController2D.AnimatedSprite2D.FlipH = true; }
+                else { _playerController2D.AnimatedSprite2D.FlipH = false; }
             }
             else
             {
