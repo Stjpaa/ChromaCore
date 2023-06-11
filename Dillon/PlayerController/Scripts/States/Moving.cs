@@ -21,10 +21,13 @@ namespace PlayerController.States
         private bool _movingLeft;
         private float _moveDirection;
 
+        private string _walkingAnimation = "Walk";
+        private string _pushingAnimation = "Push";
+
         public Moving(PlayerController2D controller) : base(controller) { }
         public override void Enter()
         {
-            _movingLeft = Input.IsActionPressed("Move_Left");
+            _movingLeft = Input.IsActionPressed("Move_Left");          
         }
         public override void ExecutePhysicsProcess()
         {
@@ -46,16 +49,34 @@ namespace PlayerController.States
             #endregion
 
             #region Animation
+            // Only detect objects
+            uint collisionMask = 1;
+            collisionMask <<= 7;
+
+            var spaceState = _playerController2D.GetWorld2D().DirectSpaceState;
+            var leftQuery = PhysicsRayQueryParameters2D.Create(_playerController2D.GlobalPosition, 
+                                                           _playerController2D.GlobalPosition + new Vector2(-15, 0),
+                                                           collisionMask);
+            var rightQuery = PhysicsRayQueryParameters2D.Create(_playerController2D.GlobalPosition,
+                                                               _playerController2D.GlobalPosition + new Vector2(15, 0),
+                                                               collisionMask);
+            var leftCollisionCheck = spaceState.IntersectRay(leftQuery);
+            var rightCollisionCheck = spaceState.IntersectRay(rightQuery);
+
+            if (leftCollisionCheck.Count > 0 || rightCollisionCheck.Count > 0)
+            {
+                _playerController2D.AnimatedSprite2D.Play(_pushingAnimation);
+            }
+            else { _playerController2D.AnimatedSprite2D.Play(_walkingAnimation); }
+
             // Left
             if (_moveDirection < 0)
             {
-                _playerController2D.AnimatedSprite2D.Play("Walk");
                 _playerController2D.AnimatedSprite2D.FlipH = true;
             }
             // Right
             else if (_moveDirection > 0)
             {
-                _playerController2D.AnimatedSprite2D.Play("Walk");
                 _playerController2D.AnimatedSprite2D.FlipH = false;
             }
 

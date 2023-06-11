@@ -3,3 +3,6 @@ res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
+res://Dillon/PlayerController/PlayerController2D.tscn
+res://Dillon/tile_map.tscn
+res://Instances/Levels/world_2_level.tscn
