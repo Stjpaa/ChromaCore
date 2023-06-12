@@ -8,7 +8,7 @@ gradient = SubResource("Gradient_8qfpm")
 
 [resource]
 emission_shape = 3
-emission_box_extents = Vector3(6, 3, 1)
+emission_box_extents = Vector3(9, 3, 1)
 direction = Vector3(0, -1, 0)
 spread = 70.0
 gravity = Vector3(0, 0, 0)

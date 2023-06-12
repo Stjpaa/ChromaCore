@@ -84,6 +84,7 @@ namespace PlayerController.States
         {
             if(_playerController2D.IsOnFloor())
             {
+                _playerController2D.TriggerLandingParticles();
                 _playerController2D.ChangeState(new Moving(_playerController2D));
                 return true;
             }

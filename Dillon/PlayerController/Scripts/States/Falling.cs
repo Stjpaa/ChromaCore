@@ -241,6 +241,7 @@ namespace PlayerController.States
         {
             if (_playerController2D.IsOnFloor() && _moveDirection != 0 && _applyCustomGravity == false)
             {
+                _playerController2D.TriggerLandingParticles();
                 _playerController2D.ChangeState(new Moving(_playerController2D));
                 return true;
             }
@@ -251,6 +252,7 @@ namespace PlayerController.States
         {
             if (_playerController2D.IsOnFloor() && _moveDirection == 0 && _applyCustomGravity == false)
             {
+                _playerController2D.TriggerLandingParticles();
                 _playerController2D.ChangeState(new Idle(_playerController2D));
                 return true;
             }
@@ -270,6 +272,7 @@ namespace PlayerController.States
         {
             if (_jumpBuffering && _playerController2D.IsOnFloor() && _applyCustomGravity == false)
             {
+                _playerController2D.TriggerLandingParticles();
                 _playerController2D.ChangeState(new Jumping(_playerController2D, true));
                 return true;
             }

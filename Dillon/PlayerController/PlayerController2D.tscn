@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://bxrinvpxhsiqc"]
+[gd_scene load_steps=112 format=3 uid="uid://bxrinvpxhsiqc"]
 
 [ext_resource type="Script" path="res://Dillon/PlayerController/Scripts/PlayerController2D.cs" id="1_pl4lx"]
 [ext_resource type="Resource" uid="uid://d1vr7kylk8xma" path="res://Dillon/PlayerController/PlayerController2D_Data.tres" id="2_1wb36"]
@@ -9,7 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://m4akvi2ej0nk" path="res://Dillon/Assets/Player/Jump.png" id="8_ghfyf"]
 [ext_resource type="Texture2D" uid="uid://bv0ndyryomsx2" path="res://Dillon/Assets/Player/Push.png" id="9_krlj3"]
 [ext_resource type="Texture2D" uid="uid://bhaptp6cvb7n4" path="res://Dillon/Assets/Player/Walk.png" id="10_6aqec"]
+[ext_resource type="Material" uid="uid://e4wj8hl86jwx" path="res://Shaders/dustcloud_landing_particle_process_material.tres" id="11_lqsf6"]
+[ext_resource type="Material" uid="uid://vnjysovyxkc" path="res://Shaders/player_afterimage.tres" id="12_01k8s"]
+[ext_resource type="Texture2D" uid="uid://dy6xjo1p2wl1o" path="res://Dillon/Assets/Player/Afterimage.png" id="12_6jtcv"]
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="12_25pt5"]
+[ext_resource type="Texture2D" uid="uid://oyqhbqq85ac3" path="res://Dillon/Assets/Player/Afterimage_Left.png" id="13_g1054"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5upv1"]
 size = Vector2(23, 42.5)
@@ -749,6 +753,8 @@ metadata/_edit_lock_ = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_p68cg")
 animation = &"Idle"
+frame = 2
+frame_progress = 0.85685
 metadata/_edit_lock_ = true
 
 [node name="DashCooldown_Timer" type="Timer" parent="."]
@@ -792,3 +798,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 20)
+emitting = false
+amount = 50
+process_material = ExtResource("11_lqsf6")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 0
+
+[node name="GPUParticles2D_Afterimage_Right" type="GPUParticles2D" parent="."]
+z_index = -1
+emitting = false
+amount = 20
+process_material = ExtResource("12_01k8s")
+texture = ExtResource("12_6jtcv")
+lifetime = 0.5
+fixed_fps = 0
+
+[node name="GPUParticles2D_Afterimage_Left" type="GPUParticles2D" parent="."]
+z_index = -1
+emitting = false
+amount = 50
+process_material = ExtResource("12_01k8s")
+texture = ExtResource("13_g1054")
+lifetime = 0.5
+fixed_fps = 0
