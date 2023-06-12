@@ -85,6 +85,7 @@ namespace PlayerController
 		// Object interaction variables
 		public float BoxInteractionImpuls { get { return data.boxInteractionImpuls; } }
 		#endregion
+		private SoundManager _sound_manager;
 
 		public override void _Ready()
 		{
@@ -104,6 +105,7 @@ namespace PlayerController
 			_landingParticle = GetNode<GpuParticles2D>("GPUParticles2D");
 			_afterimageRight = GetNode<GpuParticles2D>("GPUParticles2D_Afterimage_Right");
 			_afterimageLeft = GetNode<GpuParticles2D>("GPUParticles2D_Afterimage_Left");
+			_sound_manager = GetNode<SoundManager>("/root/SoundManager");
 			FollowingCamera.GlobalPosition = this.GlobalPosition;
 			_checkpointPosition = Transform.Origin;
 		}
@@ -126,7 +128,7 @@ namespace PlayerController
 
 		public override void _PhysicsProcess(double delta)
 		{
-			_currentState.ExecutePhysicsProcess();
+			_currentState.ExecutePhysicsProcess(delta);
 
 			MoveAndSlide();
 			CheckCollisionWithBox();
@@ -291,6 +293,11 @@ namespace PlayerController
 			_landingParticle.Emitting = false;
 			_landingParticle.Emitting = true;
 			GD.Print("Particle emitted!");
+		}
+
+		public void PlaySound(String sound)
+		{
+			_sound_manager.PlaySound(sound);
 		}
 	}
 }

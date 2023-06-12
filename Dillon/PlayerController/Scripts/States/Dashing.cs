@@ -29,7 +29,7 @@ namespace PlayerController.States
             _availableDashes--;
         }
 
-        public override void ExecutePhysicsProcess()
+        public override void ExecutePhysicsProcess(double delta)
         {
             _timer += (float)_playerController2D.GetPhysicsProcessDeltaTime();
             if( _timer > _playerController2D.DashDuration)
@@ -84,6 +84,7 @@ namespace PlayerController.States
         {
             if(_playerController2D.IsOnFloor())
             {
+                _playerController2D.PlaySound("landing");
                 _playerController2D.TriggerLandingParticles();
                 _playerController2D.ChangeState(new Moving(_playerController2D));
                 return true;

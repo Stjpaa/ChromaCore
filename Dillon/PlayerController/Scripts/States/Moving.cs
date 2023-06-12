@@ -24,14 +24,23 @@ namespace PlayerController.States
         private string _walkingAnimation = "Walk";
         private string _pushingAnimation = "Push";
 
+        private double _step_timer = 0.0;
+
         public Moving(PlayerController2D controller) : base(controller) { }
         public override void Enter()
         {
             _movingLeft = Input.IsActionPressed("Move_Left");          
         }
-        public override void ExecutePhysicsProcess()
+        public override void ExecutePhysicsProcess(double delta)
         {
             _moveDirection = Input.GetAxis("Move_Left", "Move_Right");
+
+            _step_timer -= delta;
+            if(_step_timer < 0.0)
+            {
+                _playerController2D.PlaySound("step");
+                _step_timer = 0.3;
+            }
 
             if (CheckTransitionToJumping()) { return; }
             if (CheckTransitionToDashing()) { return; }
@@ -123,6 +132,7 @@ namespace PlayerController.States
             var jumpPressedTrigger = Input.IsActionJustPressed("Jump");
             if (jumpPressedTrigger)
             {
+                _playerController2D.PlaySound("jump_01");
                 _playerController2D.ChangeState(new Jumping(_playerController2D, true));
                 return true;
             }

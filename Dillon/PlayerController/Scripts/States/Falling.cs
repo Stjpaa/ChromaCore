@@ -78,7 +78,7 @@ namespace PlayerController.States
             _state = ApexModifierState.CanBeApplied;
         }
 
-        public override void ExecutePhysicsProcess()
+        public override void ExecutePhysicsProcess(double delta)
         {
             if (ApplyCoyoteTime((float)_playerController2D.GetPhysicsProcessDeltaTime())) { return; }
 
@@ -241,6 +241,7 @@ namespace PlayerController.States
         {
             if (_playerController2D.IsOnFloor() && _moveDirection != 0 && _applyCustomGravity == false)
             {
+                _playerController2D.PlaySound("landing");
                 _playerController2D.TriggerLandingParticles();
                 _playerController2D.ChangeState(new Moving(_playerController2D));
                 return true;
@@ -252,6 +253,7 @@ namespace PlayerController.States
         {
             if (_playerController2D.IsOnFloor() && _moveDirection == 0 && _applyCustomGravity == false)
             {
+                _playerController2D.PlaySound("landing");
                 _playerController2D.TriggerLandingParticles();
                 _playerController2D.ChangeState(new Idle(_playerController2D));
                 return true;
@@ -272,7 +274,9 @@ namespace PlayerController.States
         {
             if (_jumpBuffering && _playerController2D.IsOnFloor() && _applyCustomGravity == false)
             {
+                _playerController2D.PlaySound("landing");
                 _playerController2D.TriggerLandingParticles();
+                _playerController2D.PlaySound("jump_01");
                 _playerController2D.ChangeState(new Jumping(_playerController2D, true));
                 return true;
             }

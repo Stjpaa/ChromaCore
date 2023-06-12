@@ -9,9 +9,9 @@ public partial class SoundManager : Node
 	private int _soundVoicesCount = 5;
 
 	[Export]
-	private Godot.Collections.Dictionary<String, AudioStreamOggVorbis> _soundFiles = new Godot.Collections.Dictionary<String, AudioStreamOggVorbis>();
+	private Godot.Collections.Dictionary<String, AudioStreamWav> _soundFiles = new Godot.Collections.Dictionary<String, AudioStreamWav>();
 	[Export]
-	private Godot.Collections.Dictionary<String, AudioStreamOggVorbis> _musicFiles = new Godot.Collections.Dictionary<String, AudioStreamOggVorbis>();
+	private Godot.Collections.Dictionary<String, AudioStreamWav> _musicFiles = new Godot.Collections.Dictionary<String, AudioStreamWav>();
 	[Export]
 	public Godot.Collections.Array<AudioStreamWav> _teleporterSounds;
 	[Export]

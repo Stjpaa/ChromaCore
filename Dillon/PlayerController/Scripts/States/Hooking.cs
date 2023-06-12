@@ -64,6 +64,7 @@ namespace PlayerController.States
 
         private void TransitionToJumping()
         {
+            _playerController2D.PlaySound("jump_01");
             _grapplingHook.ReleaseEvent -= TransitionToJumping;
             _playerController2D.ChangeState(new Jumping(_playerController2D, false, _grapplingHook.GetHookVelocityOnRelease()));          
         }
