@@ -3,7 +3,9 @@ using System;
 
 public partial class PauseMenu : Control
 {
+    
     [Export] private Control pauseMenuUI;
+    [Export] private ColorRect blur;
 
     public override void _Ready()
     {
@@ -26,6 +28,10 @@ public partial class PauseMenu : Control
 
             if (GetTree().Paused)
             {
+                if(pauseMenuUI.Visible == false)    // while settings menu is open, dont unpause the game
+                {
+                    return;
+                }
                 UnPauseGame();
             }
             else
@@ -44,6 +50,7 @@ public partial class PauseMenu : Control
 
         pauseMenuUI.ProcessMode = ProcessModeEnum.Inherit;
         pauseMenuUI.Visible = true;    //Show Pause Menu
+        blur.Visible = true;
     }
 
     public void UnPauseGame()
@@ -53,6 +60,7 @@ public partial class PauseMenu : Control
 
         pauseMenuUI.ProcessMode = ProcessModeEnum.Disabled;
         pauseMenuUI.Visible = false;     //Hide Pause Menu
+        blur.Visible = false;
     }
 
     public void QuitGame()
