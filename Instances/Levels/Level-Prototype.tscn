@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://besp4vl5cfm8a"]
+[gd_scene load_steps=69 format=3 uid="uid://besp4vl5cfm8a"]
 
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_rm56s"]
 [ext_resource type="PackedScene" uid="uid://d3s6elkjprg46" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="2_bkqre"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://d2dmdifx4vsp7" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="11_l85ei"]
 [ext_resource type="PackedScene" uid="uid://bxrinvpxhsiqc" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="11_xf5fx"]
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="13_3inke"]
-[ext_resource type="Texture2D" uid="uid://bsu6aquff70be" path="res://Assets/Sprites/p1_stand.png" id="14_kjbvf"]
 [ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="16_b88yk"]
 
 [sub_resource type="Gradient" id="Gradient_b1py6"]
@@ -154,6 +153,10 @@ width = 8
 height = 16
 fill_from = Vector2(0, 0.0042735)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l64yw"]
+resource_local_to_scene = true
+size = Vector2(16, 8)
+
 [sub_resource type="Animation" id="Animation_kgtk0"]
 resource_name = "Move"
 length = 10.0
@@ -182,6 +185,10 @@ gradient = SubResource("Gradient_hmh3d")
 width = 8
 height = 16
 fill_from = Vector2(0, 0.0042735)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q06ek"]
+resource_local_to_scene = true
+size = Vector2(16, 8)
 
 [sub_resource type="Animation" id="Animation_ig103"]
 resource_name = "Move"
@@ -450,7 +457,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.593199, 0.805056)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfdn"]
 resource_local_to_scene = true
@@ -852,7 +859,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jmof"]
 resource_local_to_scene = true
@@ -979,9 +986,18 @@ gradient = SubResource("Gradient_g84sw")
 width = 8
 height = 30
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o44qk"]
+resource_local_to_scene = true
+size = Vector2(30, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjhxa"]
+resource_local_to_scene = true
+size = Vector2(28, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nipui"]
 shader = ExtResource("13_3inke")
 shader_parameter/bg_color = null
+shader_parameter/position = null
 
 [sub_resource type="Sky" id="Sky_troy4"]
 sky_material = SubResource("ShaderMaterial_nipui")
@@ -995,8 +1011,13 @@ sky = SubResource("Sky_troy4")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xt6qb"]
 shader = ExtResource("13_3inke")
 shader_parameter/bg_color = Color(0, 0, 0.0431373, 1)
+shader_parameter/position = null
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ry0wi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1vgt"]
+resource_local_to_scene = true
+size = Vector2(64, 6)
 
 [node name="LevelPrototype" type="Node2D"]
 
@@ -1027,6 +1048,9 @@ position = Vector2(-63, -26)
 [node name="Sprite" parent="PlatformsList/MovingPlatform" index="0"]
 texture = SubResource("GradientTexture2D_tqo22")
 
+[node name="PlatformCollider" parent="PlatformsList/MovingPlatform" index="1"]
+shape = SubResource("RectangleShape2D_l64yw")
+
 [node name="AnimationPlayer" parent="PlatformsList/MovingPlatform" index="2"]
 autoplay = "Move"
 libraries = {
@@ -1038,6 +1062,9 @@ position = Vector2(40, -101)
 
 [node name="Sprite" parent="PlatformsList/MovingPlatform2" index="0"]
 texture = SubResource("GradientTexture2D_5afbk")
+
+[node name="PlatformCollider" parent="PlatformsList/MovingPlatform2" index="1"]
+shape = SubResource("RectangleShape2D_q06ek")
 
 [node name="AnimationPlayer" parent="PlatformsList/MovingPlatform2" index="2"]
 autoplay = "Move"
@@ -1080,6 +1107,7 @@ position = Vector2(-2251, 7)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time" index="0"]
 shape = SubResource("RectangleShape2D_qt8sq")
+disabled = true
 
 [node name="GravityDirection" parent="GravityfieldList/Gravityfield_Time/GravityfieldCollider" index="0"]
 position = Vector2(14, -19)
@@ -1120,6 +1148,7 @@ _gravityfieldSize = Vector2(50, 150)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Toggle2/Gravityfield" index="0"]
 shape = SubResource("RectangleShape2D_mcp58")
+disabled = true
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Toggle2/Gravityfield" index="1"]
 material = SubResource("ShaderMaterial_esso6")
@@ -1165,6 +1194,7 @@ _gravityfieldSize = Vector2(48, 144)
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_6apcr")
+disabled = true
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Time2/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_gi30v")
@@ -1177,6 +1207,7 @@ _audioPlayerInside = NodePath("../Gravityfield_Toggle/AudioStreamPlayer")
 
 [node name="GravityfieldCollider" parent="GravityfieldList/Gravityfield_Toggle3/Gravityfield" index="0"]
 shape = SubResource("RectangleShape2D_1jmof")
+disabled = true
 
 [node name="Sprite" parent="GravityfieldList/Gravityfield_Toggle3/Gravityfield" index="1"]
 material = SubResource("ShaderMaterial_iqdwd")
@@ -1193,6 +1224,12 @@ _strength = 600.0
 
 [node name="Sprite" parent="JumpPadsList/JumpPad" index="0"]
 texture = SubResource("GradientTexture2D_felqj")
+
+[node name="ObjectCollider" parent="JumpPadsList/JumpPad" index="1"]
+shape = SubResource("RectangleShape2D_o44qk")
+
+[node name="JumpCollider" parent="JumpPadsList/JumpPad/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_gjhxa")
 
 [node name="PortalsList" type="Node" parent="."]
 
@@ -1213,16 +1250,6 @@ position = Vector2(-667, -640)
 [node name="Player" parent="." instance=ExtResource("11_xf5fx")]
 position = Vector2(-567, 4)
 
-[node name="Label" parent="Player" index="4"]
-visible = false
-
-[node name="Camera2D" parent="Player" index="8"]
-zoom = Vector2(1.5, 1.5)
-
-[node name="Sprite2D" parent="Player" index="9"]
-scale = Vector2(0.461, 0.461)
-texture = ExtResource("14_kjbvf")
-
 [node name="Miscellaneous" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1241,6 +1268,9 @@ texture = SubResource("CanvasTexture_ry0wi")
 
 [node name="Spikes" parent="SpikesList" instance=ExtResource("16_b88yk")]
 position = Vector2(-814, -644)
+
+[node name="Collider" parent="SpikesList/Spikes" index="0"]
+shape = SubResource("RectangleShape2D_m1vgt")
 
 [editable path="PlatformsList/MovingPlatform"]
 [editable path="PlatformsList/MovingPlatform2"]

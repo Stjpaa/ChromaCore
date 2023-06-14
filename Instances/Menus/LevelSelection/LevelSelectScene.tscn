@@ -2,8 +2,8 @@
 
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="1_5pr85"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_xdpmu"]
-[ext_resource type="PackedScene" uid="uid://besp4vl5cfm8a" path="res://Instances/Levels/Level-Prototype.tscn" id="2_f42i2"]
 [ext_resource type="PackedScene" uid="uid://c3p3f83ty7noa" path="res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn" id="2_n228b"]
+[ext_resource type="PackedScene" uid="uid://dw646wmah1jh4" path="res://Instances/Levels/world_1_level.tscn" id="4_c0kil"]
 [ext_resource type="Texture2D" uid="uid://dxl4wb7b8rvul" path="res://Assets/Planets/CompletedPlanets/planet02.png" id="4_drp23"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nnya4"]
@@ -49,7 +49,7 @@ offset_left = 179.0
 offset_top = 195.0
 offset_right = 179.0
 offset_bottom = 195.0
-baseLevelToLoad = ExtResource("2_f42i2")
+baseLevelToLoad = ExtResource("4_c0kil")
 planetTexture = ExtResource("4_drp23")
 
 [editable path="Background/Levels/Level1"]

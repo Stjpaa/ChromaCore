@@ -61,7 +61,8 @@ public partial class PauseMenu : Control
 
         if (instantiaterOfScene == null)
         {
-            GD.PrintErr("No LevelInstanciater in Scene");
+            GD.PrintErr("No LevelInstanciater in Scene, Exit game instead.");
+            GetTree().Quit();
             return;
         }
 

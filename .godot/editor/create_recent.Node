@@ -1,6 +1,6 @@
-GPUParticles2D
-ColorRect
 CanvasLayer
+ColorRect
+GPUParticles2D
 HSlider
 ProgressBar
 Control

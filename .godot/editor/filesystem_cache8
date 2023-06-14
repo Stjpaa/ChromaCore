@@ -1,17 +1,17 @@
 2a60927148abd1d33b818b535e306557
-::res://::1686707746
+::res://::1686771510
 characters.png::CompressedTexture2D::5074265719891268926::1682282112::1682282152::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::6781716155928282535::1686223772::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1686227020::0::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1682788980::1682788980::1::::<><>::
 icon.svg::CompressedTexture2D::1834291139676260366::1679057536::1682787201::1::::<><>::
-InputsResource.cs::CSharpScript::-1::1686707227::0::1::::<><>::
+InputsResource.cs::CSharpScript::-1::1686771292::0::1::::<><>::
 merge.png::CompressedTexture2D::3634859478629105443::1684065886::1684065886::1::::<><>::
 README.md::TextFile::-1::1682357161::0::1::::<><>::
 Rise01.ogg::AudioStreamOggVorbis::644264058876615546::1682282112::1682282152::1::::<><>::
 Test.cs::CSharpScript::-1::1682282112::0::1::::<><>::
-TestDataSaver.cs::CSharpScript::-1::1686707235::0::1::::<><>::
-TestDataSaver.tscn::PackedScene::8884868441618445388::1686707530::0::1::::<><>::res://TestDataSaver.cs
+TestDataSaver.cs::CSharpScript::-1::1686771292::0::1::::<><>::
+TestDataSaver.tscn::PackedScene::8884868441618445388::1686771459::0::1::::<><>::res://TestDataSaver.cs
 TestInput.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 test_input.tscn::PackedScene::4945769069332899793::1686223772::0::1::::<><>::res://TestInput.cs
 ::res://Assets/::1686223772
@@ -87,21 +87,21 @@ Artifact1_full.png::CompressedTexture2D::6571697586843854300::1686222577::168622
 Artifact1_part1.png::CompressedTexture2D::1000293385026268987::1686222577::1686222577::1::::<><>::
 Artifact_part2.png::CompressedTexture2D::5712685498870293134::1686222577::1686222577::1::::<><>::
 Artifact_part3.png::CompressedTexture2D::214475271712598551::1686222577::1686222577::1::::<><>::
-::res://Assets/Sprites/Game objects/::1686236171
+::res://Assets/Sprites/Game objects/::1686771459
 Ball.png::CompressedTexture2D::2812879286531544329::1686222577::1686222577::1::::<><>::
 Box.png::CompressedTexture2D::6239817549971699470::1686222577::1686222577::1::::<><>::
 flag1_min.png::CompressedTexture2D::5916822888199666756::1686222577::1686222577::1::::<><>::
 flag2_min.png::CompressedTexture2D::7857092361988699079::1686222577::1686222577::1::::<><>::
 flag3_min.png::CompressedTexture2D::370520846933194618::1686222577::1686222577::1::::<><>::
-Platform_Moving.tres::GradientTexture2D::6902438974613199686::1686236171::0::1::::<><>::
-Platform_Normal.tres::GradientTexture2D::5186750078832371388::1686236171::0::1::::<><>::
+Platform_Moving.tres::GradientTexture2D::6902438974613199686::1686771459::0::1::::<><>::
+Platform_Normal.tres::GradientTexture2D::5186750078832371388::1686771459::0::1::::<><>::
 Spikes.png::CompressedTexture2D::8537367750236661456::1686222577::1686222577::1::::<><>::
 Switch.png::CompressedTexture2D::5880208709275302537::1686222577::1686222577::1::::<><>::
 ::res://Assets/Sprites/Tilesets/::1686222577
 atlas.png::CompressedTexture2D::8723023418343030::1686222577::1686222577::1::::<><>::
 Tileset.png::CompressedTexture2D::5267810587003723580::1686222577::1686222577::1::::<><>::
-::res://Dillon/::1686226420
-tile_map.tscn::PackedScene::1236873246795693569::1686226420::0::1::::<><>::uid://ds2gsq3ng153g<>res://Instances/Levels/InstantiateLevel.cs<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://mb5aisolynk5<>uid://bxrinvpxhsiqc<>uid://c7s6ybr43gk6l<>uid://cay1arq22pcih<>uid://dt56jo4o7i0hw<>uid://m3mpklc8drsk<>uid://0vuadphoaeog<>uid://d2dmdifx4vsp7<>uid://d18yrrxq7o6sa
+::res://Dillon/::1686771305
+tile_map.tscn::PackedScene::1236873246795693569::1686771305::0::1::::<><>::uid://ds2gsq3ng153g<>res://Instances/Levels/InstantiateLevel.cs<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://mb5aisolynk5<>uid://bxrinvpxhsiqc<>uid://c7s6ybr43gk6l<>uid://cay1arq22pcih<>uid://dt56jo4o7i0hw<>uid://m3mpklc8drsk<>uid://0vuadphoaeog<>uid://d2dmdifx4vsp7<>uid://d18yrrxq7o6sa<>uid://b1sw6dddgaq2d
 ::res://Dillon/Assets/::1686226791
 Chain.png::CompressedTexture2D::1441914908675295313::1686223834::1686223834::1::::<><>::
 ChainKenney.png::CompressedTexture2D::1539197701083567163::1686226419::1686226791::1::::<><>::
@@ -120,15 +120,15 @@ HookKenney.png::CompressedTexture2D::6837728951472091736::1686226419::1686226791
 pipo-nekonin010.png::CompressedTexture2D::4405062816219532348::1686223834::1686223834::1::::<><>::
 Player.png::CompressedTexture2D::2061912024403014977::1686226419::1686226791::1::::<><>::
 tilesheet_complete.png::CompressedTexture2D::8478796766398248966::1686223834::1686223834::1::::<><>::
-::res://Dillon/Assets/Player/::1686226791
+::res://Dillon/Assets/Player/::1686771305
 Dying.png::CompressedTexture2D::7777450168530448420::1686226419::1686226791::1::::<><>::
-Falling.png::CompressedTexture2D::5023474281443819126::1686226419::1686226791::1::::<><>::
-Idle.png::CompressedTexture2D::600091505653550390::1686226419::1686226791::1::::<><>::
-Jump.png::CompressedTexture2D::964159620717044091::1686226419::1686226791::1::::<><>::
-Push.png::CompressedTexture2D::1269715046377906816::1686226419::1686226791::1::::<><>::
-Walk.png::CompressedTexture2D::8564490472813097661::1686226419::1686226791::1::::<><>::
-::res://Dillon/Camera/::1686236341
-FollowingCamera.cs::CSharpScript::-1::1686236341::0::1::::<><>::
+Falling.png::CompressedTexture2D::731533514046098649::1686771305::1686771305::1::::<><>::
+Idle.png::CompressedTexture2D::8145014111697650034::1686771305::1686771305::1::::<><>::
+Jump.png::CompressedTexture2D::902152053044444304::1686771305::1686771305::1::::<><>::
+Push.png::CompressedTexture2D::3912791810162684913::1686771305::1686771305::1::::<><>::
+Walk.png::CompressedTexture2D::2878688109993217455::1686771305::1686771305::1::::<><>::
+::res://Dillon/Camera/::1686771305
+FollowingCamera.cs::CSharpScript::-1::1686771305::0::1::::<><>::
 FollowingCamera.tscn::PackedScene::9053784947072666384::1686226419::0::1::::<><>::res://Dillon/Camera/FollowingCamera.cs
 ::res://Dillon/GrapplingHook/::1686226419
 GrapplingHook.tscn::PackedScene::900824633953291482::1686226419::0::1::::<><>::res://Dillon/GrapplingHook/Scripts/GrapplingHook.cs<>uid://wspkhwy41qcp<>uid://c4oinqy36rul1<>res://Dillon/GrapplingHook/Scripts/Physics.cs<>uid://1esrigfqux07<>uid://v6umju4ch2ct<>res://Dillon/GrapplingHook/Scripts/HookStart.cs
@@ -146,20 +146,21 @@ Idle.cs::CSharpScript::-1::1686226419::0::1::::<><>::
 Returning.cs::CSharpScript::-1::1686226419::0::1::::<><>::
 Shooting.cs::CSharpScript::-1::1686226419::0::1::::<><>::
 State.cs::CSharpScript::-1::1686226419::0::1::::<><>::
-::res://Dillon/PlayerController/::1686227020
-PlayerController2D.tscn::PackedScene::4036368587667263074::1686227020::0::1::::<><>::res://Dillon/PlayerController/Scripts/PlayerController2D.cs<>uid://d1vr7kylk8xma<>uid://cxxsdcybhyisc<>uid://4m2niuoff610<>uid://bq2ndbirpjddp<>uid://di2pp58lgi0wu<>uid://cdtn5f6m6x1be<>uid://isxoi4a6jht3<>uid://n0btkyecydtj<>uid://sdcayvogfeku<>uid://duax53i33nkdh<>res://Shaders/star-sky.gdshader
+::res://Dillon/PlayerController/::1686771305
+PlayerController2D.tscn::PackedScene::4036368587667263074::1686771305::0::1::::<><>::res://Dillon/PlayerController/Scripts/PlayerController2D.cs<>uid://d1vr7kylk8xma<>uid://bq2ndbirpjddp<>uid://di2pp58lgi0wu<>uid://komird35vym0<>uid://dobrgso2m05ic<>uid://m4akvi2ej0nk<>uid://bv0ndyryomsx2<>uid://bhaptp6cvb7n4<>res://Shaders/star-sky.gdshader
 PlayerController2D_Data.tres::Resource::9028613815608671484::1686227020::0::1::::<><>::res://Dillon/PlayerController/Scripts/PlayerController2D_Data.cs
 test.tres::Resource::4823965994172817575::1686226420::0::1::::<><>::res://Dillon/PlayerController/Scripts/PlayerController2D_Data.cs
-::res://Dillon/PlayerController/Scripts/::1686232673
-PlayerController2D.cs::CSharpScript::-1::1686232673::0::1::::<><>::
+::res://Dillon/PlayerController/Scripts/::1686771305
+PlayerController2D.cs::CSharpScript::-1::1686771305::0::1::::<><>::
 PlayerController2D_Data.cs::CSharpScript::-1::1686226420::0::1::::<><>::
-::res://Dillon/PlayerController/Scripts/States/::1686226420
+::res://Dillon/PlayerController/Scripts/States/::1686771305
 Dashing.cs::CSharpScript::-1::1686226420::0::1::::<><>::
-Falling.cs::CSharpScript::-1::1686226420::0::1::::<><>::
-Hooking.cs::CSharpScript::-1::1686226420::0::1::::<><>::
-Idle.cs::CSharpScript::-1::1686226420::0::1::::<><>::
+Dying.cs::CSharpScript::-1::1686771305::0::1::::<><>::
+Falling.cs::CSharpScript::-1::1686771305::0::1::::<><>::
+Hooking.cs::CSharpScript::-1::1686771305::0::1::::<><>::
+Idle.cs::CSharpScript::-1::1686771305::0::1::::<><>::
 Jumping.cs::CSharpScript::-1::1686226420::0::1::::<><>::
-Moving.cs::CSharpScript::-1::1686226420::0::1::::<><>::
+Moving.cs::CSharpScript::-1::1686771305::0::1::::<><>::
 State.cs::CSharpScript::-1::1686226420::0::1::::<><>::
 ::res://Dillon/Prototyps/::1686226420
 Chain.cs::CSharpScript::-1::1686226420::0::1::::<><>::
@@ -189,17 +190,17 @@ Artifact1_2.tscn::PackedScene::4823142866358334599::1686222577::0::1::::<><>::ui
 Artifact1_3.tscn::PackedScene::8460560323182318923::1686222577::0::1::::<><>::uid://db5m2dvlwlx4
 ::res://Instances/Gameobjects/::1686222577
 SoundExample.cs::CSharpScript::-1::1686222577::0::1::::<><>::
-::res://Instances/Gameobjects/Gravityfields/::1686236171
-Gravityfield_Normal.cs::CSharpScript::-1::1686236171::0::1::::<><>::
+::res://Instances/Gameobjects/Gravityfields/::1686771459
+Gravityfield_Normal.cs::CSharpScript::-1::1686771459::0::1::::<><>::
 Gravityfield_Normal.tscn::PackedScene::8203964619402760068::1686222577::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
 Gravityfield_Time.cs::CSharpScript::-1::1686222577::0::1::::<><>::
 Gravityfield_Time.tscn::PackedScene::4266977411605829208::1686222577::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
 Gravityfield_Toggle.cs::CSharpScript::-1::1686222577::0::1::::<><>::
 Gravityfield_Toggle.tscn::PackedScene::6653528997500859392::1686222577::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs<>uid://cp1ogcfgfwqy0<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
-::res://Instances/Gameobjects/Laser/::1686236171
+::res://Instances/Gameobjects/Laser/::1686771459
 Laser_Pressure_Plate.cs::CSharpScript::-1::1686222577::0::1::::<><>::
 Laser_Pressure_Plate.tscn::PackedScene::4661940788271807733::1686222577::0::1::::<><>::res://Instances/Gameobjects/Laser/Laser_Pressure_Plate.cs<>uid://cekaod2annpte<>res://Shaders/laser_beam.gdshader
-Laser_Timed.cs::CSharpScript::-1::1686236171::0::1::::<><>::
+Laser_Timed.cs::CSharpScript::-1::1686771459::0::1::::<><>::
 Laser_Timed.tscn::PackedScene::6698425991656575786::1686222577::0::1::::<><>::res://Instances/Gameobjects/Laser/Laser_Timed.cs<>uid://cekaod2annpte<>res://Shaders/laser_beam.gdshader
 ::res://Instances/Gameobjects/LevelRotator/::1686222577
 LevelRotator.cs::CSharpScript::-1::1686222577::0::1::::<><>::
@@ -225,26 +226,26 @@ Checkpoint.cs::CSharpScript::-1::1686222577::0::1::::<><>::
 Checkpoint.tscn::PackedScene::9061288352858707582::1686222577::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.cs<>uid://cqkfhdbjor2l1<>uid://dj7bfs0a02pv0
 Spikes.tscn::PackedScene::4249880713655740377::1686222577::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs
 Traps.cs::CSharpScript::-1::1686222577::0::1::::<><>::
-::res://Instances/Levels/::1686236171
+::res://Instances/Levels/::1686771460
 InstantiateLevel.cs::CSharpScript::-1::1682282112::0::1::::<><>::
-Level-Prototype.tscn::PackedScene::2705298522082194010::1686222786::0::1::::<><>::res://Shaders/color-palette.gdshader<>uid://d3s6elkjprg46<>uid://ehww7w412i1<>uid://bbecw7j0dluj5<>uid://chb1cn1avyu4c<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://d2dmdifx4vsp7<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>uid://bsu6aquff70be<>uid://b1sw6dddgaq2d
+Level-Prototype.tscn::PackedScene::2705298522082194010::1686771460::0::1::::<><>::res://Shaders/color-palette.gdshader<>uid://d3s6elkjprg46<>uid://ehww7w412i1<>uid://bbecw7j0dluj5<>uid://chb1cn1avyu4c<>uid://c7s6ybr43gk6l<>uid://do5cdmcaycbhc<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://mb5aisolynk5<>uid://dt56jo4o7i0hw<>uid://d2dmdifx4vsp7<>uid://bxrinvpxhsiqc<>res://Shaders/star-sky.gdshader<>uid://b1sw6dddgaq2d
 Level.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 LevelManager.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 LevelManager.tscn::PackedScene::6093850673283212702::1686223772::0::1::::<><>::res://Instances/Levels/LevelManager.cs
 world_1_level.gdshader::Shader::-1::1684065886::0::1::::<><>::
-world_1_level.tscn::PackedScene::8769229647954890991::1686236171::0::1::::<><>::uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://ehww7w412i1<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://c7s6ybr43gk6l<>uid://d2dmdifx4vsp7<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://dt56jo4o7i0hw<>uid://nv4s53vmoxpl<>uid://c7d5koa6uqj0r<>uid://caympt3s2vfr0<>uid://dssmgso4cwa0j<>uid://bxrinvpxhsiqc<>uid://c2o1dkvnu6rgc<>uid://d18yrrxq7o6sa<>uid://m3mpklc8drsk<>uid://b3clekngejd46
+world_1_level.tscn::PackedScene::8769229647954890991::1686771460::0::1::::<><>::uid://chb1cn1avyu4c<>res://Shaders/color-palette.gdshader<>uid://ehww7w412i1<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://c7s6ybr43gk6l<>uid://d2dmdifx4vsp7<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://dt56jo4o7i0hw<>uid://nv4s53vmoxpl<>uid://c7d5koa6uqj0r<>uid://caympt3s2vfr0<>uid://dssmgso4cwa0j<>uid://bxrinvpxhsiqc<>uid://c2o1dkvnu6rgc<>uid://d18yrrxq7o6sa<>uid://m3mpklc8drsk<>uid://b3clekngejd46
 world_2_level.gdshader::Shader::-1::1686222577::0::1::::<><>::
-world_2_level.tscn::PackedScene::8588373779887787440::1686222577::0::1::::<><>::uid://bxrinvpxhsiqc<>uid://ehww7w412i1<>res://Instances/Levels/world_2_level.gdshader<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://d2dmdifx4vsp7<>uid://b1sw6dddgaq2d
-::res://Instances/Menus/::1686707723
+world_2_level.tscn::PackedScene::8588373779887787440::1686771305::0::1::::<><>::uid://bxrinvpxhsiqc<>uid://ehww7w412i1<>res://Instances/Levels/world_2_level.gdshader<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://d2dmdifx4vsp7<>uid://b1sw6dddgaq2d
+::res://Instances/Menus/::1686771292
 LoadingScreen.cs::CSharpScript::-1::1686223772::0::1::::<><>::
-loading_screen.tscn::PackedScene::5738991558887455560::1686707723::0::1::::<><>::res://Instances/Menus/LoadingScreen.cs<>uid://c8wba4tymv8ji<>res://Shaders/star-sky.gdshader<>uid://cto7aik31qnlh
+loading_screen.tscn::PackedScene::5738991558887455560::1686771292::0::1::::<><>::res://Instances/Menus/LoadingScreen.cs<>uid://c8wba4tymv8ji<>res://Shaders/star-sky.gdshader<>uid://cto7aik31qnlh<>uid://c0c6dhfdjoyhb
 UINavigationManager.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 ui_navigation_manager.tscn::PackedScene::398571667513817080::1686223772::0::1::::<><>::res://Instances/Menus/UINavigationManager.cs
 ::res://Instances/Menus/IngameUI/::1686223772
 IngameUI.tscn::PackedScene::6080572850230129701::1686223772::0::1::::<><>::uid://b3clekngejd46<>uid://cf5e8m8gqmt4m<>uid://mobt10g1plur
-::res://Instances/Menus/LevelSelection/::1686223772
-LevelSelectLevel.tscn::PackedScene::6770805437750687728::1686223772::0::1::::<><>::res://Instances/Levels/Level.cs<>uid://cto7aik31qnlh<>res://Instances/Menus/LevelSelection/LevelSelectVisualisation.cs<>uid://chimxdejc5p4p
-LevelSelectScene.tscn::PackedScene::3829531926688066621::1686223772::0::1::::<><>::res://star-sky.gdshader<>uid://fxcogg7m5cng<>uid://besp4vl5cfm8a<>uid://c3p3f83ty7noa<>uid://dxl4wb7b8rvul
+::res://Instances/Menus/LevelSelection/::1686771292
+LevelSelectLevel.tscn::PackedScene::6770805437750687728::1686709228::0::1::::<><>::res://Instances/Levels/Level.cs<>uid://cto7aik31qnlh<>res://Instances/Menus/LevelSelection/LevelSelectVisualisation.cs<>uid://chimxdejc5p4p
+LevelSelectScene.tscn::PackedScene::3829531926688066621::1686771292::0::1::::<><>::res://Shaders/star-sky.gdshader<>uid://fxcogg7m5cng<>uid://besp4vl5cfm8a<>uid://c3p3f83ty7noa<>uid://dxl4wb7b8rvul
 LevelSelectVisualisation.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 ::res://Instances/Menus/MainMenu/::1686223772
 ExitButton.cs::CSharpScript::-1::1686223772::0::1::::<><>::
@@ -256,9 +257,9 @@ SettingsButton.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 ::res://Instances/Menus/PauseMenu/::1686223772
 PauseMenu.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 pause_menu.tscn::PackedScene::5186019398921320722::1686223772::0::1::::<><>::res://Instances/Menus/PauseMenu/PauseMenu.cs<>uid://fxcogg7m5cng
-::res://Instances/Menus/SettingsMenu/::1686223772
+::res://Instances/Menus/SettingsMenu/::1686771292
 SettingsMenu.cs::CSharpScript::-1::1686223772::0::1::::<><>::
-settings_menu.tscn::PackedScene::-1::1686223772::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>uid://fxcogg7m5cng
+settings_menu.tscn::PackedScene::5862449642020635052::1686771292::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>uid://fxcogg7m5cng
 ::res://Instances/Menus/SettingsMenu/Remap Inputs/::1686706718
 RemapInputs.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 RemapInputs.tscn::PackedScene::7396494115495366880::1686706718::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs<>uid://fxcogg7m5cng
@@ -287,7 +288,7 @@ Juhani Junkala [Retro Game Music Pack] Level 3.ogg::AudioStreamOggVorbis::834991
 Juhani Junkala [Retro Game Music Pack] Title Screen.ogg::AudioStreamOggVorbis::8728882447058957871::1682282112::1682282152::1::::<><>::
 ::res://Properties/::1682282112
 launchSettings.json::JSON::-1::1682282112::0::1::::<><>::
-::res://Shaders/::1686707733
+::res://Shaders/::1686771292
 bouncyness.gdshader::Shader::-1::1681220703::0::1::::<><>::
 color-palette.gdshader::Shader::-1::1684065886::0::1::::<><>::
 dissolve.gdshader::Shader::-1::1681237081::0::1::::<><>::
@@ -295,6 +296,7 @@ dustcloud_landing_particle_process_material.tres::ParticleProcessMaterial::34197
 forcefield.gdshader::Shader::-1::1681220703::0::1::::<><>::
 laser.gdshader::Shader::-1::1681237081::0::1::::<><>::
 laser_beam.gdshader::Shader::-1::1686222577::0::1::::<><>::
+LoadingScreenRocketFire.tscn::PackedScene::6533579173538990959::1686771292::0::1::::<><>::
 outline.gdshader::Shader::-1::1681220703::0::1::::<><>::
 portal.gdshader::Shader::-1::1682282112::0::1::::<><>::
 radar-outline.gdshader::Shader::-1::1681220703::0::1::::<><>::
