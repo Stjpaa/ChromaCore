@@ -536,45 +536,42 @@ _collisionWidth = 128.0
 
 [node name="PortalsList" type="Node" parent="LevelSegment"]
 
+[node name="Player@RichTextLabel@29865" type="VScrollBar" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="Player@RichTextLabel@16911" type="VScrollBar" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+max_value = 115.0
+step = 1.0
+page = 115.0
+
+[node name="Player@RichTextLabel@108072" type="VScrollBar" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="Player@RichTextLabel@84462" type="VScrollBar" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+max_value = 115.0
+step = 1.0
+page = 115.0
+
 [node name="Player" parent="." instance=ExtResource("1_pb7au")]
 position = Vector2(-719, -1758)
 
-[node name="29865" type="VScrollBar" parent="Player/RichTextLabel" index="1"]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-step = 1.0
-
-[node name="16911" type="VScrollBar" parent="Player/RichTextLabel" index="2"]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-max_value = 115.0
-step = 1.0
-page = 115.0
-
-[node name="108072" type="VScrollBar" parent="Player/RichTextLabel" index="3"]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-step = 1.0
-
-[node name="84462" type="VScrollBar" parent="Player/RichTextLabel" index="4"]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-max_value = 115.0
-step = 1.0
-page = 115.0
-
-[node name="Label" parent="Player" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="DashCooldown_Timer" parent="Player" index="5"]
+[node name="DashCooldown_Timer" parent="Player" index="3"]
 wait_time = 1.0
 
 [node name="TileMap" type="TileMap" parent="."]

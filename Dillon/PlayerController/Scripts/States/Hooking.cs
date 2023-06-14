@@ -34,6 +34,19 @@ namespace PlayerController.States
             _playerController2D.FollowingCamera.Mode = FollowingCamera.FollowingCamera.CameraModes.Hooking;
         }
 
+        public override void ExecuteProcess()
+        {
+            var direction = Input.GetAxis("MoveLeft", "MoveRight");
+            if(direction < 0)
+            {
+                _playerController2D.AnimatedSprite2D.FlipH = true;
+            }
+            if(direction > 0)
+            {
+                _playerController2D.AnimatedSprite2D.FlipH = false;
+            }
+        }
+
         public override void Exit() 
         { 
             ActivateCollisionDetection();

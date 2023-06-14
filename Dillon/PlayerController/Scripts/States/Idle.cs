@@ -16,6 +16,10 @@ namespace PlayerController.States
         public override void Enter()
         {
             _playerController2D.AnimatedSprite2D.Play("Idle");
+            if(_playerController2D.PreviousState is Falling)
+            {
+                _playerController2D.AnimatedSprite2D.Play("JumpEnd");
+            }
         }
         public override void ExecutePhysicsProcess()
         {

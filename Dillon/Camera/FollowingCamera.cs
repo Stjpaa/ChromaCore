@@ -48,11 +48,10 @@ namespace PlayerController.FollowingCamera
         {
             var target = targetPosition;
 
-            var targetWeight = 0.9f * (float)GetProcessDeltaTime() * followingSpeed;
-            if(targetWeight > 1)        // Lerp causes Problems when a weigth is >1 -->  Mathf.Lerp(0, 10, 1.5) = Mathf.Lerp(0, 10, 1) + Mathf.Lerp(0, 10, 0.5)
-            {
-                targetWeight = 1;
-            }
+            var targetWeightWithoutClamp = 0.9f * (float)GetProcessDeltaTime() * followingSpeed;
+
+            var targetWeight = Mathf.Clamp(targetWeightWithoutClamp, 0, 1);        // Lerp causes Problems when a weigth is >1 -->  Mathf.Lerp(0, 10, 1.5) = Mathf.Lerp(0, 10, 1) + Mathf.Lerp(0, 10, 0.5)
+            
 
 
             var targePosX = (Mathf.Lerp(GlobalPosition.X, target.X, targetWeight));
