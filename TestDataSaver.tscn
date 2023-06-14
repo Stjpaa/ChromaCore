@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyt5qq24jt4y7"]
+
+[ext_resource type="Script" path="res://TestDataSaver.cs" id="1_33tce"]
+
+[node name="testdatasaver" type="Node2D"]
+script = ExtResource("1_33tce")

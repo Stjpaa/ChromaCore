@@ -1,6 +1,2 @@
-res://Instances/Levels/world_1_level.tscn
-res://Assets/Sprites/Game objects/Platform_Normal.tres
-res://Assets/Sprites/Game objects/Platform_Moving.tres
-res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
-res://Instances/Gameobjects/Laser/Laser_Timed.cs
-res://Dillon/Camera/FollowingCamera.cs
+res://TestDataSaver.tscn
+res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn
