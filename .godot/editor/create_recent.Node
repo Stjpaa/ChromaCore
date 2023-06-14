@@ -1,3 +1,7 @@
+HBoxContainer
+MarginContainer
+PanelContainer
+CenterContainer
 Button
 CanvasLayer
 ColorRect
@@ -11,8 +15,6 @@ TextureRect
 AnimationPlayer
 PathFollow2D
 Path2D
-PanelContainer
-HBoxContainer
 VBoxContainer
 ItemList
 Node2D
@@ -28,5 +30,3 @@ RigidBody2D
 PinJoint2D
 DampedSpringJoint2D
 RayCast2D
-Line2D
-Timer
