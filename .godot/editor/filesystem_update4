@@ -1,2 +1,8 @@
+res://Shaders/LoadingScreenRocketFire.tscn
+res://Instances/Menus/loading_screen.tscn
+res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
+res://Assets/Sprites/Game objects/Platform_Normal.tres
+res://Assets/Sprites/Game objects/Platform_Moving.tres
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://TestDataSaver.tscn
-res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn
+res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn
