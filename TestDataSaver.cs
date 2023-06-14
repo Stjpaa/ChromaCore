@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class TestDataSaver : Node2D
 {
@@ -12,8 +13,10 @@ public partial class TestDataSaver : Node2D
         inputsResource = new InputsResource();
 
         SetInputEvent();
+        //SetInputEventArray();
 
-
+        inputsResource.inputEventArray[0] = -5;
+        inputsResource.inputEventArray[1] = 11;
         inputsResource.testInt = 10;
         GD.Print(inputsResource.testInt);
         SaveResource();
@@ -21,13 +24,23 @@ public partial class TestDataSaver : Node2D
         inputsResource = LoadResource();
         GD.Print(inputsResource.testInt);
         GD.Print(inputsResource.inputEventTest.AsText());
+        GD.Print("Array " + inputsResource.inputEventArray[0]);
+        GD.Print("Array " + inputsResource.inputEventArray[1]);
+        //GD.Print("Array " + inputsResource.inputEventArray[0].AsText());
+        //GD.Print("Array " + inputsResource.inputEventArray[1].AsText());
 
     }
 
     private void SetInputEvent()
     {
         inputsResource.inputEventTest = InputMap.ActionGetEvents("ui_up")[1];
-
+    }
+    
+    private void SetInputEventArray()
+    {
+        
+        //inputsResource.inputEventArray.Append(InputMap.ActionGetEvents("ui_up")[0]);
+        //inputsResource.inputEventArray.Append(InputMap.ActionGetEvents("ui_up")[1]);
     }
 
     private InputsResource LoadResource()
