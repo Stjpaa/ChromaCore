@@ -6,3 +6,4 @@ res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://TestDataSaver.tscn
 res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn
+res://Instances/Menus/SettingsMenu/settings_menu.tscn
