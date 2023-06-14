@@ -1,6 +1,7 @@
-Marker2D
-ColorRect
+Button
 CanvasLayer
+ColorRect
+GPUParticles2D
 HSlider
 ProgressBar
 Control
@@ -12,7 +13,6 @@ PathFollow2D
 Path2D
 PanelContainer
 HBoxContainer
-Button
 VBoxContainer
 ItemList
 Node2D
