@@ -53,6 +53,9 @@ offset_bottom = 195.0
 baseLevelToLoad = ExtResource("4_c0kil")
 planetTexture = ExtResource("4_drp23")
 
+[node name="LoadButton" parent="Background/Levels/Level1/VBoxContainer" index="0"]
+text = "Load Level"
+
 [node name="DeleteButton" parent="Background/Levels/Level1/VBoxContainer" index="1"]
 focus_neighbor_bottom = NodePath("../../../../MainMenuButton")
 
