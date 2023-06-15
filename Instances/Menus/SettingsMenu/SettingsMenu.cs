@@ -11,6 +11,17 @@ public partial class SettingsMenu : Control
         masterIndex = AudioServer.GetBusIndex("Master");
     }
 
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed("ui_cancel"))
+        {
+            if (this.Visible == true)   // if this menu is open when esc is pressed close this menu and go back to the last menu
+            {
+                CloseSettingsMenu();
+            }
+        }
+    }
+
     public void SignalFullScreenCheckBox(bool checkBoxChecked)
     {
         ChangeToFullscreen(checkBoxChecked);
@@ -26,12 +37,22 @@ public partial class SettingsMenu : Control
 
         AudioServer.SetBusMute(masterIndex, false);
 
-        AudioServer.SetBusVolumeDb(masterIndex, sliderValue);
+        float valueInDB = SliderfloatToDB(sliderValue);
+
+        AudioServer.SetBusVolumeDb(masterIndex, valueInDB);
 
 
 
 
         //GD.Print(AudioServer.GetBusVolumeDb(masterIndex));
+    }
+
+    private float SliderfloatToDB(float sliderValue)
+    {
+
+
+
+        return Mathf.Log(sliderValue / 100) * 20;   // 100 = slider max value
     }
 
     public void CloseSettingsMenu()     // called by the BackButton

@@ -21,15 +21,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackgroundPanel" type="Panel" parent="Theme"]
+[node name="Blur" type="ColorRect" parent="Theme"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0.0666667)
 
-[node name="MarginContainer" type="MarginContainer" parent="Theme"]
+[node name="MarginContainer" type="MarginContainer" parent="Theme/Blur"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,31 +42,39 @@ theme_override_constants/margin_top = 35
 theme_override_constants/margin_right = 35
 theme_override_constants/margin_bottom = 35
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Theme/MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Theme/Blur/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+
+[node name="BackgroundPanelContainer" type="PanelContainer" parent="Theme/Blur/MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 35
 
-[node name="MasterContainer" type="VBoxContainer" parent="Theme/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FullscreenContainer" type="VBoxContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Theme/MarginContainer/VBoxContainer/MasterContainer"]
-layout_mode = 2
-text = "Master Volume"
-
-[node name="MasterSlider" type="HSlider" parent="Theme/MarginContainer/VBoxContainer/MasterContainer"]
-layout_mode = 2
-min_value = -30.0
-max_value = 0.0
-
-[node name="FullscreenContainer" type="VBoxContainer" parent="Theme/MarginContainer/VBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/FullscreenContainer"]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="Theme/MarginContainer/VBoxContainer/FullscreenContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Theme/MarginContainer/VBoxContainer/FullscreenContainer/CheckBox"]
+[node name="Label" type="Label" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/FullscreenContainer/CheckBox"]
 layout_mode = 2
 offset_left = 29.0
 offset_top = -4.0
@@ -74,20 +83,36 @@ offset_bottom = 22.0
 text = "Fullscreen
 "
 
-[node name="BackButton" type="Button" parent="Theme/MarginContainer/VBoxContainer"]
+[node name="MasterContainer" type="HBoxContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/MasterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/MasterContainer"]
+custom_minimum_size = Vector2(150, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 50.0
+
+[node name="BackButton" type="Button" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Back
 "
 
-[node name="RemapInputs" type="HBoxContainer" parent="Theme/MarginContainer/VBoxContainer"]
+[node name="RemapInputs" type="HBoxContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_fquhs")
 
 [node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("2_upaap")]
 layout_mode = 1
-focusNodeOnStart = NodePath("../Theme/MarginContainer/VBoxContainer/MasterContainer/MasterSlider")
+focusNodeOnStart = NodePath("../Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/MasterContainer/MasterSlider")
 
-[connection signal="value_changed" from="Theme/MarginContainer/VBoxContainer/MasterContainer/MasterSlider" to="." method="SignalMasterSliderValueChanged"]
-[connection signal="toggled" from="Theme/MarginContainer/VBoxContainer/FullscreenContainer/CheckBox" to="." method="ChangeToFullscreen"]
-[connection signal="pressed" from="Theme/MarginContainer/VBoxContainer/BackButton" to="." method="CloseSettingsMenu"]
+[connection signal="toggled" from="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/FullscreenContainer/CheckBox" to="." method="ChangeToFullscreen"]
+[connection signal="value_changed" from="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/MasterContainer/MasterSlider" to="." method="SignalMasterSliderValueChanged"]
+[connection signal="pressed" from="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="CloseSettingsMenu"]
