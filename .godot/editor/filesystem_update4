@@ -5,7 +5,8 @@ res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
 res://Instances/SaveSystem/LevelInstantiater.tscn
 res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
-res://Instances/Levels/world_1_level.tscn
 res://Instances/Levels/world_2_level.tscn
 res://Dillon/tile_map.tscn
-res://Instances/Levels/Level-Prototype.tscn
+res://Instances/Levels/world_1_level.tscn
+res://Dillon/PlayerController/PlayerController2D.tscn
+res://Instances/Gameobjects/Platforms/MovingPlatform.tscn

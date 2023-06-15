@@ -8,16 +8,23 @@ namespace PlayerController.States
     {
         public override string Name { get { return "Dying"; } }
 
+        private uint _collisionMask;
+
         public Dying(PlayerController2D controller) : base(controller) { }
 
         public override void Enter()
         {
+            _collisionMask = _playerController2D.CollisionMask;
+            _playerController2D.CollisionMask = 0;
             _playerController2D.Velocity = Vector2.Zero;
             TransitionToFalling();
             _playerController2D.AnimatedSprite2D.Play("Death");
         }
       
-        public override void Exit() { }
+        public override void Exit() 
+        {
+            _playerController2D.CollisionMask = _collisionMask;
+        }
 
         private void TransitionToFalling()
         {
