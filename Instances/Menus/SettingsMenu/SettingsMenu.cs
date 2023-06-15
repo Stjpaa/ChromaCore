@@ -8,6 +8,7 @@ public partial class SettingsMenu : Control
 
     public override void _Ready()
     {
+        LoadSavedSettings();
         masterIndex = AudioServer.GetBusIndex("Master");
     }
 
@@ -49,9 +50,6 @@ public partial class SettingsMenu : Control
 
     private float SliderfloatToDB(float sliderValue)
     {
-
-
-
         return Mathf.Log(sliderValue / 100) * 20;   // 100 = slider max value
     }
 
@@ -91,5 +89,10 @@ public partial class SettingsMenu : Control
     {
         this.Visible = true;
         this.ProcessMode = ProcessModeEnum.Inherit;
+    }
+
+    private void LoadSavedSettings()
+    {
+        GD.Print("Add Load Setings Logic, set SLider to right value");
     }
 }
