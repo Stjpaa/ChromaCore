@@ -97,8 +97,7 @@ custom_minimum_size = Vector2(150, 10)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-min_value = -30.0
-max_value = 0.0
+value = 50.0
 
 [node name="BackButton" type="Button" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
