@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Reflection;
 
 using System.Threading.Tasks;
-
+using System.Diagnostics;
 
 public partial class LevelInstantiater : Node2D
 {
@@ -94,7 +94,17 @@ public partial class LevelInstantiater : Node2D
 
 		loadingScreen.SetPlanetTextures(loadingScreen.homePlanetTexture, (Texture2D)ResourceLoader.Load(levelSaveData.planetTexturePath));
 
-		await loadingScreen.LoadingScreenAsync();
+
+
+
+        var loadingScreenTask = Task.Run(() => loadingScreen.LoadingScreenAsync());		// start the Loadingscreen, await its completion at the end of this function.
+		levelRoot.Visible = false;
+
+		levelRoot.ProcessMode = ProcessModeEnum.Disabled;
+
+
+
+
 
 		var loadedScene = (PackedScene)ResourceLoader.LoadThreadedGet(levelToBeInstantiatedPath);     // Change to the Loaded Scene
 
@@ -114,7 +124,14 @@ public partial class LevelInstantiater : Node2D
 		}
 
 		levelManager.InstantiateValues(levelSaveData);
-	}
+
+
+		await loadingScreenTask;
+
+
+        levelRoot.Visible = true;
+        levelRoot.ProcessMode = ProcessModeEnum.Inherit;
+    }
 
 	public async Task QuitLevelAsync()
 	{

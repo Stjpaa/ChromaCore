@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Threading.Tasks;
 
-public partial class LoadingScreen : Control
+public partial class LoadingScreen : CanvasLayer
 {
     private AnimationPlayer loadingscreenAnimationPlayer;
     private Panel loadingScreenBackground;
@@ -29,6 +29,7 @@ public partial class LoadingScreen : Control
 
     public async Task LoadingScreenAsync()
     {
+        GD.Print("loadingscreen start");
         ShowLoadingScreen();
 
         loadingscreenAnimationPlayer.Play("RocketFlight");
@@ -36,10 +37,10 @@ public partial class LoadingScreen : Control
         while (loadingscreenAnimationPlayer.IsPlaying())    // wait until Animation is done
         {
             // Wait for a short time before checking again
-            await Task.Delay(50);
+            await Task.Delay(5);
         }
-
         HideLoadingScreen();
+        GD.Print("loadingscreen end");
 
     }
 

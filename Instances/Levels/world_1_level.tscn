@@ -3954,7 +3954,6 @@ playerNode = NodePath("../Player")
 [node name="GrapplingHook" parent="." instance=ExtResource("21_jtegx")]
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("levelTimer") instance=ExtResource("23_cjk7j")]
-visible = false
 levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
 
 [node name="PauseMenu" parent="." instance=ExtResource("24_eykh2")]

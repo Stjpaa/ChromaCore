@@ -1,9 +1,9 @@
+CanvasLayer
 HBoxContainer
 MarginContainer
 PanelContainer
 CenterContainer
 Button
-CanvasLayer
 ColorRect
 GPUParticles2D
 HSlider

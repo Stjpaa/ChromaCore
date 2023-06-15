@@ -8,3 +8,4 @@ res://Instances/Levels/world_1_level.tscn
 res://Instances/Menus/PauseMenu/pause_menu.tscn
 res://Instances/Menus/SettingsMenu/settings_menu.tscn
 res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
+res://Instances/SaveSystem/LevelInstantiater.tscn
