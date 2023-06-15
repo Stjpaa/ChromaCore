@@ -9,3 +9,6 @@ res://Instances/Menus/PauseMenu/pause_menu.tscn
 res://Instances/Menus/SettingsMenu/settings_menu.tscn
 res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
 res://Instances/SaveSystem/LevelInstantiater.tscn
+res://Shaders/LoadingScreenRocketFire.tscn
+res://Shaders/LoadingScreenRocketFire.cs
+res://Instances/Menus/UINavigationManager.cs

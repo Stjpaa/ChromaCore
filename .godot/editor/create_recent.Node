@@ -1,3 +1,4 @@
+Control
 CanvasLayer
 HBoxContainer
 MarginContainer
@@ -8,7 +9,6 @@ ColorRect
 GPUParticles2D
 HSlider
 ProgressBar
-Control
 Label
 Panel
 TextureRect

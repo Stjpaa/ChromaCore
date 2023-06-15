@@ -10,6 +10,7 @@ public partial class LoadingScreen : CanvasLayer
     [Export] private TextureRect startPlanet;
     [Export] private TextureRect destinationPlanet;
 
+    [Export] private AddParticles particlesForRocket;
 
     [Export] public Texture2D homePlanetTexture;
 
@@ -29,7 +30,8 @@ public partial class LoadingScreen : CanvasLayer
 
     public async Task LoadingScreenAsync()
     {
-        GD.Print("loadingscreen start");
+        particlesForRocket.InstantiateParticles();
+
         ShowLoadingScreen();
 
         loadingscreenAnimationPlayer.Play("RocketFlight");
@@ -40,7 +42,7 @@ public partial class LoadingScreen : CanvasLayer
             await Task.Delay(5);
         }
         HideLoadingScreen();
-        GD.Print("loadingscreen end");
+        particlesForRocket.ClearParticles();
 
     }
 

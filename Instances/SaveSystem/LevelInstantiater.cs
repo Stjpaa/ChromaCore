@@ -83,27 +83,20 @@ public partial class LevelInstantiater : Node2D
 			return;
 		}
 
-
-
 		sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
+		SetSaveData();
+
+
+		loadingScreen.SetPlanetTextures(loadingScreen.homePlanetTexture, (Texture2D)ResourceLoader.Load(levelSaveData.planetTexturePath));
+        var loadingScreenTask = Task.Run(() => loadingScreen.LoadingScreenAsync());		// start the Loadingscreen, await its completion at the end of this function.
+
 
 		ResourceLoader.LoadThreadedRequest(levelToBeInstantiatedPath);    // initiate the Background Loading
 
 
-		SetSaveData();
 
-		loadingScreen.SetPlanetTextures(loadingScreen.homePlanetTexture, (Texture2D)ResourceLoader.Load(levelSaveData.planetTexturePath));
-
-
-
-
-        var loadingScreenTask = Task.Run(() => loadingScreen.LoadingScreenAsync());		// start the Loadingscreen, await its completion at the end of this function.
 		levelRoot.Visible = false;
-
 		levelRoot.ProcessMode = ProcessModeEnum.Disabled;
-
-
-
 
 
 		var loadedScene = (PackedScene)ResourceLoader.LoadThreadedGet(levelToBeInstantiatedPath);     // Change to the Loaded Scene
