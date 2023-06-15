@@ -117,18 +117,31 @@ public partial class LevelInstantiater : Node2D
 
 		levelManager = (LevelManager)levelRoot.GetChild(0).GetNode("LevelManager");
 
-		if (levelManager == null)
+		if (levelManager != null)
+		{
+			levelManager.InstantiateValues(levelSaveData);
+		}
+		else
 		{
 			GD.PrintErr("Add LevelManager to Level");
-			return;
 		}
 
-		levelManager.InstantiateValues(levelSaveData);
+        PauseMenu pauseMenu = (PauseMenu)levelRoot.GetChild(0).GetNode("PauseMenu");
+
+        if (pauseMenu != null)
+        {
+            pauseMenu.DeactivatePauseMenuProcess();	// otherwise you could pause the game while in the Loadingscreen
+        }
+        
 
 
-		await loadingScreenTask;
+        await loadingScreenTask;
 
 
+        if (pauseMenu != null)
+        {
+            pauseMenu.ActivatePauseMenuProcess();	// otherwise you could pause the game while in the Loadingscreen
+        }
         levelRoot.Visible = true;
         levelRoot.ProcessMode = ProcessModeEnum.Inherit;
     }

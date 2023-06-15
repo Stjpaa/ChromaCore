@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class PauseMenu : Control
+public partial class PauseMenu : CanvasLayer
 {
     
     [Export] private Control pauseMenuUI;
@@ -94,5 +94,14 @@ public partial class PauseMenu : Control
     public override void _ExitTree()
     {
         UnPauseGame();
+    }
+
+    public void DeactivatePauseMenuProcess()   
+    {
+        ProcessMode = ProcessModeEnum.Disabled;
+    }
+    public void ActivatePauseMenuProcess() 
+    {
+        ProcessMode = ProcessModeEnum.Always;
     }
 }
