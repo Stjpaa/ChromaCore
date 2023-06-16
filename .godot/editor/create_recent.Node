@@ -1,14 +1,14 @@
+Control
+CanvasLayer
 HBoxContainer
 MarginContainer
 PanelContainer
 CenterContainer
 Button
-CanvasLayer
 ColorRect
 GPUParticles2D
 HSlider
 ProgressBar
-Control
 Label
 Panel
 TextureRect

@@ -3,13 +3,14 @@ using System;
 using System.Collections;
 using System.Threading.Tasks;
 
-public partial class LoadingScreen : Control
+public partial class LoadingScreen : CanvasLayer
 {
     private AnimationPlayer loadingscreenAnimationPlayer;
     private Panel loadingScreenBackground;
     [Export] private TextureRect startPlanet;
     [Export] private TextureRect destinationPlanet;
 
+    [Export] private AddParticles particlesForRocket;
 
     [Export] public Texture2D homePlanetTexture;
 
@@ -29,6 +30,8 @@ public partial class LoadingScreen : Control
 
     public async Task LoadingScreenAsync()
     {
+        particlesForRocket.InstantiateParticles();
+
         ShowLoadingScreen();
 
         loadingscreenAnimationPlayer.Play("RocketFlight");
@@ -36,10 +39,10 @@ public partial class LoadingScreen : Control
         while (loadingscreenAnimationPlayer.IsPlaying())    // wait until Animation is done
         {
             // Wait for a short time before checking again
-            await Task.Delay(50);
+            await Task.Delay(5);
         }
-
         HideLoadingScreen();
+        particlesForRocket.ClearParticles();
 
     }
 
