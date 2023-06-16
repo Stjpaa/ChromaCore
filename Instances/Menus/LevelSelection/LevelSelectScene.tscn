@@ -46,10 +46,10 @@ layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 179.0
-offset_top = 195.0
-offset_right = 179.0
-offset_bottom = 195.0
+offset_left = 527.0
+offset_top = 265.0
+offset_right = 527.0
+offset_bottom = 265.0
 baseLevelToLoad = ExtResource("4_c0kil")
 planetTexture = ExtResource("4_drp23")
 
