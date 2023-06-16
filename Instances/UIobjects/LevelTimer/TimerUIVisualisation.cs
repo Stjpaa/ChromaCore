@@ -11,6 +11,6 @@ public partial class TimerUIVisualisation : Label
     }
     private void UpdateTimerUI()
     {
-        Text = TimeSpan.FromSeconds(levelTimer.timeLevelWasPlayedInSeconds).ToString(@"mm\:ss\:fff");
+        Text = TimeSpan.FromSeconds(levelTimer.timeLevelWasPlayedInSeconds).ToString(@"h\:mm\:ss\:fff");
     }
 }

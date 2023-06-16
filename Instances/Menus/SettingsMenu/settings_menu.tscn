@@ -47,6 +47,7 @@ layout_mode = 2
 [node name="BackgroundPanelContainer" type="PanelContainer" parent="Theme/Blur/MarginContainer/CenterContainer"]
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
+size_flags_stretch_ratio = 11.12
 
 [node name="MarginContainer" type="MarginContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer"]
 layout_mode = 2
