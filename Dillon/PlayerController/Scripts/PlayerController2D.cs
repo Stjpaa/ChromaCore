@@ -7,8 +7,7 @@ namespace PlayerController
 {
 	public partial class PlayerController2D : CharacterBody2D
 	{
-		// GitHub Commit logs Version 0.0.22
-		// First checkpiont position where the player spawns
+		// GitHub Commit logs Version 0.0.23
 
 		[Export]
 		public PlayerController2D_Data data;
@@ -124,6 +123,7 @@ namespace PlayerController
 				_afterimageLeft.Emitting = true;
 				_afterimageRight.Emitting = false;
 			}
+			GD.Print(Velocity);
 		}
 
 		public override void _PhysicsProcess(double delta)
@@ -167,7 +167,11 @@ namespace PlayerController
 			{
 				GrapplingHook.ReturnHook();
 			}
-			ChangeState(new Dying(this));
+
+			if (_currentState is not Dying)
+			{
+				ChangeState(new Dying(this));
+			}      
 		}
 
 		/// <summary>
@@ -181,8 +185,11 @@ namespace PlayerController
 			}
 			HookIsReady = false;
 
-			GD.Print("Gravity field entered");
-			ChangeState(new Falling(this, direction));
+			if(_currentState is not Dying)
+			{
+				GD.Print("Gravity field entered");
+				ChangeState(new Falling(this, direction));
+			}         
 		}
 
 		/// <summary>
@@ -193,8 +200,12 @@ namespace PlayerController
 			HookIsReady = true;
 
 			if(_currentState is Dashing) { return; }
-			GD.Print("Gravity field left");
-			ChangeState(new Falling(this));
+
+			if(_currentState is not Dying)
+			{
+				GD.Print("Gravity field left");
+				ChangeState(new Falling(this));
+			}       
 		}
 
 		/// <summary>
@@ -207,6 +218,11 @@ namespace PlayerController
 				GrapplingHook.ReturnHook();
 			}
 
+			if (_currentState is Dying)
+			{
+				return;
+			}
+
 			GD.Print("Jumppad entered");
 			ChangeState(new Jumping(this, false, strength));
 		}
@@ -215,7 +231,12 @@ namespace PlayerController
 		/// Called by portals
 		/// </summary>
 		private void Teleport(Vector2 newPos, Vector2 impulse)
-		{           
+		{
+			if (_currentState is Dying)
+			{
+				return;
+			}
+
 			GD.Print("Teleport entered");
 			if (TeleportTimer.TimeLeft > 0) { return; }
 
@@ -279,7 +300,7 @@ namespace PlayerController
 			}
 			var offset = new Vector2(0, -22);
 			Transform = new Transform2D(0, CheckpointPosition + offset);
-			ChangeState(new Idle(this));
+			ChangeState(new Falling(this));
 		}
 		#endregion
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cn1al8qtngpmu"]
+[gd_scene load_steps=11 format=3 uid="uid://cn1al8qtngpmu"]
 
 [ext_resource type="Script" path="res://Instances/Menus/LoadingScreen.cs" id="1_ckfbm"]
 [ext_resource type="Texture2D" uid="uid://c8wba4tymv8ji" path="res://Assets/spaceRockets_001.png" id="3_hxonf"]
+[ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="3_y2uti"]
 [ext_resource type="Texture2D" uid="uid://cto7aik31qnlh" path="res://Assets/Planets/CompletedPlanets/planet00.png" id="4_wmgmc"]
-[ext_resource type="Shader" path="res://star-sky.gdshader" id="5_6oipt"]
+[ext_resource type="Script" path="res://Instances/Menus/AddParticles.cs" id="5_0tpue"]
+[ext_resource type="PackedScene" uid="uid://c0c6dhfdjoyhb" path="res://Shaders/LoadingScreenRocketFire.tscn" id="5_58aol"]
 
 [sub_resource type="Animation" id="Animation_6gkd7"]
 resource_name = "RocketFlight"
@@ -25,26 +27,23 @@ _data = {
 "RocketFlight": SubResource("Animation_6gkd7")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_alyb8"]
-shader = ExtResource("5_6oipt")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wayai"]
+shader = ExtResource("3_y2uti")
 shader_parameter/bg_color = null
+shader_parameter/position = null
 
 [sub_resource type="Curve2D" id="Curve2D_ligrx"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 194, 326, -88.6904, 7.98072, 88.6904, -7.98072, 313, 298, -61.1168, -0.604032, 61.1168, 0.604032, 491, 325, -38.4207, 3.1648, 38.4207, -3.1648, 608, 303, -61.5834, 3.43243, 61.5834, -3.43243, 788, 328, -60.4901, -0.152806, 60.4901, 0.152806, 923, 301, 0, 0, 0, 0, 1016, 319)
+"points": PackedVector2Array(0, 0, 0, 0, 194, 326, -81.1091, -1.52191, 81.1091, 1.52191, 315, 299, -54.9876, 0.28882, 54.9876, -0.28882, 483, 322, -58.4401, -1.36127, 58.4401, 1.36127, 668, 302, -60.4901, -0.152806, 60.4901, 0.152806, 827, 323, 0, 0, 0, 0, 1016, 300)
 }
-point_count = 7
+point_count = 6
 
-[node name="LoadingScreen" type="Control" node_paths=PackedStringArray("startPlanet", "destinationPlanet")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="LoadingScreen" type="CanvasLayer" node_paths=PackedStringArray("startPlanet", "destinationPlanet", "particlesForRocket")]
+layer = 5
 script = ExtResource("1_ckfbm")
 startPlanet = NodePath("LoadingScreenBackground/StartPlanet")
 destinationPlanet = NodePath("LoadingScreenBackground/DestinationPlanet")
+particlesForRocket = NodePath("LoadingScreenBackground/Path2D/PathFollow2D/Rocket/PositionForParticles")
 homePlanetTexture = ExtResource("4_wmgmc")
 
 [node name="LoadingScreenAP" type="AnimationPlayer" parent="."]
@@ -54,9 +53,7 @@ libraries = {
 }
 
 [node name="LoadingScreenBackground" type="Panel" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_alyb8")
-layout_mode = 1
+material = SubResource("ShaderMaterial_wayai")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -89,7 +86,7 @@ curve = SubResource("Curve2D_ligrx")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="LoadingScreenBackground/Path2D"]
 position = Vector2(194, 326)
-rotation = -0.231091
+rotation = -0.219544
 
 [node name="Rocket" type="TextureRect" parent="LoadingScreenBackground/Path2D/PathFollow2D"]
 anchors_preset = -1
@@ -106,3 +103,17 @@ texture = ExtResource("3_hxonf")
 expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="PositionForParticles" type="Control" parent="LoadingScreenBackground/Path2D/PathFollow2D/Rocket"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 13.3369
+offset_top = 90.8774
+offset_right = 53.3369
+offset_bottom = 130.877
+script = ExtResource("5_0tpue")
+particlesSceneToAdd = "res://Shaders/LoadingScreenRocketFire.tscn"
+
+[node name="LoadingScreenRocketFire" parent="LoadingScreenBackground/Path2D/PathFollow2D/Rocket/PositionForParticles" instance=ExtResource("5_58aol")]
+position = Vector2(0, 7.62939e-06)
+rotation = 1.69206

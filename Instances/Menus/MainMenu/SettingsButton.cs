@@ -13,6 +13,6 @@ public partial class SettingsButton : Button
 
 
         menuOfThisButton.Visible = false;
-        menuOfThisButton.ProcessMode = ProcessModeEnum.Inherit;
+        menuOfThisButton.ProcessMode = ProcessModeEnum.Disabled;
     }
 }
