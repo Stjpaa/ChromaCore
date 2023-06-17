@@ -3774,6 +3774,9 @@ _collisionWidth = 500.0
 [node name="Laser_Timed5" parent="Jumppads/TrapsList/Laser" instance=ExtResource("19_hjipx")]
 position = Vector2(13937, -3887)
 
+[node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed5" index="1"]
+offset_right = 960.0
+
 [node name="Laser_Timed6" parent="Jumppads/TrapsList/Laser" instance=ExtResource("19_hjipx")]
 position = Vector2(15118, -3791)
 
@@ -3838,6 +3841,7 @@ position = Vector2(0, -84)
 position = Vector2(15119, -3887)
 
 [node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed7" index="1"]
+offset_right = 175.0
 rotation = 3.14159
 
 [node name="Laser_Target" parent="Jumppads/TrapsList/Laser/Laser_Timed7" index="2"]
@@ -3847,6 +3851,7 @@ position = Vector2(-168, 0)
 position = Vector2(15056, -4254)
 
 [node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed10" index="1"]
+offset_right = 256.0
 rotation = 3.14159
 
 [node name="Laser_Target" parent="Jumppads/TrapsList/Laser/Laser_Timed10" index="2"]
@@ -3856,6 +3861,7 @@ position = Vector2(-232, 0)
 position = Vector2(15120, -4640)
 
 [node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed14" index="1"]
+offset_right = 320.0
 rotation = 3.14159
 
 [node name="Laser_Target" parent="Jumppads/TrapsList/Laser/Laser_Timed14" index="2"]
