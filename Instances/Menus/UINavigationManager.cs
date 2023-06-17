@@ -108,7 +108,7 @@ public partial class UINavigationManager : Control
     {
 
         mouseBlockPanel.Visible = true;
-        MoveMouseScreenPosition(GetViewport().GetMousePosition() + new Vector2(0.1f, 0));   // ugly temporary solution. Fixes the Problem, that an UI element still thinks its being hovered by the mouse after the block panel was added. this gets updated once the mouse is moved
+        //MoveMouseScreenPosition(GetViewport().GetMousePosition() + new Vector2(0.1f, 0));   // ugly temporary solution. Fixes the Problem, that an UI element still thinks its being hovered by the mouse after the block panel was added. this gets updated once the mouse is moved
 
 
         focusNodeOnStart.GrabFocus();
