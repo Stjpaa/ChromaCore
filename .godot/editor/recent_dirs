@@ -1,11 +1,10 @@
+res://
 res://Instances/Menus/MainMenu
 res://Instances/Levels
 res://Shaders
-res://
 D:/6. Semester/Semesterprojekt/Export Linux
 D:/6. Semester/Semesterprojekt/Export Windows
 res://Instances/Menus/LevelSelection
-res://Instances/UIobjects/DashCooldown
 res://Instances/Menus/IngameUI
 res://Instances/Menus
 res://Dillon/PlayerController/Scripts
