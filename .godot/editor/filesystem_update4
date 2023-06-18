@@ -4,6 +4,3 @@ res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
 res://Instances/Levels/world_2_level.tscn
-res://Test Mark.tscn
-res://Test Mark.gdshader
-res://merge test.png

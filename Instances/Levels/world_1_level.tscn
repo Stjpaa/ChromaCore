@@ -1,7 +1,6 @@
-[gd_scene load_steps=160 format=3 uid="uid://dw646wmah1jh4"]
+[gd_scene load_steps=160 format=3 uid="uid://vcgs11nmv2un"]
 
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_yidfl"]
-[ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/Sprites/Tilesets/atlas.png" id="2_cbc05"]
 [ext_resource type="PackedScene" uid="uid://d3s6elkjprg46" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="3_0pbfm"]
 [ext_resource type="PackedScene" uid="uid://bbecw7j0dluj5" path="res://Instances/Gameobjects/Platforms/MovingPlatform.tscn" id="4_halr4"]
 [ext_resource type="PackedScene" uid="uid://c7s6ybr43gk6l" path="res://Instances/Gameobjects/Movable Objects/Box.tscn" id="5_7kh13"]
@@ -11,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="11_3waut"]
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="11_s2f1l"]
 [ext_resource type="PackedScene" uid="uid://c12awd8dlrugm" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="13_awulj"]
+[ext_resource type="Texture2D" uid="uid://cvdu4idphci0x" path="res://Assets/Sprites/Tilesets/Merged Atlases.png" id="14_etkmo"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="14_u04ri"]
 [ext_resource type="PackedScene" uid="uid://nv4s53vmoxpl" path="res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn" id="15_obdj8"]
 [ext_resource type="PackedScene" uid="uid://c7d5koa6uqj0r" path="res://Instances/Artifacts/Artifact1_1.tscn" id="16_a3vqo"]
@@ -1647,79 +1647,76 @@ shader = ExtResource("1_yidfl")
 shader_parameter/brightness = 1.0
 shader_parameter/gradient = SubResource("GradientTexture2D_uj8wx")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rl685"]
-texture = ExtResource("2_cbc05")
-0:0/next_alternative_id = 9
-0:0/0 = 0
-1:0/next_alternative_id = 3
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xpsp"]
+texture = ExtResource("14_etkmo")
 1:0/0 = 0
-2:0/next_alternative_id = 2
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-0:1/next_alternative_id = 2
-0:1/0 = 0
-2:1/next_alternative_id = 2
-2:1/0 = 0
-3:1/next_alternative_id = 2
-3:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-1:1/next_alternative_id = 3
-1:1/0 = 0
-4:0/next_alternative_id = 2
-4:0/0 = 0
-0:3/next_alternative_id = 2
-0:3/0 = 0
-1:3/next_alternative_id = 2
-1:3/0 = 0
-2:3/next_alternative_id = 2
-2:3/0 = 0
-1:4/next_alternative_id = 2
-1:4/0 = 0
-0:4/next_alternative_id = 2
-0:4/0 = 0
-3:3/next_alternative_id = 2
-3:3/0 = 0
-4:3/next_alternative_id = 2
-4:3/0 = 0
-3:0/next_alternative_id = 2
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 2.5, 8, -1.5, 2, -8, -2.5)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -2.5, 2, 1.5, -3, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1, -8, 1)
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.5, 8, 0.5, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.5, 0.5, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0.5, 0.5, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:4/0/physics_layer_0/angular_velocity = 0.0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 0, 0)
+1:4/0 = 0
+1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:4/0/physics_layer_0/angular_velocity = 0.0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 0.5, 1, -8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -0.5, 6.5, -8, 2)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1, -0.5, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_0wr84"]
 physics_layer_0/collision_layer = 32
 physics_layer_0/collision_mask = 0
-sources/5 = SubResource("TileSetAtlasSource_rl685")
+sources/5 = SubResource("TileSetAtlasSource_0xpsp")
 
 [node name="World 1 Level" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
@@ -1904,22 +1901,6 @@ _collisionWidth = 531.0
 [node name="Spikes3" parent="Tutorial/Spikes" instance=ExtResource("11_3waut")]
 position = Vector2(4049, 519)
 _collisionWidth = 256.0
-
-[node name="Player@RichTextLabel@108072" type="VScrollBar" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-step = 1.0
-
-[node name="Player@RichTextLabel@84462" type="VScrollBar" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-max_value = 115.0
-step = 1.0
-page = 115.0
 
 [node name="Gravityfields" type="Node" parent="."]
 
@@ -3838,7 +3819,7 @@ scale = Vector2(5.60002, 1)
 _gameObject = NodePath("../Gravityfields/GameobjectList/Box5")
 
 [node name="Player" parent="." node_paths=PackedStringArray("FollowingCamera", "GrapplingHook") instance=ExtResource("19_668wq")]
-position = Vector2(-558, -301)
+position = Vector2(-667, -37)
 FollowingCamera = NodePath("../FollowingCamera")
 GrapplingHook = NodePath("../GrapplingHook")
 
