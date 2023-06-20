@@ -22,8 +22,7 @@ public partial class LevelInstantiater : Node2D
 
 	private LevelManager levelManager;      // responsible for creating the updated SaveData for the current Level
 
-
-	public override void _Ready()
+    public override void _Ready()
 	{
 
 		//if (!SaveSystem.DoesFileExistAtPath(levelToBeInstantiatedPath))
@@ -77,13 +76,14 @@ public partial class LevelInstantiater : Node2D
 
 	private async Task InstanciateLevelAsync()
 	{
-		if (SaveSystem.DoesFileExistAtPath(levelToBeInstantiatedPath) == false)
-		{
-			GD.Print("levelToBeInstantiatedPath in LevelInstantiater has no valid value assigned to it");
-			return;
-		}
+		//if (SaveSystem.DoesFileExistAtPath(levelToBeInstantiatedPath) == false)		// somehow doesnt work when Build. works at Runtime
+		//{
+		//	GD.Print("levelToBeInstantiatedPath in LevelInstantiater has no valid value assigned to it");
+		//	return;
+		//}
 
 		sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
+
 		SetSaveData();
 
 
@@ -92,8 +92,6 @@ public partial class LevelInstantiater : Node2D
 
 
 		ResourceLoader.LoadThreadedRequest(levelToBeInstantiatedPath);    // initiate the Background Loading
-
-
 
 		levelRoot.Visible = false;
 		levelRoot.ProcessMode = ProcessModeEnum.Disabled;

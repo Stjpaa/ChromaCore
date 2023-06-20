@@ -3,4 +3,6 @@ res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
-res://Instances/Levels/world_2_level.tscn
+res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
+res://Instances/Menus/MainMenu/main_menu.tscn
+res://Instances/SaveSystem/LevelInstantiater.tscn
