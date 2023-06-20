@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="1_5pr85"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_xdpmu"]
 [ext_resource type="PackedScene" uid="uid://c3p3f83ty7noa" path="res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn" id="2_n228b"]
-[ext_resource type="PackedScene" uid="uid://dw646wmah1jh4" path="res://Instances/Levels/world_1_level.tscn" id="4_c0kil"]
+[ext_resource type="PackedScene" uid="uid://vcgs11nmv2un" path="res://Instances/Levels/world_1_level.tscn" id="4_c0kil"]
 [ext_resource type="Texture2D" uid="uid://dxl4wb7b8rvul" path="res://Assets/Planets/CompletedPlanets/planet02.png" id="4_drp23"]
 [ext_resource type="Script" path="res://Instances/Menus/LevelSelection/LoadMainMenu.cs" id="6_1aw0g"]
 

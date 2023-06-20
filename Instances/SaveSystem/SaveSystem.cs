@@ -59,6 +59,7 @@ public static class SaveSystem
 
         LevelInstantiater levelInstantiaterOfScene = (LevelInstantiater)levelInstanciaterScene;
         levelInstantiaterOfScene.levelToBeInstantiatedPath = levelToBeLoaded.baseLevelToLoad.ResourcePath;
+        GD.Print("Level Exists = " + (levelToBeLoaded.baseLevelToLoad != null) + " Base Level Path:" + levelToBeLoaded.baseLevelToLoad.ResourcePath);
 
 
 
