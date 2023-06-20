@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/SettingsMenu.cs" id="1_74ihc"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="2_upaap"]
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("masterSlider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_74ihc")
+masterSlider = NodePath("Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/MasterContainer/MasterSlider")
 
 [node name="Theme" type="Control" parent="."]
 layout_mode = 1
