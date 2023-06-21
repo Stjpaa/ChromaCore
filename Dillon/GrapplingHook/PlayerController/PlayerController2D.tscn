@@ -1,7 +1,7 @@
-[gd_scene load_steps=108 format=3 uid="uid://bxrinvpxhsiqc"]
+[gd_scene load_steps=108 format=3]
 
-[ext_resource type="Script" path="res://Dillon/PlayerController/Scripts/PlayerController2D.cs" id="1_pl4lx"]
-[ext_resource type="Resource" uid="uid://d1vr7kylk8xma" path="res://Dillon/PlayerController/PlayerController2D_Data.tres" id="2_1wb36"]
+[ext_resource type="Script" path="res://Dillon/GrapplingHook/PlayerController/Scripts/PlayerController2D.cs" id="1_pl4lx"]
+[ext_resource type="Resource" uid="uid://d1vr7kylk8xma" path="res://Dillon/GrapplingHook/PlayerController/PlayerController2D_Data.tres" id="2_1wb36"]
 [ext_resource type="PackedScene" uid="uid://bq2ndbirpjddp" path="res://Dillon/UI/DashIcon.tscn" id="5_7sm5w"]
 [ext_resource type="Texture2D" uid="uid://di2pp58lgi0wu" path="res://Dillon/Assets/Player/Dying.png" id="5_pl63m"]
 [ext_resource type="Texture2D" uid="uid://komird35vym0" path="res://Dillon/Assets/Player/Falling.png" id="6_gitjn"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bv0ndyryomsx2" path="res://Dillon/Assets/Player/Push.png" id="9_krlj3"]
 [ext_resource type="Texture2D" uid="uid://bhaptp6cvb7n4" path="res://Dillon/Assets/Player/Walk.png" id="10_6aqec"]
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="12_25pt5"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5upv1"]
 size = Vector2(23, 42.5)
