@@ -21,8 +21,6 @@ public partial class RemapInputs : Control
     private RemapInputsSavedata remapInputsSavedata = new RemapInputsSavedata();
 
 
-
-
     private InputEvent keyboardOne;
     private InputEvent keyboardTwo;
     private InputEvent controllerOne;

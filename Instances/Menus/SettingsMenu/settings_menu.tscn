@@ -81,8 +81,7 @@ offset_left = 29.0
 offset_top = -4.0
 offset_right = 122.0
 offset_bottom = 22.0
-text = "Fullscreen
-"
+text = "Fullscreen"
 
 [node name="MasterContainer" type="HBoxContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -103,8 +102,7 @@ value = 50.0
 [node name="BackButton" type="Button" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Back
-"
+text = "Back"
 
 [node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("2_upaap")]
 layout_mode = 1

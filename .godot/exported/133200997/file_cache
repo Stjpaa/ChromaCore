@@ -1,5 +1,5 @@
-res://Assets/Sprites/Game objects/Platform_Moving.tres::1fd48e8ec140dad7481f3158d83d3d32::1687219214::res://.godot/exported/133200997/export-dd4622b0ace8dabacca342f9e64ee389-Platform_Moving.res
-res://Assets/Sprites/Game objects/Platform_Normal.tres::09e5f3a7cdee468e2aacf6bf2d09531b::1687219214::res://.godot/exported/133200997/export-b37d39463048b0a523bba5f99ae927b7-Platform_Normal.res
+res://Assets/Sprites/Game objects/Platform_Moving.tres::1fd48e8ec140dad7481f3158d83d3d32::1687305759::res://.godot/exported/133200997/export-dd4622b0ace8dabacca342f9e64ee389-Platform_Moving.res
+res://Assets/Sprites/Game objects/Platform_Normal.tres::09e5f3a7cdee468e2aacf6bf2d09531b::1687305759::res://.godot/exported/133200997/export-b37d39463048b0a523bba5f99ae927b7-Platform_Normal.res
 res://Dillon/Camera/FollowingCamera.tscn::f37abf84f7c1720f457ae245ef93ca33::1686226419::res://.godot/exported/133200997/export-66f306cb140b0682700561b6b769748e-FollowingCamera.scn
 res://Dillon/GrapplingHook/GrapplingHook.tscn::d2bb5f1947ff62576b6a0b24346c2128::1686226419::res://.godot/exported/133200997/export-84a7bb30b90017bf53a51f2b6e505209-GrapplingHook.scn
 res://Dillon/GrapplingHook/GrapplingHook_Data.tres::3e47b1c9acd792a8c51f95ec03637682::1686226419::res://.godot/exported/133200997/export-408a03b10c93e1df648e0648fc825833-GrapplingHook_Data.res
@@ -36,19 +36,19 @@ res://Instances/Gameobjects/Portals/Portals.tscn::782d8186ed9888083ee39a0a604196
 res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn::8c0b3e06cd07801d3eb055b2555b1bc7::1686222577::res://.godot/exported/133200997/export-0d4f19113284ec99c588878dcb0f6028-Checkpoint.scn
 res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn::673baccf9bccbb1e4c6e000ee843cca4::1686222577::res://.godot/exported/133200997/export-712b174fb0938a41936a8f8735a622f5-Spikes.scn
 res://Instances/Levels/LevelManager.tscn::9f0d2c25a8612c922152acb43c33d30c::1686223772::res://.godot/exported/133200997/export-88fb238b31d4fd7d3ca0caced20f2968-LevelManager.scn
-res://Instances/Levels/world_1_level.tscn::ba1d6e03fc99050505e343386d9c2cca::1687220595::res://.godot/exported/133200997/export-065815b8f686ad5f363e99615203f784-world_1_level.scn
+res://Instances/Levels/world_1_level.tscn::5135af8a564074914f222caaee74b138::1687280859::res://.godot/exported/133200997/export-065815b8f686ad5f363e99615203f784-world_1_level.scn
 res://Instances/Levels/world_2_level.tscn::af3659b032b3856422cbd4b705a28c2d::1687198036::res://.godot/exported/133200997/export-92f0447913b70e4ee915e046ed2906f6-world_2_level.scn
 res://Instances/Menus/IngameUI/IngameUI.tscn::f06a4f99a30717cd0ed5e5cf736e9f0e::1686223772::res://.godot/exported/133200997/export-9beab7ec757134380e457c0371b26787-IngameUI.scn
 res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn::f3bf18aa62a88bee24db8327a3bc13a1::1686709228::res://.godot/exported/133200997/export-65da213c31ccc05cfdd1abf0a82a20c4-LevelSelectLevel.scn
-res://Instances/Menus/LevelSelection/LevelSelectScene.tscn::6a008f03fde0d04cd59afa66080a4775::1687220509::res://.godot/exported/133200997/export-19a23dba504d32b636847cf9360c7d97-LevelSelectScene.scn
+res://Instances/Menus/LevelSelection/LevelSelectScene.tscn::5e6598ae28c038eff303b983a2d19036::1687222191::res://.godot/exported/133200997/export-19a23dba504d32b636847cf9360c7d97-LevelSelectScene.scn
 res://Instances/Menus/MainMenu/MainMenuTheme.tres::a1d006b92a69c6da64c120d37ae68897::1686223772::res://.godot/exported/133200997/export-9e1f803e9f21f6345383d796d46d0b88-MainMenuTheme.res
-res://Instances/Menus/MainMenu/main_menu.tscn::9b22f594aafc203d306088a3b9ce7d08::1687221564::res://.godot/exported/133200997/export-f52f797b3601b3a9b51fac59aefcf8fd-main_menu.scn
-res://Instances/Menus/PauseMenu/pause_menu.tscn::b31aa13b672d4bd23efc8d078afd40b2::1687089115::res://.godot/exported/133200997/export-6aede686999dded0c72828018055e853-pause_menu.scn
+res://Instances/Menus/MainMenu/main_menu.tscn::bb9ccbc6ef9bb85741fdb82dbd187798::1687305759::res://.godot/exported/133200997/export-f52f797b3601b3a9b51fac59aefcf8fd-main_menu.scn
+res://Instances/Menus/PauseMenu/pause_menu.tscn::4b91d4ab1e12a9ff1d1dd936f5ae2956::1687305865::res://.godot/exported/133200997/export-6aede686999dded0c72828018055e853-pause_menu.scn
 res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn::ce9a6d6d6d2e231d628bbb752e474759::1686706718::res://.godot/exported/133200997/export-f32967f91569bd8b42f2d748643ff052-RemapInputs.scn
-res://Instances/Menus/SettingsMenu/settings_menu.tscn::d0524c0475e5d5068586401caad62909::1687089115::res://.godot/exported/133200997/export-afa229c5806407ca96d6bf519bc686a6-settings_menu.scn
+res://Instances/Menus/SettingsMenu/settings_menu.tscn::45eaabc3cb7de3665b92e022d1785009::1687305838::res://.godot/exported/133200997/export-afa229c5806407ca96d6bf519bc686a6-settings_menu.scn
 res://Instances/Menus/loading_screen.tscn::8523686998783455856491569cc730ad::1687089115::res://.godot/exported/133200997/export-7cf2689b7bbf490c1173f49e50cb4d6f-loading_screen.scn
 res://Instances/Menus/ui_navigation_manager.tscn::7508e8c9880a3ce87d3f9914b27745b1::1686223772::res://.godot/exported/133200997/export-d8d6f0910b2e6dde6d73ca3491de68cb-ui_navigation_manager.scn
-res://Instances/SaveSystem/LevelInstantiater.tscn::be8339e9c1b3c4c993b5fde3c493810e::1687220581::res://.godot/exported/133200997/export-a394497f5a5f5e0fc2de33761f171dac-LevelInstantiater.scn
+res://Instances/SaveSystem/LevelInstantiater.tscn::947b2e5fe5ca95b858494db90d1008bb::1687222191::res://.godot/exported/133200997/export-a394497f5a5f5e0fc2de33761f171dac-LevelInstantiater.scn
 res://Instances/Singletons/SoundManager.tscn::86560a17e03c7906816a737b582e5dff::1686222577::res://.godot/exported/133200997/export-2412e3613145d6f863d67071ddfb0346-SoundManager.scn
 res://Instances/Singletons/SoundPlayer.tscn::d435e3e2d27c880acb44e9c031df24a3::1682975579::res://.godot/exported/133200997/export-a8d78112295c8d72d09eab40f4d6530d-SoundPlayer.scn
 res://Instances/UIobjects/LevelTimer/timer.tscn::3d88f92e2047a9c767b284b89c56b08f::1686223772::res://.godot/exported/133200997/export-aa737fcffb25d03954d03aa9c4a69859-timer.scn

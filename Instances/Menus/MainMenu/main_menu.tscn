@@ -119,8 +119,7 @@ focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../PlayButton")
 theme_override_font_sizes/font_size = 25
-text = "Settings
-"
+text = "Settings"
 script = ExtResource("5_mygwh")
 menuOfThisButton = NodePath("../../../../../..")
 settingsMenu = NodePath("../../../../../../../SettingsMenu")
@@ -132,8 +131,7 @@ focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath("../SettingsButton")
 theme_override_font_sizes/font_size = 25
-text = "Exit
-"
+text = "Exit"
 script = ExtResource("4_4if3e")
 
 [node name="SettingsMenu" parent="ColorRect/Menu Ready Disabler" instance=ExtResource("6_h7h74")]

@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "nNtHMN6AcCbQdTeeL3m5CZ0lGlKFyM3IA4K+LDGIVVNGsqZF7RuHpGNTwZk3HUQEW0PF9fpw347tgmjl6Ub3KQ==",
+  "dgSpecHash": "0xJ5b2vaCmxguP8WMrdzm1yQEoC5MxGVLEqv4FgrJdDeNTVv5GCMwxqXRGaHDI/pHdnD+/z1n1YxKvvcHPtUhw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Martin\\.nuget\\packages\\godot.sourcegenerators\\4.0.2\\godot.sourcegenerators.4.0.2.nupkg.sha512",
     "C:\\Users\\Martin\\.nuget\\packages\\godotsharp\\4.0.2\\godotsharp.4.0.2.nupkg.sha512",
-    "C:\\Users\\Martin\\.nuget\\packages\\godotsharpeditor\\4.0.2\\godotsharpeditor.4.0.2.nupkg.sha512"
+    "C:\\Users\\Martin\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.15\\microsoft.netcore.app.runtime.win-x64.6.0.15.nupkg.sha512",
+    "C:\\Users\\Martin\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.15\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.15.nupkg.sha512",
+    "C:\\Users\\Martin\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.15\\microsoft.aspnetcore.app.runtime.win-x64.6.0.15.nupkg.sha512"
   ],
   "logs": []
 }
