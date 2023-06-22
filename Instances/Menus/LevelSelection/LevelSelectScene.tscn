@@ -3,9 +3,9 @@
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="1_5pr85"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_xdpmu"]
 [ext_resource type="PackedScene" uid="uid://c3p3f83ty7noa" path="res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn" id="2_n228b"]
-[ext_resource type="PackedScene" uid="uid://clo6gf7icatc6" path="res://Instances/Levels/world_1_level.tscn" id="4_c0kil"]
+[ext_resource type="PackedScene" uid="uid://cho6sp0l7hokm" path="res://Instances/Levels/world_1_level.tscn" id="4_c0kil"]
 [ext_resource type="Texture2D" uid="uid://dxl4wb7b8rvul" path="res://Assets/Planets/CompletedPlanets/planet02.png" id="4_drp23"]
-[ext_resource type="PackedScene" uid="uid://sj4jxpbvrwdx" path="res://Instances/Levels/world_2_level.tscn" id="6_0uxn0"]
+[ext_resource type="PackedScene" uid="uid://d3bfyksviia7o" path="res://Instances/Levels/world_2_level.tscn" id="6_0uxn0"]
 [ext_resource type="Script" path="res://Instances/Menus/LevelSelection/LoadMainMenu.cs" id="6_1aw0g"]
 [ext_resource type="Texture2D" uid="uid://bsw1lj30wqs8r" path="res://Assets/Planets/CompletedPlanets/planet07.png" id="7_fvj75"]
 

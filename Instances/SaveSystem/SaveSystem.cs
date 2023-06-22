@@ -35,10 +35,7 @@ public static class SaveSystem
 
         var sceneRoot = currentScene.Root;
 
-        foreach (var child in sceneRoot.GetChildren())  // Remove all current Nodes in the Scene
-        {
-            child.QueueFree();
-        }
+        sceneRoot.GetNode("LevelInstantiater").QueueFree();
 
         sceneRoot.AddChild(levelSelectScene);
     }
@@ -69,10 +66,7 @@ public static class SaveSystem
 
         var sceneRoot = levelToBeLoaded.GetTree().Root;
 
-        foreach (var child in sceneRoot.GetChildren())  // Remove all current Nodes in the Scene
-        {
-            child.QueueFree();
-        }
+        sceneRoot.GetNode("LevelSelectScene").QueueFree();
 
         sceneRoot.AddChild(levelInstanciaterScene);
 

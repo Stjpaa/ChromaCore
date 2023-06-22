@@ -1,5 +1,5 @@
 is_global = true
-build_property.GodotProjectDir = D:\Godot\Projekt 6. Sem\ChromaCore\
+build_property.GodotProjectDir = C:\Users\Martin\Documents\GitHub\ChromaCore\
 build_property.GodotProjectDirBase64 = 
 build_property.GodotSourceGenerators = 
 build_property.IsGodotToolsProject = 
@@ -12,4 +12,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Sem6Projekt
-build_property.ProjectDir = D:\Godot\Projekt 6. Sem\ChromaCore\
+build_property.ProjectDir = C:\Users\Martin\Documents\GitHub\ChromaCore\
