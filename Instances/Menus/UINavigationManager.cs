@@ -64,7 +64,12 @@ public partial class UINavigationManager : Control
     public override void _Process(double delta)
     {
 
-        switch (currentControlType)
+        if (this.IsVisibleInTree() == false)
+        {
+            return;
+        }
+
+            switch (currentControlType)
         {
             case UIControlTypeEnum.KeyboardControl:
                 {
@@ -96,6 +101,7 @@ public partial class UINavigationManager : Control
 
     private void SwitchToMouseControl()
     {
+
         mouseBlockPanel.Visible = false;
         Input.MouseMode = Input.MouseModeEnum.Visible;
         currentControlType = UIControlTypeEnum.MouseControl;

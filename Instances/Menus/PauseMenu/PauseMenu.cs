@@ -56,7 +56,7 @@ public partial class PauseMenu : CanvasLayer
     public void UnPauseGame()
     {
         GetTree().Paused = false;
-        Input.MouseMode = Input.MouseModeEnum.ConfinedHidden;
+        Input.MouseMode = Input.MouseModeEnum.Visible;
 
         pauseMenuUI.ProcessMode = ProcessModeEnum.Disabled;
         pauseMenuUI.Visible = false;     //Hide Pause Menu
