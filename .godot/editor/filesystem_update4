@@ -1,9 +1,6 @@
-res://Instances/Menus/MainMenu/main_menu.tscn
+res://Instances/Levels/world_1_level.tscn
 res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
-res://Instances/Menus/SettingsMenu/settings_menu.tscn
-res://Instances/Menus/PauseMenu/pause_menu.tscn
-res://TestDataSaver.tscn
-res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn
+res://Instances/Levels/world_2_level.tscn
