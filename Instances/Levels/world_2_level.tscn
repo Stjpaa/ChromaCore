@@ -1,6 +1,6 @@
-[gd_scene load_steps=83 format=3 uid="uid://sj4jxpbvrwdx"]
+[gd_scene load_steps=83 format=3 uid="uid://d3bfyksviia7o"]
 
-[ext_resource type="PackedScene" path="res://Dillon/GrapplingHook/PlayerController/PlayerController2D.tscn" id="1_pb7au"]
+[ext_resource type="PackedScene" uid="uid://bemoqff5lbpsx" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="1_pb7au"]
 [ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/Sprites/Tilesets/atlas.png" id="2_an430"]
 [ext_resource type="Shader" path="res://Instances/Levels/world_2_level.gdshader" id="2_pxjk6"]
 [ext_resource type="PackedScene" uid="uid://d3s6elkjprg46" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="4_e6r20"]
@@ -1193,7 +1193,7 @@ position = Vector2(55, 0)
 
 [node name="Sprite" parent="LevelSegment/GravityFieldsList/Normaled/Gravityfield_Normal2/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_rlsa6")
-scale = Vector2(700, 50)
+scale = Vector2(800, 50)
 
 [node name="Gravityfield_Normal3" parent="LevelSegment/GravityFieldsList/Normaled" node_paths=PackedStringArray("_audioPlayerOutside", "_audioPlayerInside") instance=ExtResource("11_5sy6g")]
 position = Vector2(-4928, -3305)
@@ -1209,7 +1209,7 @@ position = Vector2(55, 0)
 
 [node name="Sprite" parent="LevelSegment/GravityFieldsList/Normaled/Gravityfield_Normal3/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_rlsa6")
-scale = Vector2(800, 50)
+scale = Vector2(700, 50)
 
 [node name="Gravityfield_Normal4" parent="LevelSegment/GravityFieldsList/Normaled" instance=ExtResource("11_5sy6g")]
 position = Vector2(-1830, -4281)
