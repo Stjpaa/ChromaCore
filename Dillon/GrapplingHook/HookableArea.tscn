@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://0vuadphoaeog"]
 
-[ext_resource type="Texture2D" uid="uid://uhcph3ufydda" path="res://Dillon/Assets/HookableArea.png" id="1_fbsf8"]
 [ext_resource type="Script" path="res://Dillon/GrapplingHook/Scripts/HookableArea.cs" id="1_fmnge"]
 [ext_resource type="Resource" uid="uid://wspkhwy41qcp" path="res://Dillon/GrapplingHook/GrapplingHook_Data.tres" id="2_hvnyr"]
+[ext_resource type="Texture2D" uid="uid://4kqw6u53nnbu" path="res://Dillon/Assets/tile_0099.png" id="3_bcff5"]
 [ext_resource type="Texture2D" uid="uid://7lov5mst0y3j" path="res://Dillon/Assets/exclamation.png" id="4_27svv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jstte"]
@@ -20,7 +20,7 @@ shape = SubResource("CircleShape2D_jstte")
 
 [node name="Visual" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_fbsf8")
+texture = ExtResource("3_bcff5")
 
 [node name="Indicator" type="Sprite2D" parent="."]
 position = Vector2(0, -38)
