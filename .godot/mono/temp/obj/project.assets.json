@@ -20,24 +20,19 @@
             "related": ".xml"
           }
         }
-      }
-    },
-    "net6.0/win-x64": {
-      "Godot.SourceGenerators/4.0.2": {
-        "type": "package",
-        "build": {
-          "build/Godot.SourceGenerators.props": {}
-        }
       },
-      "GodotSharp/4.0.2": {
+      "GodotSharpEditor/4.0.2": {
         "type": "package",
+        "dependencies": {
+          "GodotSharp": "4.0.2"
+        },
         "compile": {
-          "lib/net6.0/GodotSharp.dll": {
+          "lib/net6.0/GodotSharpEditor.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/GodotSharp.dll": {
+          "lib/net6.0/GodotSharpEditor.dll": {
             "related": ".xml"
           }
         }
@@ -70,12 +65,26 @@
         "lib/net6.0/GodotSharp.dll",
         "lib/net6.0/GodotSharp.xml"
       ]
+    },
+    "GodotSharpEditor/4.0.2": {
+      "sha512": "WkQZgN6MUkEWo02ToRU0OF/C2HtgO5RqDIwcM+uIBs8JkjF3Qm989PCkJ8D/UNbMv7CidfZn6q/s809uhrgDYg==",
+      "type": "package",
+      "path": "godotsharpeditor/4.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "godotsharpeditor.4.0.2.nupkg.sha512",
+        "godotsharpeditor.nuspec",
+        "lib/net6.0/GodotSharpEditor.dll",
+        "lib/net6.0/GodotSharpEditor.xml"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Godot.SourceGenerators >= 4.0.2",
-      "GodotSharp >= 4.0.2"
+      "GodotSharp >= 4.0.2",
+      "GodotSharpEditor >= 4.0.2"
     ]
   },
   "packageFolders": {
@@ -85,11 +94,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
+      "projectUniqueName": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
       "projectName": "Sem6Projekt",
-      "projectPath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
+      "projectPath": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
       "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\.godot\\mono\\temp\\obj\\",
+      "outputPath": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Users\\Martin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
@@ -129,6 +138,10 @@
           "GodotSharp": {
             "target": "Package",
             "version": "[4.0.2, )"
+          },
+          "GodotSharpEditor": {
+            "target": "Package",
+            "version": "[4.0.2, )"
           }
         },
         "imports": [
@@ -142,31 +155,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[6.0.15, 6.0.15]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[6.0.15, 6.0.15]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[6.0.15, 6.0.15]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "win-x64": {
-        "#import": []
       }
     }
   }

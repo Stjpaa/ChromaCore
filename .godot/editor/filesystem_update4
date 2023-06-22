@@ -5,3 +5,5 @@ res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
 res://Instances/Menus/SettingsMenu/settings_menu.tscn
 res://Instances/Menus/PauseMenu/pause_menu.tscn
+res://TestDataSaver.tscn
+res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn
