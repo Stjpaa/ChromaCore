@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="3_y2uti"]
 [ext_resource type="Texture2D" uid="uid://cto7aik31qnlh" path="res://Assets/Planets/CompletedPlanets/planet00.png" id="4_wmgmc"]
 [ext_resource type="Script" path="res://Instances/Menus/AddParticles.cs" id="5_0tpue"]
-[ext_resource type="PackedScene" path="res://Shaders/LoadingScreenRocketFire.tscn" id="5_58aol"]
+[ext_resource type="PackedScene" uid="uid://c0c6dhfdjoyhb" path="res://Shaders/LoadingScreenRocketFire.tscn" id="5_58aol"]
 
 [sub_resource type="Animation" id="Animation_6gkd7"]
 resource_name = "RocketFlight"
