@@ -57,7 +57,9 @@ public partial class Gravityfield_Toggle : Node2D
 		_audioPlayerInside.VolumeDb = -100;
 
 		player_button = GetNode<AudioStreamPlayer2D>("Switch/AudioStreamPlayer2D");
+
 		sound_manager = GetNode<SoundManager>("/root/SoundManager");
+		//sound_manager = (SoundManager)GetTree().Root.GetChild(0).GetChild(0).GetNode("SoundManager");
 	}
 
 	public override void _Process(double delta)
