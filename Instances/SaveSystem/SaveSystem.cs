@@ -9,6 +9,8 @@ using static System.Formats.Asn1.AsnWriter;
 public static class SaveSystem
 {
     public const string pathOfRemapInputsData = "user://RemapedInputs.json";
+    public const string pathOfSoundData = "user://SoundData.json";
+
     private const string pathOfLevelInstantiater = "res://Instances/SaveSystem/LevelInstantiater.tscn";
 
     public const string pathToLevelSelectScreen = "res://Instances/Menus/LevelSelection/LevelSelectScene.tscn";
@@ -206,6 +208,38 @@ public static class SaveSystem
         {
             return new RemapInputsSavedata();
         }
+    }
+
+    public static SoundSaveData LoadSoundSavedata()
+    {
+        string soundSaveDataGlobalPath = ProjectSettings.GlobalizePath(pathOfSoundData);
+
+        if (DoesFileExistAtPath(pathOfSoundData))
+        {
+            string text = File.ReadAllText(soundSaveDataGlobalPath);
+
+            return JsonSerializer.Deserialize<SoundSaveData>(text);
+
+        }
+        else
+        {
+            return new SoundSaveData();
+        }
+    }
+
+    public static void SaveSoundSavedata(SoundSaveData data)
+    {
+        var options = new JsonSerializerOptions // just makes the Json File better Readable
+        {
+            WriteIndented = true
+        };
+
+        string soundSaveDataPath = ProjectSettings.GlobalizePath(pathOfSoundData);
+
+        string json_str = JsonSerializer.Serialize(data, options);
+
+        // Write the JSON string to file
+        File.WriteAllText(soundSaveDataPath, json_str);
     }
 
     public static void SaveRemapInputsSavedata(RemapInputsSavedata data)
