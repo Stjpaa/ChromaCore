@@ -1193,7 +1193,7 @@ position = Vector2(55, 0)
 
 [node name="Sprite" parent="LevelSegment/GravityFieldsList/Normaled/Gravityfield_Normal2/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_rlsa6")
-scale = Vector2(800, 50)
+scale = Vector2(700, 50)
 
 [node name="Gravityfield_Normal3" parent="LevelSegment/GravityFieldsList/Normaled" node_paths=PackedStringArray("_audioPlayerOutside", "_audioPlayerInside") instance=ExtResource("11_5sy6g")]
 position = Vector2(-4928, -3305)
@@ -1209,7 +1209,7 @@ position = Vector2(55, 0)
 
 [node name="Sprite" parent="LevelSegment/GravityFieldsList/Normaled/Gravityfield_Normal3/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_rlsa6")
-scale = Vector2(700, 50)
+scale = Vector2(800, 50)
 
 [node name="Gravityfield_Normal4" parent="LevelSegment/GravityFieldsList/Normaled" instance=ExtResource("11_5sy6g")]
 position = Vector2(-1830, -4281)
@@ -1540,7 +1540,7 @@ position = Vector2(-3228, -4279)
 position = Vector2(-3190, -4279)
 
 [node name="Player" parent="." node_paths=PackedStringArray("FollowingCamera", "GrapplingHook") instance=ExtResource("1_pb7au")]
-position = Vector2(-147, -41)
+position = Vector2(-658, -1992)
 FollowingCamera = NodePath("../FollowingCamera")
 GrapplingHook = NodePath("../GrapplingHook")
 

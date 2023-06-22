@@ -82,6 +82,10 @@ public partial class LevelInstantiater : Node2D
 		//	return;
 		//}
 
+
+
+
+
 		sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
 
 		SetSaveData();
@@ -100,6 +104,14 @@ public partial class LevelInstantiater : Node2D
 		var loadedScene = (PackedScene)ResourceLoader.LoadThreadedGet(levelToBeInstantiatedPath);     // Change to the Loaded Scene
 
 		Node loadedSceneNode = loadedScene.Instantiate();
+
+
+
+        await loadingScreenTask;
+		levelRoot.Visible = true;
+		levelRoot.ProcessMode = ProcessModeEnum.Inherit;
+
+
 
 		levelRoot.AddChild(loadedSceneNode);    // does only work partialy, for some reason the loadedScene doesnt get deleted properly in some cases, but i have no idea how to fix this
 
@@ -126,16 +138,13 @@ public partial class LevelInstantiater : Node2D
         
 
 
-        await loadingScreenTask;
 
 
-        if (pauseMenu != null)
-        {
-            pauseMenu.ActivatePauseMenuProcess();	// otherwise you could pause the game while in the Loadingscreen
-        }
-        levelRoot.Visible = true;
-        levelRoot.ProcessMode = ProcessModeEnum.Inherit;
-    }
+		if (pauseMenu != null)
+		{
+			pauseMenu.ActivatePauseMenuProcess();   // otherwise you could pause the game while in the Loadingscreen
+		}
+	}
 
 	public async Task QuitLevelAsync()
 	{

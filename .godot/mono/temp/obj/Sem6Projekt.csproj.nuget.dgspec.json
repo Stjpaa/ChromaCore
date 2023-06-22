@@ -1,29 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Godot\\Projekt 6. Sem\\ChromaCore\\Sem6Projekt.csproj": {}
+    "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj": {}
   },
   "projects": {
-    "D:\\Godot\\Projekt 6. Sem\\ChromaCore\\Sem6Projekt.csproj": {
+    "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Godot\\Projekt 6. Sem\\ChromaCore\\Sem6Projekt.csproj",
+        "projectUniqueName": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
         "projectName": "Sem6Projekt",
-        "projectPath": "D:\\Godot\\Projekt 6. Sem\\ChromaCore\\Sem6Projekt.csproj",
-        "packagesPath": "C:\\Users\\77kri\\.nuget\\packages\\",
-        "outputPath": "D:\\Godot\\Projekt 6. Sem\\ChromaCore\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
+        "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Users\\77kri\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+          "C:\\Users\\Martin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\77kri\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\77kri\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config"
+          "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,26 +68,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.16, 6.0.16]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.16, 6.0.16]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.16, 6.0.16]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
