@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://sj4jxpbvrwdx"]
+[gd_scene load_steps=83 format=3 uid="uid://sj4jxpbvrwdx"]
 
 [ext_resource type="PackedScene" path="res://Dillon/GrapplingHook/PlayerController/PlayerController2D.tscn" id="1_pb7au"]
 [ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/Sprites/Tilesets/atlas.png" id="2_an430"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://caympt3s2vfr0" path="res://Instances/Artifacts/Artifact1_2.tscn" id="14_qe7l2"]
 [ext_resource type="PackedScene" uid="uid://dssmgso4cwa0j" path="res://Instances/Artifacts/Artifact1_3.tscn" id="15_1swhr"]
 [ext_resource type="PackedScene" uid="uid://c7d5koa6uqj0r" path="res://Instances/Artifacts/Artifact1_1.tscn" id="16_4cbpx"]
+[ext_resource type="PackedScene" uid="uid://b3clekngejd46" path="res://Instances/UIobjects/LevelTimer/timer.tscn" id="17_ma0mo"]
+[ext_resource type="PackedScene" uid="uid://cs253h11xbsa5" path="res://Instances/Levels/LevelManager.tscn" id="18_0l286"]
+[ext_resource type="PackedScene" uid="uid://cf5e8m8gqmt4m" path="res://Instances/Menus/PauseMenu/pause_menu.tscn" id="19_32esg"]
 
 [sub_resource type="Gradient" id="Gradient_hmh3d"]
 offsets = PackedFloat32Array(0, 0.0852941, 0.844118)
@@ -357,7 +360,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pnpj4"]
 resource_local_to_scene = true
 shader = SubResource("Shader_s4k2c")
-shader_parameter/width = 7950.0
+shader_parameter/width = 7450.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
@@ -473,7 +476,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rlsa6"]
 resource_local_to_scene = true
 shader = SubResource("Shader_7yp2g")
-shader_parameter/width = 800.0
+shader_parameter/width = 700.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
@@ -491,14 +494,14 @@ size = Vector2(2350, 80)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_24tuj"]
 resource_local_to_scene = true
 shader = SubResource("Shader_7yp2g")
-shader_parameter/width = 50.0
+shader_parameter/width = 2350.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.486275, 0.988235, 0, 1)
 shader_parameter/background_color = Color(0, 0.854902, 0, 0.137255)
 shader_parameter/particle_size = 0.2
 shader_parameter/particle_rotation_speed = 5.0
-shader_parameter/direction = Vector2(0, 1)
-shader_parameter/strength = 1.33333
+shader_parameter/direction = Vector2(-1, 0.000851788)
+shader_parameter/strength = 40.0
 shader_parameter/quality = 2
 shader_parameter/pause = false
 
@@ -607,7 +610,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7iwjd"]
 resource_local_to_scene = true
 shader = SubResource("Shader_h68oi")
-shader_parameter/width = 50.0
+shader_parameter/width = 100.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
 shader_parameter/background_color = Color(0, 0, 1, 0.168627)
@@ -625,7 +628,7 @@ size = Vector2(100, 450)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i2qed"]
 resource_local_to_scene = true
 shader = SubResource("Shader_h68oi")
-shader_parameter/width = 50.0
+shader_parameter/width = 100.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
 shader_parameter/background_color = Color(0, 0, 1, 0.168627)
@@ -643,7 +646,7 @@ size = Vector2(100, 250)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1iyni"]
 resource_local_to_scene = true
 shader = SubResource("Shader_h68oi")
-shader_parameter/width = 50.0
+shader_parameter/width = 100.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
 shader_parameter/background_color = Color(0, 0, 1, 0.168627)
@@ -661,7 +664,7 @@ size = Vector2(100, 250)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1ufw"]
 resource_local_to_scene = true
 shader = SubResource("Shader_h68oi")
-shader_parameter/width = 50.0
+shader_parameter/width = 100.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
 shader_parameter/background_color = Color(0, 0, 1, 0.168627)
@@ -751,7 +754,7 @@ size = Vector2(80, 750)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uii8w"]
 resource_local_to_scene = true
 shader = SubResource("Shader_h68oi")
-shader_parameter/width = 50.0
+shader_parameter/width = 80.0
 shader_parameter/height = 30.0
 shader_parameter/particle_color = Color(0.164706, 0.396078, 1, 1)
 shader_parameter/background_color = Color(0, 0, 1, 0.168627)
@@ -1517,6 +1520,8 @@ GrapplingHook = NodePath("../GrapplingHook")
 [node name="DashCooldown_Timer" parent="Player" index="3"]
 wait_time = 1.0
 
+[node name="LevelTimer" parent="Player/CanvasLayer" index="2" instance=ExtResource("17_ma0mo")]
+
 [node name="FollowingCamera" parent="." node_paths=PackedStringArray("playerNode") instance=ExtResource("6_1te81")]
 position = Vector2(-943, -2269)
 playerNode = NodePath("../Player")
@@ -1537,6 +1542,11 @@ _collisionSize = Vector2(80, 8)
 position = Vector2(-4500, -3304)
 rotation = 1.5708
 _collisionSize = Vector2(48, 8)
+
+[node name="LevelManager" parent="." node_paths=PackedStringArray("levelTimer") instance=ExtResource("18_0l286")]
+levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
+
+[node name="PauseMenu" parent="." instance=ExtResource("19_32esg")]
 
 [editable path="LevelSegment/PlatformList/Moving/MovingPlatform"]
 [editable path="LevelSegment/PlatformList/Moving/MovingPlatform3"]
