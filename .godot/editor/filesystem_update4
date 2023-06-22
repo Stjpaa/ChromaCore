@@ -3,6 +3,6 @@ res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
-res://Dillon/GrapplingHook/HookableArea.tscn
-res://Instances/Gameobjects/Laser/Laser_Timed.tscn
+res://Dillon/PlayerController/Scripts/PlayerController2D.cs
 res://Instances/Levels/world_1_level.tscn
+res://Dillon/PlayerController/PlayerController2D.tscn
