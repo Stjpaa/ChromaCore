@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1687430057
+::res://::1687430192
 characters.png::CompressedTexture2D::5074265719891268926::1682606119::1684596181::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::6781716155928282535::1686223632::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1687428274::0::1::::<><>::
@@ -79,22 +79,23 @@ ForceField_Take01_Outside.wav::AudioStreamWAV::4092406126601086448::1684596649::
 JumpPad_01.wav::AudioStreamWAV::6226101544980642234::1684596649::1684596649::1::::<><>::
 Teleport.wav::AudioStreamWAV::5706715430075266209::1685017000::1685616754::1::::<><>::
 Teleporter_02.wav::AudioStreamWAV::3411671502766881662::1685017000::1685616754::1::::<><>::
-::res://Assets/Sprites/::1685016991
+::res://Assets/Sprites/::1687430287
 Jumppad.png::CompressedTexture2D::7163371651490017967::1684596649::1684596649::1::::<><>::
+laserUp.png::CompressedTexture2D::5637082922325607990::1687430287::1687430287::1::::<><>::
 p1_stand.png::CompressedTexture2D::3692990522539475962::1684596649::1684596649::1::::<><>::
 ::res://Assets/Sprites/Artifacts/::1685016991
 Artifact1_full.png::CompressedTexture2D::6571697586843854300::1685016991::1685016991::1::::<><>::
 Artifact1_part1.png::CompressedTexture2D::1000293385026268987::1685016991::1685016991::1::::<><>::
 Artifact_part2.png::CompressedTexture2D::5712685498870293134::1685016991::1685016991::1::::<><>::
 Artifact_part3.png::CompressedTexture2D::214475271712598551::1685016991::1685016991::1::::<><>::
-::res://Assets/Sprites/Game objects/::1687428619
+::res://Assets/Sprites/Game objects/::1687430134
 Ball.png::CompressedTexture2D::2812879286531544329::1685016991::1685016991::1::::<><>::
 Box.png::CompressedTexture2D::6239817549971699470::1685016991::1685016991::1::::<><>::
 flag1_min.png::CompressedTexture2D::5916822888199666756::1685016991::1685016991::1::::<><>::
 flag2_min.png::CompressedTexture2D::7857092361988699079::1685016991::1685016991::1::::<><>::
 flag3_min.png::CompressedTexture2D::370520846933194618::1685016991::1685016991::1::::<><>::
-Platform_Moving.tres::GradientTexture2D::6902438974613199686::1687428619::0::1::::<><>::
-Platform_Normal.tres::GradientTexture2D::5186750078832371388::1687428619::0::1::::<><>::
+Platform_Moving.tres::GradientTexture2D::6902438974613199686::1687430134::0::1::::<><>::
+Platform_Normal.tres::GradientTexture2D::5186750078832371388::1687430134::0::1::::<><>::
 Spikes.png::CompressedTexture2D::8537367750236661456::1685016991::1685016991::1::::<><>::
 Switch.png::CompressedTexture2D::5880208709275302537::1685016991::1685016991::1::::<><>::
 ::res://Assets/Sprites/Tilesets/::1687176301
@@ -131,10 +132,10 @@ Walk.png::CompressedTexture2D::2878688109993217455::1686510644::1686510644::1:::
 ::res://Dillon/Camera/::1686405023
 FollowingCamera.cs::CSharpScript::-1::1686405023::0::1::::<><>::
 FollowingCamera.tscn::PackedScene::9053784947072666384::1686396939::0::1::::<><>::res://Dillon/Camera/FollowingCamera.cs
-::res://Dillon/GrapplingHook/::1687430037
+::res://Dillon/GrapplingHook/::1687430134
 GrapplingHook.tscn::PackedScene::900824633953291482::1687429909::0::1::::<><>::res://Dillon/GrapplingHook/Scripts/GrapplingHook.cs<>uid://wspkhwy41qcp<>uid://c4oinqy36rul1<>res://Dillon/GrapplingHook/Scripts/Physics.cs<>uid://1esrigfqux07<>uid://v6umju4ch2ct<>res://Dillon/GrapplingHook/Scripts/HookStart.cs
 GrapplingHook_Data.tres::Resource::1582242375219726899::1686062628::0::1::::<><>::res://Dillon/GrapplingHook/Scripts/GrapplingHook_Data.cs
-HookableArea.tscn::PackedScene::1799287544720272626::1687430037::0::1::::<><>::uid://uhcph3ufydda<>res://Dillon/GrapplingHook/Scripts/HookableArea.cs<>uid://wspkhwy41qcp<>uid://7lov5mst0y3j
+HookableArea.tscn::PackedScene::1799287544720272626::1687430134::0::1::::<><>::res://Dillon/GrapplingHook/Scripts/HookableArea.cs<>uid://wspkhwy41qcp<>uid://4kqw6u53nnbu<>uid://7lov5mst0y3j
 ::res://Dillon/GrapplingHook/PlayerController/::1687428274
 PlayerController2D.tscn::PackedScene::-1::1687428274::0::1::::<><>::res://Dillon/GrapplingHook/PlayerController/Scripts/PlayerController2D.cs<>uid://d1vr7kylk8xma<>uid://bq2ndbirpjddp<>uid://di2pp58lgi0wu<>uid://komird35vym0<>uid://dobrgso2m05ic<>uid://m4akvi2ej0nk<>uid://bv0ndyryomsx2<>uid://bhaptp6cvb7n4<>res://Shaders/star-sky.gdshader
 PlayerController2D_Data.tres::Resource::-1::1687428274::0::1::::<><>::res://Dillon/GrapplingHook/PlayerController/Scripts/PlayerController2D_Data.cs
@@ -191,8 +192,8 @@ Artifact1_2.tscn::PackedScene::4823142866358334599::1685016991::0::1::::<><>::ui
 Artifact1_3.tscn::PackedScene::8460560323182318923::1685016991::0::1::::<><>::uid://db5m2dvlwlx4
 ::res://Instances/Gameobjects/::1685017000
 SoundExample.cs::CSharpScript::-1::1685017000::0::1::::<><>::
-::res://Instances/Gameobjects/Gravityfields/::1687428619
-Gravityfield_Normal.cs::CSharpScript::-1::1687428619::0::1::::<><>::
+::res://Instances/Gameobjects/Gravityfields/::1687430134
+Gravityfield_Normal.cs::CSharpScript::-1::1687430134::0::1::::<><>::
 Gravityfield_Normal.tscn::PackedScene::8203964619402760068::1685618428::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
 Gravityfield_Time.cs::CSharpScript::-1::1685016991::0::1::::<><>::
 Gravityfield_Time.tscn::PackedScene::4266977411605829208::1685618428::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
