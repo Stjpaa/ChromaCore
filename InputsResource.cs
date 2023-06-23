@@ -12,13 +12,12 @@ public partial class InputsResource : Resource
     [Export] public InputEvent dashInputEventArray = null;
 
 
-    static public InputsResource LoadInputsResource()
+    public static InputsResource LoadInputsResource()
     {
-        InputsResource loadedResource = new InputsResource();
-        loadedResource.LoadBaseInputEventsOnStart();
-        loadedResource.SaveResource();
+        //ResetSavedResource();
 
-        loadedResource = (InputsResource)ResourceLoader.Load(pathToInputsResource);
+        InputsResource loadedResource = (InputsResource)ResourceLoader.Load(pathToInputsResource);
+
 
         if (loadedResource != null)
         {
@@ -33,6 +32,16 @@ public partial class InputsResource : Resource
 
     }
 
+    /// <summary>
+    /// if there already exists an unwanted Savegame at the ResourcePath this function deletes that Savegame and creates a brand new one.
+    /// </summary>
+    private void ResetSavedResource()       
+    {
+        InputsResource loadedResource = new InputsResource();
+        loadedResource.LoadBaseInputEventsOnStart();
+        loadedResource.SaveResource();
+    }
+
     private void LoadBaseInputEventsOnStart()   // Load the basic InputEvents when they werent changed 
     {
         for (int i = 0; i < 2; i++)
@@ -44,6 +53,8 @@ public partial class InputsResource : Resource
         }
         dashInputEventArray = InputMap.ActionGetEvents("Dash")[0];
     }
+
+
 
     public void SaveResource()
     {
