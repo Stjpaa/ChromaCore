@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1687451342
+::res://::1687479555
 characters.png::CompressedTexture2D::5074265719891268926::1682282112::1682282152::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::6781716155928282535::1686223772::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1687305887::0::1::::<><>::
@@ -88,14 +88,14 @@ Artifact1_full.png::CompressedTexture2D::6571697586843854300::1686222577::168622
 Artifact1_part1.png::CompressedTexture2D::1000293385026268987::1686222577::1686222577::1::::<><>::
 Artifact_part2.png::CompressedTexture2D::5712685498870293134::1686222577::1686222577::1::::<><>::
 Artifact_part3.png::CompressedTexture2D::214475271712598551::1686222577::1686222577::1::::<><>::
-::res://Assets/Sprites/Game objects/::1687449166
+::res://Assets/Sprites/Game objects/::1687451414
 Ball.png::CompressedTexture2D::2812879286531544329::1686222577::1686222577::1::::<><>::
 Box.png::CompressedTexture2D::6239817549971699470::1686222577::1686222577::1::::<><>::
 flag1_min.png::CompressedTexture2D::5916822888199666756::1686222577::1686222577::1::::<><>::
 flag2_min.png::CompressedTexture2D::7857092361988699079::1686222577::1686222577::1::::<><>::
 flag3_min.png::CompressedTexture2D::370520846933194618::1686222577::1686222577::1::::<><>::
-Platform_Moving.tres::GradientTexture2D::6902438974613199686::1687449166::0::1::::<><>::
-Platform_Normal.tres::GradientTexture2D::5186750078832371388::1687449166::0::1::::<><>::
+Platform_Moving.tres::GradientTexture2D::6902438974613199686::1687451414::0::1::::<><>::
+Platform_Normal.tres::GradientTexture2D::5186750078832371388::1687451414::0::1::::<><>::
 Spikes.png::CompressedTexture2D::8537367750236661456::1686222577::1686222577::1::::<><>::
 Switch.png::CompressedTexture2D::5880208709275302537::1686222577::1686222577::1::::<><>::
 ::res://Assets/Sprites/Tilesets/::1687198036
@@ -192,17 +192,17 @@ Artifact1_2.tscn::PackedScene::4823142866358334599::1686222577::0::1::::<><>::ui
 Artifact1_3.tscn::PackedScene::8460560323182318923::1686222577::0::1::::<><>::uid://db5m2dvlwlx4
 ::res://Instances/Gameobjects/::1686222577
 SoundExample.cs::CSharpScript::-1::1686222577::0::1::::<><>::
-::res://Instances/Gameobjects/Gravityfields/::1687451215
-Gravityfield_Normal.cs::CSharpScript::-1::1687449166::0::1::::<><>::
+::res://Instances/Gameobjects/Gravityfields/::1687451414
+Gravityfield_Normal.cs::CSharpScript::-1::1687451414::0::1::::<><>::
 Gravityfield_Normal.tscn::PackedScene::8203964619402760068::1686222577::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
 Gravityfield_Time.cs::CSharpScript::-1::1686222577::0::1::::<><>::
 Gravityfield_Time.tscn::PackedScene::4266977411605829208::1686222577::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.cs<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
 Gravityfield_Toggle.cs::CSharpScript::-1::1687451215::0::1::::<><>::
 Gravityfield_Toggle.tscn::PackedScene::6653528997500859392::1686222577::0::1::::<><>::res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.cs<>uid://cp1ogcfgfwqy0<>uid://byknlivrlw2yu<>uid://b26twq3i0cyse
-::res://Instances/Gameobjects/Laser/::1687449166
+::res://Instances/Gameobjects/Laser/::1687451414
 Laser_Pressure_Plate.cs::CSharpScript::-1::1686222577::0::1::::<><>::
 Laser_Pressure_Plate.tscn::PackedScene::4661940788271807733::1686222577::0::1::::<><>::res://Instances/Gameobjects/Laser/Laser_Pressure_Plate.cs<>uid://cekaod2annpte<>res://Shaders/laser_beam.gdshader
-Laser_Timed.cs::CSharpScript::-1::1687449166::0::1::::<><>::
+Laser_Timed.cs::CSharpScript::-1::1687451414::0::1::::<><>::
 Laser_Timed.tscn::PackedScene::6698425991656575786::1687443644::0::1::::<><>::res://Instances/Gameobjects/Laser/Laser_Timed.cs<>uid://cmkv6xs6xm4ek<>res://Shaders/laser_beam.gdshader
 ::res://Instances/Gameobjects/LevelRotator/::1686222577
 LevelRotator.cs::CSharpScript::-1::1686222577::0::1::::<><>::
@@ -228,13 +228,13 @@ Checkpoint.cs::CSharpScript::-1::1686222577::0::1::::<><>::
 Checkpoint.tscn::PackedScene::9061288352858707582::1686222577::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.cs<>uid://cqkfhdbjor2l1<>uid://dj7bfs0a02pv0
 Spikes.tscn::PackedScene::4249880713655740377::1686222577::0::1::::<><>::res://Instances/Gameobjects/Traps and Checkpoints/Traps.cs
 Traps.cs::CSharpScript::-1::1686222577::0::1::::<><>::
-::res://Instances/Levels/::1687450280
+::res://Instances/Levels/::1687452176
 InstantiateLevel.cs::CSharpScript::-1::1682282112::0::1::::<><>::
 Level.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 LevelManager.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 LevelManager.tscn::PackedScene::6093850673283212702::1686223772::0::1::::<><>::res://Instances/Levels/LevelManager.cs
 world_1_level.gdshader::Shader::-1::1684065886::0::1::::<><>::
-world_1_level.tscn::PackedScene::5294979759488520816::1687450280::0::1::::<><>::res://Shaders/color-palette.gdshader<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://c7s6ybr43gk6l<>uid://d2dmdifx4vsp7<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://cvdu4idphci0x<>uid://dt56jo4o7i0hw<>uid://nv4s53vmoxpl<>uid://c7d5koa6uqj0r<>uid://caympt3s2vfr0<>uid://dssmgso4cwa0j<>uid://bemoqff5lbpsx<>uid://c2o1dkvnu6rgc<>uid://d18yrrxq7o6sa<>uid://m3mpklc8drsk<>uid://b3clekngejd46<>uid://cs253h11xbsa5<>uid://cf5e8m8gqmt4m
+world_1_level.tscn::PackedScene::5294979759488520816::1687452176::0::1::::<><>::res://Shaders/color-palette.gdshader<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://c7s6ybr43gk6l<>uid://d2dmdifx4vsp7<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://cvdu4idphci0x<>uid://dt56jo4o7i0hw<>uid://nv4s53vmoxpl<>uid://c7d5koa6uqj0r<>uid://caympt3s2vfr0<>uid://dssmgso4cwa0j<>uid://bemoqff5lbpsx<>uid://c2o1dkvnu6rgc<>uid://d18yrrxq7o6sa<>uid://m3mpklc8drsk<>uid://b3clekngejd46<>uid://cs253h11xbsa5<>uid://cf5e8m8gqmt4m
 world_2_level.gdshader::Shader::-1::1686222577::0::1::::<><>::
 world_2_level.tscn::PackedScene::9126961048720950574::1687450280::0::1::::<><>::uid://bemoqff5lbpsx<>uid://ehww7w412i1<>res://Instances/Levels/world_2_level.gdshader<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://d18yrrxq7o6sa<>uid://d2dmdifx4vsp7<>uid://b1sw6dddgaq2d<>uid://m3mpklc8drsk<>uid://0vuadphoaeog<>uid://do5cdmcaycbhc<>uid://c12awd8dlrugm<>uid://c7s6ybr43gk6l<>uid://caympt3s2vfr0<>uid://dssmgso4cwa0j<>uid://c7d5koa6uqj0r<>uid://b3clekngejd46<>uid://cs253h11xbsa5<>uid://cf5e8m8gqmt4m
 ::res://Instances/Menus/::1687448993
@@ -245,9 +245,9 @@ UINavigationManager.cs::CSharpScript::-1::1687448993::0::1::::<><>::
 ui_navigation_manager.tscn::PackedScene::398571667513817080::1687430784::0::1::::<><>::res://Instances/Menus/UINavigationManager.cs
 ::res://Instances/Menus/IngameUI/::1686223772
 IngameUI.tscn::PackedScene::6080572850230129701::1686223772::0::1::::<><>::uid://b3clekngejd46<>uid://cf5e8m8gqmt4m<>uid://mobt10g1plur
-::res://Instances/Menus/LevelSelection/::1687448811
+::res://Instances/Menus/LevelSelection/::1687452176
 LevelSelectLevel.tscn::PackedScene::6770805437750687728::1686709228::0::1::::<><>::res://Instances/Levels/Level.cs<>uid://cto7aik31qnlh<>res://Instances/Menus/LevelSelection/LevelSelectVisualisation.cs<>uid://chimxdejc5p4p
-LevelSelectScene.tscn::PackedScene::3829531926688066621::1687448811::0::1::::<><>::res://Shaders/star-sky.gdshader<>uid://fxcogg7m5cng<>uid://c3p3f83ty7noa<>uid://clo6gf7icatc6<>uid://dxl4wb7b8rvul<>uid://sj4jxpbvrwdx<>res://Instances/Menus/LevelSelection/LoadMainMenu.cs<>uid://bsw1lj30wqs8r
+LevelSelectScene.tscn::PackedScene::3829531926688066621::1687452176::0::1::::<><>::res://Shaders/star-sky.gdshader<>uid://fxcogg7m5cng<>uid://c3p3f83ty7noa<>uid://cho6sp0l7hokm<>uid://dxl4wb7b8rvul<>uid://d3bfyksviia7o<>res://Instances/Menus/LevelSelection/LoadMainMenu.cs<>uid://bsw1lj30wqs8r
 LevelSelectVisualisation.cs::CSharpScript::-1::1687089115::0::1::::<><>::
 LoadMainMenu.cs::CSharpScript::-1::1687089115::0::1::::<><>::
 ::res://Instances/Menus/MainMenu/::1687305759
@@ -269,11 +269,11 @@ RemapInputs.cs::CSharpScript::-1::1687290677::0::1::::<><>::
 RemapInputs.tscn::PackedScene::7396494115495366880::1687307535::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs<>uid://fxcogg7m5cng
 RemapInputsButton.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 RemapInputsSavedata.cs::CSharpScript::-1::1686223772::0::1::::<><>::
-::res://Instances/SaveSystem/::1687451106
+::res://Instances/SaveSystem/::1687452175
 LevelInstantiater.cs::CSharpScript::-1::1687450738::0::1::::<><>::
-LevelInstantiater.tscn::PackedScene::2102581500260938997::1687451106::0::1::::<><>::res://Instances/SaveSystem/LevelInstantiater.cs<>uid://cn1al8qtngpmu
+LevelInstantiater.tscn::PackedScene::2102581500260938997::1687452175::0::1::::<><>::res://Instances/SaveSystem/LevelInstantiater.cs<>uid://cn1al8qtngpmu
 LevelVariablesSaveData.cs::CSharpScript::-1::1686223772::0::1::::<><>::
-SaveSystem.cs::CSharpScript::-1::1687280137::0::1::::<><>::
+SaveSystem.cs::CSharpScript::-1::1687452022::0::1::::<><>::
 ScenePacker.cs::CSharpScript::-1::1686223772::0::1::::<><>::
 ::res://Instances/SaveSystem/LoadingScreen/::1684231715
 ::res://Instances/Singletons/::1687450310

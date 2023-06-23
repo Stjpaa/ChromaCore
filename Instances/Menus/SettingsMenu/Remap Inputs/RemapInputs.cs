@@ -10,7 +10,7 @@ public partial class RemapInputs : Control
 {
     public enum RemapedInputs   // the different inputs that can be remapped, used in _Input to to see what should be replaced
     {
-        none,up, down, left, right, dash, jump, interact
+        none,up, down, left, right, dash
     }
 
     [Export] private Panel inputPanel;
@@ -143,20 +143,6 @@ public partial class RemapInputs : Control
                 break;
 
             case RemapedInputs.dash:
-                {
-
-
-                }
-                break;
-
-            case RemapedInputs.jump:
-                {
-
-
-                }
-                break;
-
-            case RemapedInputs.interact:
                 {
 
 
