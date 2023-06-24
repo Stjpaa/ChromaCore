@@ -17,8 +17,6 @@ public partial class TestDataSaver : Node2D
 
         inputsResource.TestReplace();
 
-        //GD.Print("Array " + inputsResource.inputEventArray[1].AsText());
-
     }
 
 

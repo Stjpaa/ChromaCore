@@ -1,15 +1,17 @@
 using Godot;
 using System;
+using static RemapInputs;
+using static System.Collections.Specialized.BitVector32;
 
 public partial class InputsResource : Resource
 {
     private const string pathToInputsResource = "user://InputsResource.tres";
 
-    [Export] public InputEvent[] upInputEventArray = { null, null };    // Arrays have to have right starting size
+    [Export] public InputEvent[] upInputEventArray = { null, null };    // Arrays have to have right starting size, otherwise they seemingly can not be saved
     [Export] public InputEvent[] downInputEventArray = { null, null };
     [Export] public InputEvent[] leftInputEventArray = { null, null };
     [Export] public InputEvent[] rightInputEventArray = { null, null };
-    [Export] public InputEvent dashInputEventArray = null;
+    [Export] public InputEvent dashInputEvent = null;
 
 
     public static InputsResource LoadInputsResource()
@@ -51,15 +53,95 @@ public partial class InputsResource : Resource
             leftInputEventArray[i] = InputMap.ActionGetEvents("Move_Left")[i];
             rightInputEventArray[i] = InputMap.ActionGetEvents("Move_Right")[i];
         }
-        dashInputEventArray = InputMap.ActionGetEvents("Dash")[0];
+        dashInputEvent = InputMap.ActionGetEvents("Dash")[0];
     }
+
+    public void ReplaceInputMapAction(RemapedInputs inputType, int indexOfButton, InputEvent replacementInput)
+    {
+        if (IsKeyusedAnywhere(replacementInput.AsText()))
+        {
+            GD.PrintErr("Action " + replacementInput.AsText() + " is already assigned for another action");
+            return;
+        }
+
+        switch (inputType) {
+            case RemapedInputs.none:
+                {
+                    GD.PrintErr("no type was assigned on remap button");
+                }
+                break;
+
+            case RemapedInputs.up:
+                {
+                    InputMap.ActionEraseEvent("ui_up", upInputEventArray[indexOfButton]);
+                    InputMap.ActionEraseEvent("Jump", upInputEventArray[indexOfButton]);
+
+                    InputMap.ActionAddEvent("ui_up", replacementInput);
+                    InputMap.ActionAddEvent("Jump", replacementInput);
+
+                    upInputEventArray[indexOfButton] = replacementInput;
+                    SaveResource(); // Save The change
+                }
+                break;
+
+            case RemapedInputs.down:
+                {
+                    InputMap.ActionEraseEvent("ui_down", downInputEventArray[indexOfButton]);
+
+                    InputMap.ActionAddEvent("ui_down", replacementInput);
+
+                    downInputEventArray[indexOfButton] = replacementInput;
+                    SaveResource(); // Save The change
+                }
+                break;
+
+            case RemapedInputs.left:
+                {
+                    InputMap.ActionEraseEvent("ui_left", leftInputEventArray[indexOfButton]);
+                    InputMap.ActionEraseEvent("Move_Left", leftInputEventArray[indexOfButton]);
+
+                    InputMap.ActionAddEvent("ui_left", replacementInput);
+                    InputMap.ActionAddEvent("Move_Left", replacementInput);
+
+                    leftInputEventArray[indexOfButton] = replacementInput;
+                    SaveResource(); // Save The change
+
+                }
+                break;
+
+            case RemapedInputs.right:
+                {
+                    InputMap.ActionEraseEvent("ui_right", rightInputEventArray[indexOfButton]);
+                    InputMap.ActionEraseEvent("Move_Right", rightInputEventArray[indexOfButton]);
+
+                    InputMap.ActionAddEvent("ui_right", replacementInput);
+                    InputMap.ActionAddEvent("Move_Right", replacementInput);
+
+                    rightInputEventArray[indexOfButton] = replacementInput;
+                    SaveResource(); // Save The change
+
+                }
+                break;
+
+            case RemapedInputs.dash:
+                {
+                    InputMap.ActionEraseEvent("Dash", dashInputEvent);
+                    InputMap.ActionAddEvent("Dash", replacementInput);
+
+                    dashInputEvent = replacementInput;
+                    SaveResource();
+                }
+                break;
+        }
+
+    }
+
 
     public void ReplaceInputEvent(string action, InputEvent eventToRemove, InputEvent eventToAdd)
     {
         InputMap.ActionEraseEvent(action, eventToRemove);
         InputMap.ActionAddEvent(action, eventToAdd);
     }
-
 
     public void SaveResource()
     {
@@ -70,6 +152,11 @@ public partial class InputsResource : Resource
     {
         GD.Print("key is used somewhere = " + IsKeyusedAnywhere("A (Physical)"));
     }
+
+
+
+
+
 
     private bool IsKeyusedAnywhere(string keyAsText)    // Checks all currently used buttons to prevent one Button being assigned to two different actions, ie left + right
     {
@@ -102,7 +189,7 @@ public partial class InputsResource : Resource
             }
         }
 
-        if(dashInputEventArray.AsText() == keyAsText)
+        if(dashInputEvent.AsText() == keyAsText)
         {
             return true;
         }
