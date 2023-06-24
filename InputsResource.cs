@@ -14,6 +14,18 @@ public partial class InputsResource : Resource
     [Export] public InputEvent dashInputEvent = null;
 
 
+    public InputsResource()
+    {
+        InputsResource loadedResource = LoadInputsResource();
+
+        upInputEventArray = loadedResource.upInputEventArray;
+        downInputEventArray = loadedResource.downInputEventArray;
+        leftInputEventArray = loadedResource.leftInputEventArray;
+        rightInputEventArray = loadedResource.rightInputEventArray;
+        dashInputEvent = loadedResource.dashInputEvent;
+    }
+
+
     public static InputsResource LoadInputsResource()
     {
         //ResetSavedResource();
@@ -147,16 +159,6 @@ public partial class InputsResource : Resource
     {
         ResourceSaver.Save(this, pathToInputsResource);
     }
-
-    public void TestReplace()
-    {
-        GD.Print("key is used somewhere = " + IsKeyusedAnywhere("A (Physical)"));
-    }
-
-
-
-
-
 
     private bool IsKeyusedAnywhere(string keyAsText)    // Checks all currently used buttons to prevent one Button being assigned to two different actions, ie left + right
     {

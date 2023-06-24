@@ -10,12 +10,10 @@ public partial class TestDataSaver : Node2D
 
     public override void _Ready()
     {
-        inputsResource = InputsResource.LoadInputsResource();
+        inputsResource = new InputsResource();
 
 
         PrintInputEventArray();
-
-        inputsResource.TestReplace();
 
     }
 
