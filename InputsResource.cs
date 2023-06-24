@@ -222,6 +222,6 @@ public partial class InputsResource : Resource
                 }
 
         }
-                return null;
+                return "Loading failed";
     }
 }

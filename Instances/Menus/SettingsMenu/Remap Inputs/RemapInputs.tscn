@@ -30,15 +30,21 @@ text = "Up / Jump"
 [node name="Button" type="Button" parent="VBoxContainer/UpHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-focus_neighbor_right = NodePath("../Button2")
 focus_neighbor_bottom = NodePath("../../DownHBoxContainer/Button")
 text = "w"
 script = ExtResource("2_4ukqj")
+inputToRemapType = 1
 remapInputs = NodePath("../../..")
 
-[node name="Button2" type="Button" parent="VBoxContainer/UpHBoxContainer"]
+[node name="Button2" type="Button" parent="VBoxContainer/UpHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../../DownHBoxContainer/Button")
+text = "w"
+script = ExtResource("2_4ukqj")
+inputToRemapType = 1
+positionInRemapArray = 1
+remapInputs = NodePath("../../..")
 
 [node name="DownHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -57,10 +63,15 @@ script = ExtResource("2_4ukqj")
 inputToRemapType = 2
 remapInputs = NodePath("../../..")
 
-[node name="Button2" type="Button" parent="VBoxContainer/DownHBoxContainer"]
+[node name="Button2" type="Button" parent="VBoxContainer/DownHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "s"
+script = ExtResource("2_4ukqj")
+inputToRemapType = 2
+positionInRemapArray = 1
+remapInputs = NodePath("../../..")
 
 [node name="LeftHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -70,15 +81,24 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "Left"
 
-[node name="Button" type="Button" parent="VBoxContainer/LeftHBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/LeftHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "A"
+focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
+text = "s"
+script = ExtResource("2_4ukqj")
+inputToRemapType = 3
+remapInputs = NodePath("../../..")
 
-[node name="Button2" type="Button" parent="VBoxContainer/LeftHBoxContainer"]
+[node name="Button2" type="Button" parent="VBoxContainer/LeftHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "A"
+focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
+text = "s"
+script = ExtResource("2_4ukqj")
+inputToRemapType = 3
+positionInRemapArray = 1
+remapInputs = NodePath("../../..")
 
 [node name="RightHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -88,15 +108,42 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "Right"
 
-[node name="Button" type="Button" parent="VBoxContainer/RightHBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/RightHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "D"
+focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
+text = "s"
+script = ExtResource("2_4ukqj")
+inputToRemapType = 4
+remapInputs = NodePath("../../..")
 
-[node name="Button2" type="Button" parent="VBoxContainer/RightHBoxContainer"]
+[node name="Button2" type="Button" parent="VBoxContainer/RightHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "D"
+focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
+text = "s"
+script = ExtResource("2_4ukqj")
+inputToRemapType = 4
+positionInRemapArray = 1
+remapInputs = NodePath("../../..")
+
+[node name="DashHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Dash" type="Label" parent="VBoxContainer/DashHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Dash
+"
+
+[node name="Button" type="Button" parent="VBoxContainer/DashHBoxContainer" node_paths=PackedStringArray("remapInputs")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
+text = "s"
+script = ExtResource("2_4ukqj")
+inputToRemapType = 5
+remapInputs = NodePath("../../..")
 
 [node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("3_r4a1n")]
 layout_mode = 1
