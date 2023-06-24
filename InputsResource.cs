@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.InteropServices;
 using static RemapInputs;
 using static System.Collections.Specialized.BitVector32;
 
@@ -15,13 +16,11 @@ public partial class InputsResource : Resource
 
     public static InputsResource LoadInputsResource()
     {
-        //ResetSavedResource();
+        InputsResource loadedResource;
 
-        InputsResource loadedResource = (InputsResource)ResourceLoader.Load(pathToInputsResource);
-
-
-        if (loadedResource != null)
+        if (SaveSystem.DoesFileExistAtPath(pathToInputsResource))
         {
+            loadedResource = (InputsResource)ResourceLoader.Load(pathToInputsResource);
             return loadedResource;
         }
         else      // if no Resource exists instead Load the Base
@@ -39,9 +38,8 @@ public partial class InputsResource : Resource
     /// </summary>
     private void ResetSavedResource()       
     {
-        InputsResource loadedResource = new InputsResource();
-        loadedResource.LoadBaseInputEventsOnStart();
-        loadedResource.SaveResource();
+        LoadBaseInputEventsOnStart();
+        SaveResource();
     }
 
     private void LoadBaseInputEventsOnStart()   // Load the basic InputEvents when they werent changed 
