@@ -7,6 +7,10 @@ public partial class RemapInputsButton : Button
     [Export] public int positionInRemapArray = 0;
     [Export] private RemapInputs remapInputs;
 
+    public override void _Ready()
+    {
+    }
+
     public override void _Pressed()
     {
         remapInputs.OnButtonPressed(this);

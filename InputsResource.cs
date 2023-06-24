@@ -13,19 +13,6 @@ public partial class InputsResource : Resource
     [Export] public InputEvent[] rightInputEventArray = { null, null };
     [Export] public InputEvent dashInputEvent = null;
 
-
-    public InputsResource()
-    {
-        InputsResource loadedResource = LoadInputsResource();
-
-        upInputEventArray = loadedResource.upInputEventArray;
-        downInputEventArray = loadedResource.downInputEventArray;
-        leftInputEventArray = loadedResource.leftInputEventArray;
-        rightInputEventArray = loadedResource.rightInputEventArray;
-        dashInputEvent = loadedResource.dashInputEvent;
-    }
-
-
     public static InputsResource LoadInputsResource()
     {
         //ResetSavedResource();
@@ -35,12 +22,13 @@ public partial class InputsResource : Resource
 
         if (loadedResource != null)
         {
-            GD.Print("succesfully loaded");
             return loadedResource;
         }
-        else      // if no Resource already exists instead Load the Base
+        else      // if no Resource exists instead Load the Base
         {
+            loadedResource = new InputsResource();
             loadedResource.LoadBaseInputEventsOnStart();
+            loadedResource.SaveResource();
             return loadedResource;
         }
 
@@ -199,5 +187,41 @@ public partial class InputsResource : Resource
 
         // Else this key is not currently used, so it can be assigned to the new action
         return false;
+    }
+
+    internal string GetTextForEvent(RemapedInputs Type, int indexInArray)
+    {
+        switch (Type)
+        {
+            case RemapedInputs.up:
+                {
+
+                    return upInputEventArray[indexInArray].AsText();
+                }
+
+            case RemapedInputs.down:
+                {
+                    return downInputEventArray[indexInArray].AsText();
+                }
+
+            case RemapedInputs.left:
+                {
+                    return leftInputEventArray[indexInArray].AsText();
+
+                }
+
+            case RemapedInputs.right:
+                {
+                    return rightInputEventArray[indexInArray].AsText();
+
+                }
+
+            case RemapedInputs.dash:
+                {
+                    return dashInputEvent.AsText();
+                }
+
+        }
+                return null;
     }
 }

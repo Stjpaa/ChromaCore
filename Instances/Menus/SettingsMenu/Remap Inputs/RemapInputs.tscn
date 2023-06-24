@@ -27,13 +27,14 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "Up / Jump"
 
-[node name="Button" type="Button" parent="VBoxContainer/UpHBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/UpHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_right = NodePath("../Button2")
 focus_neighbor_bottom = NodePath("../../DownHBoxContainer/Button")
 text = "w"
 script = ExtResource("2_4ukqj")
+remapInputs = NodePath("../../..")
 
 [node name="Button2" type="Button" parent="VBoxContainer/UpHBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
@@ -47,13 +48,14 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "Down"
 
-[node name="Button" type="Button" parent="VBoxContainer/DownHBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/DownHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "s"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 2
+remapInputs = NodePath("../../..")
 
 [node name="Button2" type="Button" parent="VBoxContainer/DownHBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
