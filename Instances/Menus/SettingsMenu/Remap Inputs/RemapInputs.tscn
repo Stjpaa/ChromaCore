@@ -31,7 +31,8 @@ text = "Up / Jump"
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../../DownHBoxContainer/Button")
-text = "w"
+text = "
+"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 1
 remapInputs = NodePath("../../..")
@@ -40,7 +41,8 @@ remapInputs = NodePath("../../..")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../../DownHBoxContainer/Button")
-text = "w"
+text = "
+"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 1
 positionInRemapArray = 1
@@ -58,7 +60,8 @@ text = "Down"
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
-text = "s"
+text = "
+"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 2
 remapInputs = NodePath("../../..")
@@ -67,7 +70,8 @@ remapInputs = NodePath("../../..")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
-text = "s"
+text = "
+"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 2
 positionInRemapArray = 1
@@ -85,7 +89,8 @@ text = "Left"
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
-text = "s"
+text = "
+"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 3
 remapInputs = NodePath("../../..")
@@ -94,7 +99,8 @@ remapInputs = NodePath("../../..")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
-text = "s"
+text = "
+"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 3
 positionInRemapArray = 1
@@ -112,7 +118,8 @@ text = "Right"
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
-text = "s"
+text = "
+"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 4
 remapInputs = NodePath("../../..")
@@ -121,7 +128,8 @@ remapInputs = NodePath("../../..")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
-text = "s"
+text = "
+"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 4
 positionInRemapArray = 1
@@ -140,7 +148,8 @@ text = "Dash
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
-text = "s"
+text = "
+"
 script = ExtResource("2_4ukqj")
 inputToRemapType = 5
 remapInputs = NodePath("../../..")

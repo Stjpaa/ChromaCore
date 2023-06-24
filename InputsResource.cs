@@ -56,7 +56,7 @@ public partial class InputsResource : Resource
 
     public void ReplaceInputMapAction(RemapedInputs inputType, int indexOfButton, InputEvent replacementInput)
     {
-        if (IsKeyusedAnywhere(replacementInput.AsText()))
+        if (IsKeyUsedAnywhere(replacementInput.AsText()))
         {
             GD.PrintErr("Action " + replacementInput.AsText() + " is already assigned for another action");
             return;
@@ -146,7 +146,7 @@ public partial class InputsResource : Resource
         ResourceSaver.Save(this, pathToInputsResource);
     }
 
-    private bool IsKeyusedAnywhere(string keyAsText)    // Checks all currently used buttons to prevent one Button being assigned to two different actions, ie left + right
+    public bool IsKeyUsedAnywhere(string keyAsText)    // Checks all currently used buttons to prevent one Button being assigned to two different actions, ie left + right
     {
         foreach (var element in upInputEventArray)
         {

@@ -87,22 +87,20 @@ public partial class RemapInputs : Control
 
         if (inputEvent is InputEventKey inputKey)
         {
-            GD.Print(inputEvent.AsText());
+            if (inputsResource.IsKeyUsedAnywhere(inputKey.AsText()))
+            {
+                GD.Print("Button is already used somewhere");
+            }
+            else
+            {
+                inputsResource.ReplaceInputMapAction(currentRemapInputsButton.inputToRemapType, currentRemapInputsButton.positionInRemapArray, inputEvent);
+            }
 
-            //ReplaceInputEvent(currentRemapInputsButton.actionName, controllerOne, inputEvent);
-
-
-
-
-
-
-            currentRemapInputsButton.Text = inputEvent.AsText();
+           
+            currentRemapInputsButton.UpdateButtonText();
             setBlockPanelVisibility(false);
             replaceInput = false;
         }
-        //GD.Print(inputEvent.GetType());
-
-        //GD.Print(inputEvent.AsText());
     }
 
 

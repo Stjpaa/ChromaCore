@@ -9,12 +9,17 @@ public partial class RemapInputsButton : Button
 
     public override void _Ready()
     {
-        Text = remapInputs.GetTextForButton(this);
+        UpdateButtonText();
     }
 
     public override void _Pressed()
     {
         remapInputs.OnButtonPressed(this);
+    }
+
+    public void UpdateButtonText()
+    {
+        Text = remapInputs.GetTextForButton(this);
     }
 
     //public void UpdateText()
