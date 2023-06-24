@@ -87,7 +87,11 @@ public partial class RemapInputs : Control
 
         if (inputEvent is InputEventKey inputKey)
         {
-            if (inputsResource.IsKeyUsedAnywhere(inputKey.AsText()))
+            if(inputKey.AsTextKeycode() == "Escape")
+            {
+                GD.Print("Escape was Pressed to Cancel assingning");
+            }
+            else if (inputsResource.IsKeyUsedAnywhere(inputKey.AsText()))
             {
                 GD.Print("Button is already used somewhere");
             }

@@ -21,22 +21,21 @@ public partial class InputsResource : Resource
         if (SaveSystem.DoesFileExistAtPath(pathToInputsResource))
         {
             loadedResource = (InputsResource)ResourceLoader.Load(pathToInputsResource);
-            return loadedResource;
         }
         else      // if no Resource exists instead Load the Base
         {
             loadedResource = new InputsResource();
             loadedResource.LoadBaseInputEventsOnStart();
             loadedResource.SaveResource();
-            return loadedResource;
         }
 
+        return loadedResource;
     }
 
     /// <summary>
     /// if there already exists an unwanted Savegame at the ResourcePath this function deletes that Savegame and creates a brand new one.
     /// </summary>
-    private void ResetSavedResource()       
+    private void ResetSavedResource()
     {
         LoadBaseInputEventsOnStart();
         SaveResource();
@@ -62,7 +61,8 @@ public partial class InputsResource : Resource
             return;
         }
 
-        switch (inputType) {
+        switch (inputType)
+        {
             case RemapedInputs.none:
                 {
                     GD.PrintErr("no type was assigned on remap button");
@@ -151,14 +151,14 @@ public partial class InputsResource : Resource
     {
         foreach (var element in upInputEventArray)
         {
-            if(element.AsText() == keyAsText)
+            if (element.AsText() == keyAsText)
             {
                 return true;
             }
         }
         foreach (var element in downInputEventArray)
         {
-            if(element.AsText() == keyAsText)
+            if (element.AsText() == keyAsText)
             {
                 return true;
             }
@@ -178,7 +178,7 @@ public partial class InputsResource : Resource
             }
         }
 
-        if(dashInputEvent.AsText() == keyAsText)
+        if (dashInputEvent.AsText() == keyAsText)
         {
             return true;
         }
@@ -221,6 +221,6 @@ public partial class InputsResource : Resource
                 }
 
         }
-                return "Loading failed";
+        return "Loading failed";
     }
 }
