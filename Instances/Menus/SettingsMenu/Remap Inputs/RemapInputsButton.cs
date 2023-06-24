@@ -21,12 +21,4 @@ public partial class RemapInputsButton : Button
     {
         Text = remapInputs.GetTextForButton(this);
     }
-
-    //public void UpdateText()
-    //{
-    //    string v = RemapInputs.GetTextForButton(this);
-    //    Text = v;
-    //}
-
-
 }
