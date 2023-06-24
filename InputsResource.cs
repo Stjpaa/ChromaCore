@@ -54,6 +54,11 @@ public partial class InputsResource : Resource
         dashInputEventArray = InputMap.ActionGetEvents("Dash")[0];
     }
 
+    public void ReplaceInputEvent(string action, InputEvent eventToRemove, InputEvent eventToAdd)
+    {
+        InputMap.ActionEraseEvent(action, eventToRemove);
+        InputMap.ActionAddEvent(action, eventToAdd);
+    }
 
 
     public void SaveResource()
@@ -61,4 +66,49 @@ public partial class InputsResource : Resource
         ResourceSaver.Save(this, pathToInputsResource);
     }
 
+    public void TestReplace()
+    {
+        GD.Print("key is used somewhere = " + IsKeyusedAnywhere("A (Physical)"));
+    }
+
+    private bool IsKeyusedAnywhere(string keyAsText)    // Checks all currently used buttons to prevent one Button being assigned to two different actions, ie left + right
+    {
+        foreach (var element in upInputEventArray)
+        {
+            if(element.AsText() == keyAsText)
+            {
+                return true;
+            }
+        }
+        foreach (var element in downInputEventArray)
+        {
+            if(element.AsText() == keyAsText)
+            {
+                return true;
+            }
+        }
+        foreach (var element in leftInputEventArray)
+        {
+            if (element.AsText() == keyAsText)
+            {
+                return true;
+            }
+        }
+        foreach (var element in rightInputEventArray)
+        {
+            if (element.AsText() == keyAsText)
+            {
+                return true;
+            }
+        }
+
+        if(dashInputEventArray.AsText() == keyAsText)
+        {
+            return true;
+        }
+
+
+        // Else this key is not currently used, so it can be assigned to the new action
+        return false;
+    }
 }
