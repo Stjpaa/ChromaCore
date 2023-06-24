@@ -79,6 +79,7 @@ public partial class InputsResource : Resource
 
                     upInputEventArray[indexOfButton] = replacementInput;
                     SaveResource(); // Save The change
+
                 }
                 break;
 
