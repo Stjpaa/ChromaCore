@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.ComponentModel.Design;
+using System.Linq;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -21,6 +22,9 @@ public partial class RemapInputs : Control
 
     public override void _Ready()
     {
+        var Test = InputMap.ActionGetEvents("Jump")[0].AsText().Split(' ').First();
+        GD.Print("cast to key:" + Test);
+
         inputPanel = (Panel)GetNode("SetInputPanel");
 
         if (inputsResource == null)
