@@ -1,10 +1,10 @@
 Button
+Label
 ColorRect
 CanvasLayer
 CenterContainer
 Control
 SubViewport
-Label
 Node
 HBoxContainer
 MarginContainer

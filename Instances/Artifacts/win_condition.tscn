@@ -1,6 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjqlsx6eh25gp"]
+[gd_scene load_steps=5 format=3 uid="uid://cjqlsx6eh25gp"]
 
 [ext_resource type="Script" path="res://Instances/Artifacts/win_condition.cs" id="1_dqsw2"]
+[ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="2_8pdx4"]
+[ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="3_ie7qg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2r3rd"]
+shader = ExtResource("2_8pdx4")
+shader_parameter/bg_color = null
+shader_parameter/position = null
 
 [node name="WinCondition" type="Node2D"]
 script = ExtResource("1_dqsw2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 128
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_2r3rd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.9999
+offset_top = -96.9999
+offset_right = -15.9999
+offset_bottom = -70.9999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+text = "You Won"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -15.0
+offset_right = 30.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = "Back To Menu"
+
+[node name="UINavigationManager" parent="CanvasLayer/ColorRect" node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("3_ie7qg")]
+layout_mode = 1
+focusNodeOnStart = NodePath("../Button")
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="." method="QuitGame"]
