@@ -23,7 +23,7 @@ namespace GrapplingHook
 			// Max distance for grappling hook
 			DrawArc(Vector2.Zero,
 					radius,
-					0, 360, 64, new Color(1, 0, 0));
+					0, 360, 64, new Color(1, 0, 0), 1, true);
 
 			if (showDebugLines)
 			{
