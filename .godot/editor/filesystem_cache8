@@ -255,15 +255,15 @@ SettingsButton.cs::CSharpScript::-1::1687089115::0::1::::<><>::
 ::res://Instances/Menus/PauseMenu/::1687448993
 PauseMenu.cs::CSharpScript::-1::1687448993::0::1::::<><>::
 pause_menu.tscn::PackedScene::5186019398921320722::1687430784::0::1::::<><>::res://Instances/Menus/PauseMenu/PauseMenu.cs<>uid://fxcogg7m5cng<>res://Instances/Menus/MainMenu/SettingsButton.cs<>uid://cpr2xot8ce81u
-::res://Instances/Menus/SettingsMenu/::1687739746
-SettingsMenu.cs::CSharpScript::-1::1687280870::0::1::::<><>::
-settings_menu.tscn::PackedScene::5862449642020635052::1687739746::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>uid://ddm6gbeewi6js<>uid://fxcogg7m5cng
+::res://Instances/Menus/SettingsMenu/::1687741635
+BaseInputsResource.cs::CSharpScript::-1::1687741659::0::1::::<><>::
+SettingsMenu.cs::CSharpScript::-1::1687740646::0::1::::<><>::
+settings_menu.tscn::PackedScene::5862449642020635052::1687741644::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>uid://ddm6gbeewi6js<>uid://fxcogg7m5cng
 SoundSaveData.cs::CSharpScript::-1::1687280260::0::1::::<><>::
-::res://Instances/Menus/SettingsMenu/Remap Inputs/::1687739837
-BaseInputsResource.cs::CSharpScript::-1::1687579693::0::1::::<><>::
-InputsResource.cs::CSharpScript::-1::1687739837::0::1::::<><>::
-RemapInputs.cs::CSharpScript::-1::1687739213::0::1::::<><>::
-RemapInputs.tscn::PackedScene::7396494115495366880::1687739746::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs
+::res://Instances/Menus/SettingsMenu/Remap Inputs/::1687741643
+InputsResource.cs::CSharpScript::-1::1687741461::0::1::::<><>::
+RemapInputs.cs::CSharpScript::-1::1687741453::0::1::::<><>::
+RemapInputs.tscn::PackedScene::7396494115495366880::1687740553::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs
 RemapInputsButton.cs::CSharpScript::-1::1687579379::0::1::::<><>::
 ::res://Instances/SaveSystem/::1687719497
 LevelInstantiater.cs::CSharpScript::-1::1687450738::0::1::::<><>::
