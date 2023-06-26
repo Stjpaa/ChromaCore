@@ -21,11 +21,11 @@ _soundFiles = {
 "jump_01": ExtResource("7_cysji"),
 "jump_02": ExtResource("8_a7yot"),
 "landing": ExtResource("9_ld741"),
-"level_01_amb": ExtResource("9_7ln54"),
 "level_3": ExtResource("3_wsvxh"),
 "step": ExtResource("10_3spm6")
 }
 _musicFiles = {
+"level_01_amb": ExtResource("9_7ln54"),
 "level_3": ExtResource("3_wsvxh")
 }
 _teleporterSounds = [ExtResource("4_r4yp4"), ExtResource("5_47qk1")]
