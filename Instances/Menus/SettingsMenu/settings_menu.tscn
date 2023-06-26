@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ddm6gbeewi6js" path="res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn" id="2_4sdvf"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="2_upaap"]
 
-[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("masterSlider")]
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("remapInputs", "masterSlider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_74ihc")
+remapInputs = NodePath("Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/RemapInputs")
 masterSlider = NodePath("Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/MasterContainer/MasterSlider")
 
 [node name="Theme" type="Control" parent="."]

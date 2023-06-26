@@ -16,7 +16,7 @@ public partial class RemapInputs : Control
 
     [Export] private CanvasLayer setInputWindow;
     private RemapInputsButton currentRemapInputsButton;
-    private bool replaceInput = false;
+    public bool replaceInput = false;
 
     private InputsResource inputsResource;
 
@@ -40,7 +40,7 @@ public partial class RemapInputs : Control
 
         if (inputEvent is InputEventKey inputKey)
         {
-            if(inputKey.AsTextKeycode() == "Escape")
+            if (inputKey.AsTextKeycode() == "Escape")
             {
             }
             else if (inputsResource.IsKeyUsedAnywhere(inputKey.AsText()))
@@ -52,14 +52,17 @@ public partial class RemapInputs : Control
                 inputsResource.ReplaceInputMapAction(currentRemapInputsButton.inputToRemapType, currentRemapInputsButton.positionInRemapArray, inputEvent);
             }
 
-           
+
             currentRemapInputsButton.UpdateButtonText();
-            setBlockPanelVisibility(false);
-            replaceInput = false;
+            EndRemapping();
         }
     }
 
-
+    public void EndRemapping()
+    {
+        setBlockPanelVisibility(false);
+        replaceInput = false;
+    }
 
     public void OnButtonPressed(RemapInputsButton clickedButton)
     {

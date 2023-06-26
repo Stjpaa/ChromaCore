@@ -166,6 +166,7 @@ color = Color(0.305882, 0.305882, 0.305882, 0.556863)
 
 [node name="ColorRect" type="ColorRect" parent="SetInputWindow/Background Blur"]
 custom_minimum_size = Vector2(300, 200)
+layout_mode = 0
 offset_left = 426.0
 offset_top = 223.5
 offset_right = 726.0
@@ -186,3 +187,14 @@ offset_bottom = 13.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Waiting for Input"
+
+[node name="Button" type="Button" parent="SetInputWindow/Background Blur/ColorRect"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 271.0
+offset_top = -0.5
+offset_right = 301.0
+offset_bottom = 30.5
+text = "x"
+
+[connection signal="pressed" from="SetInputWindow/Background Blur/ColorRect/Button" to="." method="EndRemapping"]
