@@ -8,8 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://47x65qa1synr" path="res://Assets/Sounds/Button_1.wav" id="6_0n4xg"]
 [ext_resource type="AudioStream" uid="uid://44mgrkn2q4w" path="res://Assets/Sounds/Player/Jump/jump_01.wav" id="7_cysji"]
 [ext_resource type="AudioStream" uid="uid://d33rsoxf053ko" path="res://Assets/Sounds/Player/Jump/jump_02.wav" id="8_a7yot"]
-[ext_resource type="AudioStream" uid="uid://cs0vqu7dlevtd" path="res://Assets/Sounds/Death_05.wav" id="8_yvdrj"]
-[ext_resource type="AudioStream" uid="uid://d2p60xbtmcd0v" path="res://Assets/Sounds/Level_01_Amb.wav" id="9_7ln54"]
+[ext_resource type="AudioStream" path="res://Assets/Sounds/Death_05.wav" id="8_yvdrj"]
+[ext_resource type="AudioStream" path="res://Assets/Sounds/Level_01_Amb.wav" id="9_7ln54"]
 [ext_resource type="AudioStream" uid="uid://4q7kufcmlo00" path="res://Assets/Sounds/Player/Landing/JumpImpactStone_01.wav" id="9_ld741"]
 [ext_resource type="AudioStream" uid="uid://de0aw1em1okpi" path="res://Assets/Sounds/Player/Step/StepOnSand_01.wav" id="10_3spm6"]
 

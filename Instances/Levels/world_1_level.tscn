@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="11_3waut"]
 [ext_resource type="PackedScene" uid="uid://b117q2ya6dts7" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn" id="11_s2f1l"]
 [ext_resource type="PackedScene" uid="uid://c12awd8dlrugm" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="13_awulj"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Tilesets/Merged Atlases.png" id="14_etkmo"]
+[ext_resource type="Texture2D" uid="uid://cvdu4idphci0x" path="res://Assets/Sprites/Tilesets/Merged Atlases.png" id="14_etkmo"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="14_u04ri"]
 [ext_resource type="PackedScene" path="res://Instances/Artifacts/win_condition.tscn" id="15_dq6rn"]
 [ext_resource type="PackedScene" uid="uid://nv4s53vmoxpl" path="res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn" id="15_obdj8"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b3clekngejd46" path="res://Instances/UIobjects/LevelTimer/timer.tscn" id="22_mm6fn"]
 [ext_resource type="PackedScene" uid="uid://cs253h11xbsa5" path="res://Instances/Levels/LevelManager.tscn" id="23_cjk7j"]
 [ext_resource type="PackedScene" uid="uid://cf5e8m8gqmt4m" path="res://Instances/Menus/PauseMenu/pause_menu.tscn" id="24_eykh2"]
-[ext_resource type="Script" path="res://Instances/Singletons/level_music.cs" id="25_w3kki"]
+[ext_resource type="Script" path="res://Instances/Singletons/level_music.cs" id="25_1n73d"]
 
 [sub_resource type="Gradient" id="Gradient_ws3ps"]
 offsets = PackedFloat32Array(0, 0.0852941, 0.844118)
@@ -1008,7 +1008,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.992661, 0.120933)
 shader_parameter/strength = 6.66667
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sjfn"]
 resource_local_to_scene = true
@@ -1026,7 +1026,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0.987964, 0.154681)
 shader_parameter/strength = 6.66667
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvna7"]
 resource_local_to_scene = true
@@ -2348,6 +2348,7 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_678ym")
+disabled = true
 
 [node name="GravityDirection" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time2/GravityfieldCollider" index="0"]
 position = Vector2(197, -24)
@@ -2377,6 +2378,7 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time4" index="0"]
 shape = SubResource("RectangleShape2D_1sjfn")
+disabled = true
 
 [node name="GravityDirection" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time4/GravityfieldCollider" index="0"]
 position = Vector2(-198, -31)
@@ -3879,7 +3881,7 @@ levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
 [node name="PauseMenu" parent="." instance=ExtResource("24_eykh2")]
 
 [node name="MusicTrigger" type="Node" parent="."]
-script = ExtResource("25_w3kki")
+script = ExtResource("25_1n73d")
 _music = "level_01_amb"
 
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform"]
