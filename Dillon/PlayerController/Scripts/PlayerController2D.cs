@@ -47,6 +47,10 @@ namespace PlayerController
 		#region Shader Variables
 		private ShaderMaterial _shaderMaterial;
 		private Vector2 _startPosition;
+		private GpuParticles2D _landingParticle;
+		private GpuParticles2D _afterimageRight;
+		private GpuParticles2D _afterimageLeft;
+		private float _looking_direction;
 		#endregion
 
 		#region Balancing
@@ -80,6 +84,7 @@ namespace PlayerController
 		// Object interaction variables
 		public float BoxInteractionImpuls { get { return data.boxInteractionImpuls; } }
 		#endregion
+		private SoundManager _sound_manager;
 
 		public override void _Ready()
 		{
@@ -96,6 +101,10 @@ namespace PlayerController
 
 			_shaderMaterial = GetNode<CanvasLayer>("CanvasLayer2").GetNode<ColorRect>("ColorRect").Material as ShaderMaterial;
 			_startPosition = Transform.Origin;
+			_landingParticle = GetNode<GpuParticles2D>("GPUParticles2D");
+			_afterimageRight = GetNode<GpuParticles2D>("GPUParticles2D_Afterimage_Right");
+			_afterimageLeft = GetNode<GpuParticles2D>("GPUParticles2D_Afterimage_Left");
+			_sound_manager = GetNode<SoundManager>("/root/SoundManager");
 			FollowingCamera.GlobalPosition = this.GlobalPosition;
 			_checkpointPosition = Transform.Origin;
 		}
@@ -103,12 +112,23 @@ namespace PlayerController
 		public override void _Process(double delta)
 		{
 			_currentState.ExecuteProcess();
+			_looking_direction = Input.GetAxis("Move_Left", "Move_Right");
+			if(_looking_direction > 0.1)
+			{
+				_afterimageRight.Emitting = true;
+				_afterimageLeft.Emitting = false;
+			}
+			else if(_looking_direction < -0.1)
+			{
+				_afterimageLeft.Emitting = true;
+				_afterimageRight.Emitting = false;
+			}
 			//GD.Print(Velocity);
 		}
 
 		public override void _PhysicsProcess(double delta)
 		{
-			_currentState.ExecutePhysicsProcess();
+			_currentState.ExecutePhysicsProcess(delta);
 
 			MoveAndSlide();
 			CheckCollisionWithBox();
@@ -287,6 +307,18 @@ namespace PlayerController
 		public Vector2 GetHookStartPosition()
 		{
 			return _hookStartPositioNode.GlobalPosition;
+		}
+
+		public void TriggerLandingParticles()
+		{
+			_landingParticle.Emitting = false;
+			_landingParticle.Emitting = true;
+			GD.Print("Particle emitted!");
+		}
+
+		public void PlaySound(String sound)
+		{
+			_sound_manager.PlaySound(sound);
 		}
 	}
 }

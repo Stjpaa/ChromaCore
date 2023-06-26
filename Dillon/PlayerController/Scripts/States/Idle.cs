@@ -21,7 +21,7 @@ namespace PlayerController.States
                 _playerController2D.AnimatedSprite2D.Play("JumpEnd");
             }
         }
-        public override void ExecutePhysicsProcess()
+        public override void ExecutePhysicsProcess(double delta)
         {
             if (CheckTransitionToJumping()) { return; }
             if (CheckTransitionToMoving()) { return; }
@@ -34,6 +34,7 @@ namespace PlayerController.States
             var jumpPressedTrigger = Input.IsActionJustPressed("Jump");
             if (jumpPressedTrigger)
             {
+                _playerController2D.PlaySound("jump_01");
                 _playerController2D.ChangeState(new Jumping(_playerController2D, true));
                 return true;
             }

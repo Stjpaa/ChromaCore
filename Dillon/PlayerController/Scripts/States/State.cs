@@ -14,7 +14,7 @@ namespace PlayerController.States
             _playerController2D = playerController2D;
         }
         public abstract void Enter();
-        public virtual void ExecutePhysicsProcess() { }
+        public virtual void ExecutePhysicsProcess(double delta) { }
         public virtual void ExecuteProcess() { }
         public abstract void Exit();
     }
