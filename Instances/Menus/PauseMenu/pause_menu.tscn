@@ -65,15 +65,14 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_bottom = NodePath("../SettingsButton")
-text = "Continue	"
+text = "Continue"
 
 [node name="SettingsButton" type="Button" parent="Blur/PauseMenuUI/PauseMenuMenu/BackgroundPanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("menuOfThisButton", "settingsMenu")]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../ContinueButton")
 focus_neighbor_bottom = NodePath("../TestSaveButton")
-text = "Settings
-"
+text = "Settings"
 script = ExtResource("3_sqfn4")
 menuOfThisButton = NodePath("../../../../..")
 settingsMenu = NodePath("../../../../../../SettingsMenu")
@@ -83,15 +82,13 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
-text = "Test Save
-"
+text = "Test Save"
 
 [node name="QuitButton" type="Button" parent="Blur/PauseMenuUI/PauseMenuMenu/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../TestSaveButton")
-text = "Quit
-"
+text = "Quit"
 
 [node name="SettingsMenu" parent="Blur" instance=ExtResource("4_8ouh5")]
 visible = false

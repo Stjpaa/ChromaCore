@@ -1,15 +1,17 @@
-Control
+Button
+Label
+ColorRect
 CanvasLayer
+CenterContainer
+Control
+SubViewport
+Node
 HBoxContainer
 MarginContainer
 PanelContainer
-CenterContainer
-Button
-ColorRect
 GPUParticles2D
 HSlider
 ProgressBar
-Label
 Panel
 TextureRect
 AnimationPlayer
@@ -19,7 +21,6 @@ VBoxContainer
 ItemList
 Node2D
 CheckBox
-Node
 Container
 CollisionShape2D
 Area2D
@@ -29,4 +30,3 @@ StaticBody2D
 RigidBody2D
 PinJoint2D
 DampedSpringJoint2D
-RayCast2D

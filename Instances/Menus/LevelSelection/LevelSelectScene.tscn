@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://butb3javps1yf"]
+[gd_scene load_steps=10 format=3 uid="uid://butb3javps1yf"]
 
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="1_5pr85"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_xdpmu"]
 [ext_resource type="PackedScene" uid="uid://c3p3f83ty7noa" path="res://Instances/Menus/LevelSelection/LevelSelectLevel.tscn" id="2_n228b"]
-[ext_resource type="PackedScene" uid="uid://dw646wmah1jh4" path="res://Instances/Levels/world_1_level.tscn" id="4_c0kil"]
+[ext_resource type="PackedScene" uid="uid://cho6sp0l7hokm" path="res://Instances/Levels/world_1_level.tscn" id="4_c0kil"]
 [ext_resource type="Texture2D" uid="uid://dxl4wb7b8rvul" path="res://Assets/Planets/CompletedPlanets/planet02.png" id="4_drp23"]
+[ext_resource type="PackedScene" uid="uid://d3bfyksviia7o" path="res://Instances/Levels/world_2_level.tscn" id="6_0uxn0"]
 [ext_resource type="Script" path="res://Instances/Menus/LevelSelection/LoadMainMenu.cs" id="6_1aw0g"]
+[ext_resource type="Texture2D" uid="uid://bsw1lj30wqs8r" path="res://Assets/Planets/CompletedPlanets/planet07.png" id="7_fvj75"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nnya4"]
 shader = ExtResource("1_5pr85")
@@ -46,10 +48,10 @@ layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 179.0
-offset_top = 195.0
-offset_right = 179.0
-offset_bottom = 195.0
+offset_left = 328.0
+offset_top = 265.0
+offset_right = 328.0
+offset_bottom = 265.0
 baseLevelToLoad = ExtResource("4_c0kil")
 planetTexture = ExtResource("4_drp23")
 
@@ -57,6 +59,24 @@ planetTexture = ExtResource("4_drp23")
 text = "Load Level"
 
 [node name="DeleteButton" parent="Background/Levels/Level1/VBoxContainer" index="1"]
+focus_neighbor_bottom = NodePath("../../../../MainMenuButton")
+
+[node name="Level2" parent="Background/Levels" instance=ExtResource("2_n228b")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 800.0
+offset_top = 265.0
+offset_right = 800.0
+offset_bottom = 265.0
+baseLevelToLoad = ExtResource("6_0uxn0")
+planetTexture = ExtResource("7_fvj75")
+
+[node name="LoadButton" parent="Background/Levels/Level2/VBoxContainer" index="0"]
+text = "Load Level"
+
+[node name="DeleteButton" parent="Background/Levels/Level2/VBoxContainer" index="1"]
 focus_neighbor_bottom = NodePath("../../../../MainMenuButton")
 
 [node name="MainMenuButton" type="Button" parent="Background"]
@@ -74,3 +94,4 @@ script = ExtResource("6_1aw0g")
 pathToMainMenu = "res://Instances/Menus/MainMenu/main_menu.tscn"
 
 [editable path="Background/Levels/Level1"]
+[editable path="Background/Levels/Level2"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2o1dkvnu6rgc"]
 
 [ext_resource type="Script" path="res://Instances/Gameobjects/Laser/Laser_Timed.cs" id="1_44xff"]
-[ext_resource type="Texture2D" uid="uid://cekaod2annpte" path="res://characters.png" id="1_d8ctd"]
+[ext_resource type="Texture2D" uid="uid://cmkv6xs6xm4ek" path="res://Assets/Sprites/laserUp.png" id="2_u72go"]
 [ext_resource type="Shader" path="res://Shaders/laser_beam.gdshader" id="2_uixjf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ffrtd"]
@@ -28,7 +28,10 @@ script = ExtResource("1_44xff")
 
 [node name="Laser_Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_d8ctd")
+position = Vector2(-8, 0)
+rotation = 1.5708
+scale = Vector2(0.273, 0.25)
+texture = ExtResource("2_u72go")
 
 [node name="Laser_Rect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ffrtd")

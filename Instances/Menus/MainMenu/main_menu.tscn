@@ -19,10 +19,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -1.0
-offset_right = -3.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -44,6 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sj37n")
 firstActiveMenu = NodePath("MainMenu")
+metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" type="Control" parent="ColorRect/Menu Ready Disabler"]
 layout_mode = 1
@@ -122,8 +119,7 @@ focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../PlayButton")
 theme_override_font_sizes/font_size = 25
-text = "Settings
-"
+text = "Settings"
 script = ExtResource("5_mygwh")
 menuOfThisButton = NodePath("../../../../../..")
 settingsMenu = NodePath("../../../../../../../SettingsMenu")
@@ -135,8 +131,7 @@ focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath("../SettingsButton")
 theme_override_font_sizes/font_size = 25
-text = "Exit
-"
+text = "Exit"
 script = ExtResource("4_4if3e")
 
 [node name="SettingsMenu" parent="ColorRect/Menu Ready Disabler" instance=ExtResource("6_h7h74")]

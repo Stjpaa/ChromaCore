@@ -8,6 +8,7 @@ public partial class LevelTimer : Control
 
     public override void _Process(double delta)
     {
+
         timeLevelWasPlayedInSeconds += delta;
     }
 }

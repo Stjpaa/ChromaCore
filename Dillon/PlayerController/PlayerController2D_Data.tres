@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d1vr7kylk8xma"]
+[gd_resource type="Resource" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Dillon/PlayerController/Scripts/PlayerController2D_Data.cs" id="1_l1osh"]
+
 
 [resource]
 script = ExtResource("1_l1osh")
@@ -18,6 +19,6 @@ dashSpeed = 1200.0
 dashDuration = 0.1
 dashCooldown = 2.0
 coyoteTimeDuration = 0.5
-apexModifierDuration = 0.05
+apexModifierDuration = 0.02
 apexModifierMovementBoost = 1.0
 boxInteractionImpuls = 20.0

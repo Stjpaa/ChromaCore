@@ -64,7 +64,12 @@ public partial class UINavigationManager : Control
     public override void _Process(double delta)
     {
 
-        switch (currentControlType)
+        if (this.IsVisibleInTree() == false)
+        {
+            return;
+        }
+
+            switch (currentControlType)
         {
             case UIControlTypeEnum.KeyboardControl:
                 {
@@ -96,6 +101,7 @@ public partial class UINavigationManager : Control
 
     private void SwitchToMouseControl()
     {
+
         mouseBlockPanel.Visible = false;
         Input.MouseMode = Input.MouseModeEnum.Visible;
         currentControlType = UIControlTypeEnum.MouseControl;
@@ -108,7 +114,7 @@ public partial class UINavigationManager : Control
     {
 
         mouseBlockPanel.Visible = true;
-        MoveMouseScreenPosition(GetViewport().GetMousePosition() + new Vector2(0.1f, 0));   // ugly temporary solution. Fixes the Problem, that an UI element still thinks its being hovered by the mouse after the block panel was added. this gets updated once the mouse is moved
+        //MoveMouseScreenPosition(GetViewport().GetMousePosition() + new Vector2(0.1f, 0));   // ugly temporary solution. Fixes the Problem, that an UI element still thinks its being hovered by the mouse after the block panel was added. this gets updated once the mouse is moved
 
 
         focusNodeOnStart.GrabFocus();

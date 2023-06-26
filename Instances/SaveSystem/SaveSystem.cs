@@ -9,6 +9,8 @@ using static System.Formats.Asn1.AsnWriter;
 public static class SaveSystem
 {
     public const string pathOfRemapInputsData = "user://RemapedInputs.json";
+    public const string pathOfSoundData = "user://SoundData.json";
+
     private const string pathOfLevelInstantiater = "res://Instances/SaveSystem/LevelInstantiater.tscn";
 
     public const string pathToLevelSelectScreen = "res://Instances/Menus/LevelSelection/LevelSelectScene.tscn";
@@ -33,10 +35,7 @@ public static class SaveSystem
 
         var sceneRoot = currentScene.Root;
 
-        foreach (var child in sceneRoot.GetChildren())  // Remove all current Nodes in the Scene
-        {
-            child.QueueFree();
-        }
+        sceneRoot.GetNode("LevelInstantiater").QueueFree();
 
         sceneRoot.AddChild(levelSelectScene);
     }
@@ -59,6 +58,7 @@ public static class SaveSystem
 
         LevelInstantiater levelInstantiaterOfScene = (LevelInstantiater)levelInstanciaterScene;
         levelInstantiaterOfScene.levelToBeInstantiatedPath = levelToBeLoaded.baseLevelToLoad.ResourcePath;
+        GD.Print("Level Exists = " + (levelToBeLoaded.baseLevelToLoad != null) + " Base Level Path:" + levelToBeLoaded.baseLevelToLoad.ResourcePath);
 
 
 
@@ -66,10 +66,7 @@ public static class SaveSystem
 
         var sceneRoot = levelToBeLoaded.GetTree().Root;
 
-        foreach (var child in sceneRoot.GetChildren())  // Remove all current Nodes in the Scene
-        {
-            child.QueueFree();
-        }
+        sceneRoot.GetNode("LevelSelectScene").QueueFree();
 
         sceneRoot.AddChild(levelInstanciaterScene);
 
@@ -190,37 +187,41 @@ public static class SaveSystem
         File.WriteAllText(sceneSaveDataPath, json_str);
     }
 
-    public static RemapInputsSavedata LoadRemapInputsSavedata()
+    
+
+    public static SoundSaveData LoadSoundSavedata()
     {
-        string levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(pathOfRemapInputsData);
+        string soundSaveDataGlobalPath = ProjectSettings.GlobalizePath(pathOfSoundData);
 
-        if (DoesFileExistAtPath(pathOfRemapInputsData))
+        if (DoesFileExistAtPath(pathOfSoundData))
         {
-            string text = File.ReadAllText(levelVariableSaveDataGlobalPath);
+            string text = File.ReadAllText(soundSaveDataGlobalPath);
 
-            return JsonSerializer.Deserialize<RemapInputsSavedata>(text);
+            return JsonSerializer.Deserialize<SoundSaveData>(text);
 
         }
         else
         {
-            return new RemapInputsSavedata();
+            return new SoundSaveData();
         }
     }
 
-    public static void SaveRemapInputsSavedata(RemapInputsSavedata data)
+    public static void SaveSoundSavedata(SoundSaveData data)
     {
         var options = new JsonSerializerOptions // just makes the Json File better Readable
         {
             WriteIndented = true
         };
 
-        string sceneSaveDataPath = ProjectSettings.GlobalizePath(pathOfRemapInputsData);
+        string soundSaveDataPath = ProjectSettings.GlobalizePath(pathOfSoundData);
 
         string json_str = JsonSerializer.Serialize(data, options);
 
         // Write the JSON string to file
-        File.WriteAllText(sceneSaveDataPath, json_str);
+        File.WriteAllText(soundSaveDataPath, json_str);
     }
+
+    
 
     public static void DeleteLevelVariableSaveData(PackedScene scene)
     {

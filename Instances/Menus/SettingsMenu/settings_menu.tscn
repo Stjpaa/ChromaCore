@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpr2xot8ce81u"]
+[gd_scene load_steps=4 format=3 uid="uid://cpr2xot8ce81u"]
 
 [ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/SettingsMenu.cs" id="1_74ihc"]
+[ext_resource type="PackedScene" uid="uid://ddm6gbeewi6js" path="res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn" id="2_4sdvf"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="2_upaap"]
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("remapInputs", "masterSlider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_74ihc")
+remapInputs = NodePath("Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/RemapInputs")
+masterSlider = NodePath("Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/MasterContainer/MasterSlider")
 
 [node name="Theme" type="Control" parent="."]
 layout_mode = 1
@@ -47,6 +50,7 @@ layout_mode = 2
 [node name="BackgroundPanelContainer" type="PanelContainer" parent="Theme/Blur/MarginContainer/CenterContainer"]
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
+size_flags_stretch_ratio = 11.12
 
 [node name="MarginContainer" type="MarginContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer"]
 layout_mode = 2
@@ -67,21 +71,6 @@ text = "Settings Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FullscreenContainer" type="VBoxContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox" type="CheckBox" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/FullscreenContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/FullscreenContainer/CheckBox"]
-layout_mode = 2
-offset_left = 29.0
-offset_top = -4.0
-offset_right = 122.0
-offset_bottom = 22.0
-text = "Fullscreen
-"
-
 [node name="MasterContainer" type="HBoxContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
@@ -98,16 +87,32 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 50.0
 
+[node name="FullscreenContainer" type="VBoxContainer" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/FullscreenContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="CheckBox" type="CheckBox" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/FullscreenContainer/Label"]
+layout_mode = 2
+offset_left = 91.0
+offset_top = 2.0
+offset_right = 379.0
+offset_bottom = 26.0
+
+[node name="RemapInputs" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_4sdvf")]
+layout_mode = 2
+
 [node name="BackButton" type="Button" parent="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Back
-"
+text = "Back"
 
 [node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("2_upaap")]
 layout_mode = 1
 focusNodeOnStart = NodePath("../Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/MasterContainer/MasterSlider")
 
-[connection signal="toggled" from="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/FullscreenContainer/CheckBox" to="." method="ChangeToFullscreen"]
 [connection signal="value_changed" from="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/MasterContainer/MasterSlider" to="." method="SignalMasterSliderValueChanged"]
+[connection signal="toggled" from="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/FullscreenContainer/Label/CheckBox" to="." method="ChangeToFullscreen"]
 [connection signal="pressed" from="Theme/Blur/MarginContainer/CenterContainer/BackgroundPanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="CloseSettingsMenu"]

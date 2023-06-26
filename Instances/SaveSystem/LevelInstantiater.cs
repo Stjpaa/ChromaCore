@@ -22,8 +22,7 @@ public partial class LevelInstantiater : Node2D
 
 	private LevelManager levelManager;      // responsible for creating the updated SaveData for the current Level
 
-
-	public override void _Ready()
+    public override void _Ready()
 	{
 
 		//if (!SaveSystem.DoesFileExistAtPath(levelToBeInstantiatedPath))
@@ -77,13 +76,18 @@ public partial class LevelInstantiater : Node2D
 
 	private async Task InstanciateLevelAsync()
 	{
-		if (SaveSystem.DoesFileExistAtPath(levelToBeInstantiatedPath) == false)
-		{
-			GD.Print("levelToBeInstantiatedPath in LevelInstantiater has no valid value assigned to it");
-			return;
-		}
+		//if (SaveSystem.DoesFileExistAtPath(levelToBeInstantiatedPath) == false)		// somehow doesnt work when Build. works at Runtime
+		//{
+		//	GD.Print("levelToBeInstantiatedPath in LevelInstantiater has no valid value assigned to it");
+		//	return;
+		//}
+
+
+
+
 
 		sceneToLoad = ResourceLoader.Load<PackedScene>(levelToBeInstantiatedPath);
+
 		SetSaveData();
 
 
@@ -93,8 +97,6 @@ public partial class LevelInstantiater : Node2D
 
 		ResourceLoader.LoadThreadedRequest(levelToBeInstantiatedPath);    // initiate the Background Loading
 
-
-
 		levelRoot.Visible = false;
 		levelRoot.ProcessMode = ProcessModeEnum.Disabled;
 
@@ -103,9 +105,17 @@ public partial class LevelInstantiater : Node2D
 
 		Node loadedSceneNode = loadedScene.Instantiate();
 
-		levelRoot.AddChild(loadedSceneNode);    // does only work partialy, for some reason the loadedScene doesnt get deleted properly in some cases, but i have no idea how to fix this
 
+
+        await loadingScreenTask;
+		levelRoot.Visible = true;
+		levelRoot.ProcessMode = ProcessModeEnum.Inherit;
+
+
+
+		levelRoot.AddChild(loadedSceneNode);    // does only work partialy, for some reason the loadedScene doesnt get deleted properly in some cases, but i have no idea how to fix this
 		loadedSceneNode.Owner = levelRoot;      // doesnt get set automatically, probably because its an Instantiated Scene... I dont know what Godots problem is
+
 
 
 		levelManager = (LevelManager)levelRoot.GetChild(0).GetNode("LevelManager");
@@ -128,16 +138,13 @@ public partial class LevelInstantiater : Node2D
         
 
 
-        await loadingScreenTask;
 
 
-        if (pauseMenu != null)
-        {
-            pauseMenu.ActivatePauseMenuProcess();	// otherwise you could pause the game while in the Loadingscreen
-        }
-        levelRoot.Visible = true;
-        levelRoot.ProcessMode = ProcessModeEnum.Inherit;
-    }
+		if (pauseMenu != null)
+		{
+			pauseMenu.ActivatePauseMenuProcess();   // otherwise you could pause the game while in the Loadingscreen
+		}
+	}
 
 	public async Task QuitLevelAsync()
 	{

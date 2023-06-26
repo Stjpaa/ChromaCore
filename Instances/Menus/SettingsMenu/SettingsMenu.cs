@@ -6,13 +6,18 @@ public partial class SettingsMenu : Control
     private int masterIndex;
     public Control menuToReturnTo; // set when Oppening the SettingsMenu
 
+    private SoundSaveData soundSaveData;
+    [Export]private RemapInputs remapInputs;
+
+    [Export] private Slider masterSlider;
+
     public override void _Ready()
     {
         LoadSavedSettings();
         masterIndex = AudioServer.GetBusIndex("Master");
     }
 
-    public override void _Process(double delta)
+    public override void _Process(double delta)       // Problem with 
     {
         if (Input.IsActionJustPressed("ui_cancel"))
         {
@@ -30,6 +35,8 @@ public partial class SettingsMenu : Control
 
     public void SignalMasterSliderValueChanged(float sliderValue)
     {
+        soundSaveData.masterVolume = sliderValue;
+        SaveSystem.SaveSoundSavedata(soundSaveData);
         if(sliderValue == 0)    // Mute the bus if the slider is 0
         {
             AudioServer.SetBusMute(masterIndex, true);
@@ -41,11 +48,6 @@ public partial class SettingsMenu : Control
         float valueInDB = SliderfloatToDB(sliderValue);
 
         AudioServer.SetBusVolumeDb(masterIndex, valueInDB);
-
-
-
-
-        //GD.Print(AudioServer.GetBusVolumeDb(masterIndex));
     }
 
     private float SliderfloatToDB(float sliderValue)
@@ -93,6 +95,8 @@ public partial class SettingsMenu : Control
 
     private void LoadSavedSettings()
     {
-        GD.Print("Add Load Setings Logic, set SLider to right value");
+        soundSaveData = SaveSystem.LoadSoundSavedata();
+
+        masterSlider.Value = soundSaveData.masterVolume;
     }
 }

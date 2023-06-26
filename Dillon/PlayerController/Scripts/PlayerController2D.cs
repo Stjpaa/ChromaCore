@@ -123,7 +123,7 @@ namespace PlayerController
 				_afterimageLeft.Emitting = true;
 				_afterimageRight.Emitting = false;
 			}
-			GD.Print(Velocity);
+			//GD.Print(Velocity);
 		}
 
 		public override void _PhysicsProcess(double delta)
@@ -145,7 +145,7 @@ namespace PlayerController
 			_previousState?.Exit();
 			_currentState.Enter();
 
-			GD.Print("Entered state: " + _currentState.Name);
+			//GD.Print("Entered state: " + _currentState.Name);
 		}
 
 		#region Communication with other game objects
