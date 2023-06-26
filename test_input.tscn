@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccp1dgwa5fhx6"]
-
-[ext_resource type="Script" path="res://TestInput.cs" id="1_4qcqc"]
-
-[node name="TestInput" type="Node2D"]
-script = ExtResource("1_4qcqc")

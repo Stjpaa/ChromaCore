@@ -7,6 +7,7 @@ public partial class SettingsMenu : Control
     public Control menuToReturnTo; // set when Oppening the SettingsMenu
 
     private SoundSaveData soundSaveData;
+    [Export]private RemapInputs remapInputs;
 
     [Export] private Slider masterSlider;
 
@@ -16,7 +17,7 @@ public partial class SettingsMenu : Control
         masterIndex = AudioServer.GetBusIndex("Master");
     }
 
-    public override void _Process(double delta)
+    public override void _Process(double delta)       // Problem with 
     {
         if (Input.IsActionJustPressed("ui_cancel"))
         {

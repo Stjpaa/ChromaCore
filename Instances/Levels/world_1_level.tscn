@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=3 uid="uid://cho6sp0l7hokm"]
+[gd_scene load_steps=161 format=3 uid="uid://cho6sp0l7hokm"]
 
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_yidfl"]
 [ext_resource type="PackedScene" uid="uid://d3s6elkjprg46" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="3_0pbfm"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c12awd8dlrugm" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="13_awulj"]
 [ext_resource type="Texture2D" uid="uid://cvdu4idphci0x" path="res://Assets/Sprites/Tilesets/Merged Atlases.png" id="14_etkmo"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="14_u04ri"]
+[ext_resource type="PackedScene" uid="uid://cjqlsx6eh25gp" path="res://Instances/Artifacts/win_condition.tscn" id="15_dq6rn"]
 [ext_resource type="PackedScene" uid="uid://nv4s53vmoxpl" path="res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn" id="15_obdj8"]
 [ext_resource type="PackedScene" uid="uid://c7d5koa6uqj0r" path="res://Instances/Artifacts/Artifact1_1.tscn" id="16_a3vqo"]
 [ext_resource type="PackedScene" uid="uid://caympt3s2vfr0" path="res://Instances/Artifacts/Artifact1_2.tscn" id="17_ni1op"]
@@ -3690,6 +3691,9 @@ _collisionWidth = 200.0
 [node name="Laser_Timed5" parent="Jumppads/TrapsList/Laser" instance=ExtResource("19_hjipx")]
 position = Vector2(13937, -3887)
 
+[node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed5" index="1"]
+offset_right = 960.0
+
 [node name="Laser_Timed6" parent="Jumppads/TrapsList/Laser" instance=ExtResource("19_hjipx")]
 position = Vector2(15118, -3791)
 
@@ -3754,6 +3758,7 @@ position = Vector2(0, -84)
 position = Vector2(15119, -3887)
 
 [node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed7" index="1"]
+offset_right = 175.0
 rotation = 3.14159
 
 [node name="Laser_Target" parent="Jumppads/TrapsList/Laser/Laser_Timed7" index="2"]
@@ -3763,6 +3768,7 @@ position = Vector2(-168, 0)
 position = Vector2(15056, -4254)
 
 [node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed10" index="1"]
+offset_right = 256.0
 rotation = 3.14159
 
 [node name="Laser_Target" parent="Jumppads/TrapsList/Laser/Laser_Timed10" index="2"]
@@ -3772,6 +3778,7 @@ position = Vector2(-232, 0)
 position = Vector2(15120, -4640)
 
 [node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed14" index="1"]
+offset_right = 320.0
 rotation = 3.14159
 
 [node name="Laser_Target" parent="Jumppads/TrapsList/Laser/Laser_Timed14" index="2"]
@@ -3807,16 +3814,18 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="Test" type="Node" parent="."]
 
-[node name="Artifact_part1" parent="Test" instance=ExtResource("16_a3vqo")]
+[node name="WinCondition" parent="Test" instance=ExtResource("15_dq6rn")]
+
+[node name="Artifact_part1" parent="Test/WinCondition" instance=ExtResource("16_a3vqo")]
 position = Vector2(4380, -6572)
 
-[node name="Artifact_part2" parent="Test" instance=ExtResource("17_ni1op")]
+[node name="Artifact_part2" parent="Test/WinCondition" instance=ExtResource("17_ni1op")]
 position = Vector2(15103, -5198)
 
-[node name="Artifact_part3" parent="Test" instance=ExtResource("18_tidhh")]
+[node name="Artifact_part3" parent="Test/WinCondition" instance=ExtResource("18_tidhh")]
 position = Vector2(5823, -3763)
 
-[node name="Artifact_part4" parent="Test" instance=ExtResource("18_tidhh")]
+[node name="Artifact_part4" parent="Test/WinCondition" instance=ExtResource("18_tidhh")]
 position = Vector2(10321, -21)
 
 [node name="LevelSegment" type="Node" parent="."]
@@ -3854,7 +3863,7 @@ scale = Vector2(5.60002, 1)
 _gameObject = NodePath("../Gravityfields/GameobjectList/Box5")
 
 [node name="Player" parent="." node_paths=PackedStringArray("FollowingCamera", "GrapplingHook") instance=ExtResource("19_668wq")]
-position = Vector2(5739, -3768)
+position = Vector2(-663, -10)
 FollowingCamera = NodePath("../FollowingCamera")
 GrapplingHook = NodePath("../GrapplingHook")
 

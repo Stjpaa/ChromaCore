@@ -36,7 +36,7 @@ namespace PlayerController.States
 
         public override void ExecuteProcess()
         {
-            var direction = Input.GetAxis("MoveLeft", "MoveRight");
+            var direction = Input.GetAxis("Move_Left", "Move_Right");
             if(direction < 0)
             {
                 _playerController2D.AnimatedSprite2D.FlipH = true;

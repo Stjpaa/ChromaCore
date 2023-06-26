@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://d3bfyksviia7o"]
+[gd_scene load_steps=84 format=3 uid="uid://d3bfyksviia7o"]
 
 [ext_resource type="PackedScene" uid="uid://bemoqff5lbpsx" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="1_pb7au"]
 [ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/Sprites/Tilesets/atlas.png" id="2_an430"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d2dmdifx4vsp7" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="6_26j1g"]
 [ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="7_mx8ab"]
 [ext_resource type="PackedScene" uid="uid://m3mpklc8drsk" path="res://Dillon/GrapplingHook/GrapplingHook.tscn" id="7_rsubi"]
+[ext_resource type="PackedScene" uid="uid://cjqlsx6eh25gp" path="res://Instances/Artifacts/win_condition.tscn" id="9_867pt"]
 [ext_resource type="PackedScene" uid="uid://0vuadphoaeog" path="res://Dillon/GrapplingHook/HookableArea.tscn" id="10_2752u"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="11_5sy6g"]
 [ext_resource type="PackedScene" uid="uid://c12awd8dlrugm" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="12_8dhs4"]
@@ -1530,17 +1531,19 @@ showDebugLines = false
 
 [node name="Artifacts" type="Node" parent="LevelSegment"]
 
-[node name="Artifact_part1" parent="LevelSegment/Artifacts" instance=ExtResource("16_4cbpx")]
+[node name="WinCondition" parent="LevelSegment/Artifacts" instance=ExtResource("9_867pt")]
+
+[node name="Artifact_part1" parent="LevelSegment/Artifacts/WinCondition" instance=ExtResource("16_4cbpx")]
 position = Vector2(6967, -3405)
 
-[node name="Artifact_part2" parent="LevelSegment/Artifacts" instance=ExtResource("14_qe7l2")]
+[node name="Artifact_part2" parent="LevelSegment/Artifacts/WinCondition" instance=ExtResource("14_qe7l2")]
 position = Vector2(-3228, -4279)
 
-[node name="Artifact_part3" parent="LevelSegment/Artifacts" instance=ExtResource("15_1swhr")]
+[node name="Artifact_part3" parent="LevelSegment/Artifacts/WinCondition" instance=ExtResource("15_1swhr")]
 position = Vector2(-3190, -4279)
 
 [node name="Player" parent="." node_paths=PackedStringArray("FollowingCamera", "GrapplingHook") instance=ExtResource("1_pb7au")]
-position = Vector2(-658, -1992)
+position = Vector2(-145, -30)
 FollowingCamera = NodePath("../FollowingCamera")
 GrapplingHook = NodePath("../GrapplingHook")
 

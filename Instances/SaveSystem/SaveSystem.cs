@@ -187,22 +187,7 @@ public static class SaveSystem
         File.WriteAllText(sceneSaveDataPath, json_str);
     }
 
-    public static RemapInputsSavedata LoadRemapInputsSavedata()
-    {
-        string levelVariableSaveDataGlobalPath = ProjectSettings.GlobalizePath(pathOfRemapInputsData);
-
-        if (DoesFileExistAtPath(pathOfRemapInputsData))
-        {
-            string text = File.ReadAllText(levelVariableSaveDataGlobalPath);
-
-            return JsonSerializer.Deserialize<RemapInputsSavedata>(text);
-
-        }
-        else
-        {
-            return new RemapInputsSavedata();
-        }
-    }
+    
 
     public static SoundSaveData LoadSoundSavedata()
     {
@@ -236,20 +221,7 @@ public static class SaveSystem
         File.WriteAllText(soundSaveDataPath, json_str);
     }
 
-    public static void SaveRemapInputsSavedata(RemapInputsSavedata data)
-    {
-        var options = new JsonSerializerOptions // just makes the Json File better Readable
-        {
-            WriteIndented = true
-        };
-
-        string sceneSaveDataPath = ProjectSettings.GlobalizePath(pathOfRemapInputsData);
-
-        string json_str = JsonSerializer.Serialize(data, options);
-
-        // Write the JSON string to file
-        File.WriteAllText(sceneSaveDataPath, json_str);
-    }
+    
 
     public static void DeleteLevelVariableSaveData(PackedScene scene)
     {
