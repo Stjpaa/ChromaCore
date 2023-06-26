@@ -14,7 +14,7 @@ public partial class RemapInputs : Control
         none, up, down, left, right, dash
     }
 
-    [Export] private Panel inputPanel;
+    [Export] private CanvasLayer setInputWindow;
     private RemapInputsButton currentRemapInputsButton;
     private bool replaceInput = false;
 
@@ -22,10 +22,7 @@ public partial class RemapInputs : Control
 
     public override void _Ready()
     {
-        var Test = InputMap.ActionGetEvents("Jump")[0].AsText().Split(' ').First();
-        GD.Print("cast to key:" + Test);
-
-        inputPanel = (Panel)GetNode("SetInputPanel");
+        setInputWindow = (CanvasLayer)GetNode("SetInputWindow");
 
         if (inputsResource == null)
         {
@@ -45,7 +42,6 @@ public partial class RemapInputs : Control
         {
             if(inputKey.AsTextKeycode() == "Escape")
             {
-                GD.Print("Escape was Pressed to Cancel assingning");
             }
             else if (inputsResource.IsKeyUsedAnywhere(inputKey.AsText()))
             {
@@ -75,7 +71,7 @@ public partial class RemapInputs : Control
 
     private void setBlockPanelVisibility(bool visibleBool)
     {
-        inputPanel.Visible = visibleBool;
+        setInputWindow.Visible = visibleBool;
     }
 
     public string GetTextForButton(RemapInputsButton button)

@@ -1,29 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddm6gbeewi6js"]
+[gd_scene load_steps=3 format=3 uid="uid://ddm6gbeewi6js"]
 
 [ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs" id="1_y178v"]
 [ext_resource type="Script" path="res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs" id="2_4ukqj"]
-[ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="3_r4a1n"]
 
-[node name="RemapInputs" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="RemapInputs" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -133.0
+offset_right = 92.5
+offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y178v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-offset_left = 1.0
-offset_right = 78.0
-offset_bottom = 212.0
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Remap Inputs:"
 
 [node name="UpHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="Up" type="Label" parent="VBoxContainer/UpHBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(80, 50)
 layout_mode = 2
 text = "Up / Jump"
 
@@ -40,7 +46,6 @@ remapInputs = NodePath("../../..")
 [node name="Button2" type="Button" parent="VBoxContainer/UpHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../../DownHBoxContainer/Button")
 text = "
 "
 script = ExtResource("2_4ukqj")
@@ -52,14 +57,13 @@ remapInputs = NodePath("../../..")
 layout_mode = 2
 
 [node name="Down" type="Label" parent="VBoxContainer/DownHBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(80, 50)
 layout_mode = 2
-text = "Down"
+text = "Down        "
 
 [node name="Button" type="Button" parent="VBoxContainer/DownHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "
 "
 script = ExtResource("2_4ukqj")
@@ -69,7 +73,6 @@ remapInputs = NodePath("../../..")
 [node name="Button2" type="Button" parent="VBoxContainer/DownHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "
 "
 script = ExtResource("2_4ukqj")
@@ -81,14 +84,13 @@ remapInputs = NodePath("../../..")
 layout_mode = 2
 
 [node name="Left" type="Label" parent="VBoxContainer/LeftHBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(80, 50)
 layout_mode = 2
 text = "Left"
 
 [node name="Button" type="Button" parent="VBoxContainer/LeftHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "
 "
 script = ExtResource("2_4ukqj")
@@ -98,7 +100,6 @@ remapInputs = NodePath("../../..")
 [node name="Button2" type="Button" parent="VBoxContainer/LeftHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "
 "
 script = ExtResource("2_4ukqj")
@@ -110,14 +111,13 @@ remapInputs = NodePath("../../..")
 layout_mode = 2
 
 [node name="Right" type="Label" parent="VBoxContainer/RightHBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(80, 50)
 layout_mode = 2
 text = "Right"
 
 [node name="Button" type="Button" parent="VBoxContainer/RightHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "
 "
 script = ExtResource("2_4ukqj")
@@ -127,7 +127,6 @@ remapInputs = NodePath("../../..")
 [node name="Button2" type="Button" parent="VBoxContainer/RightHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "
 "
 script = ExtResource("2_4ukqj")
@@ -139,7 +138,7 @@ remapInputs = NodePath("../../..")
 layout_mode = 2
 
 [node name="Dash" type="Label" parent="VBoxContainer/DashHBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(80, 50)
 layout_mode = 2
 text = "Dash
 "
@@ -147,29 +146,33 @@ text = "Dash
 [node name="Button" type="Button" parent="VBoxContainer/DashHBoxContainer" node_paths=PackedStringArray("remapInputs")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../UpHBoxContainer/Button")
 text = "
 "
 script = ExtResource("2_4ukqj")
 inputToRemapType = 5
 remapInputs = NodePath("../../..")
 
-[node name="UINavigationManager" parent="." node_paths=PackedStringArray("focusNodeOnStart") instance=ExtResource("3_r4a1n")]
-layout_mode = 1
-focusNodeOnStart = NodePath("../VBoxContainer/UpHBoxContainer/Button")
-
-[node name="SetInputPanel" type="Panel" parent="."]
+[node name="SetInputWindow" type="CanvasLayer" parent="."]
+layer = 100
 visible = false
-modulate = Color(1, 1, 0.996078, 0.74902)
-top_level = true
-layout_mode = 1
+
+[node name="Background Blur" type="ColorRect" parent="SetInputWindow"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.305882, 0.305882, 0.305882, 0.556863)
 
-[node name="Label" type="Label" parent="SetInputPanel"]
+[node name="ColorRect" type="ColorRect" parent="SetInputWindow/Background Blur"]
+custom_minimum_size = Vector2(300, 200)
+offset_left = 426.0
+offset_top = 223.5
+offset_right = 726.0
+offset_bottom = 423.5
+color = Color(0.337255, 0.337255, 0.337255, 1)
+
+[node name="Label" type="Label" parent="SetInputWindow/Background Blur/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,9 +180,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -65.5
-offset_top = -13.0
+offset_top = -12.5
 offset_right = 65.5
-offset_bottom = 13.0
+offset_bottom = 13.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Waiting for Input"
