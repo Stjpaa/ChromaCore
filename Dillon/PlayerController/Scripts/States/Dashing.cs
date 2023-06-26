@@ -27,6 +27,7 @@ namespace PlayerController.States
         public override void Enter()
         {
             _availableDashes--;
+            _playerController2D.PlaySound("dash");
         }
 
         public override void ExecutePhysicsProcess(double delta)

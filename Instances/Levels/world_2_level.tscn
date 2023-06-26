@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d2dmdifx4vsp7" path="res://Instances/Gameobjects/Traps and Checkpoints/Checkpoint.tscn" id="6_26j1g"]
 [ext_resource type="PackedScene" uid="uid://b1sw6dddgaq2d" path="res://Instances/Gameobjects/Traps and Checkpoints/Spikes.tscn" id="7_mx8ab"]
 [ext_resource type="PackedScene" uid="uid://m3mpklc8drsk" path="res://Dillon/GrapplingHook/GrapplingHook.tscn" id="7_rsubi"]
-[ext_resource type="PackedScene" path="res://Instances/Artifacts/win_condition.tscn" id="9_867pt"]
+[ext_resource type="PackedScene" uid="uid://cjqlsx6eh25gp" path="res://Instances/Artifacts/win_condition.tscn" id="9_867pt"]
 [ext_resource type="PackedScene" uid="uid://0vuadphoaeog" path="res://Dillon/GrapplingHook/HookableArea.tscn" id="10_2752u"]
 [ext_resource type="PackedScene" uid="uid://do5cdmcaycbhc" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn" id="11_5sy6g"]
 [ext_resource type="PackedScene" uid="uid://c12awd8dlrugm" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="12_8dhs4"]

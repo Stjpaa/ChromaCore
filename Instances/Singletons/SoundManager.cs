@@ -17,18 +17,18 @@ public partial class SoundManager : Node
 	[Export]
 	public Godot.Collections.Array<AudioStreamWav> _buttonSounds;
 
-	private AudioStreamPlayer2D music_player;
-	private AudioStreamPlayer2D[] sound_players;
+	private AudioStreamPlayer music_player;
+	private AudioStreamPlayer[] sound_players;
 	private int last_voice = 0;
 
 	public override void _Ready()
 	{
-		music_player = new AudioStreamPlayer2D();
+		music_player = new AudioStreamPlayer();
 		AddChild(music_player);
-		sound_players = new AudioStreamPlayer2D[_soundVoicesCount];
+		sound_players = new AudioStreamPlayer[_soundVoicesCount];
 		for (int i = 0; i < _soundVoicesCount; i++)
 		{
-			sound_players[i] = new AudioStreamPlayer2D();
+			sound_players[i] = new AudioStreamPlayer();
 			AddChild(sound_players[i]);
 		}
 	}
