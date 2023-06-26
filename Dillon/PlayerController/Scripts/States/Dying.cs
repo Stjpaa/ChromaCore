@@ -19,6 +19,7 @@ namespace PlayerController.States
             _playerController2D.Velocity = Vector2.Zero;
             TransitionToFalling();
             _playerController2D.AnimatedSprite2D.Play("Death");
+            _playerController2D.PlaySound("death_05");
         }
       
         public override void Exit() 
