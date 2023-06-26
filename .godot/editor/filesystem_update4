@@ -1,2 +1,3 @@
 res://Instances/Menus/SettingsMenu/settings_menu.tscn
 res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.tscn
+res://Instances/Menus/ui_navigation_manager.tscn

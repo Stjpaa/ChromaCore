@@ -34,9 +34,8 @@ layout_mode = 2
 text = "Up / Jump"
 
 [node name="Button" type="Button" parent="VBoxContainer/UpHBoxContainer" node_paths=PackedStringArray("remapInputs")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../../DownHBoxContainer/Button")
 text = "
 "
 script = ExtResource("2_4ukqj")
@@ -44,7 +43,7 @@ inputToRemapType = 1
 remapInputs = NodePath("../../..")
 
 [node name="Button2" type="Button" parent="VBoxContainer/UpHBoxContainer" node_paths=PackedStringArray("remapInputs")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 text = "
 "
@@ -62,7 +61,7 @@ layout_mode = 2
 text = "Down        "
 
 [node name="Button" type="Button" parent="VBoxContainer/DownHBoxContainer" node_paths=PackedStringArray("remapInputs")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 text = "
 "
@@ -71,7 +70,7 @@ inputToRemapType = 2
 remapInputs = NodePath("../../..")
 
 [node name="Button2" type="Button" parent="VBoxContainer/DownHBoxContainer" node_paths=PackedStringArray("remapInputs")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 text = "
 "
@@ -89,7 +88,7 @@ layout_mode = 2
 text = "Left"
 
 [node name="Button" type="Button" parent="VBoxContainer/LeftHBoxContainer" node_paths=PackedStringArray("remapInputs")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 text = "
 "
@@ -98,7 +97,7 @@ inputToRemapType = 3
 remapInputs = NodePath("../../..")
 
 [node name="Button2" type="Button" parent="VBoxContainer/LeftHBoxContainer" node_paths=PackedStringArray("remapInputs")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 text = "
 "
@@ -116,7 +115,7 @@ layout_mode = 2
 text = "Right"
 
 [node name="Button" type="Button" parent="VBoxContainer/RightHBoxContainer" node_paths=PackedStringArray("remapInputs")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 text = "
 "
@@ -125,7 +124,7 @@ inputToRemapType = 4
 remapInputs = NodePath("../../..")
 
 [node name="Button2" type="Button" parent="VBoxContainer/RightHBoxContainer" node_paths=PackedStringArray("remapInputs")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 text = "
 "
@@ -144,7 +143,7 @@ text = "Dash
 "
 
 [node name="Button" type="Button" parent="VBoxContainer/DashHBoxContainer" node_paths=PackedStringArray("remapInputs")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 text = "
 "

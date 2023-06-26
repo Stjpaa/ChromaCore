@@ -18,7 +18,6 @@ public partial class InputsResource : Resource
 
     public static InputsResource LoadInputsResource()
     {
-
         InputsResource loadedResource;
         if (SaveSystem.DoesFileExistAtPath(pathToInputsResource))
         {
