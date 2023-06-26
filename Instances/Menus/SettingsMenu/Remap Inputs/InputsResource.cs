@@ -14,12 +14,16 @@ public partial class InputsResource : Resource
     [Export] public InputEvent[] rightInputEventArray = { null, null };
     [Export] public InputEvent dashInputEvent = null;
 
+
+
     public static InputsResource LoadInputsResource()
     {
+
         InputsResource loadedResource;
         if (SaveSystem.DoesFileExistAtPath(pathToInputsResource))
         {
             loadedResource = (InputsResource)ResourceLoader.Load(pathToInputsResource);
+            ReassignLoadedValuesToMap(loadedResource);
         }
         else      // if no Resource exists instead Load the Base
         {
@@ -29,6 +33,53 @@ public partial class InputsResource : Resource
         }
 
         return loadedResource;
+    }
+
+    /// <summary>
+    /// compares the loaded values to the baseInputsResource values and then updates the Inputmap to make it match the loaded values.
+    /// </summary>
+    /// <param name="loadedResource"></param>
+    private static void ReassignLoadedValuesToMap(InputsResource loadedResource)
+    {
+        BaseInputsResource baseInputsResource;
+        baseInputsResource = BaseInputsResource.LoadBaseInputResource();
+
+        GD.Print(baseInputsResource.upInputEventArray[0].AsText());
+        GD.Print(InputMap.ActionGetEvents("ui_up")[0] == baseInputsResource.upInputEventArray[0]);
+        InputMap.ActionEraseEvent("ui_up", (InputEventKey)baseInputsResource.upInputEventArray[0]);
+
+
+        for (int i = 0; i <= 1; i++)
+        {
+            InputMap.ActionEraseEvent("ui_up", baseInputsResource.upInputEventArray[i]);
+            InputMap.ActionEraseEvent("Jump", baseInputsResource.upInputEventArray[i]);
+
+            InputMap.ActionAddEvent("ui_up", loadedResource.upInputEventArray[i]);
+            InputMap.ActionAddEvent("Jump", loadedResource.upInputEventArray[i]);
+
+
+            InputMap.ActionEraseEvent("ui_down", baseInputsResource.downInputEventArray[i]);
+            InputMap.ActionAddEvent("ui_down", loadedResource.downInputEventArray[i]);
+
+
+            InputMap.ActionEraseEvent("ui_left", baseInputsResource.leftInputEventArray[i]);
+            InputMap.ActionEraseEvent("Move_Left", baseInputsResource.leftInputEventArray[i]);
+
+            InputMap.ActionAddEvent("ui_left", loadedResource.leftInputEventArray[i]);
+            InputMap.ActionAddEvent("Move_Left", loadedResource.leftInputEventArray[i]);
+
+
+            InputMap.ActionEraseEvent("ui_right", baseInputsResource.rightInputEventArray[i]);
+            InputMap.ActionEraseEvent("Move_Right", baseInputsResource.rightInputEventArray[i]);
+
+            InputMap.ActionAddEvent("ui_right", loadedResource.rightInputEventArray[i]);
+            InputMap.ActionAddEvent("Move_Right", loadedResource.rightInputEventArray[i]);
+
+        }
+
+        InputMap.ActionEraseEvent("Dash", baseInputsResource.dashInputEvent);
+        InputMap.ActionAddEvent("Dash", loadedResource.dashInputEvent);
+
     }
 
     /// <summary>
