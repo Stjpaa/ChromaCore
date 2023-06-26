@@ -50,33 +50,33 @@ public partial class InputsResource : Resource
 
         for (int i = 0; i <= 1; i++)
         {
-            InputMap.ActionEraseEvent("ui_up", baseInputsResource.upInputEventArray[i]);
-            InputMap.ActionEraseEvent("Jump", baseInputsResource.upInputEventArray[i]);
+            loadedResource.DeleteExistingActions("ui_up", baseInputsResource.upInputEventArray[i]);
+            loadedResource.DeleteExistingActions("Jump", baseInputsResource.upInputEventArray[i]);
 
             InputMap.ActionAddEvent("ui_up", loadedResource.upInputEventArray[i]);
             InputMap.ActionAddEvent("Jump", loadedResource.upInputEventArray[i]);
 
 
-            InputMap.ActionEraseEvent("ui_down", baseInputsResource.downInputEventArray[i]);
+            loadedResource.DeleteExistingActions("ui_down", baseInputsResource.downInputEventArray[i]);
             InputMap.ActionAddEvent("ui_down", loadedResource.downInputEventArray[i]);
 
 
-            InputMap.ActionEraseEvent("ui_left", baseInputsResource.leftInputEventArray[i]);
-            InputMap.ActionEraseEvent("Move_Left", baseInputsResource.leftInputEventArray[i]);
+            loadedResource.DeleteExistingActions("ui_left", baseInputsResource.leftInputEventArray[i]);
+            loadedResource.DeleteExistingActions("Move_Left", baseInputsResource.leftInputEventArray[i]);
 
             InputMap.ActionAddEvent("ui_left", loadedResource.leftInputEventArray[i]);
             InputMap.ActionAddEvent("Move_Left", loadedResource.leftInputEventArray[i]);
 
 
-            InputMap.ActionEraseEvent("ui_right", baseInputsResource.rightInputEventArray[i]);
-            InputMap.ActionEraseEvent("Move_Right", baseInputsResource.rightInputEventArray[i]);
+            loadedResource.DeleteExistingActions("ui_right", baseInputsResource.rightInputEventArray[i]);
+            loadedResource.DeleteExistingActions("Move_Right", baseInputsResource.rightInputEventArray[i]);
 
             InputMap.ActionAddEvent("ui_right", loadedResource.rightInputEventArray[i]);
             InputMap.ActionAddEvent("Move_Right", loadedResource.rightInputEventArray[i]);
 
         }
 
-        InputMap.ActionEraseEvent("Dash", baseInputsResource.dashInputEvent);
+        loadedResource.DeleteExistingActions("Dash", baseInputsResource.dashInputEvent);
         InputMap.ActionAddEvent("Dash", loadedResource.dashInputEvent);
 
     }
@@ -120,8 +120,8 @@ public partial class InputsResource : Resource
 
             case RemapedInputs.up:
                 {
-                    InputMap.ActionEraseEvent("ui_up", upInputEventArray[indexOfButton]);
-                    InputMap.ActionEraseEvent("Jump", upInputEventArray[indexOfButton]);
+                    DeleteExistingActions("ui_up", upInputEventArray[indexOfButton]);
+                    DeleteExistingActions("Jump", upInputEventArray[indexOfButton]);
 
                     InputMap.ActionAddEvent("ui_up", replacementInput);
                     InputMap.ActionAddEvent("Jump", replacementInput);
@@ -134,7 +134,7 @@ public partial class InputsResource : Resource
 
             case RemapedInputs.down:
                 {
-                    InputMap.ActionEraseEvent("ui_down", downInputEventArray[indexOfButton]);
+                    DeleteExistingActions("ui_down", downInputEventArray[indexOfButton]);
 
                     InputMap.ActionAddEvent("ui_down", replacementInput);
 
@@ -145,8 +145,8 @@ public partial class InputsResource : Resource
 
             case RemapedInputs.left:
                 {
-                    InputMap.ActionEraseEvent("ui_left", leftInputEventArray[indexOfButton]);
-                    InputMap.ActionEraseEvent("Move_Left", leftInputEventArray[indexOfButton]);
+                    DeleteExistingActions("ui_left", leftInputEventArray[indexOfButton]);
+                    DeleteExistingActions("Move_Left", leftInputEventArray[indexOfButton]);
 
                     InputMap.ActionAddEvent("ui_left", replacementInput);
                     InputMap.ActionAddEvent("Move_Left", replacementInput);
@@ -159,8 +159,8 @@ public partial class InputsResource : Resource
 
             case RemapedInputs.right:
                 {
-                    InputMap.ActionEraseEvent("ui_right", rightInputEventArray[indexOfButton]);
-                    InputMap.ActionEraseEvent("Move_Right", rightInputEventArray[indexOfButton]);
+                    DeleteExistingActions("ui_right", rightInputEventArray[indexOfButton]);
+                        DeleteExistingActions("Move_Right", rightInputEventArray[indexOfButton]);
 
                     InputMap.ActionAddEvent("ui_right", replacementInput);
                     InputMap.ActionAddEvent("Move_Right", replacementInput);
@@ -173,7 +173,7 @@ public partial class InputsResource : Resource
 
             case RemapedInputs.dash:
                 {
-                    InputMap.ActionEraseEvent("Dash", dashInputEvent);
+                    DeleteExistingActions("Dash", dashInputEvent);
                     InputMap.ActionAddEvent("Dash", replacementInput);
 
                     dashInputEvent = replacementInput;
@@ -184,12 +184,6 @@ public partial class InputsResource : Resource
 
     }
 
-
-    public void ReplaceInputEvent(string action, InputEvent eventToRemove, InputEvent eventToAdd)
-    {
-        InputMap.ActionEraseEvent(action, eventToRemove);
-        InputMap.ActionAddEvent(action, eventToAdd);
-    }
 
     public void SaveResource()
     {
@@ -296,5 +290,21 @@ public partial class InputsResource : Resource
         }
 
         return firstWord;
+    }
+
+    /// <summary>
+    /// needed because the saved InputEvent will not always be exactly the same as the one on the InputMap. this ensures, that the correct Action gets deleted.
+    /// </summary>
+    /// <param name="inputAction"></param>
+    /// <param name="eventToCheckFor"></param>
+    private void DeleteExistingActions(string inputAction, InputEvent eventToCheckFor)
+    {
+        foreach (var KeyToCheck in InputMap.ActionGetEvents(inputAction))
+        {
+            if (FirstWordOfString(eventToCheckFor.AsText()) == FirstWordOfString(KeyToCheck.AsText()))
+            {
+                InputMap.ActionEraseEvent(inputAction, KeyToCheck);
+            }
+        }
     }
 }

@@ -43,6 +43,12 @@ public partial class RemapInputs : Control
             if (inputKey.AsTextKeycode() == "Escape")
             {
             }
+            else if (inputKey.AsTextKeycode() == "Enter")
+            {
+            }
+            else if (inputKey.AsTextKeycode() == "Space")
+            {
+            }
             else if (inputsResource.IsKeyUsedAnywhere(inputKey.AsText()))
             {
                 GD.Print("Button is already used somewhere");
