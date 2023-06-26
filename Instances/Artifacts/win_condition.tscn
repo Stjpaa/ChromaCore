@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjqlsx6eh25gp"]
+
+[ext_resource type="Script" path="res://Instances/Artifacts/win_condition.cs" id="1_dqsw2"]
+
+[node name="WinCondition" type="Node2D"]
+script = ExtResource("1_dqsw2")
