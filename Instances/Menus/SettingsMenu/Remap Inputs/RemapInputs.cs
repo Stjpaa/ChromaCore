@@ -93,4 +93,15 @@ public partial class RemapInputs : Control
         return inputsResource.GetTextForEvent(button.inputToRemapType, button.positionInRemapArray);
     }
 
+    [Signal]
+    public delegate void UpdateAllButtonTextEventHandler();
+
+    public void ResetRemapValues()
+    {
+        inputsResource.ResetToStartValues();
+        inputsResource.SaveResource();
+        EmitSignal("UpdateAllButtonText");
+    }
+
+    
 }

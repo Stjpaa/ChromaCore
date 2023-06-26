@@ -73,7 +73,45 @@ public partial class InputsResource : Resource
 
         loadedResource.DeleteExistingActions("Dash", baseInputsResource.dashInputEvent);
         InputMap.ActionAddEvent("Dash", loadedResource.dashInputEvent);
+    }
 
+    public void ResetToStartValues()
+    {
+        BaseInputsResource baseInputsResource;
+        baseInputsResource = BaseInputsResource.LoadBaseInputResource();
+
+        for (int i = 0; i <= 1; i++)
+        {
+            DeleteExistingActions("ui_up", upInputEventArray[i]);
+            DeleteExistingActions("Jump", upInputEventArray[i]);
+
+            InputMap.ActionAddEvent("ui_up", baseInputsResource.upInputEventArray[i]);
+            InputMap.ActionAddEvent("Jump", baseInputsResource.upInputEventArray[i]);
+            upInputEventArray[i] = baseInputsResource.upInputEventArray[i];
+
+
+            DeleteExistingActions("ui_down", downInputEventArray[i]);
+            InputMap.ActionAddEvent("ui_down", baseInputsResource.downInputEventArray[i]);
+            downInputEventArray[i] = baseInputsResource.downInputEventArray[i];
+
+            DeleteExistingActions("ui_left", leftInputEventArray[i]);
+            DeleteExistingActions("Move_Left", leftInputEventArray[i]);
+
+            InputMap.ActionAddEvent("ui_left", baseInputsResource.leftInputEventArray[i]);
+            InputMap.ActionAddEvent("Move_Left", baseInputsResource.leftInputEventArray[i]);
+            leftInputEventArray[i] = baseInputsResource.leftInputEventArray[i];
+
+            DeleteExistingActions("ui_right", rightInputEventArray[i]);
+            DeleteExistingActions("Move_Right", rightInputEventArray[i]);
+
+            InputMap.ActionAddEvent("ui_right", baseInputsResource.rightInputEventArray[i]);
+            InputMap.ActionAddEvent("Move_Right", baseInputsResource.rightInputEventArray[i]);
+            rightInputEventArray[i] = baseInputsResource.rightInputEventArray[i];
+        }
+
+        DeleteExistingActions("Dash", dashInputEvent);
+        InputMap.ActionAddEvent("Dash", baseInputsResource.dashInputEvent);
+        dashInputEvent = baseInputsResource.dashInputEvent;
     }
 
     /// <summary>

@@ -25,6 +25,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Remap Inputs:"
 
+[node name="Button" type="Button" parent="VBoxContainer/Label"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 0
+offset_left = 158.0
+offset_top = 0.5
+offset_right = 209.0
+offset_bottom = 31.5
+text = "Reset"
+
 [node name="UpHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -196,4 +205,5 @@ offset_right = 301.0
 offset_bottom = 30.5
 text = "x"
 
+[connection signal="pressed" from="VBoxContainer/Label/Button" to="." method="ResetRemapValues"]
 [connection signal="pressed" from="SetInputWindow/Background Blur/ColorRect/Button" to="." method="EndRemapping"]

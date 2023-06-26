@@ -1,4 +1,5 @@
 using Godot;
+using PlayerController;
 using System;
 
 public partial class RemapInputsButton : Button
@@ -10,6 +11,9 @@ public partial class RemapInputsButton : Button
     public override void _Ready()
     {
         UpdateButtonText();
+
+        var callable = new Callable(this, "UpdateButtonText");
+        remapInputs.Connect("UpdateAllButtonText", callable);
     }
 
     public override void _Pressed()

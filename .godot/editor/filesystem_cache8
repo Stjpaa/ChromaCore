@@ -1,8 +1,8 @@
 2a60927148abd1d33b818b535e306557
-::res://::1687750556
+::res://::1687752377
 characters.png::CompressedTexture2D::5074265719891268926::1682282112::1682282152::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::6781716155928282535::1686223772::0::1::::<><>::
-export_presets.cfg::TextFile::-1::1687305887::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1687752001::0::1::::<><>::
 Godot Char_Placeholder-1.png::CompressedTexture2D::6367445035045203970::1682788980::1682788980::1::::<><>::
 icon.svg::CompressedTexture2D::1834291139676260366::1679057536::1682787201::1::::<><>::
 merge.png::CompressedTexture2D::3634859478629105443::1684065886::1684065886::1::::<><>::
@@ -232,12 +232,12 @@ world_1_level.gdshader::Shader::-1::1684065886::0::1::::<><>::
 world_1_level.tscn::PackedScene::5294979759488520816::1687533518::0::1::::<><>::res://Shaders/color-palette.gdshader<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://c7s6ybr43gk6l<>uid://d2dmdifx4vsp7<>uid://mb5aisolynk5<>uid://do5cdmcaycbhc<>uid://b1sw6dddgaq2d<>uid://b117q2ya6dts7<>uid://c12awd8dlrugm<>uid://cvdu4idphci0x<>uid://dt56jo4o7i0hw<>uid://nv4s53vmoxpl<>uid://c7d5koa6uqj0r<>uid://caympt3s2vfr0<>uid://dssmgso4cwa0j<>uid://bemoqff5lbpsx<>uid://c2o1dkvnu6rgc<>uid://d18yrrxq7o6sa<>uid://m3mpklc8drsk<>uid://b3clekngejd46<>uid://cs253h11xbsa5<>uid://cf5e8m8gqmt4m
 world_2_level.gdshader::Shader::-1::1686222577::0::1::::<><>::
 world_2_level.tscn::PackedScene::9126961048720950574::1687533518::0::1::::<><>::uid://bemoqff5lbpsx<>uid://ehww7w412i1<>res://Instances/Levels/world_2_level.gdshader<>uid://d3s6elkjprg46<>uid://bbecw7j0dluj5<>uid://d18yrrxq7o6sa<>uid://d2dmdifx4vsp7<>uid://b1sw6dddgaq2d<>uid://m3mpklc8drsk<>uid://0vuadphoaeog<>uid://do5cdmcaycbhc<>uid://c12awd8dlrugm<>uid://c7s6ybr43gk6l<>uid://caympt3s2vfr0<>uid://dssmgso4cwa0j<>uid://c7d5koa6uqj0r<>uid://b3clekngejd46<>uid://cs253h11xbsa5<>uid://cf5e8m8gqmt4m
-::res://Instances/Menus/::1687750321
+::res://Instances/Menus/::1687751864
 AddParticles.cs::CSharpScript::-1::1687089115::0::1::::<><>::
 LoadingScreen.cs::CSharpScript::-1::1687089115::0::1::::<><>::
 loading_screen.tscn::PackedScene::5738991558887455560::1687448993::0::1::::<><>::res://Instances/Menus/LoadingScreen.cs<>uid://c8wba4tymv8ji<>res://Shaders/star-sky.gdshader<>uid://cto7aik31qnlh<>res://Instances/Menus/AddParticles.cs<>uid://c0c6dhfdjoyhb
 UINavigationManager.cs::CSharpScript::-1::1687448993::0::1::::<><>::
-ui_navigation_manager.tscn::PackedScene::398571667513817080::1687750321::0::1::::<><>::res://Instances/Menus/UINavigationManager.cs
+ui_navigation_manager.tscn::PackedScene::398571667513817080::1687751864::0::1::::<><>::res://Instances/Menus/UINavigationManager.cs
 ::res://Instances/Menus/IngameUI/::1686223772
 IngameUI.tscn::PackedScene::6080572850230129701::1686223772::0::1::::<><>::uid://b3clekngejd46<>uid://cf5e8m8gqmt4m<>uid://mobt10g1plur
 ::res://Instances/Menus/LevelSelection/::1687533518
@@ -255,15 +255,15 @@ SettingsButton.cs::CSharpScript::-1::1687089115::0::1::::<><>::
 ::res://Instances/Menus/PauseMenu/::1687448993
 PauseMenu.cs::CSharpScript::-1::1687448993::0::1::::<><>::
 pause_menu.tscn::PackedScene::5186019398921320722::1687430784::0::1::::<><>::res://Instances/Menus/PauseMenu/PauseMenu.cs<>uid://fxcogg7m5cng<>res://Instances/Menus/MainMenu/SettingsButton.cs<>uid://cpr2xot8ce81u
-::res://Instances/Menus/SettingsMenu/::1687750545
+::res://Instances/Menus/SettingsMenu/::1687751967
 SettingsMenu.cs::CSharpScript::-1::1687750545::0::1::::<><>::
-settings_menu.tscn::PackedScene::5862449642020635052::1687750545::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>uid://ddm6gbeewi6js<>uid://fxcogg7m5cng
+settings_menu.tscn::PackedScene::5862449642020635052::1687751967::0::1::::<><>::res://Instances/Menus/SettingsMenu/SettingsMenu.cs<>uid://ddm6gbeewi6js<>uid://fxcogg7m5cng
 SoundSaveData.cs::CSharpScript::-1::1687280260::0::1::::<><>::
-::res://Instances/Menus/SettingsMenu/Remap Inputs/::1687750545
+::res://Instances/Menus/SettingsMenu/Remap Inputs/::1687752048
 BaseInputsResource.cs::CSharpScript::-1::1687750545::0::1::::<><>::
-InputsResource.cs::CSharpScript::-1::1687750545::0::1::::<><>::
-RemapInputs.cs::CSharpScript::-1::1687750545::0::1::::<><>::
-RemapInputs.tscn::PackedScene::7396494115495366880::1687750545::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs
+InputsResource.cs::CSharpScript::-1::1687752048::0::1::::<><>::
+RemapInputs.cs::CSharpScript::-1::1687751947::0::1::::<><>::
+RemapInputs.tscn::PackedScene::7396494115495366880::1687751864::0::1::::<><>::res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputs.cs<>res://Instances/Menus/SettingsMenu/Remap Inputs/RemapInputsButton.cs
 RemapInputsButton.cs::CSharpScript::-1::1687750545::0::1::::<><>::
 ::res://Instances/SaveSystem/::1687750545
 LevelInstantiater.cs::CSharpScript::-1::1687450738::0::1::::<><>::
