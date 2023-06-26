@@ -43,11 +43,6 @@ public partial class InputsResource : Resource
         BaseInputsResource baseInputsResource;
         baseInputsResource = BaseInputsResource.LoadBaseInputResource();
 
-        GD.Print(baseInputsResource.upInputEventArray[0].AsText());
-        GD.Print(InputMap.ActionGetEvents("ui_up")[0] == baseInputsResource.upInputEventArray[0]);
-        InputMap.ActionEraseEvent("ui_up", (InputEventKey)baseInputsResource.upInputEventArray[0]);
-
-
         for (int i = 0; i <= 1; i++)
         {
             loadedResource.DeleteExistingActions("ui_up", baseInputsResource.upInputEventArray[i]);
