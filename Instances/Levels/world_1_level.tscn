@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://cho6sp0l7hokm"]
+[gd_scene load_steps=162 format=3 uid="uid://cho6sp0l7hokm"]
 
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_yidfl"]
 [ext_resource type="PackedScene" uid="uid://d3s6elkjprg46" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="3_0pbfm"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c12awd8dlrugm" path="res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn" id="13_awulj"]
 [ext_resource type="Texture2D" uid="uid://cvdu4idphci0x" path="res://Assets/Sprites/Tilesets/Merged Atlases.png" id="14_etkmo"]
 [ext_resource type="PackedScene" uid="uid://dt56jo4o7i0hw" path="res://Instances/Gameobjects/Portals/Portals.tscn" id="14_u04ri"]
-[ext_resource type="PackedScene" uid="uid://cjqlsx6eh25gp" path="res://Instances/Artifacts/win_condition.tscn" id="15_dq6rn"]
+[ext_resource type="PackedScene" path="res://Instances/Artifacts/win_condition.tscn" id="15_dq6rn"]
 [ext_resource type="PackedScene" uid="uid://nv4s53vmoxpl" path="res://Instances/Gameobjects/Movable Objects/ObjectResetter.tscn" id="15_obdj8"]
 [ext_resource type="PackedScene" uid="uid://c7d5koa6uqj0r" path="res://Instances/Artifacts/Artifact1_1.tscn" id="16_a3vqo"]
 [ext_resource type="PackedScene" uid="uid://caympt3s2vfr0" path="res://Instances/Artifacts/Artifact1_2.tscn" id="17_ni1op"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b3clekngejd46" path="res://Instances/UIobjects/LevelTimer/timer.tscn" id="22_mm6fn"]
 [ext_resource type="PackedScene" uid="uid://cs253h11xbsa5" path="res://Instances/Levels/LevelManager.tscn" id="23_cjk7j"]
 [ext_resource type="PackedScene" uid="uid://cf5e8m8gqmt4m" path="res://Instances/Menus/PauseMenu/pause_menu.tscn" id="24_eykh2"]
+[ext_resource type="Script" path="res://Instances/Singletons/level_music.cs" id="25_1n73d"]
 
 [sub_resource type="Gradient" id="Gradient_ws3ps"]
 offsets = PackedFloat32Array(0, 0.0852941, 0.844118)
@@ -1007,7 +1008,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.992661, 0.120933)
 shader_parameter/strength = 6.66667
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sjfn"]
 resource_local_to_scene = true
@@ -1025,7 +1026,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0.987964, 0.154681)
 shader_parameter/strength = 6.66667
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvna7"]
 resource_local_to_scene = true
@@ -2347,6 +2348,7 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_678ym")
+disabled = true
 
 [node name="GravityDirection" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time2/GravityfieldCollider" index="0"]
 position = Vector2(197, -24)
@@ -2376,6 +2378,7 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time4" index="0"]
 shape = SubResource("RectangleShape2D_1sjfn")
+disabled = true
 
 [node name="GravityDirection" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time4/GravityfieldCollider" index="0"]
 position = Vector2(-198, -31)
@@ -3691,9 +3694,6 @@ _collisionWidth = 200.0
 [node name="Laser_Timed5" parent="Jumppads/TrapsList/Laser" instance=ExtResource("19_hjipx")]
 position = Vector2(13937, -3887)
 
-[node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed5" index="1"]
-offset_right = 960.0
-
 [node name="Laser_Timed6" parent="Jumppads/TrapsList/Laser" instance=ExtResource("19_hjipx")]
 position = Vector2(15118, -3791)
 
@@ -3758,7 +3758,6 @@ position = Vector2(0, -84)
 position = Vector2(15119, -3887)
 
 [node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed7" index="1"]
-offset_right = 175.0
 rotation = 3.14159
 
 [node name="Laser_Target" parent="Jumppads/TrapsList/Laser/Laser_Timed7" index="2"]
@@ -3768,7 +3767,6 @@ position = Vector2(-168, 0)
 position = Vector2(15056, -4254)
 
 [node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed10" index="1"]
-offset_right = 256.0
 rotation = 3.14159
 
 [node name="Laser_Target" parent="Jumppads/TrapsList/Laser/Laser_Timed10" index="2"]
@@ -3778,7 +3776,6 @@ position = Vector2(-232, 0)
 position = Vector2(15120, -4640)
 
 [node name="Laser_Rect" parent="Jumppads/TrapsList/Laser/Laser_Timed14" index="1"]
-offset_right = 320.0
 rotation = 3.14159
 
 [node name="Laser_Target" parent="Jumppads/TrapsList/Laser/Laser_Timed14" index="2"]
@@ -3882,6 +3879,10 @@ playerNode = NodePath("../Player")
 levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
 
 [node name="PauseMenu" parent="." instance=ExtResource("24_eykh2")]
+
+[node name="MusicTrigger" type="Node" parent="."]
+script = ExtResource("25_1n73d")
+_music = "level_01_amb"
 
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform"]
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform2"]

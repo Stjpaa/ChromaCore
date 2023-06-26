@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bh6syno8vmmow"]
+[gd_scene load_steps=13 format=3 uid="uid://bh6syno8vmmow"]
 
 [ext_resource type="Script" path="res://Instances/Singletons/SoundManager.cs" id="1_nqdiv"]
 [ext_resource type="AudioStream" uid="uid://jgc611fku52m" path="res://Rise01.ogg" id="2_ja56f"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://47x65qa1synr" path="res://Assets/Sounds/Button_1.wav" id="6_0n4xg"]
 [ext_resource type="AudioStream" uid="uid://44mgrkn2q4w" path="res://Assets/Sounds/Player/Jump/jump_01.wav" id="7_cysji"]
 [ext_resource type="AudioStream" uid="uid://d33rsoxf053ko" path="res://Assets/Sounds/Player/Jump/jump_02.wav" id="8_a7yot"]
+[ext_resource type="AudioStream" path="res://Assets/Sounds/Death_05.wav" id="8_yvdrj"]
+[ext_resource type="AudioStream" path="res://Assets/Sounds/Level_01_Amb.wav" id="9_7ln54"]
 [ext_resource type="AudioStream" uid="uid://4q7kufcmlo00" path="res://Assets/Sounds/Player/Landing/JumpImpactStone_01.wav" id="9_ld741"]
 [ext_resource type="AudioStream" uid="uid://de0aw1em1okpi" path="res://Assets/Sounds/Player/Step/StepOnSand_01.wav" id="10_3spm6"]
 
@@ -15,6 +17,7 @@
 script = ExtResource("1_nqdiv")
 _soundFiles = {
 "Rise": ExtResource("2_ja56f"),
+"death_05": ExtResource("8_yvdrj"),
 "jump_01": ExtResource("7_cysji"),
 "jump_02": ExtResource("8_a7yot"),
 "landing": ExtResource("9_ld741"),
@@ -22,6 +25,7 @@ _soundFiles = {
 "step": ExtResource("10_3spm6")
 }
 _musicFiles = {
+"level_01_amb": ExtResource("9_7ln54"),
 "level_3": ExtResource("3_wsvxh")
 }
 _teleporterSounds = [ExtResource("4_r4yp4"), ExtResource("5_47qk1")]
