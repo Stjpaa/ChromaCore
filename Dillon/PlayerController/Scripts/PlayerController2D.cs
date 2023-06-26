@@ -113,14 +113,19 @@ namespace PlayerController
 		{
 			_currentState.ExecuteProcess();
 			_looking_direction = Input.GetAxis("Move_Left", "Move_Right");
-			if(_looking_direction > 0.1)
+			if(_looking_direction >= 0.1 && Velocity.Length() > 550)
 			{
 				_afterimageRight.Emitting = true;
 				_afterimageLeft.Emitting = false;
 			}
-			else if(_looking_direction < -0.1)
+			else if(_looking_direction < -0.1 && Velocity.Length() > 550)
 			{
 				_afterimageLeft.Emitting = true;
+				_afterimageRight.Emitting = false;
+			}
+			else
+			{
+				_afterimageLeft.Emitting = false;
 				_afterimageRight.Emitting = false;
 			}
 			//GD.Print(Velocity);
