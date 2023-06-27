@@ -6,9 +6,11 @@ public partial class PauseMenu : CanvasLayer
     
     [Export] private Control pauseMenuUI;
     [Export] private ColorRect blur;
+	private SoundManager _sound_manager;
 
     public override void _Ready()
     {
+        _sound_manager = GetNode<SoundManager>("/root/SoundManager");
         if (GetTree().Paused)
         {
             PauseGame();
@@ -65,6 +67,7 @@ public partial class PauseMenu : CanvasLayer
 
     public void QuitGame()
     {
+        _sound_manager.StopMusic();
         LevelInstantiater instantiaterOfScene = (LevelInstantiater)GetTree().Root.GetNode("LevelInstantiater");
 
         if (instantiaterOfScene == null)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://d3bfyksviia7o"]
+[gd_scene load_steps=87 format=3 uid="uid://d3bfyksviia7o"]
 
 [ext_resource type="PackedScene" uid="uid://bemoqff5lbpsx" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="1_pb7au"]
 [ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/Sprites/Tilesets/atlas.png" id="2_an430"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://b3clekngejd46" path="res://Instances/UIobjects/LevelTimer/timer.tscn" id="17_ma0mo"]
 [ext_resource type="PackedScene" uid="uid://cs253h11xbsa5" path="res://Instances/Levels/LevelManager.tscn" id="18_0l286"]
 [ext_resource type="PackedScene" uid="uid://cf5e8m8gqmt4m" path="res://Instances/Menus/PauseMenu/pause_menu.tscn" id="19_32esg"]
+[ext_resource type="PackedScene" uid="uid://cbk56mn3je61d" path="res://Instances/Gameobjects/Sound/MusicPlayer.tscn" id="21_l5als"]
+[ext_resource type="AudioStream" uid="uid://c355tpo5s7qjk" path="res://Music/Stjpa-Level01-Intro.wav" id="22_v4pp4"]
+[ext_resource type="AudioStream" uid="uid://bbujx3ur0wx3c" path="res://Music/Stjpa-Level01-Loop.wav" id="23_qe2sq"]
 
 [sub_resource type="Gradient" id="Gradient_hmh3d"]
 offsets = PackedFloat32Array(0, 0.0852941, 0.844118)
@@ -1568,6 +1571,11 @@ layer_0/tile_data = PackedInt32Array(65516, 65536, 0, 65517, 65536, 0, 65518, 65
 levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
 
 [node name="PauseMenu" parent="." instance=ExtResource("19_32esg")]
+
+[node name="MusicPlayer" parent="." instance=ExtResource("21_l5als")]
+_intro = ExtResource("22_v4pp4")
+_loop = ExtResource("23_qe2sq")
+_volume = -20.0
 
 [editable path="LevelSegment/PlatformList/Moving/MovingPlatform"]
 [editable path="LevelSegment/PlatformList/Moving/MovingPlatform3"]

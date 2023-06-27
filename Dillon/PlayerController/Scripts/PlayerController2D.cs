@@ -289,6 +289,7 @@ namespace PlayerController
 		private void SaveCheckpointLocation(Vector2 checkpointPosition)
 		{
 			GD.Print("Checkpoint entered");
+			_sound_manager.PlaySound("checkpoint");
 			_checkpointPosition = checkpointPosition;
 		}
 
@@ -324,6 +325,14 @@ namespace PlayerController
 		public void PlaySound(String sound)
 		{
 			_sound_manager.PlaySound(sound);
+		}
+		public void PlayRandom(Godot.Collections.Array<AudioStreamWav> sounds)
+		{
+			_sound_manager.PlayRandom(sounds);
+		}
+
+		public SoundManager GetSoundManager() {
+			return _sound_manager;
 		}
 	}
 }

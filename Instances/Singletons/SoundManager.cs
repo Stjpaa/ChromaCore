@@ -7,6 +7,7 @@ public partial class SoundManager : Node
 {
 	[Export]
 	private int _soundVoicesCount = 5;
+	private int _randomVoicesCount = 5;
 
 	[Export]
 	private Godot.Collections.Dictionary<String, AudioStreamWav> _soundFiles = new Godot.Collections.Dictionary<String, AudioStreamWav>();
@@ -16,10 +17,15 @@ public partial class SoundManager : Node
 	public Godot.Collections.Array<AudioStreamWav> _teleporterSounds;
 	[Export]
 	public Godot.Collections.Array<AudioStreamWav> _buttonSounds;
+	[Export]
+	public Godot.Collections.Array<AudioStreamWav> _deathSounds;
 
 	private AudioStreamPlayer music_player;
 	private AudioStreamPlayer[] sound_players;
+	private AudioStreamPlayer[] random_players;
 	private int last_voice = 0;
+	private int last_random_voice = 0;
+	private Random rnd = new Random();
 
 	public override void _Ready()
 	{
@@ -30,6 +36,12 @@ public partial class SoundManager : Node
 		{
 			sound_players[i] = new AudioStreamPlayer();
 			AddChild(sound_players[i]);
+		}
+		random_players = new AudioStreamPlayer[_randomVoicesCount];
+		for (int i = 0; i < _randomVoicesCount; i++)
+		{
+			random_players[i] = new AudioStreamPlayer();
+			AddChild(random_players[i]);
 		}
 	}
 
@@ -64,5 +76,37 @@ public partial class SoundManager : Node
 	public void StopMusic()
 	{
 		music_player.Stop();
+	}
+
+	public void PlayRandom(Godot.Collections.Array<AudioStreamWav> sounds) {
+		for (int i = 1; i <= _randomVoicesCount; i++)
+		{
+			if (!random_players[(last_random_voice + i) % _randomVoicesCount].Playing)
+			{
+				random_players[(last_random_voice + i) % _randomVoicesCount].Stream = GetSound(sounds);
+				random_players[(last_random_voice + i) % _randomVoicesCount].Play();
+				last_random_voice = (last_random_voice + i) % _randomVoicesCount;
+				break;
+			}
+
+			// if all voices are playing, replace voice after last voice
+			if (i == _randomVoicesCount)
+			{
+				random_players[(last_random_voice + 1) % _randomVoicesCount].Stream = GetSound(sounds);
+				random_players[(last_random_voice + 1) % _randomVoicesCount].Play();
+				last_random_voice = (last_random_voice + 1) % _randomVoicesCount;
+				break;
+			}
+		}
+	}
+
+
+	private AudioStreamWav GetSound(Godot.Collections.Array<AudioStreamWav> sounds)
+	{
+		if(sounds.Count == 0) {
+			return null;
+		}
+		int index = rnd.Next(sounds.Count);
+		return sounds[index];
 	}
 }

@@ -6,6 +6,14 @@ public partial class win_condition : Node2D
 {
     private Artifact[] artifacts = { null, null, null, null, null, null, null };    // max size 
     private int IndexForNextArrayElement = 0;
+	private SoundManager _sound_manager;
+
+
+	public override void _Ready()
+	{
+        _sound_manager = GetNode<SoundManager>("/root/SoundManager");
+    }
+
 
     public void AddArtifactToArray(Artifact artifact)
     {
@@ -27,7 +35,7 @@ public partial class win_condition : Node2D
         }
 
         // if all were collected win game
-
+        _sound_manager.StopMusic();
         WinGame();
     }
 
