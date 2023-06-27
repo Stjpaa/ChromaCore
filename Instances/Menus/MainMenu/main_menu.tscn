@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8kukwt3ntgmj"]
+[gd_scene load_steps=12 format=3 uid="uid://8kukwt3ntgmj"]
 
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_81wmq"]
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="1_igj8f"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/ExitButton.cs" id="4_4if3e"]
 [ext_resource type="Script" path="res://Instances/Menus/MainMenu/SettingsButton.cs" id="5_mygwh"]
 [ext_resource type="PackedScene" uid="uid://cpr2xot8ce81u" path="res://Instances/Menus/SettingsMenu/settings_menu.tscn" id="6_h7h74"]
+[ext_resource type="PackedScene" uid="uid://cbk56mn3je61d" path="res://Instances/Gameobjects/Sound/MusicPlayer.tscn" id="9_0weof"]
+[ext_resource type="AudioStream" uid="uid://ejag5x6sckvx" path="res://Assets/Sounds/Level_01_Amb.wav" id="10_xnhwk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sc6km"]
 shader = ExtResource("1_igj8f")
@@ -137,3 +139,7 @@ script = ExtResource("4_4if3e")
 [node name="SettingsMenu" parent="ColorRect/Menu Ready Disabler" instance=ExtResource("6_h7h74")]
 visible = false
 layout_mode = 1
+
+[node name="MusicPlayer" parent="." instance=ExtResource("9_0weof")]
+_intro = ExtResource("10_xnhwk")
+_loop = ExtResource("10_xnhwk")

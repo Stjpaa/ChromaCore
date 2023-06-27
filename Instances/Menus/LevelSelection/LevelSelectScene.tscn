@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://butb3javps1yf"]
+[gd_scene load_steps=12 format=3 uid="uid://butb3javps1yf"]
 
 [ext_resource type="Shader" path="res://Shaders/star-sky.gdshader" id="1_5pr85"]
 [ext_resource type="PackedScene" uid="uid://fxcogg7m5cng" path="res://Instances/Menus/ui_navigation_manager.tscn" id="1_xdpmu"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d3bfyksviia7o" path="res://Instances/Levels/world_2_level.tscn" id="6_0uxn0"]
 [ext_resource type="Script" path="res://Instances/Menus/LevelSelection/LoadMainMenu.cs" id="6_1aw0g"]
 [ext_resource type="Texture2D" uid="uid://bsw1lj30wqs8r" path="res://Assets/Planets/CompletedPlanets/planet07.png" id="7_fvj75"]
+[ext_resource type="PackedScene" uid="uid://cbk56mn3je61d" path="res://Instances/Gameobjects/Sound/MusicPlayer.tscn" id="9_ica18"]
+[ext_resource type="AudioStream" uid="uid://ejag5x6sckvx" path="res://Assets/Sounds/Level_01_Amb.wav" id="10_ltwqv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nnya4"]
 shader = ExtResource("1_5pr85")
@@ -92,6 +94,10 @@ text = "Main Menu
 "
 script = ExtResource("6_1aw0g")
 pathToMainMenu = "res://Instances/Menus/MainMenu/main_menu.tscn"
+
+[node name="MusicPlayer" parent="." instance=ExtResource("9_ica18")]
+_intro = ExtResource("10_ltwqv")
+_loop = ExtResource("10_ltwqv")
 
 [editable path="Background/Levels/Level1"]
 [editable path="Background/Levels/Level2"]
