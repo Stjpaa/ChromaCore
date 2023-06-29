@@ -3,7 +3,7 @@ using System;
 
 public partial class ServerCommunicationManager : Node2D
 {
-    [Export] private int level = 0;
+    [Export] private int level = 1;
     private float testTime = 100.5f;
     private float testX = 133.7f;
     private float testY = 420.69f;
@@ -35,18 +35,16 @@ public partial class ServerCommunicationManager : Node2D
             { "positiony", posY }
         };
 
-        string json = Json.Stringify(dataAsDict);
-
+        string message = Json.Stringify(dataAsDict);
 
         var httpRequest = new HttpRequest();
         AddChild(httpRequest);
 
-        Error error = httpRequest.Request(url);
+        Error error = httpRequest.Request(url, null, HttpClient.Method.Post, message);
         if (error != Error.Ok)
         {
             GD.PushError("An error occurred in the HTTP request.");
         }
-
     }
 
     public void SendWin(float time)
