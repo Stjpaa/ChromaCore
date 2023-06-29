@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ip8u1r7h0sx"]
+
+[ext_resource type="Script" path="res://Instances/Server/RagequitHandler.cs" id="1_vh18a"]
+
+[node name="RagequitHandler" type="Node2D"]
+script = ExtResource("1_vh18a")
