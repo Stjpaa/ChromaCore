@@ -29,9 +29,8 @@ namespace PlayerController.States
 
 		private void TransitionToFalling()
 		{
-			var callable = new Callable(_playerController2D, "RespawnAtLastCheckpoint");
+            var callable = new Callable(_playerController2D, "RespawnAtLastCheckpoint");
 			_playerController2D.AnimatedSprite2D.Connect(AnimatedSprite2D.SignalName.AnimationFinished, callable);
-			
 		}
 	}
 }

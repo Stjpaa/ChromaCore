@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=3 uid="uid://cho6sp0l7hokm"]
+[gd_scene load_steps=165 format=3 uid="uid://cho6sp0l7hokm"]
 
 [ext_resource type="Shader" path="res://Shaders/color-palette.gdshader" id="1_yidfl"]
 [ext_resource type="PackedScene" uid="uid://d3s6elkjprg46" path="res://Instances/Gameobjects/Platforms/NormalPlatform.tscn" id="3_0pbfm"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cf5e8m8gqmt4m" path="res://Instances/Menus/PauseMenu/pause_menu.tscn" id="24_eykh2"]
 [ext_resource type="PackedScene" uid="uid://cbk56mn3je61d" path="res://Instances/Gameobjects/Sound/MusicPlayer.tscn" id="26_2xh0v"]
 [ext_resource type="AudioStream" uid="uid://c355tpo5s7qjk" path="res://Music/Stjpa-Level01-Intro.wav" id="27_mpurc"]
+[ext_resource type="PackedScene" uid="uid://b6rqr8u703d2q" path="res://Instances/Server/server_communication_manager.tscn" id="28_52a0e"]
 [ext_resource type="AudioStream" uid="uid://bbujx3ur0wx3c" path="res://Music/Stjpa-Level01-Loop.wav" id="28_vbd5j"]
 
 [sub_resource type="Gradient" id="Gradient_ws3ps"]
@@ -3884,6 +3885,10 @@ levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
 _intro = ExtResource("27_mpurc")
 _loop = ExtResource("28_vbd5j")
 _volume = -20.0
+
+[node name="ServerCommunicationManager" parent="." node_paths=PackedStringArray("player", "levelTimer") instance=ExtResource("28_52a0e")]
+player = NodePath("../Player")
+levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
 
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform"]
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform2"]
