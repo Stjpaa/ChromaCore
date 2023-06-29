@@ -10,10 +10,6 @@ public partial class ServerCommunicationManager : Node2D
     [Export] private PlayerController2D player; // needed for his position on death/ RQ
     [Export] private LevelTimer levelTimer;
 
-    private float testTime = 0f;
-    private float testX = 0f;
-    private float testY = 0f;
-
 
     public override void _Ready()
     {
@@ -30,16 +26,11 @@ public partial class ServerCommunicationManager : Node2D
             var callable = new Callable(this, "OnDeathSignal");
             player.Connect(nameof(player.playerDeath), callable);
         }
-
-        //SendRQ(testTime, testX, testY);
-        //SendDeath(testTime, testX, testY);
-        //SendWin(testTime);
     }
 
     private void OnDeathSignal(float deathPosX, float deathPosY)
     {
-        GD.Print("player died at position x:" + deathPosX + " y:" + deathPosY);
-        //float time = 
+        SendDeath((float)levelTimer.timeLevelWasPlayedInSeconds, deathPosX, deathPosY);
     }
 
     public void SendRQ(float time, float posX, float posY)
