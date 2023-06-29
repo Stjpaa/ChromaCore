@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh6syno8vmmow"]
+[gd_scene load_steps=17 format=3 uid="uid://bh6syno8vmmow"]
 
 [ext_resource type="Script" path="res://Instances/Singletons/SoundManager.cs" id="1_nqdiv"]
 [ext_resource type="AudioStream" uid="uid://dq707m4iuhlnj" path="res://Music/Juhani Junkala [Retro Game Music Pack] Level 3.ogg" id="3_wsvxh"]
@@ -12,6 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://b0656vgqak4vd" path="res://Assets/Sounds/Player/Dash.wav" id="9_hocke"]
 [ext_resource type="AudioStream" uid="uid://4q7kufcmlo00" path="res://Assets/Sounds/Player/Landing/JumpImpactStone_01.wav" id="9_ld741"]
 [ext_resource type="AudioStream" uid="uid://de0aw1em1okpi" path="res://Assets/Sounds/Player/Step/StepOnSand_01.wav" id="10_3spm6"]
+[ext_resource type="AudioStream" uid="uid://box0ahhmf651b" path="res://Assets/Sounds/Player/Death/Death_01.wav" id="13_k1t3c"]
+[ext_resource type="AudioStream" uid="uid://b5ry07xplhphv" path="res://Assets/Sounds/Player/Death/Death_02.wav" id="14_vuvas"]
+[ext_resource type="AudioStream" uid="uid://bk75r8orbbpdi" path="res://Assets/Sounds/Player/Death/Death_03.wav" id="15_mn0ci"]
+[ext_resource type="AudioStream" uid="uid://dw4x0rao8nd4c" path="res://Assets/Sounds/Player/Death/Death_04.wav" id="16_vday2"]
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_nqdiv")
@@ -29,3 +33,4 @@ _musicFiles = {
 }
 _teleporterSounds = [ExtResource("4_r4yp4"), ExtResource("5_47qk1")]
 _buttonSounds = [ExtResource("6_0n4xg")]
+_deathSounds = Array[AudioStreamWAV]([ExtResource("13_k1t3c"), ExtResource("14_vuvas"), ExtResource("15_mn0ci"), ExtResource("16_vday2")])
