@@ -60,7 +60,6 @@ public partial class ServerCommunicationManager : Node2D
 
     public void WinSignal()
     {
-        GD.Print("WinSignalHappended");
         float playTime = (float)levelTimer.timeLevelWasPlayedInSeconds;
         var dataAsDict = new Godot.Collections.Dictionary
         {
