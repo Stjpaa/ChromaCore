@@ -10,6 +10,9 @@ public partial class ServerCommunicationManager : Node2D
     [Export] private PlayerController2D player; // needed for his position on death/ RQ
     [Export] private LevelTimer levelTimer;
 
+    private const string deathUrl = "https://chroma-core.franek-stratovarius.duckdns.org/death";
+    private const string winUrl = "https://chroma-core.franek-stratovarius.duckdns.org/win";
+    private const string rQUrl = "https://chroma-core.franek-stratovarius.duckdns.org/ragequit";
 
     public override void _Ready()
     {
@@ -30,6 +33,7 @@ public partial class ServerCommunicationManager : Node2D
 
     private void OnDeathSignal(float deathPosX, float deathPosY)
     {
+        
         SendDeath((float)levelTimer.timeLevelWasPlayedInSeconds, deathPosX, deathPosY);
     }
 
