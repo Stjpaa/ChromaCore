@@ -8,3 +8,4 @@ res://Shaders/player_afterimage.tres
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
 res://Instances/Levels/world_1_level.tscn
 res://Instances/Singletons/SoundManager.tscn
+res://Instances/Artifacts/win_condition.tscn

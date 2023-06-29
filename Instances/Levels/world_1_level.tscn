@@ -1011,7 +1011,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(-0.992661, 0.120933)
 shader_parameter/strength = 6.66667
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sjfn"]
 resource_local_to_scene = true
@@ -1029,7 +1029,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0.987964, 0.154681)
 shader_parameter/strength = 6.66667
 shader_parameter/quality = 2
-shader_parameter/pause = true
+shader_parameter/pause = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvna7"]
 resource_local_to_scene = true
@@ -2351,7 +2351,6 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time2" index="0"]
 shape = SubResource("RectangleShape2D_678ym")
-disabled = true
 
 [node name="GravityDirection" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time2/GravityfieldCollider" index="0"]
 position = Vector2(197, -24)
@@ -2381,7 +2380,6 @@ _enabledTime = 2.0
 
 [node name="GravityfieldCollider" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time4" index="0"]
 shape = SubResource("RectangleShape2D_1sjfn")
-disabled = true
 
 [node name="GravityDirection" parent="Gravityfields/GravityFieldsList/Timed/Gravityfield_Time4/GravityfieldCollider" index="0"]
 position = Vector2(-198, -31)
@@ -3888,9 +3886,10 @@ _intro = ExtResource("27_mpurc")
 _loop = ExtResource("28_vbd5j")
 _volume = -20.0
 
-[node name="ServerCommunicationManager" parent="." node_paths=PackedStringArray("player", "levelTimer") instance=ExtResource("28_52a0e")]
+[node name="ServerCommunicationManager" parent="." node_paths=PackedStringArray("player", "levelTimer", "win_Condition") instance=ExtResource("28_52a0e")]
 player = NodePath("../Player")
 levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
+win_Condition = NodePath("../Test/WinCondition")
 
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform"]
 [editable path="Tutorial/PlatformList/Moving/MovingPlatform2"]
