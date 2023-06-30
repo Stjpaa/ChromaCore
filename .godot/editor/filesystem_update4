@@ -1,4 +1,3 @@
-res://Instances/Server/ragequit_handler.tscn
 res://Instances/Server/server_communication_manager.tscn
 res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
@@ -6,6 +5,5 @@ res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Shaders/dustcloud_landing_particle_process_material.tres
 res://Shaders/player_afterimage.tres
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
+res://Instances/Levels/world_2_level.tscn
 res://Instances/Levels/world_1_level.tscn
-res://Instances/Singletons/SoundManager.tscn
-res://Instances/Artifacts/win_condition.tscn

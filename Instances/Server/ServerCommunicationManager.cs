@@ -42,8 +42,6 @@ public partial class ServerCommunicationManager : Node2D
             GD.PrintErr("wincondition not assigned in ServerCommunicationManager");
         }
 
-
-
     }
 
     private void DeathSignal(float deathPosX, float deathPosY)
@@ -52,10 +50,14 @@ public partial class ServerCommunicationManager : Node2D
         SendDeathOrRQ(deathUrl, playTime, deathPosX, deathPosY);
     }
 
-    public void RQSignal(float posX, float posY)
+    public void RQSignal()
     {
+        GD.Print("RageQuit test");
+        float posX = player.Position.X;
+        float posY = player.Position.Y;
         float playTime = (float)levelTimer.timeLevelWasPlayedInSeconds;
         SendDeathOrRQ(rQUrl, playTime, posX, posY);
+        GD.Print("RageQuit finished");
     }
 
     public void WinSignal()
@@ -102,4 +104,6 @@ public partial class ServerCommunicationManager : Node2D
         }
     }
 
+
+    
 }

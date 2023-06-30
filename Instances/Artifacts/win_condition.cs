@@ -16,8 +16,6 @@ public partial class win_condition : Node2D
 	{
         _sound_manager = GetNode<SoundManager>("/root/SoundManager");
 
-
-        WinGame();
     }
 
 
