@@ -291,6 +291,11 @@ namespace PlayerController
 		/// </summary>
 		private void SaveCheckpointLocation(Vector2 checkpointPosition)
 		{
+			if(checkpointPosition == _checkpointPosition)	
+			{
+				return;
+			}
+
 			GD.Print("Checkpoint entered");
 			_sound_manager.PlaySound("checkpoint");
 			_checkpointPosition = checkpointPosition;
