@@ -68,7 +68,8 @@ public partial class PauseMenu : CanvasLayer
     public void QuitGame()
     {
         _sound_manager.StopMusic();
-        LevelInstantiater instantiaterOfScene = (LevelInstantiater)GetTree().Root.GetNode("LevelInstantiater");
+
+        LevelInstantiater instantiaterOfScene = (LevelInstantiater)GetTree().Root.GetNodeOrNull("LevelInstantiater");
 
         if (instantiaterOfScene == null)
         {
