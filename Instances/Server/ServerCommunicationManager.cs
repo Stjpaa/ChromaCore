@@ -1,30 +1,86 @@
 using Godot;
+using PlayerController;
 using System;
+using System.Net.Http;
+using System.Text;
 
 public partial class ServerCommunicationManager : Node2D
 {
     [Export] private int level = 1;
-    private float testTime = 100.5f;
-    private float testX = 133.7f;
-    private float testY = 420.69f;
+    [Export] private PlayerController2D player; // needed for his position on death/ RQ
+    [Export] private LevelTimer levelTimer;
+    [Export] private win_condition win_Condition;
 
+    private const string deathUrl = "https://chroma-core.franek-stratovarius.duckdns.org/death";
+    private const string winUrl = "https://chroma-core.franek-stratovarius.duckdns.org/win";
+    private const string rQUrl = "https://chroma-core.franek-stratovarius.duckdns.org/ragequit";
 
     public override void _Ready()
     {
-        SendDeath(testTime, testX, testY);
+        if (levelTimer == null)
+        {
+            GD.PrintErr("Timer not assigned in ServerCommunicationManager");
+        }
+
+        if (player == null)
+        {
+            GD.PrintErr("Player not assigned in ServerCommunicationManager");
+        }
+        else
+        {
+            var callable = new Callable(this, "DeathSignal");
+            player.Connect(nameof(player.playerDeath), callable);
+        }
+
+        if (win_Condition != null)
+        {
+            var callable = new Callable(this, "WinSignal");
+            win_Condition.Connect(nameof(win_Condition.winGame), callable);
+        }
+        else
+        {
+            GD.PrintErr("wincondition not assigned in ServerCommunicationManager");
+        }
+
     }
 
-    public void SendRQ(float time, float posX, float posY)
+    private void DeathSignal(float deathPosX, float deathPosY)
     {
-        SendDeathOrRQ("https://chroma-core.franek-stratovarius.duckdns.org/ragequit", time, posX, posY);
+        float playTime = (float)levelTimer.timeLevelWasPlayedInSeconds;
+        SendDeathOrRQ(deathUrl, playTime, deathPosX, deathPosY);
     }
 
-    public void SendDeath(float time, float posX, float posY)
+    public void RQSignal()
     {
-        SendDeathOrRQ("https://chroma-core.franek-stratovarius.duckdns.org/death", time, posX, posY);
+        GD.Print("RageQuit test");
+        float posX = player.Position.X;
+        float posY = player.Position.Y;
+        float playTime = (float)levelTimer.timeLevelWasPlayedInSeconds;
+        SendDeathOrRQ(rQUrl, playTime, posX, posY);
+        GD.Print("RageQuit finished");
     }
 
-    private void SendDeathOrRQ(string url,float time, float posX, float posY)
+    public void WinSignal()
+    {
+        float playTime = (float)levelTimer.timeLevelWasPlayedInSeconds;
+        var dataAsDict = new Godot.Collections.Dictionary
+        {
+            { "time", playTime},
+            { "level", level }
+        };
+
+        string message = Json.Stringify(dataAsDict);
+
+        var httpRequest = new HttpRequest();
+        AddChild(httpRequest);
+
+        Error error = httpRequest.Request(winUrl, null, Godot.HttpClient.Method.Post, message);
+        if (error != Error.Ok)
+        {
+            GD.PushError("An error occurred in the HTTP request.");
+        }
+    }
+    private void SendDeathOrRQ(string url, float time, float posX, float posY)
     {
 
         var dataAsDict = new Godot.Collections.Dictionary
@@ -40,15 +96,14 @@ public partial class ServerCommunicationManager : Node2D
         var httpRequest = new HttpRequest();
         AddChild(httpRequest);
 
-        Error error = httpRequest.Request(url, null, HttpClient.Method.Post, message);
+
+        Error error = httpRequest.Request(url, null, Godot.HttpClient.Method.Post, message);
         if (error != Error.Ok)
         {
             GD.PushError("An error occurred in the HTTP request.");
         }
     }
 
-    public void SendWin(float time)
-    {
 
-    }
+    
 }

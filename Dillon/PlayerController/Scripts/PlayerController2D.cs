@@ -34,7 +34,10 @@ namespace PlayerController
 
 		public State PreviousState { get { return _previousState; } }
 
-		private State _currentState;
+        [Signal]
+        public delegate void playerDeathEventHandler(float deathPosX, float deathPosY);  // used to communicate the Death Position to the Online Leaderboards/statistics (in ServerCommunicationManager.cs)
+
+        private State _currentState;
 		private State _previousState;
 		
 
@@ -298,6 +301,8 @@ namespace PlayerController
 		/// </summary>
 		private void RespawnAtLastCheckpoint()
 		{
+			EmitDeathSignal();
+
 			var callable = new Callable(this, "RespawnAtLastCheckpoint");
 
 			if (AnimatedSprite2D.IsConnected(AnimatedSprite2D.SignalName.AnimationFinished, callable))
@@ -308,9 +313,17 @@ namespace PlayerController
 			Transform = new Transform2D(0, CheckpointPosition + offset);
 			ChangeState(new Falling(this));
 		}
-		#endregion
 
-		public Vector2 GetHookStartPosition()
+		/// <summary>
+		/// used for the Online LeaderBoards to save
+		/// </summary>
+        private void EmitDeathSignal()
+        {
+			EmitSignal(nameof(playerDeath), this.Position.X, this.Position.Y);
+        }
+        #endregion
+
+        public Vector2 GetHookStartPosition()
 		{
 			return _hookStartPositioNode.GlobalPosition;
 		}

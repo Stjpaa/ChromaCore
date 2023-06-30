@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://d3bfyksviia7o"]
+[gd_scene load_steps=88 format=3 uid="uid://d3bfyksviia7o"]
 
 [ext_resource type="PackedScene" uid="uid://bemoqff5lbpsx" path="res://Dillon/PlayerController/PlayerController2D.tscn" id="1_pb7au"]
 [ext_resource type="Texture2D" uid="uid://ehww7w412i1" path="res://Assets/Sprites/Tilesets/atlas.png" id="2_an430"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cbk56mn3je61d" path="res://Instances/Gameobjects/Sound/MusicPlayer.tscn" id="21_l5als"]
 [ext_resource type="AudioStream" uid="uid://c355tpo5s7qjk" path="res://Music/Stjpa-Level01-Intro.wav" id="22_v4pp4"]
 [ext_resource type="AudioStream" uid="uid://bbujx3ur0wx3c" path="res://Music/Stjpa-Level01-Loop.wav" id="23_qe2sq"]
+[ext_resource type="PackedScene" uid="uid://b6rqr8u703d2q" path="res://Instances/Server/server_communication_manager.tscn" id="24_umufy"]
 
 [sub_resource type="Gradient" id="Gradient_hmh3d"]
 offsets = PackedFloat32Array(0, 0.0852941, 0.844118)
@@ -1197,7 +1198,7 @@ position = Vector2(55, 0)
 
 [node name="Sprite" parent="LevelSegment/GravityFieldsList/Normaled/Gravityfield_Normal2/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_rlsa6")
-scale = Vector2(800, 50)
+scale = Vector2(700, 50)
 
 [node name="Gravityfield_Normal3" parent="LevelSegment/GravityFieldsList/Normaled" node_paths=PackedStringArray("_audioPlayerOutside", "_audioPlayerInside") instance=ExtResource("11_5sy6g")]
 position = Vector2(-4928, -3305)
@@ -1213,7 +1214,7 @@ position = Vector2(55, 0)
 
 [node name="Sprite" parent="LevelSegment/GravityFieldsList/Normaled/Gravityfield_Normal3/GravityfieldCollider" index="1"]
 material = SubResource("ShaderMaterial_rlsa6")
-scale = Vector2(700, 50)
+scale = Vector2(800, 50)
 
 [node name="Gravityfield_Normal4" parent="LevelSegment/GravityFieldsList/Normaled" instance=ExtResource("11_5sy6g")]
 position = Vector2(-1830, -4281)
@@ -1576,6 +1577,12 @@ levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
 _intro = ExtResource("22_v4pp4")
 _loop = ExtResource("23_qe2sq")
 _volume = -20.0
+
+[node name="ServerCommunicationManager" parent="." node_paths=PackedStringArray("player", "levelTimer", "win_Condition") instance=ExtResource("24_umufy")]
+level = 2
+player = NodePath("../Player")
+levelTimer = NodePath("../Player/CanvasLayer/LevelTimer")
+win_Condition = NodePath("../LevelSegment/Artifacts/WinCondition")
 
 [editable path="LevelSegment/PlatformList/Moving/MovingPlatform"]
 [editable path="LevelSegment/PlatformList/Moving/MovingPlatform3"]

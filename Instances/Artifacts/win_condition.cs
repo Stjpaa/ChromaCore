@@ -8,10 +8,14 @@ public partial class win_condition : Node2D
     private int IndexForNextArrayElement = 0;
 	private SoundManager _sound_manager;
 
+    [Signal]
+    public delegate void winGameEventHandler();  // used to communicate the Death Position to the Online Leaderboards/statistics (in ServerCommunicationManager.cs)
+
 
 	public override void _Ready()
 	{
         _sound_manager = GetNode<SoundManager>("/root/SoundManager");
+
     }
 
 
@@ -42,6 +46,8 @@ public partial class win_condition : Node2D
 
     private void WinGame()
     {
+        EmitWinSignal();
+
         var winScreen = (CanvasLayer)GetNode("CanvasLayer");
         winScreen.Visible = true;
 
@@ -50,8 +56,14 @@ public partial class win_condition : Node2D
         Input.MouseMode = Input.MouseModeEnum.Hidden;
     }
 
+    private void EmitWinSignal()
+    {
+        EmitSignal(nameof(winGame));
+    }
+
     public void QuitGame()
     {
+
         LevelInstantiater instantiaterOfScene = (LevelInstantiater)GetTree().Root.GetNode("LevelInstantiater");
 
         if (instantiaterOfScene == null)

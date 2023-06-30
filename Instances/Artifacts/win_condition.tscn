@@ -10,6 +10,7 @@ shader_parameter/bg_color = null
 shader_parameter/position = null
 
 [node name="WinCondition" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_dqsw2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
