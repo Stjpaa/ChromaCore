@@ -71,23 +71,23 @@ text = "Continue"
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../ContinueButton")
-focus_neighbor_bottom = NodePath("../TestSaveButton")
+focus_neighbor_bottom = NodePath("../SaveButton")
 text = "Settings"
 script = ExtResource("3_sqfn4")
 menuOfThisButton = NodePath("../../../../..")
 settingsMenu = NodePath("../../../../../../SettingsMenu")
 
-[node name="TestSaveButton" type="Button" parent="Blur/PauseMenuUI/PauseMenuMenu/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
+[node name="SaveButton" type="Button" parent="Blur/PauseMenuUI/PauseMenuMenu/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
-text = "Test Save"
+text = "Save Time"
 
 [node name="QuitButton" type="Button" parent="Blur/PauseMenuUI/PauseMenuMenu/BackgroundPanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../TestSaveButton")
+focus_neighbor_top = NodePath("../SaveButton")
 text = "Quit"
 
 [node name="SettingsMenu" parent="Blur" instance=ExtResource("4_8ouh5")]
@@ -95,5 +95,5 @@ visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="Blur/PauseMenuUI/PauseMenuMenu/BackgroundPanelContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="UnPauseGame"]
-[connection signal="pressed" from="Blur/PauseMenuUI/PauseMenuMenu/BackgroundPanelContainer/MarginContainer/VBoxContainer/TestSaveButton" to="." method="TestSave"]
+[connection signal="pressed" from="Blur/PauseMenuUI/PauseMenuMenu/BackgroundPanelContainer/MarginContainer/VBoxContainer/SaveButton" to="." method="TestSave"]
 [connection signal="pressed" from="Blur/PauseMenuUI/PauseMenuMenu/BackgroundPanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="QuitGame"]

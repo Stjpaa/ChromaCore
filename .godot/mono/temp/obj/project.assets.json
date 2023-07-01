@@ -94,11 +94,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
+      "projectUniqueName": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
       "projectName": "Sem6Projekt",
-      "projectPath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\Sem6Projekt.csproj",
+      "projectPath": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\Sem6Projekt.csproj",
       "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Martin\\Documents\\GitHub\\ChromaCore\\.godot\\mono\\temp\\obj\\",
+      "outputPath": "C:\\USERS\\MARTIN\\DOCUMENTS\\GITHUB\\CHROMACORE\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Users\\Martin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"

@@ -90,8 +90,7 @@ offset_top = -78.0
 offset_right = 227.0
 grow_vertical = 0
 focus_neighbor_top = NodePath("../Levels/Level1/VBoxContainer/DeleteButton")
-text = "Main Menu
-"
+text = "Main Menu"
 script = ExtResource("6_1aw0g")
 pathToMainMenu = "res://Instances/Menus/MainMenu/main_menu.tscn"
 
