@@ -1,8 +1,11 @@
-res://Instances/Menus/LevelSelection/LevelSelectScene.tscn
+res://Instances/Levels/world_1_level.tscn
 res://Assets/Sprites/Game objects/Platform_Normal.tres
 res://Assets/Sprites/Game objects/Platform_Moving.tres
 res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Shaders/dustcloud_landing_particle_process_material.tres
 res://Shaders/player_afterimage.tres
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
-res://Instances/Menus/PauseMenu/pause_menu.tscn
+res://Instances/Levels/world_2_level.tscn
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn
+res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn

@@ -1554,6 +1554,9 @@ GrapplingHook = NodePath("../GrapplingHook")
 [node name="DashCooldown_Timer" parent="Player" index="3"]
 wait_time = 1.0
 
+[node name="RichTextLabel" parent="Player/CanvasLayer" index="1"]
+visible = false
+
 [node name="LevelTimer" parent="Player/CanvasLayer" index="2" instance=ExtResource("17_ma0mo")]
 
 [node name="FollowingCamera" parent="." node_paths=PackedStringArray("playerNode") instance=ExtResource("6_1te81")]

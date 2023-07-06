@@ -118,7 +118,7 @@ shader_parameter/particle_rotation_speed = 5.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/strength = 1.33333
 shader_parameter/quality = 2
-shader_parameter/pause = false
+shader_parameter/pause = true
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ulhn2"]
 
@@ -131,6 +131,7 @@ _audioPlayerInside = NodePath("AudioStreamPlayer")
 
 [node name="GravityfieldCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fdb21")
+disabled = true
 
 [node name="GravityDirection" type="Node2D" parent="GravityfieldCollider"]
 position = Vector2(0, -14)
@@ -150,6 +151,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_navmv")
+max_distance = 1000.0
 panning_strength = 2.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
