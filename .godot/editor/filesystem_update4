@@ -5,7 +5,3 @@ res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.cs
 res://Shaders/dustcloud_landing_particle_process_material.tres
 res://Shaders/player_afterimage.tres
 res://Instances/Gameobjects/Laser/Laser_Timed.cs
-res://Instances/Levels/world_2_level.tscn
-res://Instances/Gameobjects/Gravityfields/Gravityfield_Normal.tscn
-res://Instances/Gameobjects/Gravityfields/Gravityfield_Time.tscn
-res://Instances/Gameobjects/Gravityfields/Gravityfield_Toggle.tscn
